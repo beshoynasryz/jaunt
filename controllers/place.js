@@ -51,3 +51,26 @@ export const GetPlaces =async (req,res,next)=>{
        next(err)
     }
 }
+
+export const countByCity =async (req,res,next)=>{
+        const cities =req.query.cities.split(",")
+    try{
+        const list =  await Promise.all(cities.map(city=>{
+            return Place.countDocuments({city:city})
+        }))
+    }
+    catch(err){
+       next(err)
+    }
+}
+export const countByArea =async (req,res,next)=>{
+        const areas =req.query.areas.split(",")
+    try{
+        const list =  await Promise.all(areas.map(area=>{
+            return Place.countDocuments({area:area})
+        }))
+    }
+    catch(err){
+       next(err)
+    }
+}

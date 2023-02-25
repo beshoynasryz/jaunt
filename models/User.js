@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
         
     },
-    photos :{
+    photo :{
         type: [String],
         
     },

@@ -1,5 +1,5 @@
 import  express  from "express"
-import { createPlace, deletePlace, getPlace, GetPlaces, updatePlace } from "../controllers/place.js";
+import { countByArea, countByCity, createPlace, deletePlace, getPlace, GetPlaces, updatePlace } from "../controllers/place.js";
 import Place from "../models/Place.js";
 import { createError } from "../utils/error.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
@@ -15,9 +15,14 @@ router.put('/:id',verifyAdmin, updatePlace)
 router.delete('/:id',verifyAdmin, deletePlace)
 
     //get
-router.get('/:id', getPlace)
+router.get('/find/:id', getPlace)
     //getAll
 router.get('/',GetPlaces)
+router.get('/countByCity',countByCity)
+router.get('/countByArea',countByArea) //elmnt2a like zamlek,nozha
+
+router.get('/countByType',GetPlaces)
+
     
     
 
