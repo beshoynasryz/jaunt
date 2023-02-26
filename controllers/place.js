@@ -58,6 +58,7 @@ export const countByCity =async (req,res,next)=>{
         const list =  await Promise.all(cities.map(city=>{
             return Place.countDocuments({city:city})
         }))
+        res.status(200).json(list);
     }
     catch(err){
        next(err)
@@ -69,6 +70,7 @@ export const countByArea =async (req,res,next)=>{
         const list =  await Promise.all(areas.map(area=>{
             return Place.countDocuments({area:area})
         }))
+        res.status(200).json(list);
     }
     catch(err){
        next(err)
