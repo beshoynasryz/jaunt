@@ -42,5 +42,8 @@ const UserSchema = new mongoose.Schema({
         default:false,
     },
 },{timestamps:true});
+UserSchema.path('phone').validate(function validatePhone() {
+    return ( this.phone > 999999999 );
+  });
 
 export default mongoose.model("User",UserSchema)
