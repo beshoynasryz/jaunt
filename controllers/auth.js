@@ -3,6 +3,7 @@ import User from "../models/User.js"
 import bcrypt from "bcryptjs"
 import { createError } from "../utils/error.js"
 import  jwt  from "jsonwebtoken"
+import Owner from "../models/Owner.js"
 
 
 export const register =async (req,res,next)=>{
@@ -24,6 +25,31 @@ export const register =async (req,res,next)=>{
         })
         await newUser.save()
         res.status(200).send("User has been created")
+    }catch(err){
+        next(err)
+    }
+}
+
+
+//Owner register
+export const ownerRegister =async (req,res,next)=>{
+    try{
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(req.body.password, salt)
+      
+        const newOwner =new Owner({
+
+
+          ownername:req.body.ownername,
+          companyname:req.body.companyname,
+          email:req.body.email,
+          type:req.body.type,
+          phone:req.body.phone,
+
+            password:hash
+        })
+        await newOwner.save()
+        res.status(200).send("Owner has been created")
     }catch(err){
         next(err)
     }
@@ -53,6 +79,35 @@ export const login =async (req,res,next)=>{
         //   .status(200)
         //   .json({ details: { ...otherDetails }, isAdmin });
         res.status(200).send(user);
+      } catch (err) {
+        next(err);
+      }
+}
+export const loginOwner =async (req,res,next)=>{
+    try {
+        const owner = await User.findOne({ email: req.body.email });
+        if (!owner) return next(createError(404, "email not found!"));
+    
+        const isPasswordCorrect = await bcrypt.compare(
+          req.body.password,
+          owner.password
+        );
+        if (!isPasswordCorrect)
+          return next(createError(400, "Wrong password or name!"));
+    
+        // const token = jwt.sign(
+        //   { id: user._id, isAdmin: user.isAdmin },
+        //   process.env.JWT
+        // );
+    
+        // const { password, isAdmin, ...otherDetails } = user._doc;
+        // res
+        //   .cookie("access_token", token, {
+        //     httpOnly: true,
+        //   })
+        //   .status(200)
+        //   .json({ details: { ...otherDetails }, isAdmin });
+        res.status(200).send(owner);
       } catch (err) {
         next(err);
       }
