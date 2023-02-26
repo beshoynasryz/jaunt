@@ -4,7 +4,7 @@ import { login, loginOwner, ownerRegister, register } from "../controllers/auth.
 const router =express.Router();
 
 router.post('/register',register)
-router.get('/registerOwner',ownerRegister)
+router.post('/registerOwner',ownerRegister)
 router.post('/loginOwner',loginOwner)
 router.post('/login',login)
 
