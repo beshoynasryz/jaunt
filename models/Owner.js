@@ -38,6 +38,10 @@ const OwnerSchema = new mongoose.Schema({
         type: Boolean,
         default:false,
     },
-},{timestamps:true});
-
+},{timestamps:true}
+);
+OwnerSchema.path('phone').validate(function validatePhone() {
+    return ( this.phone > 999999999 );
+  });
+  
 export default mongoose.model("Owner",OwnerSchema)
