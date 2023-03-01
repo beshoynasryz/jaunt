@@ -4,13 +4,16 @@ import mongoose from "mongoose"
 import cookieParser from "cookie-parser"
 import bodyParser from "body-parser"
 import fileUpload from  "express-fileupload"
+import path from 'path'
 
 const app = express()
 dotenv.config()
 mongoose.set("strictQuery", false);
 
 // //middleware
-app.use(express.static('public'))
+const __dirname = path.resolve();
+app.use('/', express.static(path.join(__dirname, 'public')))
+// app.use(express.static(__dirname+'public'))
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json())
