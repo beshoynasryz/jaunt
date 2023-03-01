@@ -4,19 +4,17 @@ const {schema} = mongoose;
 const OwnerSchema = new mongoose.Schema({
     ownername :{
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     companyname :{
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
 
     email :{
         type: String,
         required: true,
-        unique: true
+        // unique: true
     },
     type :{
         type: String,
@@ -28,10 +26,12 @@ const OwnerSchema = new mongoose.Schema({
         required: true,
         
     },
-    
+    image :{
+        type: String,
+    },
     phone: {
         type: String,
-        match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
+        // match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
       },
      
     isAdmin:{
@@ -40,8 +40,8 @@ const OwnerSchema = new mongoose.Schema({
     },
 },{timestamps:true}
 );
-OwnerSchema.path('phone').validate(function validatePhone() {
-    return ( this.phone > 999999999 );
-  });
+// OwnerSchema.path('phone').validate(function validatePhone() {
+//     return ( this.phone > 999999999 );
+//   });
   
 export default mongoose.model("Owner",OwnerSchema)

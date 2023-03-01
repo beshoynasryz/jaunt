@@ -17,9 +17,8 @@ const UserSchema = new mongoose.Schema({
         required: true,
         
     },
-    photo :{
-        type: [String],
-        
+    image :{
+        type: String,
     },
     phone: {
         type: String,
@@ -42,8 +41,8 @@ const UserSchema = new mongoose.Schema({
         default:false,
     },
 },{timestamps:true});
-UserSchema.path('phone').validate(function validatePhone() {
-    return ( this.phone > 999999999 );
-  });
+// UserSchema.path('phone').validate(function validatePhone() {
+//     return ( this.phone > 999999999 );
+//   });
 
 export default mongoose.model("User",UserSchema)

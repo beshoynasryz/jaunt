@@ -19,9 +19,8 @@ const placeSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    photos :{
+    images :{
         type: [String],
-        
     },
 
     desc :{
@@ -35,7 +34,6 @@ const placeSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
       },
     rating:{
         type: Number,
