@@ -5,6 +5,10 @@ import Owner from "../../models/Owner.js"
 
 export const renderRegisterView =async (req,res,next)=>{
   try {
+      // If the user is loggedin
+      if (req.session.loggedin) {
+          res.redirect('/admin');
+      }
       res.render('admin/auth/sign_up');
   } catch(err){
       next(err)
@@ -13,6 +17,10 @@ export const renderRegisterView =async (req,res,next)=>{
 
 export const renderLoginView =async (req, res, next) => {
   try {
+      // If the user is loggedin
+      if (req.session.loggedin) {
+          res.redirect('/admin');
+      }
       res.render('admin/auth/sign_in');
   } catch(err){
       next(err)
@@ -48,75 +56,63 @@ export const register = async (req,res,next)=>{
           res.redirect('/admin/auth/sign-in');
         } else {
           res.status(200).json({ "mag": "Owner has been created" })
-        }
+        } 
     }catch(err){
         next(err)
     }
 }
 
 export const login = async (req,res,next)=>{
-    try {
-        const owner = await Owner.findOne({ email: req.body.email });
-        if (!owner) return next(createError(404, "email not found!"));
-    
-        const isPasswordCorrect = await bcrypt.compare(
-          req.body.password,
-          owner.password
-        );
-        
-        if (!isPasswordCorrect)
-          return next(createError(400, "Wrong password or name!"));
+  try {
+      const owner = await Owner.findOne({ email: req.body.email });
+      if (!owner) return next(createError(404, "email not found!"));
   
-        const token = jwt.sign(
-          { id: owner._id, isAdmin: owner.isAdmin },
-          process.env.JWT
-        );
+      const isPasswordCorrect = await bcrypt.compare(
+        req.body.password,
+        owner.password
+      );
+      
+      if (!isPasswordCorrect)
+        return next(createError(400, "Wrong password or name!"));
 
-    
-        const ownerResponse = {
-          _id: owner._id,
-          ownername: owner.ownername,
-          companyname: owner.companyname,
-          email: owner.email,
-          phone: owner.phone,
-          type: owner.type,
-          isAdmin: owner.isAdmin,
-          access_token: token
-        };
+      const token = jwt.sign(
+        { id: owner._id, isAdmin: owner.isAdmin },
+        process.env.JWT
+      );
 
-        if(req.accepts('json') !== undefined){
-          //respond in html
-          res.cookie("access_token", token, {
-            httpOnly: true,
-          })
-          .status(200)
-          .redirect('/admin');
-        } else {
-          res.status(200).json({ data: ownerResponse });
-        }
+      req.session.loggedin = true;
 
-      } catch (err) {
-        next(err);
+      const ownerResponse = {
+        _id: owner._id,
+        ownername: owner.ownername,
+        companyname: owner.companyname,
+        email: owner.email,
+        phone: owner.phone,
+        type: owner.type,
+        isAdmin: owner.isAdmin,
+        access_token: token
+      };
+
+      if(req.accepts('json') !== undefined){
+        //respond in html
+        res.cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .status(200)
+        .redirect('/admin');
+      } else {
+        res.status(200).json({ data: ownerResponse });
       }
+
+    } catch (err) {
+      next(err);
+    }
 }
 
-export const upload = async (req,res,next)=>{
+export const logout = async (req,res,next)=>{
   try {
-    // If no image submitted, exit
-    if (!req.files) return res.sendStatus(400);
-
-    const { images } = req.files;
-    const path = "/uploaded-images/";
-
-    for (let i = 0; i < images.length; i++) {
-      const filePath = './public' + path
-      const fileName = Date.now() + images[i].name;
-      await images[i].mv(filePath + fileName);
-      console.log(path + fileName)
-      
-    }
-    // All good
-    res.sendStatus(200);
+      req.session.loggedin = false;
+      res.redirect('/admin/auth/sign-in');
     } catch (err) {
       next(err);
     }

@@ -22,16 +22,13 @@ const UserSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
+        // match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
       },
       city :{
         type: String,
         required: true,
     },
-      country :{
-        type: String,
-        required: true,
-    },
+   
     area :{
         type: String,
         required: true,

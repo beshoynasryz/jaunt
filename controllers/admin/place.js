@@ -73,7 +73,6 @@ export const GetPlaces =async (req,res,next)=>{
        next(err)
     }
 }
-
 export const countByCity =async (req,res,next)=>{
         const cities =req.query.cities.split(",")
     try{

@@ -8,6 +8,7 @@ const placeSchema = new mongoose.Schema({
     },
     type :{
         type: String,
+        enum:['park','workspace','restaurant','cafe'],
         required: true,
     },
     

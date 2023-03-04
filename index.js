@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser"
 import bodyParser from "body-parser"
 import fileUpload from  "express-fileupload"
 import path from 'path'
+import session from "express-session";
 
 const app = express()
 dotenv.config()
@@ -13,7 +14,6 @@ mongoose.set("strictQuery", false);
 // //middleware
 const __dirname = path.resolve();
 app.use('/', express.static(path.join(__dirname, 'public')))
-// app.use(express.static(__dirname+'public'))
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json())
@@ -21,6 +21,11 @@ app.use(cookieParser())
 app.use(bodyParser.json())
 // Use the express-fileupload middleware
 app.use(fileUpload());
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
 
 
 // user

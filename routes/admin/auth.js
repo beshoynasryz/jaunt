@@ -1,5 +1,5 @@
 import  express  from "express"
-import { login, register, renderRegisterView, renderLoginView, upload } from "../../controllers/admin/auth.js";
+import { login, register, renderRegisterView, renderLoginView, logout } from "../../controllers/admin/auth.js";
 
 const router =express.Router();
 
@@ -8,7 +8,7 @@ router.get('/sign-in', renderLoginView);
 
 router.post('/register', register)
 router.post('/login', login)
-router.post('/upload', upload)
+router.get('/logout', logout)
 
 
 router.get('/', function(req, res){

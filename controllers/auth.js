@@ -55,7 +55,7 @@ export const register =async (req,res,next)=>{
             email:req.body.email,
             image: imagePath,
             phone :req.body.phone,
-            country :req.body.country,
+          
             area :req.body.area,
             city :req.body.city,
             password:hash
