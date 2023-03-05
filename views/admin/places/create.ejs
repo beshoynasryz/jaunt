@@ -1,0 +1,209 @@
+
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Management Places</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active"><a href="Places.html">Places</a></li>
+        <li class="breadcrumb-item active"><a href="#">Add Place</a></li>
+        <li class="breadcrumb-item active"><a href="#">Step 1</a></li>
+        <li class="breadcrumb-item active">Step 2</li>
+        <li class="breadcrumb-item active">Step 3</li>
+        <li class="breadcrumb-item active">Step 4</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section places">
+    <div class="row">
+
+      
+
+
+
+
+
+      <section class="section edit-profile">
+        <div class="row">
+  
+          <div class="col-xl-12">
+  
+            <div class="card">
+              <div class="card-body pt-3">
+                
+                
+                <div class="back-bar text-center">
+                  <a href="Places.html"><i class="bi bi-x-circle-fill"></i>                   
+                  </a>
+                </div><!-- End Search Bar -->
+
+                <div class="card-body pt-3">
+                  <!-- Bordered Tabs -->
+                  <ul class="nav nav-tabs nav-tabs-bordered">
+    
+                    <li class="nav-item">
+                      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Add Information</button>
+                    </li>
+    
+                    <li class="nav-item">
+                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Services</button>
+                    </li>
+
+                    <li class="nav-item">
+                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Reception Hours</button>
+                    </li>
+    
+                    <li class="nav-item">
+                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Pricing list</button>
+                    </li>
+
+                  </ul>
+                  <div class="tab-content pt-2">
+    
+                    <div class="tab-pane fade show active profile-edit" id="profile-edit">
+    
+                      <form action="/places" method="post" enctype="multipart/form-data" id="form-upload">
+                        <div class="row mb-3">
+    
+    
+    
+    
+                          <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title text-center">Add New Place</h5>
+          
+          
+          
+                            <div class="card-profile text-center">
+                                <label class="col-md-4 col-lg-2 col-form-label" for="">Choose Images</label>
+
+                                <div class="img-thumbs img-thumbs" id="img-preview">
+
+                                </div>
+                                <div class="form-group">
+                                  <input type="file" class="form-control col-md-8 col-lg-10" name="images" multiple id="upload-img" />
+                                </div>
+
+                                </button>
+                            </div>
+                          </div>
+    
+                        </div>
+                        
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt"></i>Place Name</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="name" type="text" class="form-control" id="Governorate" value="Governorate">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>About</label>
+                          <div class="col-md-8 col-lg-10">
+                            <textarea name="desc" type="text" class="form-control" id="About">Amusement park with a Ferris wheel & rides for kids, plus an international food court & ice rink.</textarea>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>About</label>
+                          <div class="col-md-8 col-lg-10">
+                          <select class="form-control" name="type" id="sel1">
+                              <option value="park">Park</option>
+                              <option value="restaurant">Restaurant</option>
+                              <option value="cafe">Cafes</option>
+                              <option value="workspace">Workspaces</option>
+                            </select>
+                          </div>
+                        </div>
+                        
+    
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt"></i>Governorate</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="city" type="text" class="form-control" id="Governorate" value="Governorate">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt pl-4"></i>Area</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="area" type="text" class="form-control" id="Governorate" value="Area">
+                          </div>
+                        </div>
+    
+                        <!-- <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt"></i>Location</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="Location" type="url" class="form-control" id="Copmany" value="https://example.com">
+                          </div>
+                        </div> -->
+
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-person-bounding-box"></i>Capacity</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="capacity" type="number" class="form-control" id="Capacity" value="0">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-cash"></i>Min Budget</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="budget" type="number" class="form-control" id="Copmany" value="00">
+                          </div>
+                        </div>
+    
+                        <!-- <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-credit-card"></i>Pay Way</label>
+                          <div class="col-md-8 col-lg-10">
+                            <select class="form-control" id="sel1" name="types">
+                              <option>Online</option>
+                              <option>At Host</option>
+                            </select>
+                          </div>
+                        </div> -->
+
+                        <!-- <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-cash"></i>Rating:</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="Rating" type="number" class="form-control" id="Copmany" value="00">
+                          </div>
+                        </div> -->
+
+                        <div class="row mb-3">
+                          <label for="Address" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-phone"></i>Phone</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="phone" type="text" class="form-control" id="Phone" value="01000000000">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="Email" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-envelope"></i>Email</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="email" type="email" class="form-control" id="Email" value="example@mail.com">
+                          </div>
+                        </div>
+                        
+                        <input name="owner_id" type="hidden" class="form-control" id="Capacity" value="<%= owner._id %>">
+    
+                        <div class="d-flex justify-content-center">
+                          <div class="pt-2">
+                            <input class="getStarted text-center"  type="submit" id="submit" value="Create Place"/>
+                            <!-- <a href="AddPlaceStep2.html" class="button2 mt-4 btn-primary btn-lg" title="Remove my profile image">NEXT</a> -->
+                          </div>
+                        </div>
+                      </form><!-- End Profile Edit Form -->
+                    </div>
+
+                    
+                  </div><!-- End Bordered Tabs -->
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</main><!-- End #main -->

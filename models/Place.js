@@ -44,7 +44,11 @@ const placeSchema = new mongoose.Schema({
     capacity:{
         type:Number,
         required: true,
-    }
+    },
+    owner_id :{
+        type: String,
+        required: true,
+    },
 })
 
 export default mongoose.model("Place",placeSchema)

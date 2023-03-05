@@ -9,7 +9,7 @@ export const renderRegisterView =async (req,res,next)=>{
       if (req.session.loggedin) {
           res.redirect('/admin');
       }
-      res.render('admin/auth/sign_up');
+      res.render('admin/auth/sign_up', { layout: './admin/layouts/guest' });
   } catch(err){
       next(err)
   }
@@ -21,11 +21,28 @@ export const renderLoginView =async (req, res, next) => {
       if (req.session.loggedin) {
           res.redirect('/admin');
       }
-      res.render('admin/auth/sign_in');
+      res.render('admin/auth/sign_in', { layout: './admin/layouts/guest' });
   } catch(err){
       next(err)
   }
 }
+
+export const profile =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (!req.session.loggedin) {
+        res.redirect('/admin/auth/sign-in');
+      }
+      res.render('admin/auth/profile', { 
+        layout: './admin/layouts/main', 
+        owner: req.session.owner 
+      });
+  } catch(err){
+      next(err)
+  }
+}
+
+
 
 export const register = async (req,res,next)=>{
     try {
@@ -35,9 +52,10 @@ export const register = async (req,res,next)=>{
         const { image } = req.files;
         const path = "/uploaded-images/";
         const filePath = './public' + path
-        const fileName = filePath +  Date.now() + image.name;
+        const fileName = Date.now() + image.name;
+        const fullPath = filePath +  Date.now() + image.name;
 
-        await image.mv(fileName);
+        await image.mv(fullPath);
         const imagePath = path + fileName
 
         const newOwner =new Owner({
@@ -80,8 +98,6 @@ export const login = async (req,res,next)=>{
         process.env.JWT
       );
 
-      req.session.loggedin = true;
-
       const ownerResponse = {
         _id: owner._id,
         ownername: owner.ownername,
@@ -89,9 +105,13 @@ export const login = async (req,res,next)=>{
         email: owner.email,
         phone: owner.phone,
         type: owner.type,
+        image: owner.image,
         isAdmin: owner.isAdmin,
         access_token: token
       };
+      
+      req.session.loggedin = true;
+      req.session.owner = ownerResponse;
 
       if(req.accepts('json') !== undefined){
         //respond in html
@@ -112,8 +132,57 @@ export const login = async (req,res,next)=>{
 export const logout = async (req,res,next)=>{
   try {
       req.session.loggedin = false;
+      req.session.owner = null;
       res.redirect('/admin/auth/sign-in');
     } catch (err) {
       next(err);
     }
+}
+
+export const updateOwner =async (req,res,next)=>{
+  try {
+      // TODO:: add update image when there is an image has been selected
+      const updatedOwner = await Owner.findByIdAndUpdate(req.session.owner._id,{$set: req.body},{new:true})
+      res.status(200).json(updatedOwner)
+  }
+  catch(err){
+      next(err);
+  }
+}
+
+export const changePassword =async (req,res,next)=>{
+  try{
+    
+    if (req.body.password !== req.body.cPassword)
+      return next(createError(400, "Confirm password is wrong!"));
+
+    const owner = await Owner.findById({ _id: req.session.owner._id });
+  
+    const isPasswordCorrect = await bcrypt.compare(
+      req.body.currentPassword,
+      owner.password
+    );
+    
+    console.log(isPasswordCorrect);
+
+    if (!isPasswordCorrect)
+      return next(createError(400, "Wrong password!"));
+
+      
+    const salt = bcrypt.genSaltSync(10)
+    const hash = bcrypt.hashSync(req.body.password, salt)
+
+    await Owner.updateOne(
+      { _id: req.session.owner._id },
+      { $set: { password: hash } },
+      { new: true }
+    );
+
+    req.session.loggedin = false;
+    req.session.owner = null;
+    res.redirect('/admin/auth/sign-in');
+  }
+  catch(err){
+      next(err);
+  }
 }

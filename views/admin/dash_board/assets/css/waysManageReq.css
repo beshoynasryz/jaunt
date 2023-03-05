@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+
+
+
+.places .profile .tab-content .info-card:hover{
+    border: 1.5px solid var(--primary-color);
+}
+
+.places .profile .tab-content .info-card .card-body p{
+    font-size: 14px;
+}
+
+.places .profile .tab-content .info-card .card-body .button2{
+    color: white;
+    background-color: var(--secondary-color);
+    border: 0.5px solid var(--secondary-color);
+}
+
+.places .profile .tab-content .info-card .card-body .button2:hover{
+    color: white;
+    background-color: var(--primary-color);
+}

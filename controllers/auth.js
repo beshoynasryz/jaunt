@@ -63,12 +63,12 @@ export const register =async (req,res,next)=>{
 
         await newUser.save()
         
-        if(req.accepts('json') !== undefined){
-          //respond in html
-          res.redirect('/auth/sign-in');
-        } else {
-          res.status(200).json({ "mag": "User has been created" })
-        }
+        // if(req.accepts('json') !== undefined){
+        //   //respond in html
+        //   res.redirect('/auth/sign-in');
+        // } else {
+        //   res.status(200).json({ "mag": "User has been created" })
+        // }
     }catch(err){
         next(err)
     }

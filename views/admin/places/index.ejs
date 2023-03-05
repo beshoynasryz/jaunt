@@ -1,0 +1,129 @@
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Management Places</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Places</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section places">
+    <div class="row">
+
+      <section class="section profile">
+        <div class="row">
+  
+          <div class="col-xl-12">
+  
+            <div class="card">
+              <div class="card-body pt-3">
+                <div class="search-bar">
+                  <form class="search-form d-flex align-items-center" method="POST" action="#">
+                    <input type="text" name="query" placeholder="Search By Governorate" title="Enter search keyword" id="search-input">
+                    <button type="submit" title="Search" id="search"><i class="bi bi-search"></i></button>
+                  </form>
+                </div><!-- End Search Bar -->
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li><a class="dropdown-item active" href="#">All</a></li>
+                    <li><a class="dropdown-item" href="#">Zamalek</a></li>
+                    <li><a class="dropdown-item" href="#">Giza</a></li>
+                    <li><a class="dropdown-item" href="#">6th October</a></li>
+                    <li><a class="dropdown-item" href="#">Nasr City</a></li>
+                  </ul>
+                </div>
+                <div class="tab-content pt-2">
+
+                  <!-- Left side columns -->
+                  <div class="col-lg-12">
+                    <div class="row">
+                      <div class="add-places">
+                        <div class="card-body">
+                          <h5 class="card-title">Add Place Now</h5>
+                          <p>Add a new places now free and in easy and quick steps and let business start</p>
+
+                          <div class="d-flex justify-content-end">
+                            <div class="pt-2">
+                              <a href="/places/create-place" class="button2 mt-4 btn-primary btn-lg" title="Remove my profile image"><i class="bi bi-plus-circle me-2"></i>ADD PLACE</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <% places.forEach(function(place){ %>
+                        <!-- place Card -->
+                        <div class="col-xxl-4 col-md-4 my-4">
+                          <div class="card info-card sales-card">
+
+                            <div class="filter">
+                              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <li><a class="dropdown-item" href="Management-places.html">See Details</a></li>
+                                <li><a class="dropdown-item" href="edit-places.html">Edit</a></li>
+                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                <li><a class="dropdown-item" href="#">Enable</a></li>
+                              </ul>
+                            </div>
+
+                            <div class="card-body my-4 pb-1 text-center align-items-center">
+                              <div class="card-icon d-flex align-items-center justify-content-center">
+                                <img src="<%= place.images[0] %>" alt="">
+                              </div>
+                              
+                              <p class="pt-4"><%= place.desc %></p>
+
+                              <div class="d-flex justify-content-center">
+                                <div class="pt-2">
+                                  <span class="small pt-1 fw-bold bi bi-geo-alt"></span> <span class="text-muted small pt-1 ps-1"> <%= place.name %></span> 
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <!-- End place Card -->
+                      <% }); %>
+
+
+                                  
+
+                    </div>
+                  </div><!-- End Left side columns -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </section>
+
+</main><!-- End #main -->

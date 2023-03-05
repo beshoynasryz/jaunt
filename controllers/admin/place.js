@@ -4,11 +4,12 @@ import Place from "../../models/Place.js"
 export const createPlace =async (req,res,next)=>{
     var imagesArray = []
     const { images } = req.files;
+    console.log(images)
     const path = "/uploaded-images/";
     const filePath = './public' + path
 
     if (images.length) {
-        for (let i = 0; i < filesLength; i++) {
+        for (let i = 0; i < images.length; i++) {
             const fileName = Date.now() + images[i].name;
             await images[i].mv(filePath + fileName);
             imagesArray.push(path + fileName);
@@ -27,7 +28,9 @@ export const createPlace =async (req,res,next)=>{
 
     try{
         const savedPlace = await newPlace.save()
-        res.status(200).json(savedPlace)
+        
+        const places = await Place.find({ owner_id: req.session.owner._id})
+        res.redirect('/places/owner-places');
     }
     catch(err){
         
@@ -92,6 +95,38 @@ export const countByArea =async (req,res,next)=>{
             return Place.countDocuments({area:area})
         }))
         res.status(200).json(list);
+    }
+    catch(err){
+       next(err)
+    }
+}
+
+
+
+export const getOwnerPlaces =async (req,res,next)=>{
+    try {
+        const places = await Place.find({ owner_id: req.session.owner._id})
+        res.render('admin/places/index', { 
+          layout: './admin/layouts/main', 
+          places: places, 
+          owner: req.session.owner 
+        });
+    }
+    catch(err){
+       next(err)
+    }
+}
+export const renderCreatePlaceView=async (req,res,next)=>{
+    try {
+        // If the user is loggedin
+        if (!req.session.loggedin) {
+          res.redirect('/admin/auth/sign-in');
+        }
+
+        res.render('admin/places/create', { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner 
+        });
     }
     catch(err){
        next(err)

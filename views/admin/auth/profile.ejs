@@ -1,0 +1,191 @@
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Profile</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+      <div class="row">
+
+        <div class="col-xl-12">
+
+          <div class="card">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                </li>
+
+              </ul>
+              <div class="tab-content pt-2">
+
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                  <h5 class="card-title text-center">Profile Details</h5>
+
+
+
+                  <div class="card-profile text-center">
+                    <div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
+        
+                      <img src="<%= owner.image %>" alt="Profile">
+                      <h2><%= owner.ownername %></h2>
+                      <h3><%= owner.companyname %></h3>
+                    </div>
+                  </div>
+
+
+
+                  <div class="row d-flex text-center">
+                    <div class="col-lg-12 col-md-4 label ">Full Name: <span><%= owner.ownername %></span></div>
+                  </div>
+
+                  <div class="row text-center">
+                    <div class="col-lg-12 col-md-4 label ">Company Name: <span><%= owner.companyname %></span></div>
+                  </div>
+
+                  <div class="row text-center">
+                    <div class="col-lg-12 col-md-4 label ">Company Type: <span><%= owner.type %></span></div>
+                  </div>
+
+                  <div class="row text-center">
+                    <div class="col-lg-12 col-md-4 label ">Phone: <span><%= owner.phone %></span></div>
+                  </div>
+
+                  <div class="row text-center">
+                    <div class="col-lg-12 col-md-4 label ">Email: <span><%= owner.email %></span></div>
+                  </div>
+
+                </div>
+
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                  <!-- Profile Edit Form -->
+                  <form method="post" action="/admin/auth/update-owner">
+                    <div class="row mb-3">
+
+
+
+
+                      <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                        <h5 class="card-title text-center">Profile Image</h5>
+      
+      
+      
+                        <div class="card-profile text-center">
+                          <div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
+                            <img src="<%= owner.image %>" alt="Profile" >
+                        <div class="pt-3 mb-3">
+                          <a href="#" class="btn btn-primary btn-sm " title="Upload new profile image"><i class="bi bi-upload me-2"></i>UPLOAD</a>
+                          <a href="#" class="button2 mt-4 btn-primary btn-sm" title="Remove my profile image"><i class="bi bi-trash me-2"></i>DELETE</a>
+                        </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="fullName" class="col-md-4 col-lg-2 col-form-label">Full Name</label>
+                      <div class="col-md-8 col-lg-10">
+                        <input name="ownername" type="text" class="form-control" id="fullName" value="<%= owner.ownername %>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="company" class="col-md-4 col-lg-2 col-form-label">Company Name</label>
+                      <div class="col-md-8 col-lg-10">
+                        <input name="companyname" type="text" class="form-control" id="companyName" value="<%= owner.companyname %>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="company" class="col-md-4 col-lg-2 col-form-label">Company Type</label>
+                      <div class="col-md-8 col-lg-10">
+                        <select class="form-control" id="sel1">
+                          <option>Park</option>
+                          <option>Resturant</option>
+                          <option>Cafes</option>
+                          <option>Workspaces</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Address" class="col-md-4 col-lg-2 col-form-label">Phone</label>
+                      <div class="col-md-8 col-lg-10">
+                        <input name="phone" type="text" class="form-control" id="Phone" value="<%= owner.phone %>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Email" class="col-md-4 col-lg-2 col-form-label">Email</label>
+                      <div class="col-md-8 col-lg-10">
+                        <input name="email" type="email" class="form-control" id="Email" value="<%= owner.email %>">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">UPDATE</button>
+                    </div>
+                  </form><!-- End Profile Edit Form -->
+
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <!-- Change Password Form -->
+                  <form method="post" action="/admin/auth/change-password">
+
+                    <div class="row mb-3">
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="currentPassword" type="password" class="form-control" id="currentPassword">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="password" type="password" class="form-control" id="newPassword">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="cPassword" type="password" class="form-control" id="renewPassword">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                  </form><!-- End Change Password Form -->
+
+                </div>
+
+              </div><!-- End Bordered Tabs -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+</main><!-- End #main -->

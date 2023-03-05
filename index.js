@@ -6,6 +6,7 @@ import bodyParser from "body-parser"
 import fileUpload from  "express-fileupload"
 import path from 'path'
 import session from "express-session";
+import expressLayouts from "express-ejs-layouts";
 
 const app = express()
 dotenv.config()
@@ -14,7 +15,10 @@ mongoose.set("strictQuery", false);
 // //middleware
 const __dirname = path.resolve();
 app.use('/', express.static(path.join(__dirname, 'public')))
+app.use(expressLayouts)
+app.set('layout', './admin/layouts/main')
 app.set('view engine','ejs');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json())
 app.use(cookieParser())
@@ -23,8 +27,11 @@ app.use(bodyParser.json())
 app.use(fileUpload());
 app.use(session({
 	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+	resave: false,
+	saveUninitialized: true,
+    cookie: {
+        expires: 60000 * 60 * 24 * 7
+    }
 }));
 
 
