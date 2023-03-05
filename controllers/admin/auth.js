@@ -6,7 +6,7 @@ import Owner from "../../models/Owner.js"
 export const renderRegisterView =async (req,res,next)=>{
   try {
       // If the user is loggedin
-      if (req.session.loggedin) {
+      if (req.session.authId && (req.session.authId === req.session.owner?._id)) {
           res.redirect('/admin');
       }
       res.render('admin/auth/sign_up', { layout: './admin/layouts/guest' });
@@ -18,7 +18,7 @@ export const renderRegisterView =async (req,res,next)=>{
 export const renderLoginView =async (req, res, next) => {
   try {
       // If the user is loggedin
-      if (req.session.loggedin) {
+      if (req.session.authId && (req.session.authId === req.session.owner?._id)) {
           res.redirect('/admin');
       }
       res.render('admin/auth/sign_in', { layout: './admin/layouts/guest' });
@@ -30,7 +30,7 @@ export const renderLoginView =async (req, res, next) => {
 export const profile =async (req, res, next) => {
   try {
       // If the user is loggedin
-      if (!req.session.loggedin) {
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
         res.redirect('/admin/auth/sign-in');
       }
       res.render('admin/auth/profile', { 
@@ -107,7 +107,7 @@ export const login = async (req,res,next)=>{
         access_token: token
       };
       
-      req.session.loggedin = true;
+      req.session.authId = ownerResponse._id;
       req.session.owner = ownerResponse;
 
       if(req.accepts('json') !== undefined){
@@ -128,7 +128,7 @@ export const login = async (req,res,next)=>{
 
 export const logout = async (req,res,next)=>{
   try {
-      req.session.loggedin = false;
+      req.session.authId = null;
       req.session.owner = null;
       res.redirect('/admin/auth/sign-in');
     } catch (err) {
@@ -150,6 +150,7 @@ export const updateOwner =async (req,res,next)=>{
         isAdmin: updatedOwner.isAdmin,
         access_token: req.session.owner.access_token
       };
+
       req.session.owner = await ownerResponse;
 
       res.redirect('/admin/auth/profile');
@@ -186,7 +187,7 @@ export const changePassword =async (req,res,next)=>{
       { new: true }
     );
 
-    req.session.loggedin = false;
+    req.session.authId = null;
     req.session.owner = null;
     res.redirect('/admin/auth/sign-in');
   }

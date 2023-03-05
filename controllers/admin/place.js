@@ -105,6 +105,11 @@ export const countByArea =async (req,res,next)=>{
 
 export const getOwnerPlaces =async (req,res,next)=>{
     try {
+        // If the user is loggedin
+        if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+        }
+
         const places = await Place.find({ owner_id: req.session.owner._id})
         res.render('admin/places/index', { 
           layout: './admin/layouts/main', 
@@ -119,7 +124,7 @@ export const getOwnerPlaces =async (req,res,next)=>{
 export const renderCreatePlaceView=async (req,res,next)=>{
     try {
         // If the user is loggedin
-        if (!req.session.loggedin) {
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
           res.redirect('/admin/auth/sign-in');
         }
 
