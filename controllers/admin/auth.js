@@ -104,7 +104,6 @@ export const login = async (req,res,next)=>{
         companyname: owner.companyname,
         email: owner.email,
         phone: owner.phone,
-        type: owner.type,
         image: owner.image,
         isAdmin: owner.isAdmin,
         access_token: token
