@@ -12,9 +12,6 @@ const app = express()
 dotenv.config()
 mongoose.set("strictQuery", false);
 
-// //middleware
-const __dirname = path.resolve();
-app.use('/', express.static(path.join(__dirname, 'public')))
 app.use(expressLayouts)
 app.set('layout', './admin/layouts/main')
 app.set('view engine','ejs');
@@ -34,6 +31,9 @@ app.use(session({
     }
 }));
 
+// //middleware
+const __dirname = path.resolve();
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 // user
 import homeRoute from "./routes/home.js"
