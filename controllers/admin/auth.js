@@ -143,7 +143,7 @@ export const updateOwner =async (req,res,next)=>{
   try {
       // TODO:: add update image when there is an image has been selected
       const updatedOwner = await Owner.findByIdAndUpdate(req.session.owner._id,{$set: req.body},{new:true})
-      res.status(200).json(updatedOwner)
+      res.redirect('/admin/auth/profile');
   }
   catch(err){
       next(err);
@@ -163,7 +163,6 @@ export const changePassword =async (req,res,next)=>{
       owner.password
     );
     
-    console.log(isPasswordCorrect);
 
     if (!isPasswordCorrect)
       return next(createError(400, "Wrong password!"));
