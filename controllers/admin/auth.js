@@ -142,6 +142,9 @@ export const updateOwner =async (req,res,next)=>{
   try {
       // TODO:: add update image when there is an image has been selected
       const updatedOwner = await Owner.findByIdAndUpdate(req.session.owner._id,{$set: req.body},{new:true})
+      req.session.owner = updatedOwner;
+
+
       res.redirect('/admin/auth/profile');
   }
   catch(err){
