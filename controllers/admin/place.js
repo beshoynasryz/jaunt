@@ -2,6 +2,7 @@ import Place from "../../models/Place.js"
 
 
 export const createPlace =async (req,res,next)=>{
+    try {
     var imagesArray = []
     const { images } = req.files;
     console.log(images)
@@ -25,12 +26,11 @@ export const createPlace =async (req,res,next)=>{
     req.body.images = imagesArray
     console.log(req.body)
     const newPlace = new Place (req.body)
-
-    try{
+   
         const savedPlace = await newPlace.save()
         
-        const places = await Place.find({ owner_id: req.session.owner._id})
-        res.redirect('/places/owner-places');
+        // const places = await Place.find({ owner_id: req.session.owner._id})
+        res.redirect('/admin/places/owner-places');
     }
     catch(err){
         
@@ -97,10 +97,13 @@ export const getPlace =async (req,res,next)=>{
 
 export const getOwnerPlaces =async (req,res,next)=>{
     try {
+        console.log('mmmm',req.session.owner)
+
         // If the user is loggedin
         if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
           res.redirect('/admin/auth/sign-in');
         }
+        console.log('mmmm',req.session.owner)
 
         const places = await Place.find({ owner_id: req.session.owner._id})
         res.render('admin/places/index', { 

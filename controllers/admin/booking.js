@@ -28,13 +28,15 @@ export const updatedStatus =async (req,res,next)=>{
             new: true
           })
         
-        if(req.accepts('json') == undefined){
+        //   console.log('wwww',req.accepts('json'),req.headers['content-type'] === 'application/json')
+        
+        if(req.headers['content-type'] !== 'application/json'){
             //respond in html
             res.redirect('/bookings/owner-bookings');
           } else {
             res.status(200).json({ "mag": "Booking has been updated" })
           } 
-    }
+    } 
     catch(err){
         next(err);
     }

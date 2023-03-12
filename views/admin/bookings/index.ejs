@@ -62,7 +62,7 @@
                                                                                     <input type="hidden" name="status" value="approved">
                                                                                     <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
                                                                                   </form>
-                                                                                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.checkin %>">
+                                                                                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
                                                                                     <input type="hidden" name="status" value="declined">
                                                                                     <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
                                                                                   </form>
