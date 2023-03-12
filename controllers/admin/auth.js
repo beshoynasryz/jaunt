@@ -110,7 +110,7 @@ export const login = async (req,res,next)=>{
       req.session.authId = ownerResponse._id;
       req.session.owner = ownerResponse;
 
-      if(req.accepts('json') == undefined){
+      if(req.accepts('json') !== undefined){
         //respond in html
         res.cookie("access_token", token, {
           httpOnly: true,
