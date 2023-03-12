@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"
 import bodyParser from "body-parser"
 import fileUpload from  "express-fileupload"
 import path from 'path'
-import session from "express-session";
+import session, { MemoryStore } from "express-session";
 import expressLayouts from "express-ejs-layouts";
 
 const app = express()
@@ -25,12 +25,15 @@ app.use(fileUpload());
 app.use(session({
 	secret: 'secret',
 	resave: false,
-	saveUninitialized: true,
+	saveUninitialized: false,
+    store: new MemoryStore(), 
+    maxAge: 60000 * 60 * 24 * 7,
+    expires: new Date(Date.now() + (30 * 86400 * 1000)),
     cookie: {
         maxAge: 60000 * 60 * 24 * 7,
-        expires: 60000 * 60 * 24 * 7
+        expires: new Date(Date.now() + (30 * 86400 * 1000))
     }
-}));
+})); 
 
 // //middleware
 const __dirname = path.resolve();
@@ -39,20 +42,25 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 // user
 import homeRoute from "./routes/home.js"
 import authRoute from "./routes/auth.js"
+import bookingRoute from "./routes/booking.js"
+
 
 // admin (owner)
 import authAdminRoute from "./routes/admin/auth.js"
 import placesAdminRoute from "./routes/admin/places.js"
 import homeAdminRoute from "./routes/admin/home.js"
+import bookingAdminRoute from "./routes/admin/booking.js"
 
 
 app.use("/", homeRoute)
 app.use('/auth', authRoute)
+app.use("/bookings", bookingRoute)
 
 // admin (owner)
 app.use("/", homeAdminRoute)
 app.use('/admin/auth',authAdminRoute)
 app.use("/places",placesAdminRoute)
+app.use("/bookings", bookingAdminRoute)
 // app.use('place',placeRoute)
 // app.use('user',userRoute)
 
@@ -90,3 +98,4 @@ app.listen(5000,()=>{
     console.log("connected to backend");
     
 })
+  

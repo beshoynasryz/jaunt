@@ -1,0 +1,104 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+      <h1>Management Requests</h1>
+      <nav>
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="chooseSearchBookingWay.html">Manage Requests Ways</a></li>
+              <li class="breadcrumb-item active">Management Requsets</li>
+          </ol>
+      </nav>
+  </div><!-- End Page Title -->
+  <section class="section places">
+      <div class="row">
+          <section class="section profile">
+              <div class="row">
+                  <div class="col-xl-12">
+                      <div class="card">
+                          <div class="card-body pt-3">
+
+                              <div class="back-bar text-center mb-4">
+                                  <a href="/admin"><i class="bi bi-arrow-left-circle-fill"></i>                   
+                                  </a>
+                              </div><!-- End Search Bar -->
+
+                              <div class="tab-content">
+                                  <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                      <div class="card">
+                                          <div class="pt-3">
+                                              <div class="tab-content">
+
+                                                  <div class="tab-pane fade show active profile-overview" id="profile-overview">
+
+                                                      <div class="col-lg-12 p-3">
+                                                          <div class="row">
+                                                            <% if (bookings.length > 0) {%>
+                                                              
+                                                              <% bookings.forEach(function(booking){ %>
+                                                                <!-- booking Card -->
+                                                                <div class="col-xxl4 col-md-4 my-2">
+                                                                    <div class="card info-card sales-card">                                             
+                                                                        <div class="news">
+                                                                            <div class="post-item px-3 pt-2">
+                                                                                <h5>Request from <%= booking.user.name %></h5>
+                                                                                <p><i class="bi bi-calendar-event pe-1"></i><%= booking.date.toDateString() %></p>
+                                                                                <p class="pe-2"><i class="bi bi-clock pe-1"></i><%= booking.checkin %> - <%= booking.checkout %></p>   
+                                                                                <p class="pe-2"><i class="bi bi-cash pe-1"></i><%= booking.total %></p>  
+
+                                                                                <% if (booking.status === 'pending') {%> 
+                                                                                  <span class="badge bg-info"><%= booking.status %></span>
+                                                                                <%} else if(booking.status === 'approved') { %>                                                                                
+                                                                                  <span class="badge bg-success"><%= booking.status %></span>
+                                                                                <%} else if(booking.status === 'declined') { %>                                                                                
+                                                                                  <span class="badge bg-warning"><%= booking.status %></span>
+                                                                                <%} else { %>                                                                  
+                                                                                <span class="badge bg-danger"><%= booking.status %></span>
+                                                                                <%}%>             
+
+                                                                                <p class="info mt-3 mb-2"><a href="#">See request Information <i class="bi bi-caret-right-fill"></i></a></p>
+                                                                                <div class="row">
+                                                                                  
+                                                                                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
+                                                                                    <input type="hidden" name="status" value="approved">
+                                                                                    <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                                                                                  </form>
+                                                                                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.checkin %>">
+                                                                                    <input type="hidden" name="status" value="declined">
+                                                                                    <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
+                                                                                  </form>
+                                                                                    <!-- <button class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                                                                                    <button class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button> -->
+                                                                                </div>
+
+                                                                            </div>
+                                                                
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- End booking Card -->
+                                                                
+                                                              <% }); %>
+                                                            <%} else { %>
+                                                              <h2 class="text-center"> There is no bookings</h2>
+                                                            <%}%>
+                                                          </div>
+                                                  </div>
+                                                  <!-- Left side columns -->
+
+                                                  
+                                                  </div>
+                                                  <!-- End Left side columns -->
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>                 
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+      </div>
+  </section>
+</main><!-- End #main -->

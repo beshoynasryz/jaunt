@@ -89,7 +89,7 @@ export const login = async (req,res,next)=>{
       );
       
       if (!isPasswordCorrect)
-        return next(createError(400, "Wrong password or name!"));
+        return next(createError(400, "Wrong password !"));
 
       const token = jwt.sign(
         { id: owner._id, isAdmin: owner.isAdmin },
