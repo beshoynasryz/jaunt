@@ -1,11 +1,10 @@
 import  express  from "express"
-import { createBooking ,updatedStatus} from "../controllers/admin/booking.js";
+import { createBooking, getUserBookings } from "../controllers/booking.js";
 
 const router = express.Router();
 
 // user
 router.post('/create-booking', createBooking)
-// you can use this endpoint to cancel a booking from the mobile app just send { status: "canceled"}
-router.post('/update-status/:id', updatedStatus)
+router.get('/get-user-bookings/:id', getUserBookings)
 
 export default router 

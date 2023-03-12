@@ -67,7 +67,7 @@ export const register = async (req,res,next)=>{
         })
         await newOwner.save()
 
-        if(req.accepts('json') !== undefined){
+        if(req.accepts('json') == undefined){
           //respond in html
           res.redirect('/admin/auth/sign-in');
         } else {
@@ -110,7 +110,7 @@ export const login = async (req,res,next)=>{
       req.session.authId = ownerResponse._id;
       req.session.owner = ownerResponse;
 
-      if(req.accepts('json') !== undefined){
+      if(req.accepts('json') == undefined){
         //respond in html
         res.cookie("access_token", token, {
           httpOnly: true,

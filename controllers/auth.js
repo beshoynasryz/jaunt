@@ -42,20 +42,17 @@ export const register =async (req,res,next)=>{
         const { image } = req.files;
         const path = "/uploaded-images/";
         const filePath = './public' + path
-        const fileName = filePath +  Date.now() + image.name;
+        const fileName = Date.now() + image.name;
+        const fullPath = filePath +  Date.now() + image.name;
 
-        await image.mv(fileName);
+        await image.mv(fullPath);
         const imagePath = path + fileName
 
-
         const newUser =new User({
-
-
             name:req.body.name,
             email:req.body.email,
             image: imagePath,
             phone :req.body.phone,
-          
             area :req.body.area,
             city :req.body.city,
             password:hash
@@ -63,12 +60,12 @@ export const register =async (req,res,next)=>{
 
         await newUser.save()
         
-        // if(req.accepts('json') !== undefined){
-        //   //respond in html
-        //   res.redirect('/auth/sign-in');
-        // } else {
-        //   res.status(200).json({ "mag": "User has been created" })
-        // }
+        if(req.accepts('json') == undefined){
+          //respond in html
+          res.redirect('/auth/sign-in');
+        } else {
+          res.status(200).json({ "mag": "User has been created", data: newUser })
+        }
     }catch(err){
         next(err)
     }

@@ -43,6 +43,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 import homeRoute from "./routes/home.js"
 import authRoute from "./routes/auth.js"
 import bookingRoute from "./routes/booking.js"
+import placesUserRoute from "./routes/places.js"
 
 
 // admin (owner)
@@ -54,7 +55,8 @@ import bookingAdminRoute from "./routes/admin/booking.js"
 
 app.use("/", homeRoute)
 app.use('/auth', authRoute)
-app.use("/bookings", bookingRoute)
+app.use("/bookings", bookingRoute) 
+app.use("/places", placesUserRoute) 
 
 // admin (owner)
 app.use("/", homeAdminRoute)
