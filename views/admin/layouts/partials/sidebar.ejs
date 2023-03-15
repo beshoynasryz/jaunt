@@ -11,10 +11,16 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-
-
-
-
+      <% if (owner.isAdmin) {%>
+      
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/admin/auth/profile">
+            <i class="bi bi-person"></i>
+            <span>Partners</span>
+          </a>
+        </li><!-- End Profile Page Nav -->
+      
+        <%}%>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="/admin/auth/profile">
@@ -22,9 +28,8 @@
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/bookings/owner-bookings">
+        <a class="nav-link collapsed" href="/bookings/manage-bookings">
           <i class="bi bi-ticket"></i>
           <span>Bookings</span>
         </a>
@@ -38,21 +43,14 @@
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Advertisments.html">
-          <i class="bi bi-badge-ad"></i>
-          <span>Advertisements</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="/admin/contact-us/contact">
           <i class="bi bi-telephone"></i>
           <span>Contact Us</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="/admin/auth/logout">
           <i class="bi bi-box-arrow-left"></i>
           <span>Logout</span>
         </a>

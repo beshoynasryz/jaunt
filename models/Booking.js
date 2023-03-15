@@ -34,7 +34,7 @@ const BookingSchema = new mongoose.Schema({
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User' 
     },
     place: {
         type: mongoose.Schema.Types.ObjectId,
@@ -47,4 +47,4 @@ const BookingSchema = new mongoose.Schema({
 },{timestamps:true}
 );
   
-export default mongoose.model("Booking",BookingSchema)
+export default mongoose.model("Booking",BookingSchema)  

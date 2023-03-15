@@ -14,6 +14,23 @@ export const getUserBookings = async (req,res,next)=>{
     }
 }
 
+//function for get booking with each place (test)
+
+// export const getPlaceBookings = async (req,res,next)=>{
+//     try {
+//         let bookings = await Booking
+//             .find({ owner_id: req.params.id})
+           
+
+//         res.status(200).json(bookings)
+//     }
+//     catch(err){
+//         next(err)
+//     }
+// }
+
+ 
+
 export const createBooking =async (req,res,next)=>{
     try {
         const place = await Place.findById(req.body.place) 

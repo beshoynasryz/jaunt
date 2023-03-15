@@ -29,7 +29,7 @@
               <div class="card-body pb-0">
                 <h5 class="card-title">Places</h5>
                 <div class="filter">
-                  <a class="icon" href="Places.html">See All</a>
+                  <a class="icon" href="/admin/places/owner-places">See All</a>
               </div>
 
                 <table class="table text-center">
@@ -38,53 +38,21 @@
                       <th scope="col">Picture</th>
                       <th scope="col">Governorate</th>
                       <th scope="col">Area</th>
-                      <th scope="col">Pay Way</th>
                       <th scope="col">Capacity</th>
                       <th scope="col">Min Budget</th>
                     </tr>
                   </thead>
                   <tbody class="text-center">
+                    <% places.forEach(function(place){ %>
                     <tr>
-                      <th scope="row"><a href="#"><img src="/assets/img/product-1 1.svg" alt=""></a></th>
-                      <td>Giza</td>
-                      <td>Zamalek</td>
-                      <td >Online</td>
-                      <td class="fw-bold">670</td>
-                      <td class="fw-bold">$50</td>
+                      <th scope="row"><a href="#"><img src="<%= place.images[0] %>" alt=""></a></th>
+                      <td><%= place.city %></td>
+                      <td><%= place.area %></td>
+                      <td class="fw-bold"><%= place.capacity %></td>
+                      <td class="fw-bold"><%= place.budget %></td>
                     </tr>
-                    <tr>
-                      <th scope="row"><a href="#"><img src="/assets/img/product-1 1.svg" alt=""></a></th>
-                      <td>Giza</td>
-                      <td>Zamalek</td>
-                      <td >At Host</td>
-                      <td class="fw-bold">670</td>
-                      <td class="fw-bold">$50</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#"><img src="/assets/img/product-1 1.svg" alt=""></a></th>
-                      <td>Giza</td>
-                      <td>Zamalek</td>
-                      <td >Online</td>
+                    <% }); %>
 
-                      <td class="fw-bold">670</td>
-                      <td class="fw-bold">$50</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#"><img src="/assets/img/product-1 1.svg" alt=""></a></th>
-                      <td>Giza</td>
-                      <td>Zamalek</td>
-                      <td >Online</td>
-                      <td class="fw-bold">670</td>
-                      <td class="fw-bold">$50</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#"><img src="/assets/img/product-1 1.svg" alt=""></a></th>
-                      <td>Giza</td>
-                      <td>Zamalek</td>
-                      <td >At Host</td>
-                      <td class="fw-bold">670</td>
-                      <td class="fw-bold">$50</td>
-                    </tr>
                   </tbody>
                 </table>
 
@@ -92,7 +60,6 @@
 
             </div>
           </div><!-- End Top Selling -->
-          
           
           <!-- Sales Card -->
           <div class="col-xxl-6 col-md-6 my-4 text-center">
@@ -172,64 +139,55 @@
 
 
 
+              
+          <% bookings.forEach(function(booking){ %>
+            
         <!-- booking Traffic -->
-        <div class="card">
-          <div class="filter">
-            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <li class="dropdown-header text-start">
-                <h6>Filter</h6>
-              </li>
+        <div class="card h-auto">
 
-              <li><a class="dropdown-item active" href="#">All</a></li>
-              <li><a class="dropdown-item" href="#">Requests</a></li>
-              <li><a class="dropdown-item" href="#">Active</a></li>
-              <li><a class="dropdown-item" href="#">Pending</a></li>
-              <li><a class="dropdown-item" href="#">Rejected</a></li>
-
-            </ul>
-          </div>
-
-          <div class="card-body pb-0">
+            <div class="card-body pb-0">
             <h5 class="card-title">Request Booking</h5>
 
             <div class="news">
               <div class="post-item clearfix">
-                <img src="/assets/img/product-1 1.svg" alt="">
-                <h4>Request from Yasser</h4>
+                
+                <div>
+                  <img src="<%= booking.user.image %>" alt="">
+                </div>
+                <h4>Request from <%= booking.user.name %></h4>
                 <p><i class="bi bi-geo-alt pe-1"></i>Giza, Zamalek</p>
                 <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-                <p class="pe-2"><span class="badge bg-info">Requseted</span></p>                  
-                <p><a href="#">See request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                <a href="" class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">APPROVE</a>
-                <a href="" class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-5">DECLINE</a>
-              </div>
+                
+                <% if (booking.status === 'pending') {%> 
+                  <span class="badge bg-info m-3"><%= booking.status %></span>
+                <%} else if(booking.status === 'approved') { %>                                                                                
+                  <span class="badge bg-success m-3"><%= booking.status %></span>
+                <%} else if(booking.status === 'declined') { %>                                                                                
+                  <span class="badge bg-warning m-3"><%= booking.status %></span>
+                <%} else { %>                                                                  
+                <span class="badge bg-danger m-3"><%= booking.status %></span>
+                <%}%>                   
+                <!-- <p><a href="dashboardRequestDetails.html">See request Information <i class="bi bi-caret-right-fill"></i></a></p> -->
+                <div class="row">
+                                                                                  
+                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
+                    <input type="hidden" name="status" value="approved">
+                    <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                  </form>
+                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
+                    <input type="hidden" name="status" value="declined">
+                    <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
+                  </form>
+                </div>
 
-              <div class="post-item clearfix">
-                <img src="/assets/img/product-1 1.svg" alt="">
-                <h4>Request from Yasser</h4>
-                <p><i class="bi bi-geo-alt pe-1"></i>Giza, Zamalek</p>
-                <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-                <p class="pe-2"><span class="badge bg-info">Requseted</span></p>                  
-                <p><a href="#">See request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                <a href="" class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">APPROVE</a>
-                <a href="" class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-5">DECLINE</a>
+            </div>
               </div>
-
-              <div class="post-item clearfix">
-                <img src="/assets/img/product-1 1.svg" alt="">
-                <h4>Request from Yasser</h4>
-                <p><i class="bi bi-geo-alt pe-1"></i>Giza, Zamalek</p>
-                <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-                <p class="pe-2"><span class="badge bg-warning">Pending</span></p>                  
-                <p><a href="#">See request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                <a href="" class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">APPROVE</a>
-                <a href="" class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-5">DECLINE</a>
-              </div>
-
+              
             </div><!-- End sidebar recent posts-->
-
           </div>
+              <% }); %>
+
+
         </div><!-- End News & Updates -->
       </div><!-- End Right side columns -->
 
