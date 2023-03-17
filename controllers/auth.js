@@ -60,7 +60,7 @@ export const register =async (req,res,next)=>{
 
         await newUser.save()
         
-        if(req.headers['content-type'] !== 'application/json'){
+        if(req.headers['content-type'] === 'application/json'){
           //respond in html
           res.redirect('/auth/sign-in');
         } else {

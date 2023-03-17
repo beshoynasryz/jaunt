@@ -24,7 +24,7 @@ export const createPlace =async (req,res,next)=>{
     }
 
     req.body.images = imagesArray
-    console.log(req.body)
+ 
     const newPlace = new Place (req.body)
    
         const savedPlace = await newPlace.save()
