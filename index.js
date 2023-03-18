@@ -57,8 +57,8 @@ app.use("/", homeRoute)
 app.use('/auth', authRoute)
 app.use("/bookings", bookingRoute) 
 app.use("/places", placesUserRoute) 
-
-// admin (owner)
+ 
+// admin (owner) 
 app.use("/", homeAdminRoute)
 app.use('/admin/auth',authAdminRoute)
 app.use("/admin/places",placesAdminRoute)

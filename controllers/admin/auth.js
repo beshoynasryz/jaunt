@@ -26,6 +26,18 @@ export const renderLoginView =async (req, res, next) => {
       next(err)
   }
 }
+export const rendercontactView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/contact');
+      }
+      res.render('admin/auth/pages-contact', 
+      { layout: './admin/layouts/guest' });
+  } catch(err){
+      next(err)
+  }
+}
 
 export const profile =async (req, res, next) => {
   try {

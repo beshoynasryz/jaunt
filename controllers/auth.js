@@ -55,6 +55,7 @@ export const register =async (req,res,next)=>{
             phone :req.body.phone,
             area :req.body.area,
             city :req.body.city,
+            country :req.body.country,
             password:hash
         })
 
@@ -70,3 +71,4 @@ export const register =async (req,res,next)=>{
         next(err)
     }
 }
+ 
