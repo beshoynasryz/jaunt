@@ -1,0 +1,466 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+  /*end variables*/
+  
+  /*start global design*/
+  
+  
+  
+  p,h1,h2,h3,h4,h5,h6,body{
+    font-family: 'Montserrat', sans-serif;
+  
+  }
+  
+  .main-title h2 {
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+  }
+  
+  .main-title h2 span {
+    color: var(--primary-color);
+  }
+  
+  
+  
+  :root {
+    scroll-behavior: smooth;
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+  }
+  
+  body a {
+    text-decoration: none;
+    color: var(--text-color1);
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /*--------------------------------------------------------------
+  # Main
+  --------------------------------------------------------------*/
+  #main {
+    margin-top: 60px;
+    padding: 20px 30px;
+    transition: all 0.3s;
+  }
+  
+  @media (max-width: 1199px) {
+    #main {
+      padding: 20px;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Page Title
+  --------------------------------------------------------------*/
+  .pagetitle {
+    margin-bottom: 10px;
+  }
+  
+  .pagetitle h1 {
+    font-size: 24px;
+    margin-bottom: 0;
+    font-weight: 600;
+    color: var(--text-color1);
+  }
+  
+  /*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+  .back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99999;
+    background: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+  }
+  
+  .back-to-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+  }
+  
+  .back-to-top:hover {
+    background: var(--secondary-color);
+    color: #fff;
+  }
+  
+  .back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /*--------------------------------------------------------------
+  # Override some default Bootstrap stylings
+  --------------------------------------------------------------*/
+  /* Dropdown menus */
+  .dropdown-menu {
+    border-radius: 4px;
+    padding: 10px 0;
+    -webkit-animation-name: dropdown-animate;
+    animation-name: dropdown-animate;
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    border: 0;
+    box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
+  }
+  
+  .dropdown-menu .dropdown-header,
+  .dropdown-menu .dropdown-footer {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 25px;
+  }
+  
+  .dropdown-menu .dropdown-footer a {
+    color: var(--text-color1);
+    text-decoration: none;
+  }
+  
+  .dropdown-menu .dropdown-footer a:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  .dropdown-menu .dropdown-divider {
+    color: var(--primary-color);
+    margin: 0;
+  }
+  
+  
+  
+  
+  
+  
+  @media (min-width: 768px) {
+    .dropdown-menu-arrow::before {
+      content: "";
+      width: 13px;
+      height: 13px;
+      background: #fff;
+      position: absolute;
+      top: -7px;
+      right: 20px;
+      transform: rotate(45deg);
+      border-top: 1px solid #eaedf1;
+      border-left: 1px solid #eaedf1;
+    }
+  }
+  
+  @-webkit-keyframes dropdown-animate {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  
+    0% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes dropdown-animate {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  
+    0% {
+      opacity: 0;
+    }
+  }
+  
+  /* Light Backgrounds */
+  .bg-primary-light {
+    background-color: #cfe2ff;
+    border-color: #cfe2ff;
+  }
+  
+  .bg-secondary-light {
+    background-color: #e2e3e5;
+    border-color: #e2e3e5;
+  }
+  
+  .bg-success-light {
+    background-color: #d1e7dd;
+    border-color: #d1e7dd;
+  }
+  
+  .bg-danger-light {
+    background-color: #f8d7da;
+    border-color: #f8d7da;
+  }
+  
+  .bg-warning-light {
+    background-color: #fff3cd;
+    border-color: #fff3cd;
+  }
+  
+  .bg-info-light {
+    background-color: #cff4fc;
+    border-color: #cff4fc;
+  }
+  
+  .bg-dark-light {
+    background-color: #d3d3d4;
+    border-color: #d3d3d4;
+  }
+  
+  /* Card */
+  .contact .card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .contact .card-header,
+  .contact .card-footer {
+    border-color: #ebeef4;
+    background-color: #fff;
+    color: #798eb3;
+  }
+  
+  .contact .card-title {
+    padding: px 0 5px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-color1);
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 5px;
+  }
+  
+  .contact .card-title span {
+    color: #9689bd;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  
+  .contact .card-body {
+    padding: 0 20px 0px 20px;
+  }
+  
+  .contact .card-img-overlay {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  
+ 
+
+  
+  
+  /*--------------------------------------------------------------
+  # Dashboard
+  --------------------------------------------------------------*/
+  /* Filter dropdown */
+  
+  
+  .contact .filter {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+  }
+  
+  .contact .filter .icon {
+    color: var(--primary-color);
+    padding-right: 20px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+  }
+  
+  .contact .filter .icon:hover,
+  .contact .filter .icon:focus {
+    color: var(--secondary-color);
+  }
+  
+  .contact .filter .dropdown-header {
+    padding: 8px 15px;
+  }
+  
+  .contact .filter .dropdown-header h6 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-color1);
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+  .contact .filter .dropdown-item {
+    padding: 8px 15px;
+  }
+  
+  /* Info Cards */
+  
+
+
+  
+  
+.contact .card-body .card-icon {
+    font-size: 22px;
+    line-height: 0;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 0px;
+}
+  
+  .contact .sales-card .card-icon {
+    color: var(--primary-color);
+    background: var(--background-color-of-primary-color);
+  }
+  
+  .contact .revenue-card .card-icon {
+    color: var(--primary-color);
+    background: var(--background-color-of-primary-color);
+  }
+  
+  .contact .customers-card .card-icon {
+    color: var(--primary-color);
+    background: var(--background-color-of-primary-color);
+  }
+  
+  
+ 
+  
+  .card{
+  height: 100%;
+  }
+  
+
+  
+ 
+
+  
+  /*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+  .footer {
+    padding: 20px 0;
+    font-size: 14px;
+    transition: all 0.3s;
+    border-top: 1px solid var(--primary-color);
+  }
+  
+  .footer .copyright {
+    text-align: center;
+    color: var(--text-color1);
+  }
+  
+  .footer .credits {
+    padding-top: 5px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-color1);
+  }
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*new styles*/
+
+.news .form-floating input,
+.news .form-floating textarea{
+    border-radius: 30px;
+    border:0.5px solid var(--background-color-of-secondary-color);
+    padding: 8px 18px;
+    margin-bottom: 10px;
+}
+
+.news .form-floating label{
+    padding-left: 19px;
+}
+
+.news button{
+    width: 50%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+    border: 0.5px solid var(--background-color-of-secondary-color);
+    font-size: 20px;
+}
+
+.news button:hover{
+    background-color: var(--primary-color)
+}

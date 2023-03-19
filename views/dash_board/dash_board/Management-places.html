@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Management Places - JuantHost</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="" rel="icon">
+  <link href="" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/editPlace.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/Juant.png" alt="">
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+
+        
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Yasser Farghal</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Yasser Farghal</h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Log Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+
+
+
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="users-profile.html">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="chooseSearchBookingWay.html">
+          <i class="bi bi-ticket"></i>
+          <span>Bookings</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="Places.html">
+          <i class="bi bi-building"></i>
+          <span>Places</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-telephone"></i>
+          <span>Contact Us</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="">
+          <i class="bi bi-box-arrow-left"></i>
+          <span>Logout</span>
+        </a>
+      </li><!-- End Blank Page Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Place Details</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active"><a href="Places.html">Place</a></li>
+          <li class="breadcrumb-item active">Place Details</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section places">
+      <div class="row">
+
+        
+
+
+
+
+
+        <section class="section profile">
+          <div class="row">
+    
+            <div class="col-xl-12">
+    
+              <div class="card">
+                <div class="card-body pt-3">
+                  
+                  
+                  <div class="back-bar text-center">
+                    <a href="Places.html"><i class="bi bi-arrow-left-circle-fill"></i>             </a>
+                  </div><!-- End Search Bar -->
+
+                  <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+      
+                      <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">SomeWhere Details</button>
+                      </li>
+      
+                      <li class="nav-item">
+                        <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#services-change">Services</button>
+                      </li>
+
+                      <li class="nav-item">
+                        <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#reception-hours-change">Reception Hours</button>
+                      </li>
+
+                      <li class="nav-item">
+                        <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#Menu-change">Pricing list</button>
+                      </li>
+
+                      <li class="nav-item">
+                        <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#review">Reviews</button>
+                      </li>
+      
+                    </ul>
+                    <div class="tab-content pt-2">
+      
+                      <div class="tab-pane fade show active profile-overview" id="profile-overview">      
+
+                        <div class="card-profile text-center">
+                          <div class="card-body profile-card d-flex flex-column align-items-center">
+                            <h5 class="card-title mb-3 text-center">Images</h5>
+
+                            <div class="container-fluid">
+                              <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
+                                
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+
+                                    <img src="assets/img/product-1 1.svg" alt="">
+
+                                
+                              </div>
+                          </div>
+                          </div>
+                        </div>
+
+
+                        <div class="justify-content-center">
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-file-text"></i> About: <span>Amusement park with a Ferris wheel & rides for kids, plus an international food court & ice rink.</span></div>
+                          </div>
+  
+        
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-geo-alt"></i> Location: <a class="location" href="https://www.google.com/maps/place/ZED+TENNIS+ACADEMIES/@30.0432287,30.9944292,15z/data=!4m6!3m5!1s0x14585ba0263118cf:0xc58e189c21cc4eeb!8m2!3d30.0432287!4d30.9944292!16s%2Fg%2F11j4vlx59q?coh=164777&entry=tt"><span>Sheikh Zayed City, Giza Governorate</span></a> </div>
+                          </div>
+        
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-cash"></i> Min-Budget: <span>$50.00</span></div>
+                          </div>
+        
+
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-person-bounding-box"></i> Capacity: <span>670</span></div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-star"></i> Rate: <span>5.0</span></div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-phone"></i> Phone: <span>01553355555</span></div>
+                          </div>
+        
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-envelope"></i> Email: <span>Example@mail.com</span></div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-lg-12 col-md-4 label "><i class="bi bi-upc"></i> Branch ID: <span>12345dsfhal1226</span></div>
+                          </div>
+
+                        </div>
+
+      
+                      </div>
+
+                      <div class="tab-pane fade pt-3" id="services-change">
+                        <h5 class="card-title text-center">Edit Services</h5>
+
+                        <!-- Change Password Form -->
+                        <form>
+                          <div class="services text-center">
+
+                            
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked/>
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option4" checked/>
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option7" checked/>
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option9" checked/>
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                    
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                       
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                      
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option13" checked/>
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                            
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                         
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                           
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option16" checked/>
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                            
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>                          
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option18" disabled />
+                              <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>Example</label>
+                            </div>
+
+                          </div>
+                        </form><!-- End Change Password Form -->
+
+                      </div>
+
+                      <div class="tab-pane fade pt-3" id="reception-hours-change">
+                        <!-- Change reception hours Form -->
+                        <form>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlinedateCheckbox1" value="option1" onclick="Sunday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">Sunday</label>
+                            <div  id="time1" style=""> 
+                              <div class="from pt-2">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="appt">     
+                                  </p>                           
+                                </form>
+                              </div>
+                              <div class="to">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="appt">     
+                                </p>                       
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlinedateCheckbox1" value="option1" onclick="Sunday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">Sunday</label>
+                            <div  id="time1" style=""> 
+                              <div class="from pt-2">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="appt">     
+                                  </p>                           
+                                </form>
+                              </div>
+                              <div class="to">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="appt">     
+                                </p>                       
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlinedateCheckbox1" value="option1" onclick="Sunday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">Sunday</label>
+                            <div  id="time1" style=""> 
+                              <div class="from pt-2">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="appt">     
+                                  </p>                           
+                                </form>
+                              </div>
+                              <div class="to">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="appt">     
+                                </p>                       
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlinedateCheckbox4" value="option4" onclick="whensday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">whensday</label>
+                            <div  id="time4" style="display:none"> 
+                              <div class="from pt-2">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="appt">     
+                                  </p>                           
+                                </form>
+                              </div>
+                              <div class="to">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="appt">     
+                                </p>                       
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlinedateCheckbox5" value="option5" onclick="thursday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">thursday</label>
+                            <div  id="time5" style="display:none"> 
+                              <div class="from pt-2">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="appt">     
+                                  </p>                           
+                                </form>
+                              </div>
+                              <div class="to">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="appt">     
+                                </p>                       
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlinedateCheckbox6" value="option6" onclick="Friday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">Friday</label>
+                            <div  id="time6" style="display:none"> 
+                              <div class="from pt-2">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="appt">     
+                                  </p>                           
+                                </form>
+                              </div>
+                              <div class="to">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="appt">     
+                                </p>                       
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlinedateCheckbox7" value="option7" onclick="Satrday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">Satrday</label>
+                            <div  id="time7" style="display:none"> 
+                              <div class="from pt-2">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="appt">     
+                                  </p>                           
+                                </form>
+                              </div>
+                              <div class="to">
+                                <form action="/action_page.php">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="appt">     
+                                </p>                       
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                        </form><!-- End reception hours  Form -->
+
+                      </div>
+
+                      <div class="tab-pane fade pt-3" id="Menu-change">
+                        <div class="container">
+                          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                              <div class="col mt-3">
+                                  <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                              </div>
+                              <div class="col mt-3">
+                                  <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                              </div>
+                              <div class="col mt-3">
+                                  <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                              </div>
+                              <div class="col mt-3">
+                                  <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                              </div>
+                              <div class="col mt-3">
+                                  <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                              </div>
+                              <div class="col mt-3">
+                                  <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="tab-pane fade pt-3" id="review">
+
+                        <div class="col-12">
+
+                          <div class="row">
+            <!-- place Card -->
+            <div class="col-xxl-6 col-md-6 my-4">
+              <div class="card info-card sales-card">
+
+
+                <div class="card-body my-4 pb-1 text-center align-items-center">
+                  <div class="card-icon d-flex align-items-center justify-content-center">
+                    <img src="assets/img//shops.png" alt="">
+                  </div>
+                  
+                  <h5 class="card-title">Branch</h5>
+                  <p>See feedbacks about users from your branch</p>
+
+                  <div class="pt-4">
+                    <a href="branchReviews.html" class="button2 mt-4 btn-primary btn-lg" title="Remove my profile image">SEE REVIEWS</a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div><!-- End place Card -->
+
+            <!-- place Card -->
+            <div class="col-xxl-6 col-md-6 my-4">
+              <div class="card info-card sales-card">
+
+                <div class="card-body my-4 pb-1 text-center align-items-center">
+                  <div class="card-icon d-flex align-items-center justify-content-center">
+                    <img src="assets/img/team.png" alt="">
+                  </div>
+                  
+                  <h5 class="card-title">Users</h5>
+                  <p>See feedbacks about your branch from users</p>
+
+                  <div class="pt-4">
+                    <a href="usersReviews.html" class="button2 mt-4 btn-primary btn-lg" title="Remove my profile image">SEE REVIEWS</a>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End place Card -->
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      
+
+                      
+                    </div><!-- End Bordered Tabs -->
+      
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Juant</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+
+      Designed by <a href="">Juant</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    var imgUpload = document.getElementById('upload-img')
+  , imgPreview = document.getElementById('img-preview')
+  , imgUploadForm = document.getElementById('form-upload')
+  , totalFiles
+  , previewTitle
+  , previewTitleText
+  , img;
+
+imgUpload.addEventListener('change', previewImgs, true);
+
+function previewImgs(event) {
+  totalFiles = imgUpload.files.length;
+  
+     if(!!totalFiles) {
+    imgPreview.classList.remove('img-thumbs-hidden');
+  }
+  
+  for(var i = 0; i < totalFiles; i++) {
+    wrapper = document.createElement('div');
+    wrapper.classList.add('wrapper-thumb');
+    removeBtn = document.createElement("span");
+    nodeRemove= document.createTextNode('x');
+    removeBtn.classList.add('remove-btn');
+    removeBtn.appendChild(nodeRemove);
+    img = document.createElement('img');
+    img.src = URL.createObjectURL(event.target.files[i]);
+    img.classList.add('img-preview-thumb');
+    wrapper.appendChild(img);
+    wrapper.appendChild(removeBtn);
+    imgPreview.appendChild(wrapper);
+   
+    $('.remove-btn').click(function(){
+      $(this).parent('.wrapper-thumb').remove();
+    });    
+
+  }
+  
+  
+}
+  </script>
+
+<script>
+  function Sunday() {
+    // Get the checkbox
+    var checkBox = document.getElementById("inlinedateCheckbox1");
+    // Get the output text
+    var date = document.getElementById("time1");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      date.style.display = "block";
+    } else {
+      date.style.display = "none";
+    }
+  }
+
+  function Monday() {
+    // Get the checkbox
+    var checkBox = document.getElementById("inlinedateCheckbox2");
+    // Get the output text
+    var date = document.getElementById("time2");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      date.style.display = "block";
+    } else {
+      date.style.display = "none";
+    }
+  }
+
+  function thuesday() {
+    // Get the checkbox
+    var checkBox = document.getElementById("inlinedateCheckbox3");
+    // Get the output text
+    var date = document.getElementById("time3");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      date.style.display = "block";
+    } else {
+      date.style.display = "none";
+    }
+  }
+
+  function whensday() {
+    // Get the checkbox
+    var checkBox = document.getElementById("inlinedateCheckbox4");
+    // Get the output text
+    var date = document.getElementById("time4");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      date.style.display = "block";
+    } else {
+      date.style.display = "none";
+    }
+  }
+
+  function thursday() {
+    // Get the checkbox
+    var checkBox = document.getElementById("inlinedateCheckbox5");
+    // Get the output text
+    var date = document.getElementById("time5");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      date.style.display = "block";
+    } else {
+      date.style.display = "none";
+    }
+  }
+
+  function Friday() {
+    // Get the checkbox
+    var checkBox = document.getElementById("inlinedateCheckbox6");
+    // Get the output text
+    var date = document.getElementById("time6");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      date.style.display = "block";
+    } else {
+      date.style.display = "none";
+    }
+  }
+
+  function Satrday() {
+    // Get the checkbox
+    var checkBox = document.getElementById("inlinedateCheckbox7");
+    // Get the output text
+    var date = document.getElementById("time7");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      date.style.display = "block";
+    } else {
+      date.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+

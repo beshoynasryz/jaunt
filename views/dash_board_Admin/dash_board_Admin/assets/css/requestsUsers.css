@@ -1,0 +1,43 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+
+
+
+
+
+.places .profile .buttons button{
+    width: 30%;
+}
+
+.places .profile .buttons .button2{
+    background-color: var(--background-color-of-secondary-color);
+    color: black;
+}
+
+.places .profile .buttons .button2:hover{
+    background-color:rgb(183, 21, 0);
+    color: black;
+}
+
+.places .profile .buttons .button3{
+    background-color: var(--background-color-of-secondary-color);
+    color: black;
+}
+
+.places .profile .buttons .button3:hover{
+    background-color:rgb(233, 190, 0);
+    color: black;
+}
+
+.places .profile .news i{
+    color: var(--primary-color);
+}

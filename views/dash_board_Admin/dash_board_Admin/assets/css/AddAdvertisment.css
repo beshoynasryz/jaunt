@@ -1,0 +1,231 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+
+
+
+
+
+
+
+.card-body .card-icon img{
+    margin-right: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+
+.card-body .card-icon .card-title{
+    margin-top: 30px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+.info-card:hover{
+    border: 2px solid var(--primary-color)
+}
+
+.card .card-body .button2{
+    background-color: var(--secondary-color);
+    color: white;
+    border: 0.5px solid var(--secondary-color);
+}
+
+.card .card-body .button2:hover{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.filter i{
+    font-size: 24px;
+}
+
+
+
+
+/* News & Updates */
+.profile .news .post-item+.post-item {
+    margin-top: 35px;
+  }
+
+
+  
+  .profile .news  .card{
+  height: 100%;
+  }
+  
+  .profile .news  .card h5{
+    color: var(--text-color1);
+    font-weight: bold;
+  }
+
+  .profile .news  .card .card-body .card-title{
+    margin-bottom: 100px;
+  }
+
+  
+  .profile .news  .card .card-body .btn{
+    color:#fff;
+    background-color: var(--secondary-color);
+    border: 0px solid var(--primary-color);
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin-top: 10px;
+  }
+  
+.profile .news .card .card-body .button2{
+    color:var(--text-color1);
+    background-color: var(--background-color-of-primary-color);
+    border: 0.5px solid var(--primary-color);
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 30px;
+  }
+  
+.profile .news .card .card-body .btn:hover{
+    color:#fff;
+    background-color: var(--primary-color);
+    border: 0.5px solid var(--background-color-of-secondary-color);
+  }
+  
+.profile .news .post-item img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    border-radius: 10px;
+    height: 90px;
+    margin-right: 10px;  
+    margin-top: 0px;
+}
+
+  .profile .news p .bi-geo-alt,
+  .profile .news p .bi-calendar-event,
+  .profile .news p .bi-calendar3 {
+    color: var(--primary-color);
+  }
+  
+.profile .news h4 {
+    font-size: 15px;
+    margin-left: 95px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: var(--text-color1);
+  }
+  
+.profile .news h4 {
+    color: var(--text-color1);
+    transition: 0.3s;
+  }
+  
+.profile .news p {
+    font-size: 14px;
+    color: var(--text-color1);
+    margin-left: 95px;
+    line-height: 16px;
+    margin-bottom: 6px;
+  }
+  
+.profile .news p a{
+    font-size: 14px;
+    color: var(--text-color1);
+    line-height: 16px;
+    font-weight: 500;
+  }
+
+.profile .news p a:hover{
+    color: var(--primary-color);
+  }
+
+
+  .card-ad{
+    border: 1px solid  var(--secondary-color);
+    border-radius: 10px;
+  }
+
+  .card-ad:hover{
+    border: 1.5px solid  var(--primary-color);
+    border-radius: 10px;
+  }
+
+  .card-ad .title{
+    margin-top: 20px;
+  }
+
+  .card-ad .button{
+    margin-bottom: 20px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*pricing styles*/
+
+
+
+
+  .profile .add-ad .card-body{
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+    border: 1px solid var(--background-color-of-secondary-color);
+    border-radius: 20px;
+    background-color: var(--background-color-of-primary-color);
+    margin-top: 10px;
+    font-family: 'Montserrat' , sans-serif;
+    padding-bottom: 25px;
+  }
+  
+  .profile .add-ad .card-body .card-title{
+    padding: 20px 0 0 0;
+    font-size: 28px;
+    color: var(--text-color1);
+    font-weight: 700;
+  }
+  
+  .profile .add-ad .card-body p{
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-color1);
+  }
+
+
+  .profile .add-ad .price{
+
+  }
+
+
+  .single_price_plan .price h4 {
+    position: relative;
+    z-index: 1;
+    font-size: 2.4rem;
+    line-height: 1;
+    margin-bottom: 0;
+    color: #3f43fd;
+    display: inline-block;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, var(--background-color-of-secondary-color), var(--primary-color));
+}
+
+
+
+
+  

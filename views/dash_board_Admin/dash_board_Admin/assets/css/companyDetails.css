@@ -1,0 +1,10 @@
+.add-places .card-body .card-icon img{
+    width: 120px;
+    height: 120px;
+}
+
+.add-places .card-body .news{
+    font-size: 18px;
+    margin-top: 16px;
+    font-weight: 600;
+}

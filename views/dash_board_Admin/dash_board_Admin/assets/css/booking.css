@@ -1,0 +1,150 @@
+
+
+
+
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+  --primary-color: #9661C9;
+  --background-color-of-primary-color: #F2ECF9;
+  --secondary-color: #9183D8;
+  --background-color-of-secondary-color:#D9CEF9 ;
+  --text-color1: #21162C;
+}
+/*end variables*/
+
+
+
+
+
+
+.profile .filter {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+  }
+  
+  .profile .filter .icon {
+    color: var(--primary-color);
+    padding-right: 20px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+  }
+  
+  .profile .filter .icon:hover,
+  .places .filter .icon:focus {
+    color: var(--secondary-color);
+  }
+  
+  .profile .filter .dropdown-header {
+    padding:  15px;
+  }
+  
+  .profile .filter .dropdown-header h6 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-color1);
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+  .profile .filter .dropdown-item {
+    padding: 8px 15px;
+  }
+  
+  .profile .card-body .search-bar{
+    min-width: 360px;
+    padding: 0 0px;
+  }
+  
+  .profile .card-body .search-form {
+    width: 100%;
+  }
+  
+  .profile .search-form input {
+    border: 0;
+    font-size: 14px;
+    color: var(--text-color1);
+    border: 1px solid rgba(1, 41, 112, 0.2);
+    padding: 7px 38px 7px 8px;
+    border-radius: 3px;
+    transition: 0.3s;
+    width: 50%;
+    border-radius: 20px;
+  }
+  
+  .profile .search-form input:focus,
+  .profile .search-form input:hover {
+    outline: none;
+    box-shadow: 0 0 10px 0 rgba(55, 1, 112, 0.15);
+    border: 1px solid rgba(55, 1, 112, 0.15);
+  }
+  
+  .profile .search-form button {
+    border: 0;
+    padding: 0;
+    margin-left: -30px;
+    background: none;
+  }
+  
+  .profile .search-form button i {
+    color: var(--primary-color);
+  }
+
+
+
+
+  .places .profile .card .card-body .tab-content .card{
+    border: none;
+    margin-top: 10px;
+  }
+
+
+
+
+
+
+
+
+
+.filter .form-group{
+  width: 150px;
+  margin-right: 20px;
+}
+
+.info-card .news {
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.info-card .news:hover {
+  border: 1.5px solid var(--primary-color);
+}
+
+.info-card .news div .button2{
+  background-color: var(--background-color-of-secondary-color);
+  border: 0.5px solid var(--background-color-of-secondary-color);
+  color: var(--text-color1);
+}
+
+.info-card .news .post-item .info a{
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.info-card .news .post-item p i{
+  color: var(--primary-color);
+}
+
+.info-card{
+  margin-bottom: 5px;
+}
