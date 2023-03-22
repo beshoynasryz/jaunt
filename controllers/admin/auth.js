@@ -43,7 +43,7 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
        .find({ owner_id: req.params.id });
 
       const selectedowner = await Owner.findById(req.params.id);
-      res.render('admin/ownerbookings/managebranchesbooking', 
+      res.render('admin/ownerbookings/managebranchesbooking',
         { 
           layout: './admin/layouts/main',
           owner: req.session.owner,
