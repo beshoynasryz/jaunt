@@ -7,19 +7,19 @@ export const getOwnerBookings = async (req,res,next)=>{
         res.redirect('/admin/auth/sign-in');
     }
 
-    let bookings = await Booking
-        .find({ owner_id: req.session.owner._id})
-        .populate('user');
+let bookings = await Booking
+    .find({ owner_id: req.session.owner._id})
+    .populate('user');
 
-    if(req.params.id){
-        bookings = await Booking 
-        .find({ place: req.params.id })  
-        .populate('user'); 
-    }
+if(req.params.id){
+    bookings = await Booking 
+    .find({ place: req.params.id })  
+    .populate('user'); 
+}
 
-    if(req.session.owner.isAdmin) {
-        bookings = await Booking.find().populate('user');
-    } 
+if(req.session.owner.isAdmin) {
+    bookings = await Booking.find().populate('user');
+} 
 
     res.render('admin/bookings/index', {
         layout: './admin/layouts/main', 

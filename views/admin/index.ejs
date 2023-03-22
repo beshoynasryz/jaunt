@@ -18,19 +18,17 @@
       <div class="col-lg-8">
         <div class="row">
 
+       
 
-
-
-
-          <!-- Top Selling -->
-          <div class="col-12">
-            <div class="card top-selling overflow-auto">
-
-              <div class="card-body pb-0">
-                <h5 class="card-title">Places</h5>
-                <div class="filter">
-                  <a class="icon" href="/admin/places/owner-places">See All</a>
-              </div>
+              <% if (!owner.isAdmin) {%>
+                <!-- Top Selling -->
+                <div class="col-12">
+                  <div class="card top-selling overflow-auto">
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">Places</h5>
+                    <div class="filter">
+                      <a class="icon" href="/admin/places/owner-places">See All</a>
+                  </div>
 
                 <table class="table text-center">
                   <thead>
@@ -51,16 +49,63 @@
                       <td class="fw-bold"><%= place.capacity %></td>
                       <td class="fw-bold"><%= place.budget %></td>
                     </tr>
-                    <% }); %>
 
+
+                    
+                    <% }); %>
+                    
+                    
+                    
                   </tbody>
                 </table>
 
               </div>
 
             </div>
-          </div><!-- End Top Selling -->
+                </div><!-- End Top Selling -->
+              <%}%> 
           
+          <% if (owner.isAdmin) {%>
+            <!-- Top Selling -->
+            <div class="col-12">
+              <div class="card top-selling overflow-auto">
+                <div class="card-body pb-0">
+                  <h5 class="card-title">Partner</h5>
+                  <div class="filter">
+                    <a class="icon" href="/admin/auth/partners">See All</a>
+                </div>
+
+              <table class="table text-center">
+                <thead>
+
+                  <tr>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody class="text-center">
+                  <% owners.forEach(function(owner){ %>
+                  <tr>
+                    <th scope="row"><a href="#"><img src="<%= owner.image %>" alt=""></a></th>
+                  
+                    <td><%= owner.ownername %></td>
+                    <td><%= owner.companyname %></td>
+                    <td><%= owner.type %></td>
+                    <!-- <td class="fw-bold">10</td> -->
+                    <td class="fw-bold"><%= owner.email %></td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+
+            </div>
+            
+          </div>
+            </div><!-- End Top Selling -->
+          <%}%> 
           <!-- Sales Card -->
           <div class="col-xxl-6 col-md-6 my-4 text-center">
             <div class="card info-card sales-card">
@@ -138,55 +183,106 @@
       <div class="col-lg-4">
 
 
-
-              
+<!-- if his login is owner -->
+    
+      <% if (!owner.isAdmin) {%>
           <% bookings.forEach(function(booking){ %>
-            
-        <!-- booking Traffic -->
-        <div class="card h-auto">
+            <div class="card h-auto">
 
-            <div class="card-body pb-0">
-            <h5 class="card-title">Request Booking</h5>
+              <div class="card-body pb-0">
+              <h5 class="card-title">Request Booking</h5>
 
-            <div class="news">
-              <div class="post-item clearfix">
-                
-                <div>
-                  <img src="<%= booking.user.image %>" alt="">
-                </div>
-                <h4>Request from <%= booking.user.name %></h4>
-                <p><i class="bi bi-geo-alt pe-1"></i>Giza, Zamalek</p>
-                <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-                
-                <% if (booking.status === 'pending') {%> 
-                  <span class="badge bg-info m-3"><%= booking.status %></span>
-                <%} else if(booking.status === 'approved') { %>                                                                                
-                  <span class="badge bg-success m-3"><%= booking.status %></span>
-                <%} else if(booking.status === 'declined') { %>                                                                                
-                  <span class="badge bg-warning m-3"><%= booking.status %></span>
-                <%} else { %>                                                                  
-                <span class="badge bg-danger m-3"><%= booking.status %></span>
-                <%}%>                   
-                <!-- <p><a href="dashboardRequestDetails.html">See request Information <i class="bi bi-caret-right-fill"></i></a></p> -->
-                <div class="row">
-                                                                                  
-                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
-                    <input type="hidden" name="status" value="approved">
-                    <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
-                  </form>
-                  <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
-                    <input type="hidden" name="status" value="declined">
-                    <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
-                  </form>
-                </div>
+              <div class="news">
+                <div class="post-item clearfix">
+                  
+                  <div>
+                    <img src="<%= booking.user.image %>" alt="">
+                  </div>
+                  <h4>Request from <%= booking.user.name %></h4>
+                  <p><i class="bi bi-geo-alt pe-1"></i>Giza, Zamalek</p>
+                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
+                  
+                  <% if (booking.status === 'pending') {%> 
+                    <span class="badge bg-info m-3"><%= booking.status %></span>
+                  <%} else if(booking.status === 'approved') { %>                                                                                
+                    <span class="badge bg-success m-3"><%= booking.status %></span>
+                  <%} else if(booking.status === 'declined') { %>                                                                                
+                    <span class="badge bg-warning m-3"><%= booking.status %></span>
+                  <%} else { %>                                                                  
+                  <span class="badge bg-danger m-3"><%= booking.status %></span>
+                  <%}%>                   
+                  <!-- <p><a href="dashboardRequestDetails.html">See request Information <i class="bi bi-caret-right-fill"></i></a></p> -->
+                  <div class="row">
+                                                                                    
+                    <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
+                      <input type="hidden" name="status" value="approved">
+                      <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                    </form>
+                    <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
+                      <input type="hidden" name="status" value="declined">
+                      <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
+                    </form>
+                  </div>
 
-            </div>
               </div>
-              
-            </div><!-- End sidebar recent posts-->
-          </div>
-              <% }); %>
+                </div>
+                
+              </div><!-- End sidebar recent posts-->
+            </div>
+          <% }); %>
+      <%}%> 
 
+          
+
+              <!-- if his login is admin -->
+              
+          <% if (owner.isAdmin) {%>
+            <% leatesPlaces.forEach(function(place){ %>
+              <div class="card h-auto">
+    
+                <div class="card-body pb-0">
+                <h5 class="card-title">Request Booking</h5>
+    
+                <div class="news">
+                  <div class="post-item clearfix">
+                    
+                    <div>
+                      <!-- <img src="<%= place.images[0] %>" alt=""> -->
+                    </div>
+                    <!-- <h4>Request from <%= place.name %></h4> -->
+                    <p><i class="bi bi-geo-alt pe-1"></i><%= place.area %></p>
+                    <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
+                    
+                    <% if (place.status === 'pending') {%> 
+                      <span class="badge bg-info m-3"><%= place.status %></span>
+                    <%} else if(place.status === 'approved') { %>                                                                                
+                      <span class="badge bg-success m-3"><%= place.status %></span>
+                    <%} else if(place.status === 'declined') { %>                                                                                
+                      <span class="badge bg-warning m-3"><%= place.status %></span>
+                    <%} else { %>                                                                  
+                    <span class="badge bg-danger m-3"><%= place.status %></span>
+                    <%}%>                   
+                    <!-- <p><a href="dashboardRequestDetails.html">See request Information <i class="bi bi-caret-right-fill"></i></a></p> -->
+                    <div class="row">
+                                                                                      
+                      <form class="col-md-6" method="POST" action="/admin/places/update-status/<%= place.id %>">
+                        <input type="hidden" name="status" value="approved">
+                        <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                      </form>
+                      <form class="col-md-6" method="POST" action="/admin/places/update-status/<%= place.id %>">
+                        <input type="hidden" name="status" value="declined">
+                        <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
+                      </form>
+                    </div>
+    
+                </div>
+                  </div>
+                  
+                </div>
+              </div>
+            <% }); %>
+          <%}%> 
+    
 
         </div><!-- End News & Updates -->
       </div><!-- End Right side columns -->

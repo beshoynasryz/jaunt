@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+  /*end variables*/
+
+
+.places .profile .card-body .tab-content i{
+    color: var(--primary-color);
+}
+
+.places .profile .card-body .tab-content h5{
+    color: var(--text-color1);
+}
+
+.places .profile .card-body .tab-content .tab-pane .card{
+    border: none;
+}
+
+
+/* .places .profile .card-body .tab-content .tab-pane .tab-content .card{
+    border: 1px solid var(--background-color-of-secondary-color);
+} */
+
+/* .places .profile .card-body .tab-content .tab-pane .tab-content .card:hover{
+    border: 1.5px solid var(--primary-color);
+} */

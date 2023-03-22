@@ -58,6 +58,9 @@
                   <div class="row text-center">
                     <div class="col-lg-12 col-md-4 label ">Company Name: <span><%= owner.companyname %></span></div>
                   </div>
+                  <div class="row text-center">
+                    <div class="col-lg-12 col-md-4 label "> Type: <span><%= owner.type %></span></div>
+                  </div>
 
                   <div class="row text-center">
                     <div class="col-lg-12 col-md-4 label ">Phone: <span><%= owner.phone %></span></div>
@@ -113,11 +116,11 @@
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-2 col-form-label">Company Type</label>
                       <div class="col-md-8 col-lg-10">
-                        <select class="form-control" id="sel1">
-                          <option>Park</option>
-                          <option>Resturant</option>
-                          <option>Cafes</option>
-                          <option>Workspaces</option>
+                        <select class="form-control" name="type" id="sel1">
+                          <option>park</option>
+                          <option>resturant</option>
+                          <option>cafe</option>
+                          <option>workspace</option>
                         </select>
                       </div>
                     </div>

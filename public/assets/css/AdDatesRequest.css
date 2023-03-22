@@ -1,0 +1,61 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+
+
+.single_price_plan{
+    width: 100%;
+}
+
+/* 
+.places .profile .card-body .news button{
+    width: 50%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+    border: 0.5px solid var(--background-color-of-secondary-color);
+    font-size: 20px;
+    margin-top: 20px;
+} */
+
+.places .profile .single_price_plan .price h4 {
+    position: relative;
+    z-index: 1;
+    font-size: 30px;
+    line-height: 1;
+    margin-bottom: 0[x];
+    color: #3f43fd;
+    display: inline-block;
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, var(--background-color-of-secondary-color), var(--primary-color));
+}
+
+.places .profile .card-ad .title{
+    margin-top: 8px;
+
+}
+
+.places .profile .single_price_plan .title h3{
+    font-size: 24px;
+    margin-bottom: 0px;
+    color: var(--text-color1);
+}
+
+
+.places .profile .single_price_plan .title p{
+    margin-bottom: 2px;
+    font-weight: 600;
+    color: var(--text-color1);
+}

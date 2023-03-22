@@ -5,7 +5,6 @@ export const createPlace =async (req,res,next)=>{
     try {
     var imagesArray = []
     const { images } = req.files;
-    console.log(images)
     const path = "/uploaded-images/";
     const filePath = './public' + path
 
@@ -129,5 +128,27 @@ export const renderCreatePlaceView=async (req,res,next)=>{
     }
     catch(err){
        next(err)
+    }
+}
+
+
+export const updatedStatus =async (req,res,next)=>{
+    try{
+        await Place.findByIdAndUpdate(req.params.id, { $set: {status: req.body.status }}, {
+            new: true
+          })
+          
+         
+        //   console.log('wwww',req.accepts('json'),req.headers['content-type'] === 'application/json')
+
+        if(req.headers['content-type'] !== 'application/json'){
+            //respond in html
+            res.redirect('back');
+          } else {
+            res.status(200).json({ "mag": "place status has been updated" })
+          } 
+    } 
+    catch(err){
+        next(err);
     }
 }

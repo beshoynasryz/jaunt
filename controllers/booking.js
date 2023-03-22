@@ -29,7 +29,12 @@ export const getUserBookings = async (req,res,next)=>{
 //     }
 // }
 
- 
+const getRandomBookingNumber = (min = 0, max = 500000) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    const num =  Math.floor(Math.random() * (max - min + 1)) + min;
+    return 'BN-' + num.toString().padStart(6, "0")
+};
 
 export const createBooking =async (req,res,next)=>{
     try {
@@ -44,7 +49,7 @@ export const createBooking =async (req,res,next)=>{
         }
 
         const newBooking = new Booking({
-            bookingNumber:req.body.bookingNumber,
+            bookingNumber: getRandomBookingNumber(),
             date:req.body.date,
             checkin:req.body.checkin,
             checkout:req.body.checkout,

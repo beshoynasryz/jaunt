@@ -22,7 +22,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="/admin">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -34,7 +34,7 @@
       <% if (owner.isAdmin) {%>
       
         <li class="nav-item">
-          <a class="nav-link collapsed" href="">
+          <a class="nav-link collapsed" href="/admin/auth/partners">
             <i class="bi bi-person"></i>
             <span>Partners</span>
           </a>
@@ -46,7 +46,7 @@
         <% if (owner.isAdmin) {%>
         
           <li class="nav-item">
-            <a class="nav-link collapsed" href="">
+            <a class="nav-link collapsed" href="/admin/auth/companies">
               <i class="bi bi-building"></i>
               <span>Companies</span>
             </a>
@@ -56,9 +56,9 @@
 
           <!-- ---------------------------------- -->
         <% if (owner.isAdmin) {%>
-        
+          
           <li class="nav-item">
-            <a class="nav-link collapsed" href="">
+            <a class="nav-link collapsed" href="/admin/auth/ownerbookings">
               <i class="bi bi-building-add"></i>
               <span>Branches Requests</span>
             </a>

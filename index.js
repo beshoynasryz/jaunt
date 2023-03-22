@@ -16,7 +16,7 @@ app.use(expressLayouts)
 app.set('layout', './admin/layouts/main')
 app.set('view engine','ejs');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.json())
@@ -57,7 +57,7 @@ app.use("/", homeRoute)
 app.use('/auth', authRoute)
 app.use("/bookings", bookingRoute) 
 app.use("/places", placesUserRoute) 
- 
+  
 // admin (owner) 
 app.use("/", homeAdminRoute)
 app.use('/admin/auth',authAdminRoute)

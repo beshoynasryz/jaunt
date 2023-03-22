@@ -10,6 +10,10 @@ const OwnerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    type :{
+        type: String,
+        required: true
+    },
 
     email :{
         type: String,

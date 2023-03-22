@@ -450,7 +450,7 @@
     padding-left: 19px;
 }
 
-.news button{
+/* .news button{
     width: 50%;
     height: 50px;
     border-radius: 25px;
@@ -463,4 +463,4 @@
 
 .news button:hover{
     background-color: var(--primary-color)
-}
+} */

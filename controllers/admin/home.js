@@ -1,4 +1,5 @@
 import Booking from "../../models/Booking.js";
+import Owner from "../../models/Owner.js";
 import Place from "../../models/Place.js";
 
 export const index = async (req, res, next) => {
@@ -11,11 +12,25 @@ export const index = async (req, res, next) => {
         let bookings = await Booking
         .find({ owner_id: req.session.owner._id})
         .populate('user').limit(3).exec();
-        res.render('admin/index',
+
+        let owners = []
+        let leatesPlaces = []
+
+    if(req.session.owner.isAdmin) {
+        leatesPlaces = await Place.find().limit(3).exec();
+        owners = await Owner.find().limit(20).exec();
+    } 
+   
+    
+        res.render('admin/index', 
         { 
             owner: req.session.owner,
             places: places,
             bookings: bookings,
+            owners: owners,
+            leatesPlaces: leatesPlaces,
+
+
         } );
     } catch(err){
         next(err)

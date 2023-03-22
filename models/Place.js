@@ -53,6 +53,14 @@ const placeSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    status :{
+        type: String,
+        enum:['pending','approved', 'declined'], 
+        default: 'pending',
+    }
+},
+{
+    timestamps: true
 })
 
 export default mongoose.model("Place",placeSchema)

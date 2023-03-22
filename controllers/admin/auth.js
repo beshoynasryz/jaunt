@@ -2,6 +2,129 @@ import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import { createError } from "../../utils/error.js"
 import Owner from "../../models/Owner.js"
+import Booking from "../../models/Booking.js"
+import Place from "../../models/Place.js"
+
+
+// export const getOwnerBookings = async (req,res,next)=>{
+//   // If the user is loggedin
+//   if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+//       res.redirect('/admin/auth/sign-in');
+//   }
+
+//   let bookings = await Booking
+//       .find({ owner_id: req.session.owner._id})
+//       .populate('user');
+
+//   if(req.params.id){
+//       bookings = await Booking 
+//       .find({ place: req.params.id })  
+//       .populate('user'); 
+//   }
+
+//   if(req.session.owner.isAdmin) {
+//       bookings = await Booking.find().populate('user');
+//   } 
+
+//   res.render('admin/bookings/index', {
+//       layout: './admin/layouts/main', 
+//       bookings: bookings, 
+//       owner: req.session.owner 
+//   });
+// }
+export const renderManageBranchesBookingView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+
+      let leatesPlaces = await Place
+       .find({ owner_id: req.params.id });
+
+      const selectedowner = await Owner.findById(req.params.id);
+      res.render('admin/ownerbookings/managebranchesbooking', 
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+          selectedowner: selectedowner,
+          leatesPlaces:leatesPlaces
+        }
+      ); 
+       
+  } catch(err){
+      next(err)
+  }
+}
+
+
+export const renderCompaniesView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+      
+      const owners = await Owner.find();
+      res.render('admin/companie/companies',  
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+          owners: owners,
+        }
+      ); 
+       
+  } catch(err){
+      next(err)
+  }
+}
+
+export const renderBranchesBookingView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+
+     let bookings = await Booking
+            .find({ owner_id: req.session.owner._id})
+            .populate('user');
+      
+        if(req.params.id){
+            bookings = await Booking 
+            .find({ place: req.params.id })  
+            .populate('user'); 
+           
+        }
+      
+        if(req.session.owner.isAdmin) {
+            bookings = await Booking.find().populate('user');
+        } 
+      
+        let leatesPlaces = []
+
+        if(req.session.owner.isAdmin) {
+            leatesPlaces = await Place.find();
+           
+        } 
+
+
+      // const owners = await Owner.find();
+
+      res.render('admin/ownerbookings/branchesbooking',
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+          bookings: bookings, 
+          leatesPlaces :leatesPlaces,
+          // owners: owners,
+        }
+      ); 
+       
+  } catch(err){
+      next(err)
+  }
+}
 
 export const renderRegisterView =async (req,res,next)=>{
   try {
@@ -26,19 +149,85 @@ export const renderLoginView =async (req, res, next) => {
       next(err)
   }
 }
+
 export const rendercontactView =async (req, res, next) => {
   try {
       // If the user is loggedin
       if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
           res.redirect('/admin/auth/sign-in');
       }
-      res.render('admin/auth/pages-contact',  { 
-        layout: './admin/layouts/guest' });
+      res.render('admin/auth/pages-contact',  
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner
+        }
+      );
        
   } catch(err){
       next(err)
   }
 }
+export const renderPartnerView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+      
+      const owners = await Owner.find();
+      res.render('admin/partner/partners',  
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+          owners: owners,
+        }
+      );
+       
+  } catch(err){
+      next(err)
+  }
+}
+export const renderPartnermanageView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+      
+      const owners = await Owner.find();
+      res.render('admin/ownerbookings/partnermanagerequst',  
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+          owners: owners,
+        }
+      );
+       
+  } catch(err){
+      next(err)
+  }
+}
+export const renderBookingwayView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+      
+     
+      res.render('admin/ownerbookings/bookingway',  
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+         
+        }
+      ); 
+       
+  } catch(err){
+      next(err)
+  }
+}
+
 
 export const profile =async (req, res, next) => {
   try {
@@ -72,6 +261,7 @@ export const register = async (req,res,next)=>{
         const newOwner =new Owner({
           ownername:req.body.ownername,
           companyname:req.body.companyname,
+          type:req.body.type,
           email:req.body.email,
           type:req.body.type,
           phone:req.body.phone,
@@ -113,6 +303,7 @@ export const login = async (req,res,next)=>{
         _id: owner._id,
         ownername: owner.ownername,
         companyname: owner.companyname,
+        type: owner.type,
         email: owner.email,
         phone: owner.phone,
         image: owner.image,
@@ -155,6 +346,7 @@ export const updateOwner =async (req,res,next)=>{
         _id: updatedOwner._id.toHexString(),
         ownername: updatedOwner.ownername,
         companyname: updatedOwner.companyname,
+        type: updatedOwner.type,
         email: updatedOwner.email,
         phone: updatedOwner.phone,
         image: updatedOwner.image,
