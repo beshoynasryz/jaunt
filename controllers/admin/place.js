@@ -1,5 +1,6 @@
 import Place from "../../models/Place.js"
 
+
 export const createPlace =async (req,res,next)=>{
     try {
     var imagesArray = []
