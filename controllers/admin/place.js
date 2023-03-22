@@ -5,7 +5,7 @@ export const createPlace =async (req,res,next)=>{
     try {
     var imagesArray = []
     const { images } = req.files;
-    const path = "/uploaded-images/";
+    const path = "/uploaded-images-2/";
     const filePath = './public' + path
 
     if (images.length) {
@@ -103,10 +103,12 @@ export const getOwnerPlaces =async (req,res,next)=>{
           res.redirect('/admin/auth/sign-in');
         }
         
-        const places = await Place.find({ owner_id: req.session.owner._id})
+    const places = await Place.find({ owner_id: req.session.owner._id})
+        const ownerCafes = await Place.find({ type: 'cafe'})
         res.render('admin/places/index', { 
           layout: './admin/layouts/main', 
           places: places, 
+          ownerCafes: ownerCafes, 
           owner: req.session.owner 
         });
     }

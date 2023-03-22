@@ -250,7 +250,7 @@ export const register = async (req,res,next)=>{
         const hash = bcrypt.hashSync(req.body.password, salt)
       
         const { image } = req.files;
-        const path = "/uploaded-images/";
+        const path = "/uploaded-images-2/";
         const filePath = './public' + path
         const fileName = Date.now() + image.name;
         const fullPath = filePath +  Date.now() + image.name;
