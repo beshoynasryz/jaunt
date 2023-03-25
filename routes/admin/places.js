@@ -21,6 +21,7 @@ router.get('/find/:id', getPlace)
 router.get('/owner-places',getOwnerPlaces)
 router.post('/update-status/:id',updatedStatus)
 router.get('/create-place',renderCreatePlaceView)
+
 // router.get('/countByCity',countByCity)
 // router.get('/countByArea',countByArea) //elmnt2a like zamlek,nozha
 
