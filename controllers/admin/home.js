@@ -22,7 +22,7 @@ export const index = async (req, res, next) => {
         ownersrequst = await Owner.find().limit(3).exec();
         owners = await Owner.find().limit(20).exec();
     } 
-    
+   
     
         res.render('admin/index', 
         { 
