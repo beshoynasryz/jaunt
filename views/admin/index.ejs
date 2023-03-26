@@ -238,7 +238,21 @@
               
           <% if (owner.isAdmin) {%>
             <% leatesPlaces.forEach(function(place){ %>
+            <% ownersrequst.forEach(function(owner){ %>
               <div class="card h-auto">
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+                    <li><a class="dropdown-item active" href="/admin/auth/branchesbooking">All</a></li>
+                    
+                    <li><a class="dropdown-item active" href="/admin/auth/branchesbooking">Waiting</a></li>
+                   
+                    <li><a class="dropdown-item active" href="/admin/auth/branchesbooking">Requests</a></li>
+                  </ul>
+                </div>
     
                 <div class="card-body pb-0">
                 <h5 class="card-title">Request Booking</h5>
@@ -247,11 +261,12 @@
                   <div class="post-item clearfix">
                     
                     <div>
-                      <!-- <img src="<%= place.images[0] %>" alt=""> -->
+                      <!-- <img src="<%= owner.image %>" alt=""> -->
                     </div>
-                    <!-- <h4>Request from <%= place.name %></h4> -->
-                    <p><i class="bi bi-geo-alt pe-1"></i><%= place.area %></p>
-                    <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
+                   <h4>Request from <%= owner.ownername %></h4>
+                    <p><i class="bi bi-geo-alt pe-1"></i><%= owner.companyname %></p>
+                    <p><i class="bi bi-geo-alt pe-1"></i><%= owner.type %></p>
+                    <p><i class="bi bi-calendar-event pe-1"></i><%= place.createdAt?.toDateString() %></p>
                     
                     <% if (place.status === 'pending') {%> 
                       <span class="badge bg-info m-3"><%= place.status %></span>
@@ -280,8 +295,9 @@
                   
                 </div>
               </div>
+              <% }); %>
             <% }); %>
-          <%}%> 
+            <%}%> 
     
 
         </div><!-- End News & Updates -->

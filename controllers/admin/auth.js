@@ -6,32 +6,7 @@ import Booking from "../../models/Booking.js"
 import Place from "../../models/Place.js"
 
 
-// export const getOwnerBookings = async (req,res,next)=>{
-//   // If the user is loggedin
-//   if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
-//       res.redirect('/admin/auth/sign-in');
-//   }
 
-//   let bookings = await Booking
-//       .find({ owner_id: req.session.owner._id})
-//       .populate('user');
-
-//   if(req.params.id){
-//       bookings = await Booking 
-//       .find({ place: req.params.id })  
-//       .populate('user'); 
-//   }
-
-//   if(req.session.owner.isAdmin) {
-//       bookings = await Booking.find().populate('user');
-//   } 
-
-//   res.render('admin/bookings/index', {
-//       layout: './admin/layouts/main', 
-//       bookings: bookings, 
-//       owner: req.session.owner 
-//   });
-// }
 export const renderManageBranchesBookingView =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -56,6 +31,9 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
       next(err)
   }
 }
+
+
+
 export const partnerDetials =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -81,6 +59,43 @@ export const partnerDetials =async (req, res, next) => {
       next(err)
   }
 }
+
+
+
+
+export const branchDetials =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+
+    } 
+ 
+      
+    //   let placeowner = await Place
+    //   .findById({ owner_id: req.params.id });
+      
+      
+    //   let ownerdetials = []
+    //  ownerdetials = await Owner.findById(req.params.id);
+    res.render('admin/partner/branchdetials',
+      { 
+        layout: './admin/layouts/main',
+        owner: req.session.owner,
+        // ownerdetials: ownerdetials,
+        // placeowner:placeowner
+      }
+      ); 
+      
+  } catch(err){
+      next(err)
+  }
+}
+
+
+
+
+
 
 
 export const renderCompaniesView =async (req, res, next) => {
@@ -170,6 +185,17 @@ export const renderLoginView =async (req, res, next) => {
           res.redirect('/admin');
       }
       res.render('admin/auth/sign_in', { layout: './admin/layouts/guest' });
+  } catch(err){
+      next(err)
+  }
+}
+export const renderlandingpageView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId === req.session.owner?._id)) {
+          res.redirect('/admin');
+      }
+      res.render('admin/auth/landingpage', { layout: './admin/layouts/guest' });
   } catch(err){
       next(err)
   }

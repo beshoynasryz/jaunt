@@ -1,5 +1,5 @@
 import  express  from "express"
-import { login, register, renderRegisterView, renderLoginView, logout, profile, updateOwner,changePassword, rendercontactView, renderPartnerView, renderCompaniesView, renderBookingwayView, renderBranchesBookingView, renderPartnermanageView, renderManageBranchesBookingView, partnerDetials } from "../../controllers/admin/auth.js";
+import { login, register, renderRegisterView, renderLoginView, logout, profile, updateOwner,changePassword, rendercontactView, renderPartnerView, renderCompaniesView, renderBookingwayView, renderBranchesBookingView, renderPartnermanageView, renderManageBranchesBookingView, partnerDetials, branchDetials, renderlandingpageView } from "../../controllers/admin/auth.js";
 
 const router =express.Router();
 
@@ -8,6 +8,11 @@ const router =express.Router();
 router.get('/pages-contact', rendercontactView);
 router.get('/partners', renderPartnerView);
 router.get('/detials/:id', partnerDetials);
+
+
+router.get('/branchdetials', branchDetials);
+
+
 router.get('/companies', renderCompaniesView);
 router.get('/ownerbookings', renderBookingwayView);
 router.get('/branchesbooking', renderBranchesBookingView);
@@ -18,6 +23,11 @@ router.get('/managebranchesbooking/:id', renderManageBranchesBookingView);
 
 
 router.get('/sign-up', renderRegisterView);
+
+
+router.get('/landingpage', renderlandingpageView);
+
+
 router.get('/sign-in', renderLoginView);
 router.get('/profile', profile);
 router.post('/update-owner', updateOwner);
