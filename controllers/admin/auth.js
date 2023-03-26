@@ -39,7 +39,7 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
           res.redirect('/admin/auth/sign-in');
       }
 
-      let leatesPlaces = await Place
+  let leatesPlaces = await Place
        .find({ owner_id: req.params.id });
 
       const selectedowner = await Owner.findById(req.params.id);
@@ -52,6 +52,31 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
         }
       ); 
        
+  } catch(err){
+      next(err)
+  }
+}
+export const partnerDetials =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+      
+      let placesowner = await Place
+      .find({ owner_id: req.params.id });
+      
+      const ownerdetials = await Owner.findById(req.params.id);
+      res.render('admin/partner/detials',
+      { 
+        layout: './admin/layouts/main',
+        owner: req.session.owner,
+        ownerdetials: ownerdetials,
+        placesowner:placesowner
+      }
+      ); 
+   
+      
   } catch(err){
       next(err)
   }
