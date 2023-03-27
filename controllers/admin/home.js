@@ -14,12 +14,12 @@ export const index = async (req, res, next) => {
         .populate('user').limit(3).exec();
 
         let owners = []
-        let ownersrequst = []
+       
         let leatesPlaces = []
 
     if(req.session.owner.isAdmin) {
-        leatesPlaces = await Place.find().limit(3).exec();
-        ownersrequst = await Owner.find().limit(3).exec();
+        leatesPlaces = await Place.find().limit(4).exec();
+        
         owners = await Owner.find().limit(20).exec();
     } 
    
@@ -30,7 +30,6 @@ export const index = async (req, res, next) => {
             places: places,
             bookings: bookings,
             owners: owners,
-            ownersrequst: ownersrequst,
             leatesPlaces: leatesPlaces,
 
 

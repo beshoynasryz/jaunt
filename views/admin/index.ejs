@@ -106,6 +106,8 @@
           </div>
             </div><!-- End Top Selling -->
           <%}%> 
+
+        
           <!-- Sales Card -->
           <div class="col-xxl-6 col-md-6 my-4 text-center">
             <div class="card info-card sales-card">
@@ -237,8 +239,7 @@
               <!-- if his login is admin -->
               
           <% if (owner.isAdmin) {%>
-            <% leatesPlaces.forEach(function(place){ %>
-            <% ownersrequst.forEach(function(owner){ %>
+            <% leatesPlaces.forEach(function(place){ %>   
               <div class="card h-auto">
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -261,11 +262,12 @@
                   <div class="post-item clearfix">
                     
                     <div>
-                      <!-- <img src="<%= owner.image %>" alt=""> -->
+                    <img src="<%= place.images[0] %>" alt=""> 
                     </div>
-                   <h4>Request from <%= owner.ownername %></h4>
-                    <p><i class="bi bi-geo-alt pe-1"></i><%= owner.companyname %></p>
-                    <p><i class="bi bi-geo-alt pe-1"></i><%= owner.type %></p>
+                   <h4>Request from <%= place.name %></h4>
+                    <p><i class="bi bi-bookmark pe-1"></i><%= place.type %></p>
+                    <p><i class="bi bi-geo-alt pe-1"></i><%= place.city %> , <%= place.area %></p>
+                    <p><a href="/admin/auth/branchdetials">See request Information <i class="bi bi-caret-right-fill"></i></a></p>
                     <p><i class="bi bi-calendar-event pe-1"></i><%= place.createdAt?.toDateString() %></p>
                     
                     <% if (place.status === 'pending') {%> 
@@ -296,7 +298,7 @@
                 </div>
               </div>
               <% }); %>
-            <% }); %>
+           
             <%}%> 
     
 
