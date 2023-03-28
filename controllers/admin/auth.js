@@ -34,6 +34,33 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
 
 
 
+export const branchDetials =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+
+    } 
+ 
+    let placeowner = []
+      
+       placeowner = await Place.findById(req.params.id);
+    //   let ownerdetials = []
+    //  ownerdetials = await Owner.findById(req.params.id);
+    res.render('admin/partner/branchdetials',
+      { 
+        layout: './admin/layouts/main',
+        owner: req.session.owner,
+        // ownerdetials: ownerdetials,
+        placeowner:placeowner
+      }
+      ); 
+      
+  } catch(err){
+      next(err)
+  }
+}
+
 export const partnerDetials =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -62,35 +89,6 @@ export const partnerDetials =async (req, res, next) => {
 
 
 
-
-export const branchDetials =async (req, res, next) => {
-  try {
-      // If the user is loggedin
-      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
-          res.redirect('/admin/auth/sign-in');
-
-    } 
- 
-      
-    //   let placeowner = await Place
-    //   .findById({ owner_id: req.params.id });
-      
-      
-    //   let ownerdetials = []
-    //  ownerdetials = await Owner.findById(req.params.id);
-    res.render('admin/partner/branchdetials',
-      { 
-        layout: './admin/layouts/main',
-        owner: req.session.owner,
-        // ownerdetials: ownerdetials,
-        // placeowner:placeowner
-      }
-      ); 
-      
-  } catch(err){
-      next(err)
-  }
-}
 
 
 

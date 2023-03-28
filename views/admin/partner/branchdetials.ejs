@@ -75,13 +75,13 @@
                           <img src="assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" alt="">
 
                         </div>
-
+                       
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-person"></i> Owner Name: <span>Yasser Farghal</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-person"></i> Owner Name: <span>beshoyz</span></div>
                         </div>
 
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-building"></i> Company Name: <span>Yasser Farghal</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-building"></i> Company Name: <span>bnez</span></div>
                         </div>
 
                         <div class="row">
@@ -93,11 +93,11 @@
                         </div>
 
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-phone"></i> Phone: <span>01553355555</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-phone"></i> Phone: <span>01095604355</span></div>
                         </div>
       
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-envelope"></i> Email: <span>Example@mail.com</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-envelope"></i> Email: <span>beshoy@gmail.com</span></div>
                         </div>
 
                       </div>
@@ -115,35 +115,35 @@
                             <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
                               
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[0] %>" alt="">
 
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[1] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[2] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[3] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[4] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[5] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[6] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[7] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[8] %>" alt="">
 
 
-                                  <img src="assets/img/product-1 1.svg" alt="">
+                                  <img src="<%= placeowner.images[8] %>" alt="">
 
                               
                             </div>
@@ -155,21 +155,24 @@
                       <div class="justify-content-center">
 
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-file-text"></i> About: <span>Amusement park with a Ferris wheel & rides for kids, plus an international food court & ice rink.</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-file-text"></i> Name: <span> <%=placeowner.name%></span></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-file-text"></i> About: <span> <%=placeowner.desc%></span></div>
                         </div>
 
       
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-geo-alt"></i> Location: <a class="location" href="https://www.google.com/maps/place/ZED+TENNIS+ACADEMIES/@30.0432287,30.9944292,15z/data=!4m6!3m5!1s0x14585ba0263118cf:0xc58e189c21cc4eeb!8m2!3d30.0432287!4d30.9944292!16s%2Fg%2F11j4vlx59q?coh=164777&entry=tt"><span>Sheikh Zayed City, Giza Governorate</span></a> </div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-geo-alt"></i> Location: <a class="location" href= "<%=placeowner.adress%>"><span> <%=placeowner.city%> , <%=placeowner.area%></span></a> </div>
                         </div>
       
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-cash"></i> Min-Budget: <span>$50.00</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-cash"></i> Min-Budget: <span><%=placeowner.budget%></span></div>
                         </div>
       
 
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-person-bounding-box"></i> Capacity: <span>670</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-person-bounding-box"></i> Capacity: <span><%=placeowner.capacity%></span></div>
                         </div>
 
                         <div class="row">
@@ -177,24 +180,20 @@
                         </div>
 
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-phone"></i> Branch Phone: <span>01553355555</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-phone"></i> Branch Phone: <span><%=placeowner.phone%></span></div>
                         </div>
       
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-envelope"></i> Branch Email: <span>Example@mail.com</span></div>
+                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-file-text"></i> Branch type: <span><%=placeowner.type%></span></div>
                         </div>
 
                         <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-upc"></i> Request ID: <span>1234654afsdgv25</span></div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-lg-12 col-md-4 label "><i class="bi bi-calendar-event"></i> Request Date: <span>11/7/2023</span></div>
+                          <div ><i class="bi bi-calendar-event"></i> Request Date: <span>23 March 2023 </span></div>
                         </div>
 
 
 
-                        <p class="pe-2 fw-bold"> Request State: <span class="badge bg-info">Request</span> </p>      
+                       
 
 
                       </div>
@@ -423,8 +422,26 @@
                 </div>
 
                 <div class="buttons text-center ">
-                  <button  class="btn p-2 p-lg-3 btn-primary me-auto" type="submit" id="submit">ACCEPT</button>
-                  <button  class="button2 btn p-2 p-lg-3 btn-primary main-btn" type="submit" id="submit">REJECT</button>
+
+                  <% if (placeowner.status === 'pending') {%> 
+                    <span class="badge bg-info m-3"><%= placeowner.status %></span>
+                  <%} else if(placeowner.status === 'approved') { %>                                                                                
+                    <span class="badge bg-success m-3"><%= placeowner.status %></span>
+                  <%} else if(placeowner.status === 'declined') { %>                                                                                
+                    <span class="badge bg-warning m-3"><%= placeowner.status %></span>
+                  <%} else { %>                                                                  
+                  <span class="badge bg-danger m-3"><%= placeowner.status %></span>
+                  <%}%>   
+
+                  <form  method="POST" action="/admin/places/update-status/<%= placeowner.id %>">
+                    <input type="hidden" name="status" value="approved">
+                    <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                </form>
+                <form  method="POST" action="/admin/places/update-status/<%= placeowner.id %>">
+                    <input type="hidden" name="status" value="declined">
+                    <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
+                </form>
+
               </div>
               </div>
 

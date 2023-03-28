@@ -104,8 +104,7 @@
                                                                                     <img src="<%= place.images[0] %>" alt="">
                                                                                     <h4>Request from  <%= place.name %> </h4>
                                                                                     <p><i class="bi bi-bookmark pe-1"></i> <%= place.type %></p>
-                                                                                    <p><i class="bi bi-calendar-event pe-1"></i><%= place.createdAt?.toDateString() %></p>
-
+                                                                                    <p><i class="bi bi-calendar-event pe-1"></i><%= place.createdAt?.toDateString() %></p> 
                                                                                     <% if (place.status === 'pending') {%> 
                                                                                         <span class="badge bg-info m-3"><%= place.status %></span>
                                                                                       <%} else if(place.status === 'approved') { %>                                                                                
@@ -118,7 +117,7 @@
           
                                                                                     
                 
-                                                                                    <p class="info"><a href="/admin/auth/branchdetials">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
+                                                                                    <p class="info"><a href="/admin/auth/branchdetials/<%= place.id %>">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
                                                                                                                                                    
                                                                                     <div class="row mt-3">                 
                                                                                         <form class="col-md-6" method="POST" action="/admin/places/update-status/<%= place.id %>">

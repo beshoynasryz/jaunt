@@ -267,7 +267,7 @@
                    <h4>Request from <%= place.name %></h4>
                     <p><i class="bi bi-bookmark pe-1"></i><%= place.type %></p>
                     <p><i class="bi bi-geo-alt pe-1"></i><%= place.city %> , <%= place.area %></p>
-                    <p><a href="/admin/auth/branchdetials">See request Information <i class="bi bi-caret-right-fill"></i></a></p>
+                    <p><a href="/admin/auth/branchdetials/<%= place.id %>">See request Information <i class="bi bi-caret-right-fill"></i></a></p>
                     <p><i class="bi bi-calendar-event pe-1"></i><%= place.createdAt?.toDateString() %></p>
                     
                     <% if (place.status === 'pending') {%> 

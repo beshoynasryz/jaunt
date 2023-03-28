@@ -10,7 +10,7 @@ router.get('/partners', renderPartnerView);
 router.get('/detials/:id', partnerDetials);
 
 
-router.get('/branchdetials', branchDetials);
+router.get('/branchdetials/:id', branchDetials);
 
 
 router.get('/companies', renderCompaniesView);
