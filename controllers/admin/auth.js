@@ -1,10 +1,11 @@
+
+import mongoose from "mongoose"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import { createError } from "../../utils/error.js"
 import Owner from "../../models/Owner.js"
 import Booking from "../../models/Booking.js"
 import Place from "../../models/Place.js"
-
 
 
 export const renderManageBranchesBookingView =async (req, res, next) => {
@@ -42,16 +43,16 @@ export const branchDetials =async (req, res, next) => {
 
     } 
  
-    let placeowner = []
-      
-       placeowner = await Place.findById(req.params.id);
+    const placeowner = await Place.findById(req.params.id);
+    const ownerdetials = await Owner.findById(placeowner.owner_id);
+       console.log(ownerdetials);
     //   let ownerdetials = []
     //  ownerdetials = await Owner.findById(req.params.id);
     res.render('admin/partner/branchdetials',
       { 
         layout: './admin/layouts/main',
         owner: req.session.owner,
-        // ownerdetials: ownerdetials,
+        ownerdetials: ownerdetials,
         placeowner:placeowner
       }
       ); 
@@ -442,6 +443,19 @@ export const changePassword =async (req,res,next)=>{
     req.session.authId = null;
     req.session.owner = null;
     res.redirect('/admin/auth/sign-in');
+  }
+  catch(err){
+      next(err);
+  }
+}
+
+
+
+export const deleteOwner =async (req,res,next)=>{
+  try {
+    await Place.deleteMany({ owner_id: req.params.id })
+    await Owner.findByIdAndDelete(req.params.id)
+    res.redirect('back');
   }
   catch(err){
       next(err);
