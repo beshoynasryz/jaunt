@@ -72,3 +72,44 @@ export const register =async (req,res,next)=>{
     }
 }
  
+export const updateUser =async (req,res,next)=>{
+  try {
+      // TODO:: add update image when there is an image has been selected
+      const updateUser = await User.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true})
+     
+     let userResponse =[]
+     
+       userResponse = {
+        _id: updateUser._id.toHexString(),
+        name: updateUser.name,
+        email: updateUser.email,
+        city: updateUser.city,
+        phone: updateUser.phone,
+        image: updateUser.image,
+        country: updateUser.country,
+        area: updateUser.area,
+
+        // access_token: access_token
+      };
+      
+    
+      req.params.user = await userResponse;
+
+      console.log('wergfvcx',updateUser)
+     
+     
+
+      
+      if(req.headers['content-type'] === 'application/json'){
+        //respond in html
+        res.redirect('/auth/sign-in');
+      } else {
+        res.status(200).json({ "mag": "User has been updated", data: updateUser })
+      }
+      // res.redirect('/admin/auth/profile');
+      
+  }
+  catch(err){
+      next(err);
+  }
+}
