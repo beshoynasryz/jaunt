@@ -15,8 +15,11 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
           res.redirect('/admin/auth/sign-in');
       }
 
-  let leatesPlaces = await Place
-       .find({ owner_id: req.params.id });
+  let leatesPlaces = await Place.find({ owner_id: req.params.id });
+
+ 
+
+ 
 
       const selectedowner = await Owner.findById(req.params.id);
       res.render('admin/ownerbookings/managebranchesbooking',
@@ -24,7 +27,9 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
           layout: './admin/layouts/main',
           owner: req.session.owner,
           selectedowner: selectedowner,
-          leatesPlaces:leatesPlaces
+          leatesPlaces:leatesPlaces,
+       
+
         }
       ); 
        
@@ -94,7 +99,7 @@ export const partnerDetials =async (req, res, next) => {
 
 
 
-
+//zika
 
 
 export const renderCompaniesView =async (req, res, next) => {
@@ -105,11 +110,22 @@ export const renderCompaniesView =async (req, res, next) => {
       }
       
       const owners = await Owner.find();
+      const ownerspark = await Owner.find({ type: 'park' });
+      const ownersrestrunt = await Owner.find({ type: 'resturant' });
+      const ownerscafe = await Owner.find({ type: 'cafe' });
+      const ownersworkspace = await Owner.find({ type: 'workspace' });
+
       res.render('admin/companie/companies',  
         { 
           layout: './admin/layouts/main',
           owner: req.session.owner,
           owners: owners,
+          ownerspark:ownerspark,
+          ownersrestrunt :ownersrestrunt,
+          ownerscafe:ownerscafe,
+          ownersworkspace :ownersworkspace,
+
+
         }
       ); 
        
@@ -245,11 +261,20 @@ export const renderPartnermanageView =async (req, res, next) => {
       }
       
       const owners = await Owner.find();
+      const ownerspark = await Owner.find({ type: 'park' });
+      const ownersrestrunt = await Owner.find({ type: 'resturant' });
+      const ownerscafe = await Owner.find({ type: 'cafe' });
+      const ownersworkspace = await Owner.find({ type: 'workspace' });
       res.render('admin/ownerbookings/partnermanagerequst',  
         { 
           layout: './admin/layouts/main',
           owner: req.session.owner,
           owners: owners,
+          ownerspark:ownerspark,
+          ownersrestrunt :ownersrestrunt,
+          ownerscafe:ownerscafe,
+          ownersworkspace :ownersworkspace,
+
         }
       );
        

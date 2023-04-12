@@ -188,162 +188,48 @@
                                                           <div class="col-lg-12">
                                                               <div class="row">
     
-                                                                    <!-- place Card -->
+                                                                <% leatesPlaces.forEach(function(place){ %>
                                                                     <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
+                                                                        <div class="card info-card sales-card">                                             
+                                                                            <div class="news">
+                                                                                <div class="post-item">
+                                                                                    <img src="<%= place.images[0] %>" alt="">
+                                                                                    <h4>Request from  <%= place.name %> </h4>
+                                                                                    <p><i class="bi bi-bookmark pe-1"></i> <%= place.type %></p>
+                                                                                    <p><i class="bi bi-calendar-event pe-1"></i><%= place.createdAt?.toDateString() %></p> 
+                                                                                    <% if (place.status === 'pending') {%> 
+                                                                                        <span class="badge bg-info m-3"><%= place.status %></span>
+                                                                                      <%} else if(place.status === 'approved') { %>                                                                                
+                                                                                        <span class="badge bg-success m-3"><%= place.status %></span>
+                                                                                      <%} else if(place.status === 'declined') { %>                                                                                
+                                                                                        <span class="badge bg-warning m-3"><%= place.status %></span>
+                                                                                      <%} else { %>                                                                  
+                                                                                      <span class="badge bg-danger m-3"><%= place.status %></span>
+                                                                                      <%}%>         
+          
+                                                                                    
+                
+                                                                                    <p class="info"><a href="/admin/auth/branchdetials/<%= place.id %>">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
+                                                                                                                                                   
+                                                                                    <div class="row mt-3">                 
+                                                                                        <form class="col-md-6" method="POST" action="/admin/places/update-status/<%= place.id %>">
+                                                                                            <input type="hidden" name="status" value="approved">
+                                                                                            <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                                                                                        </form>
+                                                                                        <form class="col-md-6" method="POST" action="/admin/places/update-status/<%= place.id %>">
+                                                                                            <input type="hidden" name="status" value="declined">
+                                                                                            <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
+                                                                                        </form>
+                    
+                                                                                    </div>
+    
+                                                                                </div>
+                                                                    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <% }); %>
 
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-warning">Waiting</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="branchRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                                  <div class="ms-3 text-center">
-                                                                                    <button class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">CONFIRM</button>
-                                                                                    <button class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-2">DECLINE</button>
-                                                                                  </div>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
-                                                                    <!-- place Card -->
-                                                                    <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-warning">Waiting</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="branchRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                                  <div class="ms-3 text-center">
-                                                                                    <button class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">CONFIRM</button>
-                                                                                    <button class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-2">DECLINE</button>
-                                                                                  </div>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
-                                                                    <!-- place Card -->
-                                                                    <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-warning">Waiting</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="branchRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                                  <div class="ms-3 text-center">
-                                                                                    <button class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">CONFIRM</button>
-                                                                                    <button class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-2">DECLINE</button>
-                                                                                  </div>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
-                                                                    <!-- place Card -->
-                                                                    <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-warning">Waiting</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="branchRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                                  <div class="ms-3 text-center">
-                                                                                    <button class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">CONFIRM</button>
-                                                                                    <button class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-2">DECLINE</button>
-                                                                                  </div>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
-                                                                    <!-- place Card -->
-                                                                    <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-warning">Waiting</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="branchRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                                  <div class="ms-3 text-center">
-                                                                                    <button class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">CONFIRM</button>
-                                                                                    <button class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-2">DECLINE</button>
-                                                                                  </div>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
-                                                                    <!-- place Card -->
-                                                                    <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-warning">Waiting</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="branchRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                                  <div class="ms-3 text-center">
-                                                                                    <button class="btn p-2 p-lg-3 btn-primary me-auto ms-3 ">CONFIRM</button>
-                                                                                    <button class="button2 btn p-2 p-lg-3 btn-primary main-btn ms-2">DECLINE</button>
-                                                                                  </div>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
                                                               </div>
     
     
@@ -396,72 +282,49 @@
                                                           <div class="col-lg-12">
                                                               <div class="row">
     
-                                                                    <!-- place Card -->
+                                                                 
+                                                                <% leatesPlaces.forEach(function(place){ %>
                                                                     <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-success">Accepted</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="userRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
+                                                                        <div class="card info-card sales-card">                                             
+                                                                            <div class="news">
+                                                                                <div class="post-item">
+                                                                                    <img src="<%= place.images[0] %>" alt="">
+                                                                                    <h4>Request from  <%= place.name %> </h4>
+                                                                                    <p><i class="bi bi-bookmark pe-1"></i> <%= place.type %></p>
+                                                                                    <p><i class="bi bi-calendar-event pe-1"></i><%= place.createdAt?.toDateString() %></p> 
+                                                                                    <% if (place.status === 'pending') {%> 
+                                                                                        <span class="badge bg-info m-3"><%= place.status %></span>
+                                                                                      <%} else if(place.status === 'approved') { %>                                                                                
+                                                                                        <span class="badge bg-success m-3"><%= place.status %></span>
+                                                                                      <%} else if(place.status === 'declined') { %>                                                                                
+                                                                                        <span class="badge bg-warning m-3"><%= place.status %></span>
+                                                                                      <%} else { %>                                                                  
+                                                                                      <span class="badge bg-danger m-3"><%= place.status %></span>
+                                                                                      <%}%>         
+          
+                                                                                    
+                
+                                                                                    <p class="info"><a href="/admin/auth/branchdetials/<%= place.id %>">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
+                                                                                                                                                   
+                                                                                    <div class="row mt-3">                 
+                                                                                        <form class="col-md-6" method="POST" action="/admin/places/update-status/<%= place.id %>">
+                                                                                            <input type="hidden" name="status" value="approved">
+                                                                                            <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                                                                                        </form>
+                                                                                        <form class="col-md-6" method="POST" action="/admin/places/update-status/<%= place.id %>">
+                                                                                            <input type="hidden" name="status" value="declined">
+                                                                                            <button type="submit" title="DECLINE" class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button>
+                                                                                        </form>
+                    
+                                                                                    </div>
     
-                                                                    <!-- place Card -->
-                                                                    <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-success">Accepted</span> </p>                  
-              
-                                                                                  <p class="info"><a href="userRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
-
-                                                                  <!-- place Card -->
-                                                                    <div class="col-xxl4 col-md-4 my-4">
-                                                                      <div class="card info-card sales-card">                                             
-                                                                          <div class="news">
-                                                                              <div class="post-item">
-                                                                                  <img src="//assets/img/product-1 1.svg" alt="">
-                                                                                  <h4>Request from Juant Company</h4>
-                                                                                  <p><i class="bi bi-bookmark pe-1"></i>Parks</p>
-                                                                                  <p><i class="bi bi-calendar-event pe-1"></i>12/5/2023</p>
-
-                                                                                  <p class="pe-2"><i class="bi bi-star pe-1"></i>5.0</p>
-                                                                                  <p class="pe-2"><span class="badge bg-danger">Rejected</span> </p>      
-        
-               
-              
-                                                                                  <p class="info"><a href="userRequestDetails.html">See branch request Information <i class="bi bi-caret-right-fill"></i></a></p>
-                                                                              </div>
-                                                                  
-                                                                          </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <!-- End place Card -->
+                                                                                </div>
+                                                                    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <% }); %>
+                                                                    
     
                                                               </div>
     

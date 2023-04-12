@@ -95,7 +95,7 @@ export const updateUser =async (req,res,next)=>{
     
       req.params.user = await userResponse;
 
-      console.log('wergfvcx',updateUser)
+     
      
      
 
