@@ -38,7 +38,7 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
   }
 }
 
-
+//Beanch details
 
 export const branchDetials =async (req, res, next) => {
   try {
