@@ -232,158 +232,185 @@
                                                   </div>
                         
                                                 </div>
+                                                <div class="services container">
+                            
+                                                  <div class="row justify-content-between">
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> <%= place.service1 %>
+                                                          </p> 
+                                                      </div>
+
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> <%= place.service2 %>
+                                                          </p> 
+                                                      </div>
+
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> <%= place.service3 %>
+                                                          </p> 
+                                                      </div>
+
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> <%= place.service4 %>
+                                                          </p> 
+                                                      </div>
+
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i><%= place.service5 %>
+                                                          </p> 
+                                                      </div>
+
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> <%= place.service6 %>
+                                                      </div>
+                          
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> <%= place.service7 %>
+                                                          </p> 
+                                                      </div>
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> <%= place.service8 %>
+                                                          </p> 
+                                                      </div>
+                                                  </div>
+                      
+
+                          
+                      
+                                                </div>
+                                                <div class="table-responsive pt-2">
+                                                  <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                      <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sun</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"> <%=place.receptionHours.sundayFrom%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%=place.receptionHours.sundayUntil%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Mon</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Tues</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Wednes</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Thurs</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Fri</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sat</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
                         
                                                 </div>
+                                                <!-- -------------  -->
 
-                                                <div id="tab2" class="tab-pane">
                                                 
-                                              
-                                                                                                        
-                                                  <div class="container">
-
-                                                        <div class="card-profile ">
-                                                            <div class="card-body profile-card d-flex flex-column align-items-center">
-                                                              <h5 class="card-title mb-3 text-center">Images</h5>
-                                  
-                                                              <div class="container-fluid">
-                                                                <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
-                                                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                  
-                                                                      <img src="assets/img/product-1 1.svg" alt="">
-                                  
-                                                                  
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                          
-                                                        </div>
-
-
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-file-text"></i> About: <span class="fw-normal">Amusement park with a Ferris wheel & rides for kids, plus an international food court & ice rink.</span></div>
-                                                        </div>
-                                
-                                      
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-geo-alt"></i> Location: <a class="location" href="https://www.google.com/maps/place/ZED+TENNIS+ACADEMIES/@30.0432287,30.9944292,15z/data=!4m6!3m5!1s0x14585ba0263118cf:0xc58e189c21cc4eeb!8m2!3d30.0432287!4d30.9944292!16s%2Fg%2F11j4vlx59q?coh=164777&entry=tt"><span class="fw-normal">Sheikh Zayed City, Giza Governorate</span></a> </div>
-                                                        </div>
-                                      
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-cash"></i> Min-Budget: <span class="fw-normal">$50.00</span></div>
-                                                        </div>
-                                      
-                              
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-person-bounding-box"></i> Capacity: <span class="fw-normal">670</span></div>
-                                                        </div>
-                              
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
-                                                        </div>
-                              
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-phone"></i> Phone: <span class="fw-normal">01553355555</span></div>
-                                                        </div>
-                                      
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-envelope"></i> Email: <span class="fw-normal">Example@mail.com</span></div>
-                                                        </div>
-                              
-                                                        <div class="row mb-2">
-                                                          <div class="col label fw-bold"><i class="bi bi-upc"></i> Branch ID: <span class="fw-normal">12345dsfhal1226</span></div>
-                                                        </div>
-                              
-                                                      </div>
-                                              </div>
                                                 
-                                                <div id="tab3" class="tab-pane">
-                                                
-                                                    <h5 class="card-title text-center mb-3">Available Services</h5>
-
-                                                    <!-- Change Password Form -->
-                                                    <form>
-                                                      <div class="services container">
-                            
-                                                        <div class="row justify-content-between">
-                                                            <div class="col label ">
-                                                                <p>
-                                                                    <i class="bi bi-check-circle text-success"></i> Example
-                                                                </p> 
-                                                            </div>
-
-                                                            <div class="col label ">
-                                                                <p>
-                                                                    <i class="bi bi-check-circle text-success"></i> Example
-                                                                </p> 
-                                                            </div>
-
-                                                            <div class="col label ">
-                                                                <p>
-                                                                    <i class="bi bi-check-circle text-success"></i> Example
-                                                                </p> 
-                                                            </div>
-
-                                                            <div class="col label ">
-                                                                <p>
-                                                                    <i class="bi bi-check-circle text-success"></i> Example
-                                                                </p> 
-                                                            </div>
-
-                                                            <div class="col label ">
-                                                                <p>
-                                                                    <i class="bi bi-check-circle text-success"></i> Example
-                                                                </p> 
-                                                            </div>
-
-                                                            <div class="col label ">
-                                                                <p>
-                                                                    <i class="bi bi-check-circle text-success"></i> Example
-                                                                </p> 
-                                                            </div>
-                                
-                                                            <div class="col label ">
-                                                                <p>
-                                                                    <i class="bi bi-check-circle text-success"></i> Example
-                                                                </p> 
-                                                            </div>
-                                                        </div>
-                            
-
-                                
-                            
-                                                      </div>
-                                                      
-                                                    </form><!-- End Change Password Form -->                                                
-                                                </div>
-
+                                                <
                                                 <div id="tab4" class="tab-pane">
                                                     <div class="table-responsive pt-2">
                                                         <table class="table align-items-center mb-0">
@@ -625,7 +652,237 @@
                                               </div>
                                           </div>
                                       </div>
+                                      <div class="container">
+
+                                        <div class="card-profile ">
+                                            <div class="card-body profile-card d-flex flex-column align-items-center">
+                                              <h5 class="card-title mb-3 text-center">Images</h5>
+                  
+                                              <div class="container-fluid">
+                                                <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
+                                                  
+                  
+                                                      <img src="<%= place.images[0] %>" alt="">
+                  
+                  
+                  
+                  
+                                                  
+                                                </div>
+                                            </div>
+                                            </div>
+                                          
+                                        </div>
+
+
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-file-text"></i> About: <span class="fw-normal"><%= place.desc %></span></div>
+                                        </div>
+                
+                      
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-geo-alt"></i> Location: <a class="location" href="<%= place.address %>"><span class="fw-normal"><%= place.city %> , <%= place.area %></span></a> </div>
+                                        </div>
+                      
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-cash"></i> Min-Budget: <span class="fw-normal"><%= place.budget %></span></div>
+                                        </div>
+                      
               
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-person-bounding-box"></i> Capacity: <span class="fw-normal"><%= place.capacity %></span></div>
+                                        </div>
+              
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                        </div>
+              
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-phone"></i> Phone: <span class="fw-normal"><%= place.phone %></span></div>
+                                        </div>
+                      
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-envelope"></i> Email: <span class="fw-normal"><%= place.email %></span></div>
+                                        </div>
+              
+                                        <div class="row mb-2">
+                                          <div class="col label fw-bold"><i class="bi bi-upc"></i> Branch ID: <span class="fw-normal"><%= place.id %></span></div>
+                                        </div>
+              
+                                      </div>
+                                      <div class="services container">
+                            
+                                        <div class="row justify-content-between">
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i> <%= place.service1 %>
+                                                </p> 
+                                            </div>
+
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i> <%= place.service2 %>
+                                                </p> 
+                                            </div>
+
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i> <%= place.service3 %>
+                                                </p> 
+                                            </div>
+
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i> <%= place.service4 %>
+                                                </p> 
+                                            </div>
+
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i><%= place.service5 %>
+                                                </p> 
+                                            </div>
+
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i> <%= place.service6 %>
+                                            </div>
+                
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i> <%= place.service7 %>
+                                                </p> 
+                                            </div>
+                                            <div class="col label ">
+                                                <p>
+                                                    <i class="bi bi-check-circle text-success"></i> <%= place.service8 %>
+                                                </p> 
+                                            </div>
+                                        </div>
+            
+
+                
+            
+                                      </div>
+                                      <div class="table-responsive pt-2">
+                                        <table class="table align-items-center mb-0">
+                                          <thead>
+                                            <tr>
+                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex px-2 py-1">
+                                                  <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm mt-3">Sun</h6>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3"> <%=place.receptionHours.sundayFrom%></p>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3"><%=place.receptionHours.sundayUntil%></p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex px-2 py-1">
+                                                  <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm mt-3">Mon</h6>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex px-2 py-1">
+                                                  <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm mt-3">Tues</h6>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex px-2 py-1">
+                                                  <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm mt-3">Wednes</h6>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex px-2 py-1">
+                                                  <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm mt-3">Thurs</h6>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex px-2 py-1">
+                                                  <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm mt-3">Fri</h6>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex px-2 py-1">
+                                                  <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm mt-3">Sat</h6>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      
                                       </div>
 
                                       <div id="tab2" class="tab-pane">
