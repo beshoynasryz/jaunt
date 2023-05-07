@@ -28,6 +28,9 @@ const OwnerSchema = new mongoose.Schema({
     image :{
         type: String,
     },
+    imagelogo :{
+        type: String,
+    },
     phone: {
         type: String,
         // match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,

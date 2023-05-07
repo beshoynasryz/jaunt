@@ -15,9 +15,9 @@ export const getPlaces =async (req,res,next)=>{
     }
     catch(err){
        next(err)
-    } 
+    }  
 }
-
+ 
 export const getPlace =async (req,res,next)=>{
     try {
         const place = await Place.findById(req.params.id)

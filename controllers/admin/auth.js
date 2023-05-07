@@ -216,6 +216,8 @@ export const renderlandingpageView =async (req, res, next) => {
   }
 }
 
+//contact view
+
 export const rendercontactView =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -233,6 +235,35 @@ export const rendercontactView =async (req, res, next) => {
       next(err)
   }
 }
+export const renderRequestView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+      const places = await Place.find().populate('manager');
+      const placespending = await Place.find({ status:'pending', owner_id: req.session.owner._id}).populate('manager');
+      const placesapproved = await Place.find({ status:'approved', owner_id: req.session.owner._id}).populate('manager');
+      const placesdeclined = await Place.find({ status:'declined',  owner_id: req.session.owner._id}).populate('manager');
+     console.log(placesapproved.length)
+      res.render('admin/auth/request',  
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+          places: places, 
+          placespending:placespending,
+          placesapproved:placesapproved,
+          placesdeclined:placesdeclined,
+        } 
+      );
+       
+  } catch(err){
+      next(err)
+  }
+}
+
+
+
 export const renderPartnerView =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -333,6 +364,15 @@ export const register = async (req,res,next)=>{
         await image.mv(fullPath);
         const imagePath = path + fileName
 
+        const { imagelogo } = req.files;
+        const pathlogo = "/uploaded-images-2/";
+        const filePathlogo = './public' + pathlogo
+        const fileNamelogo = Date.now() + imagelogo.name;
+        const fullPathlogo = filePathlogo +  Date.now() + imagelogo.name;
+
+        await image.mv(fullPathlogo);
+        const imagePathlogo = pathlogo + fileNamelogo
+
         const newOwner =new Owner({
           ownername:req.body.ownername,
           companyname:req.body.companyname,
@@ -341,6 +381,7 @@ export const register = async (req,res,next)=>{
           type:req.body.type,
           phone:req.body.phone,
           image:imagePath,
+          imagelogo:imagePathlogo,
           password:hash
         })
         await newOwner.save()
@@ -355,6 +396,8 @@ export const register = async (req,res,next)=>{
         next(err)
     }
 }
+
+
 
 export const login = async (req,res,next)=>{
   try {

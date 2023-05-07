@@ -1,0 +1,1379 @@
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Branches Requests</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Branches Requests</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="container">
+            <div class="row">
+    
+                <!-- Sales Card -->
+                <div class="col my-4 text-center">
+                    <div class="card info-card sales-card">
+                        <div class="card-body my-4 pb-1 text-center">
+                            <h5 class="card-title">Branches</h5>
+                            <div class="d-flex justify-content-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-building-check"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>10</h6>
+                                    <span class="text-success small pt-1 fw-bold">Active Branches</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Sales Card -->
+                
+                <!-- Sales Card -->
+                <div class="col my-4 text-center">
+                    <div class="card info-card sales-card">
+                        <div class="card-body my-4 pb-1 text-center">
+                            <h5 class="card-title">Requests</h5>
+                            <div class="d-flex justify-content-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-plus-circle-dotted"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>4</h6>
+                                    <span class="text-success small pt-1 fw-bold">Processed Requests</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Sales Card -->
+                
+                <!-- Sales Card -->
+                <div class="col my-4 text-center">
+                    <div class="card info-card sales-card">
+                        <div class="card-body my-4 pb-1 text-center">
+                            <h5 class="card-title">Managers</h5>
+                            <div class="d-flex justify-content-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-person-badge"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>18</h6>
+                                    <span class="text-success small pt-1 fw-bold">Available Managers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Sales Card -->
+
+            </div>
+        </div>
+
+
+      <div class="col">
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#requests">Requests</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#Processed">Processed Requests</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#history">History</button>
+              </li>
+
+            </ul>
+            <div class="tab-content pt-2">
+
+              <div class="tab-pane fade show active profile-overview" id="requests">
+
+
+                <div class="table-responsive">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Manager</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+
+                                <th class="text-secondary opacity-7"></th>
+
+                            </tr>
+                        </thead>
+                        <% placesapproved.forEach(function(place){ %>
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4"><%= place.id %></p>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex">
+                                        <div>
+                                            <img src="<%= place.images[0] %>" class="avatar avatar-sm me-3" alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm"><%= place.city %>,<%= place.area %></h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <div>
+                                            <img src=" <%= place.manager?.image %> " class="avatar avatar-sm me-3" alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm"> <%= place.manager?.managername %> </h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4"><%= place.createdAt?.toDateString() %></p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4"><span class="badge bg-info"><%=place.status%></span></p>
+                                </td>
+
+
+                                <td class="action mt-3">
+                                    <button class="open-button btn mb-1"  onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'block'" >DETAILS</button>
+                                    <button class="open-button btn mb-1" id="btnDelete"><i class="bi bi-trash"></i></button>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                        <% }); %>
+                    </table>
+
+                    
+                  <% places.forEach(function(place){ %>
+                    <div id="request-popup-<%= place._id %>" class="branch-popup">
+                        <div>
+                            <span class="branch-popup-close">&times;</span>
+                        </div>
+                      <div class="branch-popup-content">
+                        <div class="card text-center mb-5">
+                            
+    
+                            <form id="branch-form">
+    
+                                <div class="container">
+                                    <div class="row">
+    
+                                      <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Manager</a></li>
+                                          <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Main Details</a></li>
+                                          <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Services</a></li>
+                                          <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Reception Hours</a></li>
+                                          <li class="nav-item"><a href="#tab5" data-toggle="tab" class="nav-link">Pricing list</a></li>
+                                      </ul>
+  
+                                      <div class="tab-content">
+  
+                                          <div id="tab1" class="tab-pane active">
+                                      
+                                            <div class="container justify-content-center my-4" >
+                                              <div class="card">
+                                                  <div style="background-color: none;" class=" text-center pt-4" id="selectedRowData">
+                                                      <img src=" <%= place.manager?.image %> " alt="Image" class="card-image">
+                                                      <div class="card-data mt-2">
+                                                        <p class="card-description" id="managerName"><i class="bi bi-person"></i> <span class="fw-bold">Manager:</span>  <%= place.manager?.managername %> </p>
+                                                        <p class="card-description" id="managerEmail"><i class="bi bi-envelope"></i> <span class="fw-bold">E-mail:</span> <%= place.manager?.email %> </p>
+                                                        <p class="card-description" id="managerPhone"><i class="bi bi-telephone"></i> <span class="fw-bold">Phone:</span> <%= place.manager?.phone %> </p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                  
+                                          </div>
+  
+                                          <div id="tab2" class="tab-pane">
+                                          
+                                        
+                                                                                                  
+                                            <div class="container">
+  
+                                                  <div class="card-profile ">
+                                                      <div class="card-body profile-card d-flex flex-column align-items-center">
+                                                        <h5 class="card-title mb-3 text-center">Images</h5>
+                            
+                                                        <div class="container-fluid">
+                                                          <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
+                                                            
+                            
+                                                                <!-- <img src="<%= place.images%>" alt="">
+                            
+                             -->
+                            
+                            
+                                                            
+                                                          </div>
+                                                      </div>
+                                                      </div>
+                                                    
+                                                  </div>
+  
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-upc"></i> Request ID: <span class="fw-normal"></span></div>
+                                                  </div>
+  
+  
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-file-text"></i> About: <span class="fw-normal"><%= place.desc%></span></div>
+                                                  </div>
+                          
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-geo-alt"></i> Location: <a class="location" href="<%= place.address%>"><span class="fw-norma"><%= place.area%>, <%= place.city%></span></a> </div>
+                                                  </div>
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-cash"></i> Min-Budget: <span class="fw-normal"><%= place.budget%></span></div>
+                                                  </div>
+                                
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-person-bounding-box"></i> Capacity: <span class="fw-normal"><%= place.capacity%></span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-phone"></i> Phone: <span class="fw-normal"><%= place.phone%></span></div>
+                                                  </div>
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-envelope"></i> Email: <span class="fw-normal"><%= place.email%></span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"> Request State: <span class="badge bg-info">Requseted</span></div>
+                                                  </div>
+                        
+                                                </div>
+                                        </div>
+                                          
+                                          <div id="tab3" class="tab-pane">
+                                          
+                                              <h5 class="card-title text-center mb-3">Available Services</h5>
+  
+                                              <!-- Change Password Form -->
+                                              <form>
+                                                <div class="services container">
+                      
+                                                  <div class="row justify-content-between">
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+                          
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+                                                  </div>
+                      
+  
+                          
+                      
+                                                </div>
+                                                
+                                              </form><!-- End Change Password Form -->                                                
+                                          </div>
+  
+                                          <div id="tab4" class="tab-pane">
+                                              <div class="table-responsive pt-2">
+                                                  <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                      <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sun</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Mon</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Tues</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Wednes</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Thurs</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Fri</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sat</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                          </div>
+  
+                                          <div id="tab5" class="tab-pane">
+                                              <div class="container">
+                                                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+  
+                                      </div>
+  
+                                      <form  method="POST" action="/admin/places/update-status/<%= place.id %>">
+                                        <input type="hidden" name="status" value="declined">
+                                        <button type="submit" title="DECLINE" class="btn button2 cancel mt-3 w-100">Cancelation</button>
+                                      </form>
+                                        <button type="button" class="btn close mt-3" onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'none'">Close</button>
+  
+  
+                                    </div>
+                                </div>
+                    
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                
+                    <% }); %>
+
+
+                </div>
+
+
+              </div>
+
+              <div class="tab-pane fade profile-edit pt-3" id="Processed">
+
+                <div class="table-responsive">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Manager</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+
+                                <th class="text-secondary opacity-7"></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4">12345dsfhal1226</p>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex">
+                                        <div>
+                                            <img src="/assets/img/product-1 1.svg" class="avatar avatar-sm me-3" alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">Giza, Al-Agouza</h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <div>
+                                            <img src="/assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" class="avatar avatar-sm me-3" alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">Yasser Farghal</h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4">12/5/2023</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4"><span class="badge bg-warning">Processed</span></p>
+                                </td>
+
+
+                                <td class="action mt-3">
+                                    <button class="open-Processed-button btn mb-1" id="btnDetails">DETAILS</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div id="processed-popup" class="processed-popup">
+                        <div>
+                            <span class="processed-popup-close">&times;</span>
+                        </div>
+                      <div class="processed-popup-content">
+                        <div class="card text-center mb-5">
+    
+                            <form id="processed-form">
+    
+                                <div class="container">
+                                    <div class="row">
+    
+                                      <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Manager</a></li>
+                                          <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Main Details</a></li>
+                                          <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Services</a></li>
+                                          <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Reception Hours</a></li>
+                                          <li class="nav-item"><a href="#tab5" data-toggle="tab" class="nav-link">Pricing list</a></li>
+                                      </ul>
+  
+                                      <div class="tab-content">
+  
+                                          <div id="tab1" class="tab-pane active">
+                                      
+                                            <div class="container justify-content-center my-4" >
+                                              <div class="card">
+                                                  <div style="background-color: none;" class=" text-center pt-4" id="selectedRowData">
+                                                      <img src="/assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" alt="Image" class="card-image">
+                                                      <div class="card-data mt-2">
+                                                        <p class="card-description" id="managerName"><i class="bi bi-person"></i> <span class="fw-bold">Manager:</span> Yasser Farghal</p>
+                                                        <p class="card-description" id="managerEmail"><i class="bi bi-envelope"></i> <span class="fw-bold">E-mail:</span> example@mail.com</p>
+                                                        <p class="card-description" id="managerPhone"><i class="bi bi-telephone"></i> <span class="fw-bold">Phone:</span> +201553355555</p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                  
+                                          </div>
+  
+                                          <div id="tab2" class="tab-pane">
+                                          
+                                        
+                                                                                                  
+                                            <div class="container">
+  
+                                                  <div class="card-profile ">
+                                                      <div class="card-body profile-card d-flex flex-column align-items-center">
+                                                        <h5 class="card-title mb-3 text-center">Images</h5>
+                            
+                                                        <div class="container-fluid">
+                                                          <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
+                                                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                                                            
+                                                          </div>
+                                                      </div>
+                                                      </div>
+                                                    
+                                                  </div>
+  
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-upc"></i> Request ID: <span class="fw-normal">1234a6r5489x23</span></div>
+                                                  </div>
+  
+  
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-file-text"></i> About: <span class="fw-normal">Amusement park with a Ferris wheel & rides for kids, plus an international food court & ice rink.</span></div>
+                                                  </div>
+                          
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-geo-alt"></i> Location: <a class="location" href="https://www.google.com/maps/place/ZED+TENNIS+ACADEMIES/@30.0432287,30.9944292,15z/data=!4m6!3m5!1s0x14585ba0263118cf:0xc58e189c21cc4eeb!8m2!3d30.0432287!4d30.9944292!16s%2Fg%2F11j4vlx59q?coh=164777&entry=tt"><span class="fw-normal">Sheikh Zayed City, Giza Governorate</span></a> </div>
+                                                  </div>
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw"><i class="bi bi-cash"></i> Min-Budget: <span class="fw-normal">$50.00</span></div>
+                                                  </div>
+                                
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-person-bounding-box"></i> Capacity: <span class="fw-normal">670</span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-phone"></i> Phone: <span class="fw-normal">01553355555</span></div>
+                                                  </div>
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-envelope"></i> Email: <span class="fw-normal">Example@mail.com</span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"> Request State: <span class="badge bg-warning">Processed</span></div>
+                                                  </div>
+                        
+                                                </div>
+                                        </div>
+                                          
+                                          <div id="tab3" class="tab-pane">
+                                          
+                                              <h5 class="card-title text-center mb-3">Available Services</h5>
+  
+                                              <!-- Change Password Form -->
+                                              <form>
+                                                <div class="services container">
+                      
+                                                  <div class="row justify-content-between">
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+                          
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+                                                  </div>
+                      
+  
+                          
+                      
+                                                </div>
+                                                
+                                              </form><!-- End Change Password Form -->                                                
+                                          </div>
+  
+                                          <div id="tab4" class="tab-pane">
+                                              <div class="table-responsive pt-2">
+                                                  <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                      <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sun</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Mon</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Tues</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Wednes</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Thurs</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Fri</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sat</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                          </div>
+  
+                                          <div id="tab5" class="tab-pane">
+                                              <div class="container">
+                                                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+  
+                                      </div>
+  
+                                        <button type="button" class="btn closeProcessed mt-3" onclick="closeForm1()">Close</button>
+  
+  
+                                    </div>
+                                </div>
+                    
+                            </form>
+    
+    
+                
+                
+                
+                            
+                            
+                        </div>
+                      </div>
+                    </div>
+
+
+                </div>
+
+              </div>
+
+              <div class="tab-pane fade pt-3" id="history">
+
+
+
+                <div class="table-responsive">
+
+                    
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Manager</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+
+                                <th class="text-secondary opacity-7"></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4">12345dsfhal1226</p>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex">
+                                        <div>
+                                            <img src="/assets/img/product-1 1.svg" class="avatar avatar-sm me-3" alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">Giza, Al-Agouza</h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <div>
+                                            <img src="/assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" class="avatar avatar-sm me-3" alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">Yasser Farghal</h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4">12/5/2023</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-4"><span class="badge bg-danger">Rejected</span></p>
+                                </td>
+
+
+                                <td class="action mt-3">
+                                    <button class="open-History-button btn mb-1" id="btnDetails">DETAILS</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div id="history-popup" class="history-popup">
+                        <div>
+                            <span class="history-popup-close">&times;</span>
+                        </div>
+                      <div class="history-popup-content">
+                        <div class="card text-center mb-5">
+    
+                            <form id="history-form">
+    
+                                <div class="container">
+                                    <div class="row">
+    
+                                      <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Manager</a></li>
+                                          <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Main Details</a></li>
+                                          <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Services</a></li>
+                                          <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Reception Hours</a></li>
+                                          <li class="nav-item"><a href="#tab5" data-toggle="tab" class="nav-link">Pricing list</a></li>
+                                      </ul>
+  
+                                      <div class="tab-content">
+  
+                                          <div id="tab1" class="tab-pane active">
+                                      
+                                            <div class="container justify-content-center my-4" >
+                                              <div class="card">
+                                                  <div style="background-color: none;" class=" text-center pt-4" id="selectedRowData">
+                                                      <img src="/assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" alt="Image" class="card-image">
+                                                      <div class="card-data mt-2">
+                                                        <p class="card-description" id="managerName"><i class="bi bi-person"></i> <span class="fw-bold">Manager:</span> Yasser Farghal</p>
+                                                        <p class="card-description" id="managerEmail"><i class="bi bi-envelope"></i> <span class="fw-bold">E-mail:</span> example@mail.com</p>
+                                                        <p class="card-description" id="managerPhone"><i class="bi bi-telephone"></i> <span class="fw-bold">Phone:</span> +201553355555</p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                  
+                                          </div>
+  
+                                          <div id="tab2" class="tab-pane">
+                                          
+                                        
+                                                                                                  
+                                            <div class="container">
+  
+                                                  <div class="card-profile ">
+                                                      <div class="card-body profile-card d-flex flex-column align-items-center">
+                                                        <h5 class="card-title mb-3 text-center">Images</h5>
+                            
+                                                        <div class="container-fluid">
+                                                          <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
+                                                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                            
+                                                                <img src="/assets/img/product-1 1.svg" alt="">
+                            
+                                                            
+                                                          </div>
+                                                      </div>
+                                                      </div>
+                                                    
+                                                  </div>
+  
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-upc"></i> Request ID: <span class="fw-normal">1234a6r5489x23</span></div>
+                                                  </div>
+  
+  
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-file-text"></i> About: <span class="fw-normal">Amusement park with a Ferris wheel & rides for kids, plus an international food court & ice rink.</span></div>
+                                                  </div>
+                          
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-geo-alt"></i> Location: <a class="location" href="https://www.google.com/maps/place/ZED+TENNIS+ACADEMIES/@30.0432287,30.9944292,15z/data=!4m6!3m5!1s0x14585ba0263118cf:0xc58e189c21cc4eeb!8m2!3d30.0432287!4d30.9944292!16s%2Fg%2F11j4vlx59q?coh=164777&entry=tt"><span class="fw-normal">Sheikh Zayed City, Giza Governorate</span></a> </div>
+                                                  </div>
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-cash"></i> Min-Budget: <span class="fw-normal">$50.00</span></div>
+                                                  </div>
+                                
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-person-bounding-box"></i> Capacity: <span class="fw-normal">670</span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-phone"></i> Phone: <span class="fw-normal">01553355555</span></div>
+                                                  </div>
+                                
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"><i class="bi bi-envelope"></i> Email: <span class="fw-normal">Example@mail.com</span></div>
+                                                  </div>
+                        
+                                                  <div class="row mb-2">
+                                                    <div class="col label fw-bold"> Request State: <span class="badge bg-danger">Rejected</span></div>
+                                                  </div>
+                        
+                                                </div>
+                                        </div>
+                                          
+                                          <div id="tab3" class="tab-pane">
+                                          
+                                              <h5 class="card-title text-center mb-3">Available Services</h5>
+  
+                                              <!-- Change Password Form -->
+                                              <form>
+                                                <div class="services container">
+                      
+                                                  <div class="row justify-content-between">
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+  
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+                          
+                                                      <div class="col label ">
+                                                          <p>
+                                                              <i class="bi bi-check-circle text-success"></i> Example
+                                                          </p> 
+                                                      </div>
+                                                  </div>
+                      
+  
+                          
+                      
+                                                </div>
+                                                
+                                              </form><!-- End Change Password Form -->                                                
+                                          </div>
+  
+                                          <div id="tab4" class="tab-pane">
+                                              <div class="table-responsive pt-2">
+                                                  <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                      <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sun</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Mon</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Tues</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Wednes</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Thurs</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 AM</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">10:00 PM</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Fri</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sat</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3">CLOSE</p>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                          </div>
+  
+                                          <div id="tab5" class="tab-pane">
+                                              <div class="container">
+                                                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                      <div class="col mt-3">
+                                                          <img src="https://source.unsplash.com/collection/190728/1500x900" class="img-fluid" alt="image">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+  
+                                      </div>
+  
+                                        <button type="button" class="btn closeDoneRequest mt-3" >Close</button>
+  
+  
+                                    </div>
+                                </div>
+                    
+                            </form>
+    
+    
+                
+                
+                
+                            
+                            
+                        </div>
+                      </div>
+                    </div>
+
+
+                </div>
+
+              </div>
+
+            </div><!-- End Bordered Tabs -->
+
+          </div>
+        </div>
+
+      </div>
+
+        
+                    
+        
+
+
+    </div>
+</section>
+
+
+
+
+
+  </main>
+  

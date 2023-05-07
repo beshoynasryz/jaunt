@@ -113,3 +113,36 @@ export const updateUser =async (req,res,next)=>{
       next(err);
   }
 }
+
+export const changePassword =async (req,res,next)=>{
+  try{
+    
+    if (req.body.password !== req.body.cPassword)
+      return next((400, "Confirm password is wrong!"));
+
+    const user = await User.findById(req.params.id);
+  
+    if (!user)
+      return next((400, "Wrong password!"));
+
+    const isPasswordCorrect = await bcrypt.compare(
+      req.body.currentPassword,
+      user.password
+    );
+    
+    if (!isPasswordCorrect)
+      return next((400, "Wrong password!"));
+
+      
+    const salt = bcrypt.genSaltSync(10)
+    const hash = bcrypt.hashSync(req.body.password, salt)
+
+    await User.updateOne({_id:req.params.id},{ $set: { password: hash } },{ new: true });
+
+    res.status(200).json({ "mag": "User has been updated" })
+  }
+  catch(err){
+    console.log(err);
+      next(err);
+  }
+}

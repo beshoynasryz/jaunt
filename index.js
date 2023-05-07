@@ -51,6 +51,7 @@ import authAdminRoute from "./routes/admin/auth.js"
 import placesAdminRoute from "./routes/admin/places.js"
 import homeAdminRoute from "./routes/admin/home.js"
 import bookingAdminRoute from "./routes/admin/booking.js"
+import managerAdminRoute from "./routes/admin/manager.js"
 
 
 app.use("/", homeRoute)
@@ -63,6 +64,7 @@ app.use("/", homeAdminRoute)
 app.use('/admin/auth',authAdminRoute)
 app.use("/admin/places",placesAdminRoute)
 app.use("/bookings", bookingAdminRoute)
+app.use("/admin/manager", managerAdminRoute)
 // app.use('place',placeRoute)
 // app.use('user',userRoute)
 
@@ -70,6 +72,7 @@ app.use("/bookings", bookingAdminRoute)
 
 
 app.use((err, req, res, next) => {
+    // console.log(err);
     const errorStatus = err.status || 500;
     const errorMessage = err.message || "Something went wrong!";
     return res.status(errorStatus).json({

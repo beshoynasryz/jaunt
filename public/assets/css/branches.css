@@ -1,0 +1,190 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+  /*end variables*/
+
+
+  .dashboard .add-places .card-body{
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+    border: 1px solid var(--background-color-of-secondary-color);
+    border-radius: 20px;
+    background-color: var(--background-color-of-primary-color);
+    margin-top: 10px;
+    font-family: 'Montserrat' , sans-serif;
+    padding-bottom: 25px;
+  }
+  
+  .dashboard .add-places .card-body .card-title{
+    padding: 20px 0 0 0;
+    font-size: 28px;
+    color: var(--text-color1);
+    font-weight: 700;
+  }
+  
+  .dashboard .add-places .card-body p{
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-color1);
+  }
+  
+  .dashboard .add-places .card-body .button2{
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--background-color-of-secondary-color);
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+    margin-top: 10px;
+    color: white;
+    font-family: 'Montserrat' , sans-serif;
+  }
+  
+  .dashboard .add-places .card-body .button2:hover{
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  
+  .dashboard .card-body .search-bar{
+    min-width: 360px;
+    padding: 0 0px;
+  }
+  
+  .dashboard .card-body .search-form {
+    width: 100%;
+  }
+  
+  .dashboard .search-form input {
+    border: 0;
+    font-size: 14px;
+    color: var(--text-color1);
+    border: 1px solid rgba(1, 41, 112, 0.2);
+    padding: 7px 38px 7px 8px;
+    border-radius: 3px;
+    transition: 0.3s;
+    width: 50%;
+    border-radius: 20px;
+  }
+  
+  .dashboard .search-form input:focus,
+  .dashboard .search-form input:hover {
+    outline: none;
+    box-shadow: 0 0 10px 0 rgba(55, 1, 112, 0.15);
+    border: 1px solid rgba(55, 1, 112, 0.15);
+  }
+  
+  .dashboard .search-form button {
+    border: 0;
+    padding: 0;
+    margin-left: -30px;
+    background: none;
+  }
+  
+  .dashboard .search-form button i {
+    color: var(--primary-color);
+  }
+
+
+  
+
+  .dashboard table tbody tr td .filter {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+  }
+  
+  .dashboard table tbody tr td .filter .icon {
+    color: var(--primary-color);
+    padding-right: 20px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+  }
+  
+  .dashboard table tbody tr td .filter .icon:hover,
+  .dashboard table tbody tr td .filter .icon:focus {
+    color: var(--secondary-color);
+  }
+  
+  .dashboard table tbody tr td .filter .dropdown-header {
+    padding:  15px;
+  }
+  
+  .dashboard table tbody tr td .filter .dropdown-header h6 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-color1);
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+  .dashboard table tbody tr td .filter .dropdown-item {
+    padding: 8px 15px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .card1 {
+    display: flex;
+    padding: 10px;
+    margin-top: 35px;
+  }
+  
+  .card-image {
+    max-width: 250px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .card-description {
+    font-size: 16px;
+  }
+  

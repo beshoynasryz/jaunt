@@ -1,0 +1,252 @@
+.tab-content #requests table img {
+    width: 70px;
+    height: 80px;
+}
+
+.tab-pane #requests table {
+    table-layout: auto;
+}
+
+.tab-content #Processed table img {
+    width: 70px;
+    height: 80px;
+}
+
+.tab-pane #Processed table {
+    table-layout: auto;
+}
+
+.tab-content #history table img {
+    width: 70px;
+    height: 80px;
+}
+
+.tab-pane #history table {
+    table-layout: auto;
+}
+
+
+
+.branch-popup {
+    display: none; /* Hide the pop-up by default */
+    position: fixed; /* Position the pop-up as fixed */
+    z-index: 1; /* Set the z-index of the pop-up to 1 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Set a semi-transparent background color */
+    font-size: 16px;
+  }
+  
+  .branch-popup-content {
+    background-color:none;
+    margin: 15% auto; /* 15% from the top and centered */
+    width: 95%; /* Could be more or less, depending on screen size */
+  }
+
+  .branch-popup-content .buttons {
+margin-top: 8px;
+padding-top: 8px;
+  }
+
+  #branch-popup .branch-popup-content img{
+    max-width: 120px;
+    height: 100px;
+  }
+
+
+  #branch-popup .branch-popup-content #tab5 img{
+    max-width: 95%;
+    height: 95%;
+  }
+
+
+
+#branch-popup .container{
+  padding: 40px;
+  
+}
+
+
+#branch-popup .container .card{
+margin-top: 38px;
+padding-bottom: 20px;
+background-color: var(--background-color-of-primary-color);
+font-size: 18px;
+font-weight: 500;
+}
+
+
+#branch-popup .container table{
+table-layout: auto;
+width: 100%;
+}
+
+#branch-popup .container table tr td{
+font-size: 16px;
+font-weight: 600;
+}
+
+#branch-popup .container table thead tr td{
+background-color: none;
+  }
+
+
+
+
+  .processed-popup {
+    display: none; /* Hide the pop-up by default */
+    position: fixed; /* Position the pop-up as fixed */
+    z-index: 1; /* Set the z-index of the pop-up to 1 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Set a semi-transparent background color */
+    font-size: 16px;
+  }
+  
+  .processed-popup-content {
+    background-color:none;
+    margin: 15% auto; /* 15% from the top and centered */
+    width: 95%; /* Could be more or less, depending on screen size */
+  }
+
+  .processed-popup-content .buttons {
+margin-top: 8px;
+padding-top: 8px;
+  }
+
+  #processed-popup .processed-popup-content img{
+    max-width: 120px;
+    height: 100px;
+  }
+
+
+  #processed-popup .processed-popup-content #tab5 img{
+    max-width: 95%;
+    height: 95%;
+  }
+
+
+
+#processed-popup .container{
+  padding: 40px;
+  
+}
+
+
+#processed-popup .container .card{
+margin-top: 38px;
+padding-bottom: 20px;
+background-color: var(--background-color-of-primary-color);
+font-size: 18px;
+font-weight: 500;
+}
+
+
+#processed-popup .container table{
+table-layout: auto;
+width: 100%;
+}
+
+#processed-popup .container table tr td{
+font-size: 16px;
+font-weight: 600;
+}
+
+#processed-popup .container table thead tr td{
+background-color: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .history-popup {
+    display: none; /* Hide the pop-up by default */
+    position: fixed; /* Position the pop-up as fixed */
+    z-index: 1; /* Set the z-index of the pop-up to 1 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Set a semi-transparent background color */
+    font-size: 16px;
+  }
+  
+  .history-popup-content {
+    background-color:none;
+    margin: 15% auto; /* 15% from the top and centered */
+    width: 95%; /* Could be more or less, depending on screen size */
+  }
+
+  .history-popup-content .buttons {
+margin-top: 8px;
+padding-top: 8px;
+  }
+
+  #history-popup .history-popup-content img{
+    max-width: 120px;
+    height: 100px;
+  }
+
+
+  #history-popup .history-popup-content #tab5 img{
+    max-width: 95%;
+    height: 95%;
+  }
+
+
+
+#history-popup .container{
+  padding: 40px;
+  
+}
+
+
+#history-popup .container .card{
+margin-top: 38px;
+padding-bottom: 20px;
+background-color: var(--background-color-of-primary-color);
+font-size: 18px;
+font-weight: 500;
+}
+
+
+#history-popup .container table{
+table-layout: auto;
+width: 100%;
+}
+
+#history-popup .container table tr td{
+font-size: 16px;
+font-weight: 600;
+}
+
+#history-popup .container table thead tr td{
+background-color: none;
+  }
+
+
+
+
+
+

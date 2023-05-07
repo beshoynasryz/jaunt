@@ -89,18 +89,34 @@
         </a>
       </li>
       <%}%>
+
+
+            
+      <!-- End Contact Page Nav -->
+     
+      <% if (!owner.isAdmin) {%>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/admin/manager">
+            <i class="bi bi-person"></i>
+            <span>Manager</span>
+          </a>
+        </li>
+        
+     <%}%>
+     
+        <!-- End Contact Page Nav -->
       
       <!-- End F.A.Q Page Nav -->
 
 
       <% if (!owner.isAdmin) {%>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/places/owner-places">
-          <i class="bi bi-building"></i>
-          <span>Places</span>
-        </a>
-      </li>
-      <%}%>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/admin/places/owner-places">
+            <i class="bi bi-building"></i>
+            <span>Places</span>
+          </a>
+        </li>
+        <%}%>
       
       
       <!-- End Contact Page Nav -->
@@ -114,7 +130,21 @@
       </li>
       
    <%}%>
+    <!-- End request Page Nav -->
+
+      <% if (!owner.isAdmin) {%>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/auth/request">
+          <i class="bi bi-building"></i>
+          <span>Request</span>
+        </a>
+      </li>
+      
+   <%}%>
+
       <!-- End Contact Page Nav -->
+
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="/admin/auth/logout">

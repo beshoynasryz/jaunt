@@ -49,16 +49,58 @@ const placeSchema = new mongoose.Schema({
         type:Number,
         required: true,
     },
-    owner_id :{
-        type: String,
-        required: true,
+    service1:{
+        type:String,
+       
     },
+    
+    service2:{
+        type:String,
+       
+    },
+    service3:{
+        type:String,
+       
+    },
+    service4:{
+        type:String,
+       
+    },
+    service5:{
+        type:String,
+       
+    },
+    service6:{
+        type:String,
+       
+    },
+    service7:{
+        type:String,
+       
+    },
+    service8:{
+        type:String,
+       
+    },
+   
     status :{
         type: String,
         enum:['pending','approved', 'declined'], 
         default: 'pending',
-    }
+    },
+ 
+      menuimages:{
+        type: [String],
+    },
+    manager: { type: mongoose.Schema.Types.ObjectId, ref: 'Manager' },
+    owner_id :{
+        type: String,
+        required: true,
+    },
+    receptionHours: [],
 },
+
+
 {
     timestamps: true
 })
