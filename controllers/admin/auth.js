@@ -350,7 +350,7 @@ export const profile =async (req, res, next) => {
   }
 }
 
-
+//ehhh
 export const register = async (req,res,next)=>{
     try {
         const salt = bcrypt.genSaltSync(10)
@@ -367,7 +367,7 @@ export const register = async (req,res,next)=>{
 
         const { imagelogo } = req.files;
         const pathlogo = "/uploaded-images-2/";
-        const filePathlogo = './public' + pathlogo
+        const filePathlogo = './public' + pathlogo 
         const fileNamelogo = Date.now() + imagelogo.name;
         const fullPathlogo = filePathlogo +  Date.now() + imagelogo.name;
 
