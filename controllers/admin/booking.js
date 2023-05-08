@@ -13,9 +13,9 @@ let bookings = await Booking
 
 if(req.params.id){
     bookings = await Booking 
-    .find({ place: req.params.id })  
+    .find({ place: req.params.id })   
     .populate('user'); 
-}
+} 
 
 if(req.session.owner.isAdmin) {
     bookings = await Booking.find().populate('user');

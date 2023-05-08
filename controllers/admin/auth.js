@@ -160,7 +160,7 @@ export const renderBranchesBookingView =async (req, res, next) => {
 
         if(req.session.owner.isAdmin) {
             leatesPlaces = await Place.find();
-           
+            
         } 
 
 
