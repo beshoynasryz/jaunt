@@ -170,6 +170,17 @@
                                                                   </div>
                                                           </div>
                                                         </div>
+                                                                      <div class="row mb-3 mt-4">
+                                                                        <label for="manager" class="col col-form-label"><i class="bi bi-person"></i>Select place</label>
+                                                                        <div class="col-md-8 col-lg-9">
+                                                                          <select class="form-control" name="place">
+                                                                           
+                                                                          <% places.forEach(function(place){ %>
+                                                                            <option value="<%=place._id%>"><%=place.name%></option>
+                                                                          <% }); %>
+                                                                          </select>
+                                                                        </div>
+                                                                    </div>
               
                                                           <input type="submit" class="btn button2 mt-3" value="SAVE">
                                                           <button type="button" class="btn button2 close mt-3 btn-light" onclick="document.getElementById('manager-popup').style.display = 'none'">Close</button>

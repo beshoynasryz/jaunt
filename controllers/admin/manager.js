@@ -7,10 +7,8 @@ import Rating from "../../models/Rating.js";
 
 export const managerIndex = async (req, res, next) => {
   try {
-    let bookings = await Booking.find({
-      place: req.session.owner.place._id,
-    }).populate("user");
-    
+    let bookings = await Booking.find({place:req.session.owner.place._id}).populate("user").populate('place');
+   
     let userRates = await Rating.find({
       place: req.session.owner.place._id,
       rater: 'user',
