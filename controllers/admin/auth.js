@@ -6,6 +6,7 @@ import { createError } from "../../utils/error.js"
 import Owner from "../../models/Owner.js"
 import Booking from "../../models/Booking.js"
 import Place from "../../models/Place.js"
+import Manager from "../../models/Manager.js"
 
 
 export const renderManageBranchesBookingView =async (req, res, next) => {
@@ -92,15 +93,6 @@ export const partnerDetials =async (req, res, next) => {
       next(err)
   }
 }
-
-
-
-
-
-
-
-//zika
-
 
 export const renderCompaniesView =async (req, res, next) => {
   try {
@@ -216,7 +208,6 @@ export const renderlandingpageView =async (req, res, next) => {
   }
 }
 
-//contact view
 
 export const rendercontactView =async (req, res, next) => {
   try {
@@ -241,11 +232,11 @@ export const renderRequestView =async (req, res, next) => {
       if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
           res.redirect('/admin/auth/sign-in');
       }
-      const places = await Place.find().populate('manager');
+      const places = await Place.find( {owner_id: req.session.owner._id}).populate('manager');
       const placespending = await Place.find({ status:'pending', owner_id: req.session.owner._id}).populate('manager');
       const placesapproved = await Place.find({ status:'approved', owner_id: req.session.owner._id}).populate('manager');
       const placesdeclined = await Place.find({ status:'declined',  owner_id: req.session.owner._id}).populate('manager');
-     console.log(placesapproved.length)
+
       res.render('admin/auth/request',  
         { 
           layout: './admin/layouts/main',
@@ -254,15 +245,13 @@ export const renderRequestView =async (req, res, next) => {
           placespending:placespending,
           placesapproved:placesapproved,
           placesdeclined:placesdeclined,
-        } 
+        }   
       );
        
   } catch(err){
       next(err)
   }
 }
-
-
 
 export const renderPartnerView =async (req, res, next) => {
   try {
@@ -283,7 +272,7 @@ export const renderPartnerView =async (req, res, next) => {
   } catch(err){
       next(err)
   }
-}
+} 
 export const renderPartnermanageView =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -304,7 +293,7 @@ export const renderPartnermanageView =async (req, res, next) => {
           ownerspark:ownerspark,
           ownersrestrunt :ownersrestrunt,
           ownerscafe:ownerscafe,
-          ownersworkspace :ownersworkspace,
+          ownersworkspace :ownersworkspace, 
 
         }
       );
@@ -334,23 +323,25 @@ export const renderBookingwayView =async (req, res, next) => {
   }
 }
 
-
 export const profile =async (req, res, next) => {
   try {
       // If the user is loggedin
       if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
         res.redirect('/admin/auth/sign-in');
       }
+      const places = await Place.find( {owner_id: req.session.owner._id})
+      const managers = await Manager.find( {owner_id: req.session.owner._id})
       res.render('admin/auth/profile', { 
         layout: './admin/layouts/main', 
-        owner: req.session.owner
+        owner: req.session.owner,
+        places:places,
+        managers:managers, 
       });
   } catch(err){
       next(err)
   }
 }
 
-//ehhh
 export const register = async (req,res,next)=>{
     try {
         const salt = bcrypt.genSaltSync(10)
@@ -397,55 +388,109 @@ export const register = async (req,res,next)=>{
         next(err)
     }
 }
-
-
-
 export const login = async (req,res,next)=>{
   try {
-      const owner = await Owner.findOne({ email: req.body.email });
-      if (!owner) return next(createError(404, "email not found!"));
+    console.log(req.body)
+    if(req.body.loginAs === 'owner') {
+      console.log('owner')
+      await ownerLogin(req,res,next)
+    } else {
+      console.log('manger')
+      await managerLogin(req,res,next)
+    }
+    } catch (err) {
+      next(err);
+    }
+}
+
+export const ownerLogin = async (req,res,next)=>{
+  const owner = await Owner.findOne({ email: req.body.email });
+  if (!owner) return next(createError(404, "email not found!"));
+
+  const isPasswordCorrect = await bcrypt.compare(
+    req.body.password,
+    owner.password
+  );
+  
+  if (!isPasswordCorrect)
+    return next(createError(400, "Wrong password !"));
+
+  const token = jwt.sign(
+    { id: owner._id, isAdmin: owner.isAdmin },
+    process.env.JWT
+  );
+
+  const ownerResponse = {
+    _id: owner._id,
+    ownername: owner.ownername,
+    companyname: owner.companyname,
+    type: owner.type,
+    email: owner.email,
+    phone: owner.phone,
+    image: owner.image,
+    isAdmin: owner.isAdmin,
+    access_token: token
+  };
+  
+  req.session.authId = ownerResponse._id;
+  req.session.owner = ownerResponse;
+
+ 
+    //respond in html
+    res.cookie("access_token", token, {
+      httpOnly: true,
+    })
+    .status(200)
+    .redirect('/admin');
+  
+}
+
+export const managerLogin = async (req,res,next)=>{
+  try {
+      const manager = await Manager.findOne({ email: req.body.email }).populate('owner').populate('place');
+      if (!manager) return next(createError(404, "email not found!"));
   
       const isPasswordCorrect = await bcrypt.compare(
         req.body.password,
-        owner.password
+        manager.password
       );
       
       if (!isPasswordCorrect)
         return next(createError(400, "Wrong password !"));
 
       const token = jwt.sign(
-        { id: owner._id, isAdmin: owner.isAdmin },
+        { id: manager._id },
         process.env.JWT
       );
 
-      const ownerResponse = {
-        _id: owner._id,
-        ownername: owner.ownername,
-        companyname: owner.companyname,
-        type: owner.type,
-        email: owner.email,
-        phone: owner.phone,
-        image: owner.image,
-        isAdmin: owner.isAdmin,
+      const managerResponse = {
+        _id: manager._id,
+        managername: manager.managername,
+        email: manager.email,
+        phone: manager.phone, 
+        image: manager.image,
+        owner: manager.owner,
+        place: manager.place,
         access_token: token
       };
       
-      req.session.authId = ownerResponse._id;
-      req.session.owner = ownerResponse;
-
+      req.session.authId = managerResponse._id;
+      req.session.owner = managerResponse;
      
         //respond in html
         res.cookie("access_token", token, {
           httpOnly: true,
         })
         .status(200)
-        .redirect('/admin');
+        .redirect('/admin/manager/home');
       
-
+        
     } catch (err) {
       next(err);
     }
 }
+
+
 
 export const logout = async (req,res,next)=>{
   try {
@@ -481,7 +526,6 @@ export const updateOwner =async (req,res,next)=>{
       next(err);
   }
 }
-
 export const changePassword =async (req,res,next)=>{
   try{
     
@@ -517,9 +561,6 @@ export const changePassword =async (req,res,next)=>{
       next(err);
   }
 }
-
-
-
 export const deleteOwner =async (req,res,next)=>{
   try {
     await Place.deleteMany({ owner_id: req.params.id })
@@ -530,3 +571,4 @@ export const deleteOwner =async (req,res,next)=>{
       next(err);
   }
 }
+ 

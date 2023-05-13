@@ -1,0 +1,129 @@
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/*start variables*/
+:root{
+    --primary-color: #9661C9;
+    --background-color-of-primary-color: #F2ECF9;
+    --secondary-color: #9183D8;
+    --background-color-of-secondary-color:#D9CEF9 ;
+    --text-color1: #21162C;
+  }
+  /*end variables*/
+
+
+.places .profile .table-responsive tbody td img{
+    width: 80px;
+    height: 80px;
+    margin-left: -10px;
+}
+
+.places .profile .table-responsive tbody td .open-rating-popup{
+    padding: 10px;
+    border: 0.5px solid var(--background-color-of-secondary-color);
+    background-color: var(--background-color-of-secondary-color);
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.places .profile .table-responsive tbody td .open-rating-popup:hover{
+    border: 1.5px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.rating-popup {
+    display: none; /* Hide the pop-up by default */
+    position: fixed; /* Position the pop-up as fixed */
+    z-index: 1; /* Set the z-index of the pop-up to 1 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Set a semi-transparent background color */
+  }
+  
+  .rating-popup-content {
+    background-color:none;
+    margin: 15% auto; /* 15% from the top and centered */
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  .rating-popup-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 30px;
+  }
+  
+  .rating-popup-close:hover,
+  .rating-popup-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .rating-stars {
+    margin-bottom: 10px;
+  }
+  
+  .rating-stars input[type="radio"] {
+    display: none;
+  }
+  
+  .rating-stars label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+  }
+  
+  .rating-stars label:hover,
+  .rating-stars label:hover ~ label,
+  .rating-stars input[type="radio"]:checked ~ label {
+    color: #f7d02c;
+  }
+  
+  textarea {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+
+
+  table {
+    width: 100%;
+    table-layout: auto;
+  }
+  
+th,td {
+    width: 10%;
+  }
+
+  
+
+  table tbody tr td p{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+
+  

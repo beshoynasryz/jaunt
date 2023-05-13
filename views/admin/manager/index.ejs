@@ -1,0 +1,509 @@
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+          </ol>
+      </nav>
+  </div>
+  <!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+
+                  <!-- Sales Card -->
+                  <div class="col-xxl-4 col-md-4 my-4 text-center">
+                    <div class="card info-card sales-card">
+      
+                      <div class="card-body my-4 pb-1 text-center">
+                        <h5 class="card-title">Total Payments</h5>
+      
+                        <div class="d-flex justify-content-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-cash"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>1000</h6>
+                            <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+      
+                          </div>
+                        </div>
+                      </div>
+      
+                    </div>
+                  </div><!-- End Sales Card -->
+      
+                  <!-- Sales Card -->
+                  <div class="col-xxl-4 col-md-4 my-4 text-center">
+                    <div class="card info-card sales-card">
+      
+                      <div class="card-body my-4 pb-1 text-center">
+                        <h5 class="card-title">Booking Requests</h5>
+      
+                        <div class="d-flex justify-content-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-ticket-perforated"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>145</h6>
+                            <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+      
+                          </div>
+                        </div>
+                      </div>
+      
+                    </div>
+                  </div><!-- End Sales Card -->
+
+                  <!-- Sales Card -->
+                  <div class="col-xxl-4 col-md-4 my-4 text-center">
+                    <div class="card info-card sales-card">
+      
+                      <div class="card-body my-4 pb-1 text-center">
+                        <h5 class="card-title">Capacity</h5>
+      
+                        <div class="d-flex justify-content-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>%35</h6>
+                            <span class="text-success small pt-1 fw-bold">60</span> <span class="text-muted small pt-2 ps-1">bookings left</span>
+      
+                          </div>
+                        </div>
+                      </div>
+      
+                    </div>
+                    
+                
+                  </div><!-- End Sales Card -->
+                  
+      <!-- Left side columns -->
+      <div class="col-lg-9">
+        <div class="row">
+
+
+
+
+
+          <!-- Top Selling -->
+          <div class="col-12">
+            <div class="card top-selling overflow-auto">
+
+              <div class="card-body pb-0">
+                <h5 class="card-title">Requests</h5>
+                <div class="filter">
+                  <a class="icon" href="Requests.html">See All</a>
+              </div>
+
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Booking Number</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tickets No.</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Pay</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+                      <th class="text-secondary opacity-7"></th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                    <% bookings.forEach(function(booking){ %>  
+                    <tr>
+                      <td>
+                        <p class="text-sm font-weight-bold mb-0 mt-3"><%=booking.bookingNumber%></p>
+                      </td>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="<%=booking.user.image%>" class="avatar avatar-sm me-3" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm"><%=booking.user.name%></h6>
+                            <p class="text-xs text-secondary mb-0"><%=booking.user.email%></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0 mt-3"><%=booking.numberOfTickets%></p>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0 mt-3">$450</p>
+                      </td>
+                      <td> <% if (booking.status === 'pending') {%> 
+                        <p class="text-xs font-weight-bold mb-0 mt-3"><span class="badge bg-info"><%= booking.status %></span></p>
+                      <%} else if(booking.status === 'approved') { %>                                                                                
+                        
+                        <p class="text-xs font-weight-bold mb-0 mt-3"><span class="badge bg-success"><%= booking.status %></span></p>
+                      <%} else if(booking.status === 'declined') { %>                                                                                
+                       
+                        <p class="text-xs font-weight-bold mb-0 mt-3"><span class="badge bg-warning"><%= booking.status %></span></p>
+                      <%} else { %>                                                                  
+                     
+                        <p class="text-xs font-weight-bold mb-0 mt-3"><span class="badge bg-danger"><%= booking.status %></span></p>
+                      <%}%>    
+                        
+                      </td>
+                      <td class="action">  
+                        <button class="open-request-popup btn" onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'block'">MANAGE</button>
+                        
+                      </td>
+                    </tr>
+                    <%})%> 
+
+                   
+
+                  </tbody>
+                 
+                </table>
+
+                <% bookings.forEach(function(booking){ %>
+              <div id="request-popup-<%= booking._id %>" class="request-popup">
+                  <div>
+                      <span class="request-popup-close">&times;</span>
+                  </div>
+                <div class="request-popup-content">
+                  <div class="card text-center mb-5">
+
+                      <form id="request-form">
+
+                          <div class="col-12">
+                              <div class="row">
+
+                                <div class="col-4 ms-5">
+                                  <div class="row">
+                                    <div class="card text-center mb-5 mt-5">
+      
+                                      <div class="circle-image d-flex justify-content-center mt-4">
+                                          <img src="assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" width="50">
+                                      </div>
+      
+                                      <span class="dot"></span>
+                  
+                                      <span class="name fw-500 bi bi-person mt-3">User Name</span>
+                                      <small class="text-black font-weight-bold"><%=booking.user.name%></small>
+      
+                                      <% if (booking.status === 'pending') {%> 
+                                        <span class="badge bg-info"><%= booking.status %></span>
+                                      <%} else if(booking.status === 'approved') { %>                                                                                
+                                        <span class="badge bg-success"><%= booking.status %></span>
+                                      <%} else if(booking.status === 'declined') { %>                                                                                
+                                        <span class="badge bg-warning"><%= booking.status %></span>
+                                      <%} else { %>                                                                  
+                                      <span class="badge bg-danger"><%= booking.status %></span>
+                                      <%}%>          
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                      
+                                  <div class="col-lg-7 ms-4 pb-1">
+                                      <div class="row">
+
+
+
+
+
+
+                                        <table class="table align-items-center mb-0">
+                                          <thead>
+                                            <tr>
+                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 me-2">Data Type</th>
+                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Value</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+          
+                                            <tr>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request ID</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=booking.bookingNumber%></p>
+                                              </td>
+                                            </tr>
+          
+          
+                                            <tr>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request Date</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.date.toDateString() %></p>
+                                              </td>
+                                            </tr>
+          
+                                            <tr>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Tickets</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.numberOfTickets%></p>
+                                              </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Time in</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.checkin%></p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Time out</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.checkout%></p>
+                                              </td>
+                                            </tr>
+          
+                                            <tr>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Payed</p>
+                                              </td>
+                                              <td>
+                                                <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.total%></p>
+                                              </td>
+                                            </tr>
+          
+                      
+                                          </tbody>
+                                        </table>
+
+
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                                                                  
+                                    <form class="col-md-6" method="POST" action="/bookings/update-status/<%= booking.id %>">
+                                      <input type="hidden" name="status" value="approved">
+                                      <button type="submit" title="APPROVE" class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                                    </form>
+                                    <form  method="POST" action="/bookings/update-status/<%=booking.id%>">
+                                      <input type="hidden" name="status" value="declined">
+                                      <button type="submit" title="DECLINE" class="btn p-2 btn-primary me-auto ms-3">DECLINE</button>
+                                    </form>
+                                      <!-- <button class="btn p-2 btn-primary me-auto ms-3 ">APPROVE</button>
+                                      <button class="button2 btn p-2 btn-primary main-btn ms-2">DECLINE</button> -->
+                                  </div>
+
+                      
+                                 
+                                  <div class="flex justify-content-center">
+                                    <button type="button" class="btn close w-75 mt-3" onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'none'">Close</button>
+                                </div>
+                            </div>
+                          </div>
+
+              
+                              <span class="dot"></span>
+              
+              
+
+              
+                      </form>
+
+
+          
+          
+          
+                      
+                      
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+              </div>
+
+              </div>
+
+            </div>
+          </div><!-- End Top Selling -->
+
+        </div>
+      </div><!-- End Left side columns -->
+
+      <!-- Right side columns -->
+      <div class="col-lg-3">
+
+
+
+        <!-- booking Traffic -->
+        <div class="card">
+          <div class="filter">
+            <a class="icon" href="feedBacks.html">See All</a>
+          </div>
+
+          <div class="card-body pb-0">
+            <h5 class="card-title">Reviews</h5>
+
+            <div class="news">
+              <% userRates.forEach(function(rating){ %> 
+              <div class="post-item clearfix">
+                <img src="<%=rating.user.image%>" alt="">
+                <h4><%=rating.user.name%></h4>
+                <p><i class="bi bi-ticket pe-1"></i><%=rating.booking.bookingNumber%></p>
+                <p><i class="bi bi-calendar-event pe-1"></i><%= rating.booking.date.toDateString() %></p>
+                <p><i class="bi bi-star pe-1"></i><%=rating.rate%></p>
+                <div class="d-flex justify-content-end mt-0">
+                  <button id="complete-button" type="button" onclick="document.getElementById('rating-popup-<%= rating._id %>').style.display = 'block'" class="open-review-popup btn">SEE REVIEW</button>
+                </div>
+
+              </div>
+              <%})%> 
+
+
+            
+              <% userRates.forEach(function(rating){ %>
+                <div id="rating-popup-<%= rating._id %>" class="rating-popup">
+                  
+              <div id="rating-popup">
+                <div>
+                    <span class="rating-popup-close">&times;</span>
+                </div>
+              <div class="rating-popup-content w-75">
+                <div class="card py-3 mb-5">
+
+                  <form id="request-form">
+
+                    <div class="col-12">
+                      <div class="row">
+
+                        <div class="col-4 ms-5">
+                          <div class="row">
+                            <div class="card text-center mb-5">
+
+                              <div class="circle-image d-flex justify-content-center mt-4">
+                                  <img src="<%=rating.user.image %>" width="50">
+                              </div>
+
+                              <span class="dot"></span>
+          
+                              <span class="name mb-1 fw-500 bi bi-person mt-3">User Name</span>
+                              <small class="text-black-50"><%=rating.user.name %></small>
+
+                              <span class="name mb-1 fw-500 bi bi-envelope mt-2"> User Email</span>
+                              <small class="text-black-50"><%=rating.user.email %></small>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="col-6 ms-2">
+                          <div class="row">
+
+                            <table class="table align-items-center mb-0">
+                              <thead>
+                                <tr>
+                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 me-2">Data Type</th>
+                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Value</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                <tr>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request ID</p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.booking.bookingNumber%></p>
+                                  </td>
+                                </tr>
+
+
+                                <tr>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request Date</p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= rating.booking.date.toDateString() %></p>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Branch Rate</p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.rate%></p>
+                                  </td>
+                                </tr>
+
+                               
+
+                                <tr>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Feedback</p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.comment%></p>
+                                  </td>
+                                </tr>
+
+          
+                              </tbody>
+                            </table>
+
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                    <div class="buttons mt-0">
+                      <button id="complete-button" type="button" onclick="document.getElementById('rating-popup-<%= rating._id %>').style.display = 'none'" class="btn float-end m-3 w-25">Close</button>
+                  </div>
+                        
+                          
+                      </div>
+          
+          
+          
+          
+                      
+                      
+
+
+        
+                        <span class="dot"></span>
+        
+        
+                    
+
+        
+                </form>
+
+
+        
+        
+        
+                </div>
+              </div>
+                <% }); %>
+            </div>
+
+
+            </div><!-- End sidebar recent posts-->
+
+          </div>
+        </div><!-- End News & Updates -->
+      </div><!-- End Right side columns -->
+
+    </div>
+  </section>
+
+</main>
+

@@ -102,6 +102,7 @@ const placeSchema = new mongoose.Schema({
         required: true,
     },
     receptionHours: [],
+    ratings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }],
 },
 
 

@@ -1,0 +1,513 @@
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Manage Requests</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Requests</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-4 my-4 text-center">
+                      <div class="card info-card sales-card">
+        
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                              <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                              </li>
+          
+                              <li><a class="dropdown-item" href="#">Complete</a></li>
+                              <li><a class="dropdown-item" href="#">Active</a></li>
+                            </ul>
+                          </div>
+          
+                          <div class="card-body my-4 pb-1 text-center">
+                            <h5 class="card-title">Requests <span>| complete</span></h5>
+          
+                            <div class="d-flex justify-content-center">
+                              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-ticket-perforated"></i>
+                              </div>
+                              <div class="ps-3">
+                                <h6>145</h6>
+                                <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+          
+                              </div>
+                            </div>
+                          </div>
+        
+                      </div>
+                    </div><!-- End Sales Card -->
+        
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-4 my-4 text-center">
+                      <div class="card info-card sales-card">
+        
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                              <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                              </li>
+                              <li><a class="dropdown-item" href="#">Complete</a></li>
+                              <li><a class="dropdown-item" href="#">Not Done</a></li>
+                            </ul>
+                          </div>
+          
+                          <div class="card-body my-4 pb-1 text-center">
+                            <h5 class="card-title">Reviews <span>| Complete</span></h5>
+          
+                            <div class="d-flex justify-content-center">
+                              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-clipboard2-check"></i>
+                              </div>
+                              <div class="ps-3">
+                                <h6>145</h6>
+                                <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+          
+                              </div>
+                            </div>
+                          </div>
+        
+                      </div>
+                    </div><!-- End Sales Card -->
+
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-4 my-4 text-center">
+                      <div class="card info-card sales-card">
+        
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                              <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                              </li>
+          
+                              <li><a class="dropdown-item" href="#">Today</a></li>
+                              <li><a class="dropdown-item" href="#">This Month</a></li>
+                              <li><a class="dropdown-item" href="#">This Year</a></li>
+                            </ul>
+                          </div>
+          
+                          <div class="card-body my-4 pb-1 text-center">
+                            <h5 class="card-title">Branch Rate <span>| Today</span></h5>
+          
+                            <div class="d-flex justify-content-center">
+                              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-star"></i>
+                              </div>
+                              <div class="ps-3">
+                                <h6>5.0</h6>
+                                <span class="text-success small pt-1 fw-bold">increase</span> 
+                              </div>
+                            </div>
+                          </div>
+        
+                      </div>
+                    </div><!-- End Sales Card -->
+
+                    
+
+      </div>
+    </section>
+
+    <section class="section places">
+        <div class="row">
+            <section class="section profile">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body pt-3">
+      
+
+      
+                                <!-- Bordered Tabs -->
+                                <ul class="nav nav-tabs nav-tabs-bordered">
+                                    <li class="nav-item">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#completeRequests">Complete Requsets</button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#completeReview">Complete Reviews</button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#userReview">User Reviews</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active profile-overview">
+                                        <div class="card">
+                                            <div class="pt-3">    
+                                                <div class="search-bar">
+                                                    <form class="search-form d-flex align-items-center" method="POST" action="#">
+                                                        <input type="text" name="query" placeholder="Search By Request ID" title="Enter search keyword" id="search-input">
+                                                        <button type="submit" title="Search" id="search"><i class="bi bi-search"></i></button>
+                                                    </form>
+                                                </div><!-- End Search Bar -->
+      
+                                                <div class="tab-content">
+      
+                                                    <div class="tab-pane fade show active profile-overview" id="completeRequests">
+                                                        <div class="">
+                                                            <div class="filter d-flex">
+                                                                
+                                                                <div class="form-group justify-content-end me-2">
+                                                                    <select class="form-control" id="sel1">
+                                                                      <option>Today</option>
+                                                                      <option>A Week</option>
+                                                                      <option>A Month</option>
+                                                                    </select>
+                                                                  </div>
+
+                                                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                                    <li><a class="dropdown-item active" href="#">All</a></li>
+                                                                    <li><a class="dropdown-item" href="#">High Payed</a></li>
+                                                                    <li><a class="dropdown-item" href="#">Low Payed</a></li>
+                                                                </ul>
+                                                            </div>
+      
+                                                        </div>
+      
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+
+                                                                <div class="ps-3 pe-3 mt-3 table-responsive p-0">
+                                                                    <table class="table align-items-center mb-0">
+                                                                      <thead>
+                                                                        <tr>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Request Date</th>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Pay</th>
+                                                                          <th class="text-secondary opacity-7"></th>
+                                                                        </tr>
+                                                                      </thead>
+                                                                      <tbody>
+                                                                        <% ratings.forEach(function(rating){ %> 
+                                                                          <% if(rating.rater == 'user'){ %>
+                                                                        <tr>
+                                                                          <td>
+                                                                            <p class="text-sm font-weight-bold mb-0 mt-3"><%=rating.booking.bookingNumber%></p>
+                                                                          </td>
+                                                                          <td>
+                                                                            <div class="d-flex px-2 py-1">
+                                                                              <div>
+                                                                                <img src="assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" class="avatar avatar-sm me-3" alt="user1">
+                                                                              </div>
+                                                                              <div class="d-flex flex-column justify-content-center">
+                                                                                <h6 class="mb-0 text-sm">Yasser Farghal</h6>
+                                                                                <p class="text-xs text-secondary mb-0">example@mail.com</p>
+                                                                              </div>
+                                                                            </div>
+                                                                          </td>
+                                                                          <td>
+                                                                            <p class="text-xs font-weight-bold mb-0 mt-3">6/5/2023</p>
+                                                                          </td>
+                                                                          <td>
+                                                                            <p class="text-xs font-weight-bold mb-0 mt-3">$450</p>
+                                                                          </td>
+                                                                          <td class="action">
+                                                                                <button id="complete-button" type="button" onclick="document.getElementById('rating-popup-<%= rating._id %>').style.display = 'block'" class="btn btn-warning btn-block open-rating-popup">Rate Clients</button>
+                                                                        </td>
+                                                                        </tr>
+
+                                                                        <%}%> 
+                                                                        <%})%> 
+                                                
+                                                                      </tbody>
+                                                                    </table>
+
+                                                                  </div>
+
+                                                            </div>
+                                                    </div>
+                                                    </div>
+      
+                                                    <% ratings.forEach(function(rating){ %>
+                                                      <div id="rating-popup-<%= rating._id %>" class="rating-popup">
+                                                          <div>
+                                                              <span class="rating-popup-close">&times;</span>
+                                                          </div>
+                                                        <div class="rating-popup-content">
+                                                          <div class="card text-center mb-5">
+
+                                                                <form id="rating-form" action="/rating/rate" method="post">
+
+                                                                  <div class="col-12">
+                                                                      <div class="row">
+
+                                                                          <div class="col-6 mt-4">
+                                                                              <div class="row">
+                                                                                  <div class="circle-image mt-4 mb-2">
+                                                                                      <img src="<%= rating.user.image %>" width="50">
+                                                                                  </div>
+                                                                                  <span class="name mb-1 fw-500 bi bi-person"><%= rating.user.name %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-envelope"><%= rating.user.email %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-telephone"><%= rating.user.phone %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-upc"> <%=rating.booking.bookingNumber %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-calendar-event"> <%= rating.booking.date.toDateString() %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-ticket-perforated"> <%= rating.booking.numberOfTickets %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-cash">  <%= rating.booking.total %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-clock">  <%= rating.booking.checkin %></span>
+                                                                                  <span class="name mb-1 fw-500 bi bi-clock">  <%= rating.booking.checkout %></span>
+                                                                              </div>
+                                                                          </div>
+
+                                                                          <div class="col-6 mt-4">
+                                                                              <div class="row mt-4">
+                                                                                  <div class="rate  py-3 mt-1">
+                                                      
+                                                                                      <h6 class="mb-0">Rate Client</h6>
+                                                                      
+                                                                                      <div class="rating-stars">
+                                                                                          <input type="radio" name="rate" value="10" id="5-stars">
+                                                                                          <label for="5-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="8" id="4-stars">
+                                                                                          <label for="4-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="6" id="3-stars">
+                                                                                          <label for="3-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="4" id="2-stars">
+                                                                                          <label for="2-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="2" id="1-star">
+                                                                                          <label for="1-star">&#9733;</label>
+                                                                                        </div>
+                                                                                        <input type="hidden" name="booking_id" value="<%= rating.booking._id %>">
+                                                                                        <input type="hidden" name="rater" value="place">
+
+                                                                                      <textarea id="comment" name="comment" placeholder="Enter your comment here"></textarea>
+                                                                      
+                                                                      
+                                                                                      <div class="buttons mt-0">
+                                                                      
+                                                                                      <button type="submit" class="btn btn-warning btn-block rating-submit w-50">Submit</button>
+                                                                                      
+                                                                                  </div>
+                                                                      
+                                                                                      
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+
+                                                                      </div>
+                                                                  </div>
+
+                                                      
+                                                                      <span class="dot"></span>
+                                                      
+                                                      
+
+                                                      
+                                                              </form>
+
+
+                                                  
+                                                  
+                                                  
+                                                              
+                                                              
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <% }); %>
+
+                                                    <div class="tab-pane fade profile-edit pt-3" id="completeReview">
+      
+                                                            <div class="">
+                                                                <div class="filter d-flex">
+                                                                    
+                                                                    
+                                                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                                      <li><a class="dropdown-item active" href="#">All</a></li>
+                                                                      <li><a class="dropdown-item" href="#">High Rated</a></li>
+                                                                      <li><a class="dropdown-item" href="#">Low Rated</a></li>
+                                                                    </ul>
+                                                                </div>
+        
+                                                            </div>
+      
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+
+                                                                <div class="ps-3 pe-3 mt-3 table-responsive p-0">
+                                                                    <table class="table align-items-center mb-0">
+                                                                      <thead>
+                                                                        <tr>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Request Date</th>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Feedback</th>
+                                                                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>
+                                                                        </tr>
+                                                                      </thead>
+                                                                      <tbody>
+                                                                        
+                                                                        <% ratings.forEach(function(rating){ %> 
+                                                                          <% if(rating.rater == 'place'){ %>
+                                                                        <tr>
+
+                                                                        <td>
+                                                                            <p class="text-sm font-weight-bold mb-0 mt-3"><%=rating.booking.bookingNumber %></p>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <div class="d-flex px-2 py-1">
+                                                                                <div>
+                                                                                    <img src="<%=rating.user.image %>" class="avatar avatar-sm me-3" alt="user1">
+                                                                                </div>
+                                                                                <div class="d-flex flex-column justify-content-center">
+                                                                                    <h6 class="mb-0 text-sm"><%=rating.user.name %></h6>
+                                                                                    <p class="text-xs text-secondary mb-0"><%=rating.user.email %></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= rating.booking.date.toDateString() %></p>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= rating.comment %></p>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= rating.rate %></p>
+                                                                        </td>
+
+                                                                        </tr>
+                                                                        <%}%> 
+                                                                        <%})%> 
+                                                                        
+
+
+                                                
+                                                                      </tbody>
+                                                                    </table>
+
+                                                                  </div>
+
+                                                            </div>
+                                                    </div>
+                                                        </div>
+      
+                                                        <div class="tab-pane fade profile-edit pt-3" id="userReview">
+      
+                                                            <div class="">
+                                                                <div class="filter d-flex">
+
+                                                                    <div class="form-group justify-content-end me-2">
+                                                                        <select class="form-control" id="sel1">
+                                                                          <option>Today</option>
+                                                                          <option>A Week</option>
+                                                                          <option>A Month</option>
+                                                                        </select>
+                                                                      </div>
+    
+                                                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                                        <li><a class="dropdown-item active" href="#">All</a></li>
+                                                                        <li><a class="dropdown-item" href="#">High Payed</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Low Payed</a></li>
+                                                                    </ul>
+                                                                </div>
+        
+                                                            </div>
+      
+                                                            <div class="col-lg-12">
+                                                                <div class="row">
+
+                                                                    <div class="ps-3 pe-3 mt-3 table-responsive p-0">
+                                                                        <table class="table align-items-center mb-0">
+                                                                          <thead>
+                                                                            <tr>
+                                                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                                                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Request Date</th>
+                                                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Feedback</th>
+                                                                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch Rate</th>
+                                                                              
+
+                                                                            </tr>
+                                                                          </thead>
+                                                                          <tbody>
+                                                                            <% ratings.forEach(function(rating){ %> 
+                                                                              <% if(rating.rater == 'user'){ %>
+                                                                            <tr>
+    
+                                                                            <td>
+                                                                                <p class="text-sm font-weight-bold mb-0 mt-3"><%=rating.booking.bookingNumber %></p>
+                                                                            </td>
+    
+                                                                            <td>
+                                                                                <div class="d-flex px-2 py-1">
+                                                                                    <div>
+                                                                                        <img src="<%=rating.user.image %>" class="avatar avatar-sm me-3" alt="user1">
+                                                                                    </div>
+                                                                                    <div class="d-flex flex-column justify-content-center">
+                                                                                        <h6 class="mb-0 text-sm"><%=rating.user.name %></h6>
+                                                                                        <p class="text-xs text-secondary mb-0"><%=rating.user.email %></p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+    
+                                                                            <td>
+                                                                                <p class="text-xs font-weight-bold mb-0 mt-3"><%= rating.booking.date.toDateString() %></p>
+                                                                            </td>
+    
+                                                                            <td>
+                                                                                <p class="text-xs font-weight-bold mb-0 mt-3"><%=rating.comment %></p>
+                                                                            </td>
+    
+                                                                            <td>
+                                                                                <p class="text-xs font-weight-bold mb-0 mt-3"><%=rating.rate %></p>
+                                                                            </td>
+    
+                                                                            </tr>
+                                                                            <%}%> 
+                                                                            <%})%> 
+
+    
+                                                    
+                                                                          </tbody>
+                                                                        </table>
+
+                                                                      </div>
+
+                                                                </div>
+      
+      
+                                                        </div>
+      
+                                                        
+                                                        </div>
+      
+      
+                                                        
+                                                    
+      
+      
+                                                    </div>
+      
+                                                    <!-- End Left side columns -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                 
+                            </div>
+                        </div>
+                    </div>
+            </section>
+                </div>
+            </section>
+
+  </main>

@@ -30,6 +30,20 @@
   <script src="/assets/js/editBranch.js"></script>
   <script src="/assets/js/places.js"></script>
   <script src="/assets/js/aAddBranch.js"></script>
+  <script>
+    myFunction()
+    function myFunction(e) {
+      var pathname = window.location.pathname;
+      var elems = document.querySelectorAll(".collapsed");
+      [].forEach.call(elems, function(el) {
+        if(el.href?.toString().endsWith(pathname)){
+          el.classList.remove("collapsed");
+      } else {
+          el.classList.add("collapsed");
+        }
+      });
+    }
+  </script>
   <!-- <script src="/assets/js/branchesRequests.js"></script> -->
 
   

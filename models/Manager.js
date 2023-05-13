@@ -24,19 +24,16 @@ const ManagerSchema = new mongoose.Schema({
    
       },
 
-      owner :{
-          type: String,
-          required: true,
-      },
-
-      place :{
-          type: String
-      },
-     
-    isAdmin:{
-        type: Boolean,
-        default:false,
+      owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Owner'
     },
+
+    place: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Place'
+  },
+     
 },{timestamps:true}
 );
 

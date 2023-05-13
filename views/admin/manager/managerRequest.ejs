@@ -1,0 +1,609 @@
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Manage Requests</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/manager/home">Home</a></li>
+          <li class="breadcrumb-item active">Requests</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-4 my-4 text-center">
+                      <div class="card info-card sales-card">
+        
+                        <div class="card-body my-4 pb-1 text-center">
+                          <h5 class="card-title">Active Requests</h5>
+        
+                          <div class="d-flex justify-content-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div class="ps-3">
+                              <h6>100</h6>
+                              <span class="text-success small pt-1 fw-bold">%65</span> <span class="text-muted small pt-2 ps-1">Of Capacity</span>
+        
+                            </div>
+                          </div>
+                        </div>
+        
+                      </div>
+                    </div><!-- End Sales Card -->
+        
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-4 my-4 text-center">
+                      <div class="card info-card sales-card">
+        
+                        <div class="card-body my-4 pb-1 text-center">
+                          <h5 class="card-title">Booking Requests</h5>
+        
+                          <div class="d-flex justify-content-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-ticket-perforated"></i>
+                            </div>
+                            <div class="ps-3">
+                              <h6>145</h6>
+                              <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+        
+                            </div>
+                          </div>
+                        </div>
+        
+                      </div>
+                    </div><!-- End Sales Card -->
+
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-4 my-4 text-center">
+                      <div class="card info-card sales-card">
+        
+                        <div class="card-body my-4 pb-1 text-center">
+                          <h5 class="card-title">Capacity</h5>
+        
+                          <div class="d-flex justify-content-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-arrows-fullscreen"></i>
+                            </div>
+                            <div class="ps-3">
+                              <h6>%35</h6>
+                              <span class="text-danger small pt-1 fw-bold">60</span> <span class="text-muted small pt-2 ps-1">Places left</span>
+        
+                            </div>
+                          </div>
+                        </div>
+        
+                      </div>
+                    </div><!-- End Sales Card -->
+
+                    
+
+      </div>
+    </section>
+
+    <section class="section places">
+        <div class="row">
+            <section class="section profile">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body pt-3">
+      
+
+      
+                                <!-- Bordered Tabs -->
+                                <ul class="nav nav-tabs nav-tabs-bordered">
+                                    <li class="nav-item">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#Activated">Pending</button>
+                                    </li>
+                                    <li class="nav-item">
+                                      <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#Accepting">Accepts</button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#Requests">declineds</button>
+                                    </li>
+                                    <li class="nav-item">
+                                      <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#history">History</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active profile-overview">
+                                        <div class="card">
+                                            <div class="pt-3">    
+                                                <div class="search-bar">
+                                                    <form class="search-form d-flex align-items-center" method="POST" action="#">
+                                                        <input type="text" name="query" placeholder="Search by request ID" title="Enter search keyword" id="search-input">
+                                                        <button type="submit" title="Search" id="search"><i class="bi bi-search"></i></button>
+                                                    </form>
+                                                </div><!-- End Search Bar -->
+      
+                                                <div class="tab-content">
+      
+                                                    <div class="tab-pane fade show active profile-overview" id="Activated">
+                                                        <div class="">
+                                                            <div class="filter d-flex">
+                                                                
+                                                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                                    <li><a class="dropdown-item active" href="#">All</a></li>
+                                                                    <li><a class="dropdown-item" href="#">High Tickets</a></li>
+                                                                    <li><a class="dropdown-item" href="#">Low Tickets</a></li>
+                                                                </ul>
+                                                            </div>
+      
+                                                        </div>
+      
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+      
+
+                                                            <table class="table align-items-center mb-0 ps-5 pe-5">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Booking-Number </th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tickets</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Pay</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+                                                                  <th class="text-secondary opacity-7"></th>
+                                                                </tr>
+                                                              </thead>
+
+                                                              <tbody>
+                                                                <% bookings.forEach(function(booking){ %> 
+                                                                    <% if(booking.status == 'pending'){ %>
+                                                                    <tr>
+                                                                    <td>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><i class="bi bi-upc"></i><%= booking.bookingNumber %></p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="d-flex px-2 py-1">
+                                                                        <div>
+                                                                            <img src="assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" class="avatar avatar-sm me-3" alt="user1">
+                                                                        </div>
+                                                                        <div class="d-flex flex-column justify-content-center">
+                                                                            <h6 class="mb-0 text-sm"><%= booking.user.name %></h6>
+                                                                            <p class="text-xs text-secondary mb-0"><%= booking.user.email %></p>
+                                                                        </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.numberOfTickets %></p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.total %></p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-success"><%= booking.status %></span></p>
+                                                                    </td>
+                                                                    <td class="action">
+                                                                        <button class="open-request-popup btn p-2 p-lg-3 btn-primary main-btn ms-2"  onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'block'" >MANAGE</button>
+                                                                    </td>
+                                                                    </tr>
+                                                                    <%}%> 
+                                                                <%})%> 
+
+
+                                                              </tbody>
+                                                            </table>
+
+                                                            </div>
+                                                    </div>
+                                                    </div>
+
+                                                    <div class="tab-pane fade profile-edit pt-3" id="Accepting">
+      
+                                                      <div class="">
+                                                          <div class="filter d-flex">
+                                                              
+                                                              <div class="form-group justify-content-end me-2">
+                                                                  <select class="form-control" id="sel1">
+                                                                    <option>All Times</option>
+                                                                    <option>A week</option>
+                                                                    <option>A Month</option>
+                                                                  </select>
+                                                                </div>
+                                                              
+                                                              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                                              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                                  <li><a class="dropdown-item active" href="#">All</a></li>
+                                                                  <li><a class="dropdown-item" href="#">High Tickets</a></li>
+                                                                  <li><a class="dropdown-item" href="#">Low Tickets</a></li>   
+                                                              </ul>
+                                                          </div>
+  
+                                                      </div>
+
+                                                      <div class="col-lg-12">
+                                                          <div class="row">
+
+                                                            <table class="table align-items-center mb-0 ps-5 pe-5">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tickets</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Pay</th>
+                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+
+                                                                  <th class="text-secondary opacity-7"></th>
+                                                                </tr>
+                                                              </thead>
+                                                              <tbody>
+                  
+                                                                <% bookings.forEach(function(booking){ %> 
+                                                                    <% if(booking.status == 'approved'){ %>
+                                                                <tr>
+                                                                  <td>
+                                                                    <p class="text-sm font-weight-bold mb-0 mt-3"><i class="bi bi-upc"></i><%= booking.bookingNumber %></p>
+                                                                  </td>
+                                                                  <td>
+                                                                    <div class="d-flex px-2 py-1">
+                                                                      <div>
+                                                                        <img src="<%= booking.user.image %>" class="avatar avatar-sm me-3" alt="user1">
+                                                                      </div>
+                                                                      <div class="d-flex flex-column justify-content-center">
+                                                                        <h6 class="mb-0 text-sm"><%= booking.user.name %></h6>
+                                                                        <p class="text-xs text-secondary mb-0"><%= booking.user.email %></p>
+                                                                      </div>
+                                                                    </div>
+                                                                  </td>
+                                                                  <td>
+                                                                    <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.date.toDateString() %></p>
+                                                                  </td>
+                                                                  <td>
+                                                                    <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.numberOfTickets %></p>
+                                                                  </td>
+                                                                  <td>
+                                                                    <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.total %></p>
+                                                                  </td>
+                                                                  <td>
+                                                                    <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-info"><%= booking.status %></span></p>
+                                                                  </td>
+                                                                  <td class="action">
+                                                                    <button class="open-request-popup btn p-2 p-lg-3 btn-primary main-btn ms-2"  onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'block'" >MANAGE</button>
+                                                                  </td>
+                                                                </tr>
+                                                                <%}%> 
+                                                            <%})%> 
+
+                                                              </tbody>
+                                                            </table>
+
+
+                                                          </div>
+
+
+                                                  </div>
+
+                                                  
+                                                    </div>
+      
+                                                    <div class="tab-pane fade profile-edit pt-3" id="Requests">
+      
+                                                            <div class="">
+                                                                <div class="filter d-flex">
+                                                                    
+                                                                    <div class="form-group justify-content-end me-2">
+                                                                        <select class="form-control" id="sel1">
+                                                                          <option>All States</option>
+                                                                          <option>Request</option>
+                                                                          <option>Pending</option>
+                                                                        </select>
+                                                                      </div>
+                                                                    
+                                                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                                      <li><a class="dropdown-item active" href="#">All</a></li>
+                                                                      <li><a class="dropdown-item" href="#">High Tickets No.</a></li>
+                                                                      <li><a class="dropdown-item" href="#">Low Tickets No.</a></li>
+                                                                    </ul>
+                                                                </div>
+        
+                                                            </div>
+      
+                                                            <div class="col-lg-12">
+                                                                <div class="row">
+
+
+                                                                  <table class="table align-items-center mb-0 ps-5 pe-5">
+                                                                    <thead>
+                                                                      <tr>
+                                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tickets</th>
+                                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Pay</th>
+                                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+                                                                        <th class="text-secondary opacity-7"></th>
+                                                                      </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                        
+                                                                        <% bookings.forEach(function(booking){ %> 
+                                                                            <% if(booking.status == 'declined'){ %>
+                                                                      <tr>
+                                                                        <td>
+                                                                          <p class="text-sm font-weight-bold mb-0 mt-3"><i class="bi bi-upc"></i><%= booking.bookingNumber %></p>
+                                                                        </td>
+                                                                        <td>
+                                                                          <div class="d-flex px-2 py-1">
+                                                                            <div>
+                                                                              <img src="<%= booking.user.image %>" class="avatar avatar-sm me-3" alt="user1">
+                                                                            </div>
+                                                                            <div class="d-flex flex-column justify-content-center">
+                                                                              <h6 class="mb-0 text-sm"><%= booking.user.name %></h6>
+                                                                              <p class="text-xs text-secondary mb-0"><%= booking.user.email %></p>
+                                                                            </div>
+                                                                          </div>
+                                                                        </td>
+                                                                        <td>
+                                                                          <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.numberOfTickets %></p>
+                                                                        </td>
+                                                                        <td>
+                                                                          <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.total %></p>
+                                                                        </td>
+                                                                        <td>
+                                                                          <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-info"><%= booking.status %></span></p>
+                                                                        </td>
+                                                                        <td class="action">
+                                                                            <button class="open-request-popup btn p-2 p-lg-3 btn-primary main-btn ms-2"  onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'block'" >MANAGE</button>
+                                                                        </td>
+                                                                      </tr>
+      
+      
+                                                                      <%}%> 
+                                                                      <%})%> 
+                                                                    </tbody>
+                                                                  </table>
+
+                                                                </div>
+      
+      
+                                                        </div>    
+                                                    </div>
+      
+                                                        <div class="tab-pane fade profile-edit pt-3" id="history">
+      
+                                                          <div class="">
+                                                              <div class="filter d-flex">
+                                                                  
+                                                                  <div class="form-group justify-content-end me-2">
+                                                                      <select class="form-control" id="sel1">
+                                                                        <option>All Times</option>
+                                                                        <option>A week</option>
+                                                                        <option>A Month</option>
+                                                                      </select>
+                                                                    </div>
+                                                                  
+                                                                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                                                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                                      <li><a class="dropdown-item active" href="#">All</a></li>
+                                                                      <li><a class="dropdown-item" href="#">Declined</a></li>
+                                                                      <li><a class="dropdown-item" href="#">Rejected</a></li>   
+                                                                  </ul>
+                                                              </div>
+      
+                                                          </div>
+    
+                                                          <div class="col-lg-12">
+                                                              <div class="row">
+
+                                                                <table class="table align-items-center mb-0 ps-5 pe-5">
+                                                                  <thead>
+                                                                    <tr>
+                                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Request ID</th>
+                                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th>
+                                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+                                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">State</th>
+                                                                    </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                      
+                                                                    <% bookings.forEach(function(booking){ %> 
+                                                                    <tr>
+                                                                      <td>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><i class="bi bi-upc"></i><%=booking.bookingNumber%></p>
+                                                                      </td>
+                                                                      <td>
+                                                                        <div class="d-flex px-2 py-1">
+                                                                          <div>
+                                                                            <img src="<%=booking.user.image%>" class="avatar avatar-sm me-3" alt="user1">
+                                                                          </div>
+                                                                          <div class="d-flex flex-column justify-content-center">
+                                                                            <h6 class="mb-0 text-sm"><%=booking.user.name%></h6>
+                                                                            <p class="text-xs text-secondary mb-0"><%=booking.user.email%></p>
+                                                                          </div>
+                                                                        </div>
+                                                                      </td>
+                                                                      <td>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.date.toDateString() %></p>
+                                                                      </td>
+                                                                      <td>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-danger"><%=booking.status%></span></p>
+                                                                      </td>
+                                                                    </tr>
+                                                                    <% }) %>
+                                                                  </tbody>
+                                                                </table>
+
+                                                              </div>
+    
+    
+                                                      </div>
+    
+                                                      
+                                                      </div>
+                                                    </div>
+                                                    
+                                                    <% bookings.forEach(function(booking){ %>
+                                                        <div id="request-popup-<%= booking._id %>" class="request-popup">
+                                                          <div>
+                                                              <span class="request-popup-close">&times;</span>
+                                                          </div>
+                                                        <div class="request-popup-content">
+                                                          <div class="card text-center mb-5">
+
+                                                              <form id="request-form">
+
+                                                                  <div class="col-12">
+                                                                      <div class="row">
+
+                                                                        <div class="col-4 ms-5">
+                                                                          <div class="row">
+                                                                            <div class="card text-center mb-5 mt-5">
+                                              
+                                                                              <div class="circle-image d-flex justify-content-center mt-4">
+                                                                                  <img src="<%=booking.user.image%>" width="50">
+                                                                              </div>
+                                              
+                                                                              <span class="dot"></span>
+                                                          
+                                                                              <span class="name fw-500 bi bi-person mt-3">User Name</span>
+                                                                              <small class="text-black font-weight-bold"><%=booking.user.name%></small>
+
+                                                                              <span class="name fw-500 bi bi-envelopemt-3 mt-3">User Email</span>
+                                                                              <small class="text-black font-weight-bold"><%=booking.user.email%></small>
+
+                                                                              <span class="name fw-500 bi bi-telephone mt-3">User Phone</span>
+                                                                              <small class="text-black font-weight-bold"><%=booking.user.phone%></small>
+                                              
+                                                                              <p class="pe-2 mt-3"><span class="badge bg-success"><%=booking.status%></span></p> 
+                                      
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+
+                                                                        <div class="col-lg-7 ms-4 pb-1 mt-2">
+                                                                          <div class="row">
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                                                            <table class="table align-items-center mb-0">
+                                                                              <thead>
+                                                                                <tr>
+                                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 me-2">Data Type</th>
+                                                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Value</th>
+                                                                                </tr>
+                                                                              </thead>
+                                                                              <tbody>
+                                              
+                                                                                <tr>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request ID</p>
+                                                                                  </td>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=booking.bookingNumber%></p>
+                                                                                  </td>
+                                                                                </tr>
+                                              
+                                              
+                                                                                <tr>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request Date</p>
+                                                                                  </td>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.date.toDateString() %></p>
+                                                                                  </td>
+                                                                                </tr>
+                                              
+                                                                                <tr>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Tickets</p>
+                                                                                  </td>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.numberOfTickets%></p>
+                                                                                  </td>
+                                                                                </tr>
+                                              
+                                                                                <tr>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> checkin</p>
+                                                                                  </td>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.checkin%></p>
+                                                                                  </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> checkout</p>
+                                                                                  </td>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.checkout%></p>
+                                                                                  </td>
+                                                                                </tr>
+                                              
+                                                                                <tr>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Payed</p>
+                                                                                  </td>
+                                                                                  <td>
+                                                                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= booking.total%></p>
+                                                                                  </td>
+                                                                                </tr>
+                                              
+                                                          
+                                                                              </tbody>
+                                                                            </table>
+                                  
+                                  
+                                                                          </div>
+                                                                      </div>
+                                                              
+<%= booking._id %>
+                                                                      <% if(booking.status == 'pending'){ %>
+                                                                        <div class="buttons mt-0">
+                                                                            <button id="accept-button" type="submit" class="btn btn-warning btn-block request-submit">ACCEPT</button>
+                                                                            <button id="decline-button" type="submit" class="button2 btn btn-warning btn-block request-submit">DECLINE</button>
+                                                                            <button id="pending-button" type="submit" class="button2 btn btn-warning btn-block request-submit">PENDING</button>
+                                                                        </div>
+                                                                        <% } %>
+                                                              
+                                                                          <div class="buttons mt-0">
+                                                                              <button id="complete-button" type="button" onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'none'" class="btn btn-warning btn-block request-submit">Close</button>
+                                                                          </div>
+                                                                        
+                                                                      </div>
+                                                                  </div>
+
+                                                      
+                                                                      <span class="dot"></span>
+                                                      
+                                                      
+
+                                                      
+                                                              </form>
+
+
+                                                  
+                                                  
+                                                  
+                                                              
+                                                              
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <% }); %>
+      
+                                                    <!-- End Left side columns -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                 
+                            </div>
+                        </div>
+                    </div>
+            </section>
+                </div>
+            </section>
+
+  </main>
+ 

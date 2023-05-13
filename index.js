@@ -52,6 +52,7 @@ import placesAdminRoute from "./routes/admin/places.js"
 import homeAdminRoute from "./routes/admin/home.js"
 import bookingAdminRoute from "./routes/admin/booking.js"
 import managerAdminRoute from "./routes/admin/manager.js"
+import ratingAdminRoute from "./routes/admin/rating.js"
 
 
 app.use("/", homeRoute)
@@ -65,10 +66,8 @@ app.use('/admin/auth',authAdminRoute)
 app.use("/admin/places",placesAdminRoute)
 app.use("/bookings", bookingAdminRoute)
 app.use("/admin/manager", managerAdminRoute)
-// app.use('place',placeRoute)
-// app.use('user',userRoute)
-
-
+app.use("/rating", ratingAdminRoute)
+ 
 
 
 app.use((err, req, res, next) => {
