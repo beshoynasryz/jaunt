@@ -19,6 +19,7 @@ export const rate = async (req, res, next) => {
 
     const rate = new Rating({
       rate: req.body.rate,
+      rateServices: req.body.rateServices,
       comment: req.body.comment,
       rater: req.body.rater,
       booking: req.body.booking_id,

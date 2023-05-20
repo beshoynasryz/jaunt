@@ -38,9 +38,7 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
       next(err)
   }
 }
-
-//Beanch details
-
+ 
 export const branchDetials =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -497,7 +495,7 @@ export const logout = async (req,res,next)=>{
       req.session.authId = null;
       req.session.owner = null;
       res.redirect('/admin/auth/sign-in');
-    } catch (err) {
+    } catch (err) { 
       next(err);
     }
 }
@@ -571,4 +569,3 @@ export const deleteOwner =async (req,res,next)=>{
       next(err);
   }
 }
- 

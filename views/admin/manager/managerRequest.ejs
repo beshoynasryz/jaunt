@@ -178,7 +178,7 @@
                                                                         <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.total %></p>
                                                                     </td>
                                                                     <td>
-                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-success"><%= booking.status %></span></p>
+                                                                        <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-info"><%= booking.status %></span></p>
                                                                     </td>
                                                                     <td class="action">
                                                                         <button class="open-request-popup btn p-2 p-lg-3 btn-primary main-btn ms-2"  onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'block'" >MANAGE</button>
@@ -263,7 +263,7 @@
                                                                     <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.total %></p>
                                                                   </td>
                                                                   <td>
-                                                                    <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-info"><%= booking.status %></span></p>
+                                                                    <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-success "><%= booking.status %></span></p>
                                                                   </td>
                                                                   <td class="action">
                                                                     <button class="open-request-popup btn p-2 p-lg-3 btn-primary main-btn ms-2"  onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'block'" >MANAGE</button>
@@ -348,7 +348,7 @@
                                                                           <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.total %></p>
                                                                         </td>
                                                                         <td>
-                                                                          <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-info"><%= booking.status %></span></p>
+                                                                          <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge  bg-warning"><%= booking.status %></span></p>
                                                                         </td>
                                                                         <td class="action">
                                                                             <button class="open-request-popup btn p-2 p-lg-3 btn-primary main-btn ms-2"  onclick="document.getElementById('request-popup-<%= booking._id %>').style.display = 'block'" >MANAGE</button>
@@ -423,11 +423,12 @@
                                                                       <td>
                                                                         <p class="text-sm font-weight-bold mb-0 mt-3"><%= booking.date.toDateString() %></p>
                                                                       </td>
+
                                                                       <td>
                                                                         <p class="text-sm font-weight-bold mb-0 mt-3"><span class="badge bg-danger"><%=booking.status%></span></p>
                                                                       </td>
                                                                     </tr>
-                                                                    <% }) %>
+                                                                  
                                                                   </tbody>
                                                                 </table>
 

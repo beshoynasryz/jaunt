@@ -80,14 +80,14 @@
       <!-- End Profile Page Nav -->
 
 
-      <% if (!owner.isAdmin) {%>
+      <!-- <% if (!owner.isAdmin) {%>
       <li class="nav-item">
         <a class="nav-link collapsed" href="/bookings/manage-bookings">
           <i class="bi bi-ticket"></i>
           <span>Bookings</span>
         </a>
       </li>
-      <%}%>
+      <%}%> -->
 
 
             
@@ -96,7 +96,7 @@
       <% if (!owner.isAdmin) {%>
         <li class="nav-item">
           <a class="nav-link collapsed" href="/admin/manager">
-            <i class="bi bi-person"></i>
+            <i class="bi bi-person-badge"></i>
             <span>Manager</span>
           </a>
         </li>
@@ -112,7 +112,7 @@
         <li class="nav-item">
           <a class="nav-link collapsed" href="/admin/places/owner-places">
             <i class="bi bi-building"></i>
-            <span>Places</span>
+            <span>Branches</span>
           </a>
         </li>
         <%}%>
@@ -134,7 +134,7 @@
       <% if (!owner.isAdmin) {%>
       <li class="nav-item">
         <a class="nav-link collapsed" href="/admin/auth/request">
-          <i class="bi bi-building"></i>
+          <i class="bi bi-building-add"></i>
           <span>Request</span>
         </a>
       </li>

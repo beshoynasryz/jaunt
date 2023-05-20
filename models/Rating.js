@@ -6,6 +6,10 @@ const ratingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    rateServices: {
+      type: Number,
+      required: true,
+    },
     comment: {
       type: String,
     },

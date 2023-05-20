@@ -67,7 +67,7 @@ export const managerFeedBacks = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
+}; 
 
 async function updateRatings(item) {
   let rating = await Rating.findOne({
@@ -175,3 +175,4 @@ export const login = async (req, res, next) => {
     next(err);
   }
 };
+   
