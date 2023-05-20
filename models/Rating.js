@@ -8,7 +8,7 @@ const ratingSchema = new mongoose.Schema(
     },
     rateServices: {
       type: Number,
-      required: true,
+      
     },
     comment: {
       type: String,
@@ -17,6 +17,7 @@ const ratingSchema = new mongoose.Schema(
         type: String,
         required: true,
         enum:['place', 'user'],
+        default: 'user',
     },
     booking: { 
         type: mongoose.Schema.Types.ObjectId, 
