@@ -317,4 +317,49 @@
     }, 200);
   }
 
+
+
+  
+// Define the areas for each city
+var areas = {
+  cairo: ["October", "Maadi", "Zayed", "AlRehab", "AlRehab", "Downtown", "New_Cairo", "Heliopolis", "Zamalek", "Garden_City", "ElRehab", "Heliopolis", "sheereton"],
+  alex: ["Kom_ElDeka", "Miami ", "Moharam_Bek", "Sidi_Bishr", "Sidi_Gaber", "Smouha", "ElSoyof", "Bahary"],
+  Giza: ["Agouza ", "Dokki ", "Warraq", "Ahrâm", "Ṭalbiyya"]
+};
+
+// Get references to the select elements
+var citySelect = document.getElementById("city");
+var areaSelect = document.getElementById("area");
+
+// Function to populate the area select based on the selected city
+function populateAreas() {
+  // Get the selected city value
+  var selectedCity = citySelect.value;
+  
+  // Clear the area select
+  areaSelect.innerHTML = "";
+  
+  // Create the default area option
+  var defaultOption = document.createElement("option");
+  defaultOption.text = "-- Choose a area --";
+  areaSelect.add(defaultOption);
+  
+  // Add the options for the selected city
+  for (var i = 0; i < areas[selectedCity].length; i++) {
+    var option = document.createElement("option");
+    option.value = areas[selectedCity][i];
+    option.text = areas[selectedCity][i];
+    areaSelect.add(option);
+  }
+}
+
+// Populate the areas select for the default city when the page loads
+populateAreas();
+
+// Call the populateareas function when the city select is changed
+citySelect.addEventListener("change", populateAreas);
+
+
+
+
 })();

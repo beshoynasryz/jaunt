@@ -12,7 +12,36 @@ export const getPlaces =async (req,res,next)=>{
         } else if(req.query.area){
             places = await Place.find({ area: req.query.area, status: 'approved' }).populate('ratings');
         }
-        res.status(200).json(places)
+        let placesResponse = places.map(function(place){
+            return {
+                _id: place._id,
+                receptionHours: place.receptionHours,
+                name: place.name,
+                type: place.type, 
+                city: place.city,
+                area: place.area,
+                address: place.address,
+                images: place.images,
+                desc: place.desc,
+                budget: place.budget,
+                phone: place.phone,
+                capacity: place.capacity,
+                status: place.status,
+                createdAt: place.createdAt,
+                updatedAt: place.updatedAt,
+                service1: place.service1,
+                service2: place.service2,
+                service3: place.service3,
+                service4: place.service4,
+                service5: place.service5,
+                service6: place.service6,
+                service7: place.service7,
+                service8: place.service8,
+                ratings: place.ratings,
+                menuimages: place.menuimages,
+            }
+        })
+        res.status(200).json(placesResponse)
     }
     catch(err){
        next(err)

@@ -16,7 +16,13 @@ export const index = async (req, res, next) => {
         let owners = []
        
         let leatesPlaces = []
-
+        let placesResponse = places.map(place => {
+            if (typeof place.receptionHours[0] !== 'undefined') {
+                let receptionHours = place.receptionHours[0]
+                return { ...place, receptionHours }
+            }
+        })
+       
     if(req.session.owner.isAdmin) {
         leatesPlaces = await Place.find().limit(4).exec();
         

@@ -7,6 +7,7 @@ import Rating from "../../models/Rating.js";
 
 export const managerIndex = async (req, res, next) => {
   try {
+    console.log(req.session.owner)
     let bookings = await Booking.find({place:req.session.owner.place._id}).populate("user").populate('place');
    
     let userRates = await Rating.find({
@@ -69,17 +70,17 @@ export const managerFeedBacks = async (req, res, next) => {
   }
 }; 
 
-async function updateRatings(item) {
-  let rating = await Rating.findOne({
-    booking: item.booking,
-    rater: 'place',
-  }).populate('user').populate("booking");
+// async function updateRatings(item) {
+//   let rating = await Rating.findOne({
+//     booking: item.booking,
+//     rater: 'place',
+//   }).populate('user').populate("booking");
   
-  const isRated = rating != null
-  item.isRated = isRated;
-  console.log(isRated);
-  return item;
-}
+//   const isRated = rating != null
+//   item.isRated = isRated;
+//   console.log(isRated);
+//   return item;
+// }
 
 export const rendermanagerView = async (req, res, next) => {
   try {

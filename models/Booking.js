@@ -43,7 +43,7 @@ const BookingSchema = new mongoose.Schema({
     owner_id :{
         type: String,
         required: true
-    },
+    }, 
 },{timestamps:true}
 );
   

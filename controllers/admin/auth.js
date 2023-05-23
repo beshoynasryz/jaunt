@@ -47,7 +47,7 @@ export const branchDetials =async (req, res, next) => {
 
     } 
  
-    const placeowner = await Place.findById(req.params.id);
+    const placeowner = await Place.findById(req.params.id).populate('manager');
     const ownerdetials = await Owner.findById(placeowner.owner_id);
        console.log(ownerdetials);
     //   let ownerdetials = []
@@ -388,12 +388,9 @@ export const register = async (req,res,next)=>{
 }
 export const login = async (req,res,next)=>{
   try {
-    console.log(req.body)
     if(req.body.loginAs === 'owner') {
-      console.log('owner')
       await ownerLogin(req,res,next)
     } else {
-      console.log('manger')
       await managerLogin(req,res,next)
     }
     } catch (err) {
@@ -446,6 +443,8 @@ export const ownerLogin = async (req,res,next)=>{
 export const managerLogin = async (req,res,next)=>{
   try {
       const manager = await Manager.findOne({ email: req.body.email }).populate('owner').populate('place');
+      const place = await Place.findOne({ manager: manager._id });
+
       if (!manager) return next(createError(404, "email not found!"));
   
       const isPasswordCorrect = await bcrypt.compare(
@@ -468,7 +467,7 @@ export const managerLogin = async (req,res,next)=>{
         phone: manager.phone, 
         image: manager.image,
         owner: manager.owner,
-        place: manager.place,
+        place: place,
         access_token: token
       };
       

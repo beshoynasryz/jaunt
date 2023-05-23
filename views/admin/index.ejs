@@ -175,6 +175,8 @@
                                                 </div>
 
                                                 <div class="container">
+                                                  
+                                                  <%= place.receptionHours %>
 
                                                   <div class="card-profile ">
                                                       <div class="card-body profile-card d-flex flex-column align-items-center">
@@ -653,7 +655,6 @@
                                           </div>
                                       </div>
                                       <div class="container">
-
                                         <div class="card-profile ">
                                             <div class="card-body profile-card d-flex flex-column align-items-center">
                                               <h5 class="card-title mb-3 text-center">Images</h5>
@@ -774,7 +775,29 @@
                                             </tr>
                                           </thead>
                                           <tbody>
-                                            <tr>
+                                            
+                      
+                      <% place.receptionHours?.forEach(function(receptionHour){ %>
+                        <% if(receptionHour.sunday){ %>
+                          
+                          <tr>
+                            <td>
+                              <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="mb-0 text-sm mt-3">Sunday</h6>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
+                            </td>
+                            <td>
+                              <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
+                            </td>
+                          </tr>
+                          <% }%>
+                        <% })%>
+                                            <!-- <tr>
                                               <td>
                                                 <div class="d-flex px-2 py-1">
                                                   <div class="d-flex flex-column justify-content-center">
@@ -788,7 +811,7 @@
                                               <td>
                                                 <p class="text-xs font-weight-bold mb-0 mt-3"><%=place.receptionHours.sundayUntil%></p>
                                               </td>
-                                            </tr>
+                                            </tr> -->
                                             <tr>
                                               <td>
                                                 <div class="d-flex px-2 py-1">

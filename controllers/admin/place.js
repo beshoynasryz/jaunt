@@ -3,77 +3,49 @@ import Place from "../../models/Place.js"
 
 export const createPlace =async (req,res,next)=>{
     try {
-    var receptionHours = []
+    var receptionHours = new Array()
     if(req.body.sunday){
-        receptionHours.push(
-            {
-                sunday: {
-                    from: req.body.sundayFrom,
-                    until: req.body.sundayUntil
-                }
-            } 
-        )
+        receptionHours.sunday = {
+            from: req.body.sundayFrom,
+            until: req.body.sundayUntil
+        }
     }   
     if(req.body.monday){
-        receptionHours.push(
-            {
-                monday: {
-                    from: req.body.mondayFrom,
-                    until: req.body.mondayUntil
-                }
-            } 
-        )
+        receptionHours.monday = {
+            from: req.body.mondayFrom,
+            until: req.body.mondayUntil
+        }
     }   
     if(req.body.tuesday){
-        receptionHours.push(
-            {
-                tuesday: {
-                    from: req.body.tuesdayFrom,
-                    until: req.body.tuesdayUntil
-                }
-            } 
-        )
+        receptionHours.tuesday = {
+            from: req.body.tuesdayFrom,
+            until: req.body.tuesdayUntil
+        }
     }   
     if(req.body.wendesday){
-        receptionHours.push(
-            {
-                wendesday: {
-                    from: req.body.wendesdayFrom,
-                    until: req.body.wendesdayUntil
-                }
-            } 
-        )
+        receptionHours.wendesday = {
+            from: req.body.wendesdayFrom,
+            until: req.body.wendesdayUntil
+        }
     }   
     if(req.body.thursday){
-        receptionHours.push(
-            {
-                thursday: {
-                    from: req.body.thursdayFrom,
-                    until: req.body.thursdayUntil
-                }
-            } 
-        )
+        receptionHours.thursday = {
+            from: req.body.thursdayFrom,
+            until: req.body.thursdayUntil
+        }
     }   
     if(req.body.friday){
-        receptionHours.push(
-            {
-                friday: {
-                    from: req.body.fridayFrom,
-                    until: req.body.fridayUntil
-                }
-            } 
-        )
+        receptionHours.friday = {
+            from: req.body.fridayFrom,
+            until: req.body.fridayUntil
+        }
     }   
     if(req.body.saturday){
-        receptionHours.push(
-            {
-                saturday: {
-                    from: req.body.saturdayFrom,
-                    until: req.body.saturdayUntil
-                }
-            } 
-        )
-    }   
+        receptionHours.saturday = {
+            from: req.body.saturdayFrom,
+            until: req.body.saturdayUntil
+        }
+    } 
 
     req.body.receptionHours = receptionHours
 
@@ -120,8 +92,6 @@ export const createPlace =async (req,res,next)=>{
     }
 
     req.body.menuimages = imagesArray
- 
-
 
     const newPlace = new Place (req.body)
    
@@ -158,7 +128,7 @@ export const deletePlace =async (req,res,next)=>{
 export const getPlace =async (req,res,next)=>{
    
     try{
-        const Place = await Place.findById(req.params.id)
+        const Place = await Place.findById(req.params.id);
         res.status(200).json(Place)
     }
     catch(err){

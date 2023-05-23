@@ -94,7 +94,7 @@
                         </div>
                         
                         <div class="row mb-3">
-                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt"></i>Name</label>
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>Name</label>
                           <div class="col-md-8 col-lg-10">
                             <input name="name" type="text" class="form-control" id="Governorate" value="" placeholder="Enter yor place name">
                           </div>
@@ -108,6 +108,29 @@
                         </div>
 
                         <div class="row mb-3">
+
+                          <label for="city" class="col col-form-label"><i class="bi bi-geo-alt"></i>Governorate</label>
+                          <div class="col-md-8 col-lg-10">
+                              <select id="city" name="city" class="form-control">
+                                  <option value="cairo" >CAIRO</option>
+                                  <option value="alex" >ALEX</option>
+                                  <option value="Giza">Giza</option>
+                              </select>
+                          
+                          </div>
+                      </div>
+  
+                      <div class="row mb-3">
+
+                          <label for="area" class="col col-form-label"><i class="bi bi-geo-alt"></i>Area</label>
+                          <div class="col-md-8 col-lg-10">
+                              <select id="area"  name="area" class="form-control">
+                                  <option value="">-- Select an option --</option>
+                              </select>
+                          </div>
+                      </div>
+                        
+                        <div class="row mb-3">
                           <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>Type</label>
                           <div class="col-md-8 col-lg-10">
                           <select class="form-control" name="type" id="sel1">
@@ -116,21 +139,6 @@
                               <option value="cafe">cafe</option>
                               <option value="workspace">workspace</option>
                             </select>
-                          </div>
-                        </div>
-                        
-    
-                        <div class="row mb-3">
-                          <label for="fullName"class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt"></i>city</label>
-                          <div class="col-md-8 col-lg-10">
-                            <input name="city" type="text" class="form-control" id="Governorate" value="" placeholder="Governorate">
-                          </div>
-                        </div>
-
-                        <div class="row mb-3">
-                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt pl-4"></i>Area</label>
-                          <div class="col-md-8 col-lg-10">
-                            <input name="area" type="text" class="form-control" id="Governorate" value="" placeholder="Area">
                           </div>
                         </div>
                         
@@ -367,22 +375,15 @@
                           <label for="manager" class="col col-form-label"><i class="bi bi-person"></i>Select Manager</label>
                           <div class="col-md-8 col-lg-9">
                             <select class="form-control" name="manager">
-                              <%=managers%>
-                            <% managers.forEach(function(manager){ %>
-                              <option value="<%=manager._id%>"><%=manager.managername%></option>
-                            <% }); %>
+                              <% managers.forEach(function(manager){ %>
+                                <option value="<%=manager._id%>"><%=manager.managername%> - <%=manager.phone%></option>
+                              <% }); %>
                             </select>
                           </div>
                       </div>
 
-                      
-
-
-                        
                         <input name="owner_id" type="hidden" class="form-control" id="Capacity" value="<%= owner._id %>">
 
-
-    
                         <div class="d-flex justify-content-center">
                           <div class="pt-2">
                             <input  class="button2 mt-4 btn-primary btn-lg"  type="submit" id="submit" value="Create Place"/>

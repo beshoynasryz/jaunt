@@ -930,6 +930,8 @@ height: 100%;
 .card-profile .card-body img{
   padding: 0;
   margin-left: 8px;
+  height: 100px;
+  width: 100px;
 }
 .card-block{
 	height: 200px;

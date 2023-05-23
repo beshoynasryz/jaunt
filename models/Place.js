@@ -92,8 +92,8 @@ const placeSchema = new mongoose.Schema({
         enum:['pending','approved', 'declined'], 
         default: 'pending',
     },
- 
-      menuimages:{
+
+    menuimages:{
         type: [String],
     },
     manager: { type: mongoose.Schema.Types.ObjectId, ref: 'Manager' },

@@ -269,16 +269,16 @@
                                                                                       <h6 class="mb-0">Rate Client</h6>
                                                                       
                                                                                       <div class="rating-stars">
-                                                                                          <input type="radio" name="rate" value="10" id="5-stars">
-                                                                                          <label for="5-stars">&#9733;</label>
-                                                                                          <input type="radio" name="rate" value="8" id="4-stars">
-                                                                                          <label for="4-stars">&#9733;</label>
-                                                                                          <input type="radio" name="rate" value="6" id="3-stars">
-                                                                                          <label for="3-stars">&#9733;</label>
-                                                                                          <input type="radio" name="rate" value="4" id="2-stars">
-                                                                                          <label for="2-stars">&#9733;</label>
-                                                                                          <input type="radio" name="rate" value="2" id="1-star">
-                                                                                          <label for="1-star">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="10" id="<%= rating._id %>-5-stars">
+                                                                                          <label for="<%= rating._id %>-5-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="8" id="<%= rating._id %>-4-stars">
+                                                                                          <label for="<%= rating._id %>-4-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="6" id="<%= rating._id %>-3-stars">
+                                                                                          <label for="<%= rating._id %>-3-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="4" id="<%= rating._id %>-2-stars">
+                                                                                          <label for="<%= rating._id %>-2-stars">&#9733;</label>
+                                                                                          <input type="radio" name="rate" value="2" id="<%= rating._id %>-1-star">
+                                                                                          <label for="<%= rating._id %>-1-star">&#9733;</label>
                                                                                         </div>
                                                                                         <input type="hidden" name="booking_id" value="<%= rating.booking._id %>">
                                                                                         <input type="hidden" name="rater" value="place">
@@ -307,6 +307,9 @@
 
                                                       
                                                               </form>
+                                                              <div class="buttons mt-0">
+                                                                <button id="complete-button" type="button" onclick="document.getElementById('rating-popup-<%= rating._id %>').style.display = 'none'" class="btn btn-warning btn-block request-submit">Close</button>
+                                                            </div>
 
 
                                                   
