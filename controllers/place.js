@@ -11,7 +11,7 @@ export const getPlaces =async (req,res,next)=>{
             places = await Place.find({ type: req.query.type, status: 'approved' }).populate('ratings');
         } else if(req.query.area){
             places = await Place.find({ area: req.query.area, status: 'approved' }).populate('ratings');
-        }
+        } 
         let placesResponse = places.map(function(place){
             return {
                 _id: place._id,

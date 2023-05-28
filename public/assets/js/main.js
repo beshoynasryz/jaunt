@@ -349,6 +349,7 @@ function populateAreas() {
     var option = document.createElement("option");
     option.value = areas[selectedCity][i];
     option.text = areas[selectedCity][i];
+    option.selected = true;
     areaSelect.add(option);
   }
 }

@@ -1,0 +1,413 @@
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Branch Details</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+        <li class="breadcrumb-item active"><a href="/admin/places/owner-places">Branches</a></li>
+        <li class="breadcrumb-item active">Branch Details</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+
+      
+
+
+
+
+
+      <section class="section profile">
+        <div class="row">
+  
+          <div class="col-xl-12">
+  
+            <div class="card">
+              <div class="card-body pt-3">
+                
+                
+                <div class="back-bar text-center">
+                  <a href="/admin/places/owner-places"><i class="bi bi-arrow-left-circle-fill"></i></a>
+                </div><!-- End Search Bar -->
+
+                <div class="card-body pt-3">
+                  <!-- Bordered Tabs -->
+                  <ul class="nav nav-tabs nav-tabs-bordered">
+
+                    <li class="nav-item">
+                      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#Manager">Manager</button>
+                    </li>
+    
+                    <li class="nav-item">
+                      <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#mainData">Main Details</button>
+                    </li>
+    
+                    <li class="nav-item">
+                      <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#services">Services</button>
+                    </li>
+
+                    <li class="nav-item">
+                      <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#reception">Reception Hours</button>
+                    </li>
+
+                    <li class="nav-item">
+                      <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#Menu">Pricing list</button>
+                    </li>
+
+                    <li class="nav-item">
+                      <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#review">Reviews</button>
+                    </li>
+    
+                  </ul>
+                  <div class="tab-content pt-2">
+    
+                    <div class="tab-pane fade show active profile-overview" id="Manager">      
+
+                      <div class="container justify-content-center my-4" >
+                        <div class="card">
+                            <div style="background-color: none;" class=" text-center pt-4" id="selectedRowData">
+                                <img src="<%= place.manager?.image %>" alt="Image" class="card-image">
+                                <div class="card-data mt-2">
+                                  <p class="card-description" id="managerName"><i class="bi bi-person"></i> <span class="fw-bold">Manager:</span> <%= place.manager?.managername %></p>
+                                  <p class="card-description" id="managerEmail"><i class="bi bi-envelope"></i> <span class="fw-bold">E-mail:</span><%= place.manager?.email %></p>
+                                  <p class="card-description" id="managerPhone"><i class="bi bi-telephone"></i> <span class="fw-bold">Phone:</span><%= place.manager?.phone %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+    
+                    </div>
+
+                    <div class="tab-pane fade pt-3" id="mainData">
+                      <div class="card-profile text-center">
+                        <div class="card-body profile-card d-flex flex-column align-items-center">
+                          <h5 class="card-title mb-3 text-center">Images</h5>
+
+                          <div class="container-fluid">
+                            <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
+                              
+
+                                  <img src="<%= place.images[0] %>" alt="">
+
+
+
+                                 
+
+                              
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+
+
+                      <div class="justify-content-center">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-file-text"></i> About: <span class="fw-normal"><%= place.desc %></span></div>
+                        </div>
+
+      
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-geo-alt"></i> Location: <a class="location" href="<%= place.address%>"><span class="fw-normal"><%= place.city%>, <%= place.area%></span></a> </div>
+                        </div>
+      
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-cash"></i> Min-Budget: <span class="fw-normal"><%= place.budget%></span></div>
+                        </div>
+      
+
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-person-bounding-box"></i> Capacity: <span class="fw-normal"><%= place.capacity%></span></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-phone"></i> Phone: <span class="fw-normal"><%= place.phone%></span></div>
+                        </div>
+      
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-envelope"></i> Email: <span class="fw-normal"><%= place.email%></span></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-12 col-md-4 label fw-bold"><i class="bi bi-upc"></i> Branch ID: <span class="fw-normal"><%= place._id%></span></div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div class="tab-pane fade pt-3" id="services">
+                      <h5 class="card-title text-center">Avalibale Services</h5>
+
+                                                  <!-- Change Password Form -->
+                                                  <form>
+                                                    <div class="services container">
+                          
+                                                      <div class="row justify-content-between">
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service1%>
+                                                              </p> 
+                                                          </div>
+
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service2%>
+                                                              </p> 
+                                                          </div>
+
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service3%>
+                                                              </p> 
+                                                          </div>
+
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service4%>
+                                                              </p> 
+                                                          </div>
+
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service5%>
+                                                              </p> 
+                                                          </div>
+
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service6%>
+                                                              </p> 
+                                                          </div>
+                              
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service7%>
+                                                              </p> 
+                                                          </div>
+                                                          <div class="col label ">
+                                                              <p>
+                                                                  <i class="bi bi-check-circle text-success"></i><%= place.service8%>
+                                                              </p> 
+                                                          </div>
+                                                      </div>
+                          
+
+                              
+                          
+                                                    </div>
+                                                    
+                                                  </form><!-- End Change Password Form -->  
+                    </div>
+
+                    <div class="tab-pane fade pt-3" id="reception">
+                      <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                          <thead>
+                            <tr>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          
+                            <% place.receptionHours?.forEach(function(receptionHour){ %>
+                              <% if(receptionHour.sunday){ %>
+                                
+                                <tr>
+                                  <td>
+                                    <div class="d-flex px-2 py-1">
+                                      <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm mt-3">Sunday</h6>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
+                                  </td>
+                                </tr>
+                                <% }%>
+                              <% })%>
+                            <% place.receptionHours?.forEach(function(receptionHour){ %>
+                              <% if(receptionHour.monday){ %>
+                                
+                                <tr>
+                                  <td>
+                                    <div class="d-flex px-2 py-1">
+                                      <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm mt-3">monday</h6>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.from%></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.until%></p>
+                                  </td>
+                                </tr>
+                                <% }%>
+                              <% })%>
+                            <% place.receptionHours?.forEach(function(receptionHour){ %>
+                              <% if(receptionHour.thuesday){ %>
+                                
+                                <tr>
+                                  <td>
+                                    <div class="d-flex px-2 py-1">
+                                      <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm mt-3">thuesday</h6>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.from%></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.until%></p>
+                                  </td>
+                                </tr>
+                                <% }%>
+                              <% })%>
+                            <% place.receptionHours?.forEach(function(receptionHour){ %>
+                              <% if(receptionHour.wendesday){ %>
+                                
+                                <tr>
+                                  <td>
+                                    <div class="d-flex px-2 py-1">
+                                      <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm mt-3">wendesday</h6>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.from%></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.until%></p>
+                                  </td>
+                                </tr>
+                                <% }%>
+                              <% })%>
+                            <% place.receptionHours?.forEach(function(receptionHour){ %>
+                              <% if(receptionHour.thursday){ %>
+                                
+                                <tr>
+                                  <td>
+                                    <div class="d-flex px-2 py-1">
+                                      <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm mt-3">thursday</h6>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.from%></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.until%></p>
+                                  </td>
+                                </tr>
+                                <% }%>
+                              <% })%>
+                            <% place.receptionHours?.forEach(function(receptionHour){ %>
+                              <% if(receptionHour.friday){ %>
+                                
+                                <tr>
+                                  <td>
+                                    <div class="d-flex px-2 py-1">
+                                      <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm mt-3">friday</h6>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.from%></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.until%></p>
+                                  </td>
+                                </tr>
+                                <% }%>
+                              <% })%>
+                            <% place.receptionHours?.forEach(function(receptionHour){ %>
+                              <% if(receptionHour.saturday){ %>
+                                
+                                <tr>
+                                  <td>
+                                    <div class="d-flex px-2 py-1">
+                                      <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm mt-3">saturday</h6>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.from%></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.until%></p>
+                                  </td>
+                                </tr>
+                                <% }%>
+                              <% })%>
+
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </div>
+
+                    <div class="tab-pane fade pt-3" id="Menu">
+                      <div class="container">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                            <div class="col mt-3">
+                                <img src="<%=place.menuimages[0]%>" class="img-fluid" alt="image">
+                            </div>
+                           
+                        </div>
+                      </div>
+                    </div>
+
+                    
+                  </div><!-- End Bordered Tabs -->
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>

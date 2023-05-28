@@ -49,7 +49,6 @@ export const branchDetials =async (req, res, next) => {
  
     const placeowner = await Place.findById(req.params.id).populate('manager');
     const ownerdetials = await Owner.findById(placeowner.owner_id);
-       console.log(ownerdetials);
     //   let ownerdetials = []
     //  ownerdetials = await Owner.findById(req.params.id);
     res.render('admin/partner/branchdetials',
@@ -234,6 +233,9 @@ export const renderRequestView =async (req, res, next) => {
       const placespending = await Place.find({ status:'pending', owner_id: req.session.owner._id}).populate('manager');
       const placesapproved = await Place.find({ status:'approved', owner_id: req.session.owner._id}).populate('manager');
       const placesdeclined = await Place.find({ status:'declined',  owner_id: req.session.owner._id}).populate('manager');
+      const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
+        const managerCount = await Manager.find({ owner: req.session.owner._id});
+
 
       res.render('admin/auth/request',  
         { 
@@ -243,6 +245,8 @@ export const renderRequestView =async (req, res, next) => {
           placespending:placespending,
           placesapproved:placesapproved,
           placesdeclined:placesdeclined,
+          placeCount:placeCount.length,
+          managerCount:managerCount.length,
         }   
       );
        
@@ -344,7 +348,6 @@ export const register = async (req,res,next)=>{
     try {
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(req.body.password, salt)
-      
         const { image } = req.files;
         const path = "/uploaded-images-2/";
         const filePath = './public' + path
@@ -362,8 +365,7 @@ export const register = async (req,res,next)=>{
 
         await image.mv(fullPathlogo);
         const imagePathlogo = pathlogo + fileNamelogo
-
-        const newOwner =new Owner({
+       const newOwner =new Owner({
           ownername:req.body.ownername,
           companyname:req.body.companyname,
           type:req.body.type,
@@ -375,7 +377,6 @@ export const register = async (req,res,next)=>{
           password:hash
         })
         await newOwner.save()
-
         if(req.headers['content-type'] !== 'application/json'){
           //respond in html
           res.redirect('/admin/auth/sign-in');

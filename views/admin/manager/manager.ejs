@@ -27,7 +27,7 @@
                                       <i class="bi bi-person-badge"></i>
                                   </div>
                                   <div class="ps-3">
-                                      <h6>18</h6>
+                                      <h6><%=managerCount%></h6>
                                       <span class="text-success small pt-1 fw-bold">Active Branches</span>
                                   </div>
                               </div>
@@ -65,7 +65,7 @@
                                       <i class="bi bi-building-check"></i>
                                   </div>
                                   <div class="ps-3">
-                                      <h6><%=places.length%></h6>
+                                      <h6><%= placeCount %></h6>
                                       <span class="text-success small pt-1 fw-bold">Activated Branches</span>
                                   </div>
                               </div>
@@ -170,17 +170,7 @@
                                                                   </div>
                                                           </div>
                                                         </div>
-                                                                      <div class="row mb-3 mt-4">
-                                                                        <label for="manager" class="col col-form-label"><i class="bi bi-person"></i>Select place</label>
-                                                                        <div class="col-md-8 col-lg-9">
-                                                                          <select class="form-control" name="place">
-                                                                           
-                                                                          <% places.forEach(function(place){ %>
-                                                                            <option value="<%=place._id%>"><%=place.name%></option>
-                                                                          <% }); %>
-                                                                          </select>
-                                                                        </div>
-                                                                    </div>
+                                                                     
               
                                                           <input type="submit" class="btn button2 mt-3" value="SAVE">
                                                           <button type="button" class="btn button2 close mt-3 btn-light" onclick="document.getElementById('manager-popup').style.display = 'none'">Close</button>
@@ -252,7 +242,10 @@
                                                               <td class="action">
                                                                 <button class="open-button btn-primary btn mt-2 mb-2"  onclick="document.getElementById('request-popup-all-<%= place._id %>').style.display = 'block'" >DETAILS</button>
                                      
-                                                                  <button class="btn btn-danger mb-1 open-button " >DELETE</button>
+                                                                
+                                                                  <button class="btn btn-danger mb-1 open-button " >
+                                                                    <a href="/admin/manager/delete/<%= place.manager?._id %>">Delete</a>
+                                                                  </button>
 
                                                               </td>
                                                           </tr>

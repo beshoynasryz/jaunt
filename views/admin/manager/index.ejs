@@ -99,7 +99,7 @@
               <div class="card-body pb-0">
                 <h5 class="card-title">Requests</h5>
                 <div class="filter">
-                  <a class="icon" href="Requests.html">See All</a>
+                  <a class="icon" href="/admin/manager/managerRequest">See All</a>
               </div>
 
               <div class="table-responsive p-0">
@@ -342,7 +342,7 @@
         <!-- booking Traffic -->
         <div class="card">
           <div class="filter">
-            <a class="icon" href="feedBacks.html">See All</a>
+            <a class="icon" href="/admin/manager/managerFeedBacks">See All</a>
           </div>
 
           <div class="card-body pb-0">
@@ -366,134 +366,133 @@
 
             
               <% userRates.forEach(function(rating){ %>
-                <div id="rating-popup-<%= rating._id %>" class="rating-popup">
-                  
-              <div id="rating-popup">
-                <div>
-                    <span class="rating-popup-close">&times;</span>
-                </div>
-              <div class="rating-popup-content w-75">
-                <div class="card py-3 mb-5">
+                  <div id="rating-popup-<%= rating._id %>" class="rating-popup">
+                    <div id="rating-popup">
+                      <div>
+                          <span class="rating-popup-close">&times;</span>
+                      </div>
+                    <div class="rating-popup-content w-75">
+                      <div class="card py-3 mb-5">
 
-                  <form id="request-form">
+                        <form id="request-form">
 
-                    <div class="col-12">
-                      <div class="row">
+                          <div class="col-12">
+                            <div class="row">
 
-                        <div class="col-4 ms-5">
-                          <div class="row">
-                            <div class="card text-center mb-5">
+                              <div class="col-4 ms-5">
+                                <div class="row">
+                                  <div class="card text-center mb-5">
 
-                              <div class="circle-image d-flex justify-content-center mt-4">
-                                  <img src="<%=rating.user.image %>" width="50">
+                                    <div class="circle-image d-flex justify-content-center mt-4">
+                                        <img src="<%=rating.user.image %>" width="50">
+                                    </div>
+
+                                    <span class="dot"></span>
+                
+                                    <span class="name mb-1 fw-500 bi bi-person mt-3">User Name</span>
+                                    <small class="text-black-50"><%=rating.user.name %></small>
+
+                                    <span class="name mb-1 fw-500 bi bi-envelope mt-2"> User Email</span>
+                                    <small class="text-black-50"><%=rating.user.email %></small>
+                                  </div>
+                                </div>
                               </div>
 
-                              <span class="dot"></span>
-          
-                              <span class="name mb-1 fw-500 bi bi-person mt-3">User Name</span>
-                              <small class="text-black-50"><%=rating.user.name %></small>
 
-                              <span class="name mb-1 fw-500 bi bi-envelope mt-2"> User Email</span>
-                              <small class="text-black-50"><%=rating.user.email %></small>
+                              <div class="col-6 ms-2">
+                                <div class="row">
+
+                                  <table class="table align-items-center mb-0">
+                                    <thead>
+                                      <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 me-2">Data Type</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Value</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+
+                                      <tr>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request ID</p>
+                                        </td>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.booking.bookingNumber%></p>
+                                        </td>
+                                      </tr>
+
+
+                                      <tr>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request Date</p>
+                                        </td>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= rating.booking.date.toDateString() %></p>
+                                        </td>
+                                      </tr>
+
+                                      <tr>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Branch Rate</p>
+                                        </td>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.rate%></p>
+                                        </td>
+                                      </tr>
+
+                                    
+
+                                      <tr>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Feedback</p>
+                                        </td>
+                                        <td>
+                                          <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.comment%></p>
+                                        </td>
+                                      </tr>
+
+                
+                                    </tbody>
+                                  </table>
+
+
+                                </div>
+                              </div>
+
                             </div>
                           </div>
+
+
+                          <div class="buttons mt-0">
+                            <button id="complete-button" type="button" onclick="document.getElementById('rating-popup-<%= rating._id %>').style.display = 'none'" class="btn float-end m-3 w-25">Close</button>
                         </div>
+                              
+                                
+                            </div>
+                
+                
+                
+                
+                            
+                            
 
 
-                        <div class="col-6 ms-2">
-                          <div class="row">
+              
+                              <span class="dot"></span>
+              
+              
+                          
 
-                            <table class="table align-items-center mb-0">
-                              <thead>
-                                <tr>
-                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 me-2">Data Type</th>
-                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Value</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-
-                                <tr>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request ID</p>
-                                  </td>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.booking.bookingNumber%></p>
-                                  </td>
-                                </tr>
+              
+                      </form>
 
 
-                                <tr>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Request Date</p>
-                                  </td>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%= rating.booking.date.toDateString() %></p>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Branch Rate</p>
-                                  </td>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.rate%></p>
-                                  </td>
-                                </tr>
-
-                               
-
-                                <tr>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"> Feedback</p>
-                                  </td>
-                                  <td>
-                                    <p class="text-sm font-weight-bold mb-0 mt-3 ms-0"><%=rating.comment%></p>
-                                  </td>
-                                </tr>
-
-          
-                              </tbody>
-                            </table>
-
-
-                          </div>
-                        </div>
-
+              
+              
+              
                       </div>
                     </div>
-
-
-                    <div class="buttons mt-0">
-                      <button id="complete-button" type="button" onclick="document.getElementById('rating-popup-<%= rating._id %>').style.display = 'none'" class="btn float-end m-3 w-25">Close</button>
-                  </div>
-                        
-                          
-                      </div>
-          
-          
-          
-          
-                      
-                      
-
-
-        
-                        <span class="dot"></span>
-        
-        
-                    
-
-        
-                </form>
-
-
-        
-        
-        
                 </div>
-              </div>
-                <% }); %>
-            </div>
+              <% }); %>
 
 
             </div><!-- End sidebar recent posts-->

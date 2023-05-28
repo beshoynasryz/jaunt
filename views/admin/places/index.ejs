@@ -23,16 +23,7 @@
                 <div class="search-bar">
                   
                 </div><!-- End Search Bar -->
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li><a class="dropdown-item active" href="#">All</a></li>
-                    <li><a class="dropdown-item" href="#">Zamalek</a></li>
-                    <li><a class="dropdown-item" href="#">Giza</a></li>
-                    <li><a class="dropdown-item" href="#">6th October</a></li>
-                    <li><a class="dropdown-item" href="#">Nasr City</a></li>
-                  </ul>
-                </div>
+         
                 <div class="tab-content pt-2">
                   <br>
                   <!-- Left side columns -->
@@ -59,10 +50,9 @@
                             <div class="filter">
                               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <li><a class="dropdown-item" href="Management-places.html">See Details</a></li>
-                                <li><a class="dropdown-item" href="edit-places.html">Edit</a></li>
-                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                <li><a class="dropdown-item" href="#">Enable</a></li>
+                                <li><a class="dropdown-item" href="/admin/places/place-details/<%= place._id %>">See Details</a></li>
+                                <li><a class="dropdown-item" href="/admin/places/edit-place/<%= place._id %>">Edit</a></li>
+                                <li><a class="dropdown-item" href="/admin/places/delete/<%= place._id %>">Delete</a></li>
                               </ul>
                             </div>
                             <div class="card-body my-4 pb-1 text-center align-items-center">
@@ -70,6 +60,7 @@
                                 <img src="<%= place.images[0] %>" alt="">
                               </div>
                               
+                              <p class="pt-4">ManagerName: <%= place.manager?.managername %></p>
                               <p class="pt-4"><%= place.type %></p>
                               <p class="pt-4"><%= place.desc %></p>
 
@@ -81,7 +72,7 @@
                               
                     <div class="d-flex justify-content-center pt-3">
                       <div class="">
-                        <a href="/bookings/owner-bookings/<%= place.id %>" class="button2 btn-primary btn-lg" title="">MANAGE</a>
+                        <a href="/admin/places/place-details/<%= place._id %>" class="button2 btn-primary btn-lg" title="">MANAGE</a>
                       </div>
 
                     </div>

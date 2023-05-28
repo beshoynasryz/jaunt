@@ -7,7 +7,6 @@ import Rating from "../../models/Rating.js";
 
 export const managerIndex = async (req, res, next) => {
   try {
-    console.log(req.session.owner)
     let bookings = await Booking.find({place:req.session.owner.place._id}).populate("user").populate('place');
    
     let userRates = await Rating.find({
@@ -92,11 +91,18 @@ export const rendermanagerView = async (req, res, next) => {
       owner_id: req.session.owner._id,
     }).populate("manager");
     const managers = await Manager.find({ owner_id: req.session.owner._id });
+
+    const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
+        const managerCount = await Manager.find({ owner: req.session.owner._id});
+
     res.render("admin/manager/manager", {
       layout: "./admin/layouts/main",
       owner: req.session.owner,
       places: places,
       managers: managers,
+      placeCount: placeCount.length,
+      managerCount: managerCount.length,
+
     });
   } catch (err) {
     next(err);
@@ -105,7 +111,6 @@ export const rendermanagerView = async (req, res, next) => {
 
 export const create = async (req, res, next) => {
   try {
-    console.log(req.body);
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
 
@@ -163,7 +168,6 @@ export const login = async (req, res, next) => {
 
     req.session.authId = ownerResponse._id;
     req.session.manager = ownerResponse;
-    console.log("logged in", ownerResponse);
 
     //respond in html
     res
@@ -176,4 +180,14 @@ export const login = async (req, res, next) => {
     next(err);
   }
 };
-   
+  
+
+export const deleteManager =async (req,res,next)=>{
+  try {
+    await Manager.findOneAndDelete({_id: req.params.id });
+    res.redirect('back');
+  }
+  catch(err){
+      next(err);
+  }
+}

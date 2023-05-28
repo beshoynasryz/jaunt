@@ -1,14 +1,25 @@
 import Booking from "../../models/Booking.js";
+import Manager from "../../models/Manager.js";
 import Owner from "../../models/Owner.js";
 import Place from "../../models/Place.js";
 
 export const index = async (req, res, next) => {
     try {
     // If the user is loggedin 
-      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
-        res.redirect('admin/auth/sign-in');
-	}
-        const places = await Place.find({ owner_id: req.session.owner._id}).populate('manager').limit(40).exec();
+        if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+            res.redirect('admin/auth/sign-in');
+        }
+        const places = await Place.find({
+            $or: [{ status: 'pending' },
+                {
+                    status: 'approved'
+                }
+            ],
+            $and: [{
+                owner_id: req.session.owner._id
+            }]
+        }
+        ).populate('manager').limit(40).exec();
         let bookings = await Booking
         .find({ owner_id: req.session.owner._id})
         .populate('user').limit(3).exec();
@@ -30,6 +41,9 @@ export const index = async (req, res, next) => {
     } 
    
     
+        const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
+        const managerCount = await Manager.find({ owner: req.session.owner._id});
+
         res.render('admin/index', 
         { 
             owner: req.session.owner,
@@ -37,7 +51,8 @@ export const index = async (req, res, next) => {
             bookings: bookings,
             owners: owners,
             leatesPlaces: leatesPlaces,
-
+            managerCount: managerCount.length,
+            placeCount: placeCount.length,
 
         } );
     } catch(err){

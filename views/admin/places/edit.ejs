@@ -1,0 +1,405 @@
+
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Management Places</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active"><a href="Places.html">Places</a></li>
+        <li class="breadcrumb-item active"><a href="#">Add Place</a></li>
+        <li class="breadcrumb-item active"><a href="#">Step 1</a></li>
+        <li class="breadcrumb-item active">Step 2</li>
+        <li class="breadcrumb-item active">Step 3</li>
+        <li class="breadcrumb-item active">Step 4</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+<%= place %>
+  <section class="section places">
+    <div class="row">
+
+      
+
+
+
+
+
+      <section class="section edit-profile">
+        <div class="row">
+  
+          <div class="col-xl-12">
+  
+            <div class="card">
+              <div class="card-body pt-3">
+                
+                
+                <div class="back-bar text-center">
+                  <a href="Places.html"><i class="bi bi-x-circle-fill"></i>                   
+                  </a>
+                </div><!-- End Search Bar -->
+
+                <div class="card-body pt-3">
+                  <!-- Bordered Tabs -->
+                  <ul class="nav nav-tabs nav-tabs-bordered">
+    
+                    <li class="nav-item">
+                      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Add Information</button>
+                    </li>
+    
+                    <li class="nav-item">
+                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Services</button>
+                    </li>
+
+                    <li class="nav-item">
+                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Reception Hours</button>
+                    </li>
+    
+                    <li class="nav-item">
+                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Pricing list</button>
+                    </li>
+
+                  </ul>
+                  <div class="tab-content pt-2">
+    
+                    <div class="tab-pane fade show active profile-edit" id="profile-edit">
+    
+                      <form action="/admin/places/update-place/<%= place._id%>" method="post" enctype="multipart/form-data" id="form-upload">
+                        <div class="row mb-3">
+    
+    
+    
+    
+                          <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title text-center">Add New Place</h5>
+          
+          
+          
+                            <div class="card-profile text-center">
+                                <label class="col-md-4 col-lg-2 col-form-label" for="">Choose Images</label>
+
+                                <div class="img-thumbs img-thumbs" id="img-preview">
+
+                                </div>
+                                <div class="form-group">
+                                  <input type="file" class="form-control col-md-8 col-lg-10" name="images" multiple id="upload-img" />
+                                </div>
+
+                                </button>
+                            </div>
+                          </div>
+    
+                        </div>
+                        
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>Name</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="name" type="text" class="form-control" id="Governorate" value="<%= place.name %>" placeholder="Enter yor place name">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>About</label>
+                          <div class="col-md-8 col-lg-10">
+                            <textarea name="desc" type="text" class="form-control" id="About" placeholder="about your place"><%= place.desc %></textarea>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                          <label for="city" class="col col-form-label"><i class="bi bi-geo-alt"></i>Governorate</label>
+                          <div class="col-md-8 col-lg-10">
+                              <select id="city" name="city" value="<%= place.city %>" class="form-control">
+                                  <option selected="<%= place.city == 'cairo' %>" value="cairo" >CAIRO</option>
+                                  <option selected="<%= place.city == 'alex' %>" value="alex" >ALEX</option>
+                                  <option selected="<%= place.city == 'Giza' %>" value="Giza">Giza</option>
+                              </select>
+                          
+                          </div>
+                      </div>
+  
+                      <div class="row mb-3">
+
+                          <label for="area" class="col col-form-label"><i class="bi bi-geo-alt"></i>Area</label>
+                          <div class="col-md-8 col-lg-10">
+                              <select id="area"  name="area" value="<%= place.area %>" class="form-control">
+                                  <option value="">-- Select an option --</option>
+                              </select>
+                          </div>
+                      </div>
+                        
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>Type</label>
+                          <div class="col-md-8 col-lg-10">
+                          <select class="form-control" name="type" value="<%= place.type %>" id="sel1">
+                              <option selected="<%= place.type == 'park' %>"  value="park">park</option>
+                              <option selected="<%= place.type == 'restaurant' %>" value="restaurant">restaurant</option>
+                              <option selected="<%= place.type == 'cafe' %>" value="cafe">cafe</option>
+                              <option selected="<%= place.type == 'workspace' %>" value="workspace">workspace</option>
+                            </select>
+                          </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-geo-alt"></i>address</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="address" value="<%= place.address %>" type="url" class="form-control" id="address" placeholder="https://example.com">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-person-bounding-box"></i>Capacity</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="capacity" value="<%= place.capacity %>" type="number" class="form-control" id="Capacity" value="0">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-cash"></i>Min Budget</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="budget" value="<%= place.budget %>" type="number" class="form-control" id="Copmany" >
+                          </div>
+                        </div>
+    
+
+                        <div class="row mb-3">
+                          <label for="Address" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-phone"></i>Phone</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="phone" value="<%= place.phone %>" type="text" class="form-control" id="Phone" placeholder="01095604355">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="Email" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-envelope"></i>Email</label>
+                          <div class="col-md-8 col-lg-10">
+                            <input name="email" type="email" value="<%= place.email %>" class="form-control" id="Email" placeholder="example@gmail.com">
+                          </div>
+                        </div>
+
+
+
+                          <div class="form-check">
+                            <input class="form-check-input" name="sunday" type="checkbox" id="inlinedateCheckbox1" value="true" onclick="Sunday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">Sunday</label>
+                            <div  id="time1" style="display:none"> 
+                              <div class="from pt-2">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="sundayFrom">     
+                                  </p>   
+                              </div>
+                              <div class="to">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="sundayUntil">     
+                                </p>     
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <!-- sunday end -->
+
+                          <div class="form-check">
+                            <input class="form-check-input" name="monday" type="checkbox" id="inlinedateCheckbox2" value="true" onclick="Monday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">monday</label>
+                            <div  id="time2" style="display:none"> 
+                              <div class="from pt-2">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="mondayFrom">     
+                                  </p>   
+                              </div>
+                              <div class="to">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="mondayUntil">     
+                                </p>     
+                              </div>
+                            </div>
+                          </div>
+                          <!-- monday end -->
+                          <div class="form-check">
+                            <input class="form-check-input" name="tuesday" type="checkbox" id="inlinedateCheckbox3" value="true" onclick="thuesday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">tuesday</label>
+                            <div  id="time3" style="display:none"> 
+                              <div class="from pt-2">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="tuesdayFrom">     
+                                  </p>   
+                              </div>
+                              <div class="to">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="tuesdayUntil">     
+                                </p>     
+                              </div>
+                            </div>
+                          </div>
+                           <!-- Tuesday end -->
+
+                           <div class="form-check">
+                            <input class="form-check-input" name="wendesday" type="checkbox" id="inlinedateCheckbox4" value="true" onclick="whensday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">wendesday</label>
+                            <div  id="time4" style="display:none"> 
+                              <div class="from pt-2">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="wendesdayFrom">     
+                                  </p>   
+                              </div>
+                              <div class="to">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="wendesdayUntil">     
+                                </p>     
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Wendesday end -->
+
+                          <div class="form-check">
+                            <input class="form-check-input" name="thursday" type="checkbox" id="inlinedateCheckbox5" value="true" onclick="thursday()"/>
+                            <label class="form-check-label" for="inlineCheckbox5">thursday</label>
+                            <div  id="time5" style="display:block"> 
+                              <div class="from pt-2">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="thursdayFrom">     
+                                  </p>   
+                              </div>
+                              <div class="to">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="thursdayUntil">     
+                                </p>     
+                              </div>
+                            </div>
+                          </div>
+                          <!-- thursday end  -->
+
+                          <div class="form-check">
+                            <input class="form-check-input" name="friday" type="checkbox" id="inlinedateCheckbox6" value="true" onclick="Friday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">friday</label>
+                            <div  id="time6" style="display:none"> 
+                              <div class="from pt-2">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="fridayFrom">     
+                                  </p>   
+                              </div>
+                              <div class="to">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="fridayUntil">     
+                                </p>     
+                              </div>
+                            </div>
+                          </div>
+
+                          
+                          <div class="form-check">
+                            <input class="form-check-input" name="saturday" type="checkbox" id="inlinedateCheckbox7" value="true" onclick="Satrday()"/>
+                            <label class="form-check-label" for="inlineCheckbox1">saturday</label>
+                            <div  id="time7" style="display:none"> 
+                              <div class="from pt-2">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="saturdayFrom">     
+                                  </p>   
+                              </div>
+                              <div class="to">
+                                  <p class="">
+                                    <i class="bi bi-hourglass-bottom"></i> Until <input type="time" id="appt" name="saturdayUntil">     
+                                </p>     
+                              </div>
+                            </div>
+                          </div>
+
+                          
+                          
+
+                          
+                          
+
+
+
+                        <div class="services text-center">
+
+                          <div class="card-profile text-center">
+                            <label class="col-md-4 col-lg-2 col-form-label" for="">Choose Services </label>
+
+                            <div class="img-thumbs img-thumbs" id="img-preview">
+                            
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" <% if(place.service1 == 'reception'){ %> checked <%}%> type="checkbox" id="inlineCheckbox1" value="reception" name="service1" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>reception</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" <% if(place.service2 == 'wi-fi'){ %> checked <%}%>" type="checkbox" id="inlineCheckbox1" value="wi-fi" name="service2" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>wi-fi</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" <% if(place.service3 == 'free-coffee'){ %> checked <%}%> type="checkbox" id="inlineCheckbox1" value="free-coffee" name="service3" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>free-coffee</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input"<% if(place.service4 == 'printer'){ %> checked <%}%> type="checkbox" id="inlineCheckbox1" value="printer" name="service4" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>printer</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input"<% if(place.service5== 'open-area'){ %> checked <%}%>  type="checkbox" id="inlineCheckbox1" value="open-area" name="service5" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>open-area</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" "<% if(place.service6== 'payment'){ %> checked <%}%> type="checkbox" id="inlineCheckbox1" value="payment" name="service6" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>payment</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" <% if(place.service7 == 'self-services'){ %> checked <%}%> type="checkbox" id="inlineCheckbox1" value="self-services" name="service7" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>self-services</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input"<% if(place.service8== 'fast-food'){ %> checked <%}%> type="checkbox" id="inlineCheckbox1" value="fast-food" name="service8" />
+                            <label class="form-check-label" for="inlineCheckbox1"> <i class="bi bi-envelope"></i>fast-food</label>
+                          </div>
+                         
+                        
+
+                        </div>
+
+
+                        <div class="card-profile text-center">
+                          <label class="col-md-4 col-lg-2 col-form-label" for="">Choose Images menu</label>
+
+                          <div class="img-thumbs img-thumbs" id="img-preview">
+
+                          </div>
+                          <div class="form-group">
+                            <input type="file" class="form-control col-md-8 col-lg-10" name="menuimages" multiple id="upload-img" />
+                          </div>
+
+                          </button>
+                      </div>
+                                              
+                      <div class="row mb-3 mt-4">
+                          <label for="manager" class="col col-form-label"><i class="bi bi-person"></i>Select Manager</label>
+                          <div class="col-md-8 col-lg-9">
+                            <select class="form-control" name="manager">
+                              <% managers.forEach(function(manager){ %>
+                                <option selected="<%= place.manager == manager._id %>" value="<%=manager._id%>"><%=manager.managername%> - <%=manager.phone%></option>
+                              <% }); %>
+                            </select>
+                          </div>
+                      </div>
+
+                        <input name="owner_id" type="hidden" class="form-control" id="Capacity" value="<%= owner._id %>">
+
+                        <div class="d-flex justify-content-center">
+                          <div class="pt-2">
+                            <input  class="button2 mt-4 btn-primary btn-lg"  type="submit" id="submit" value="Update Place"/>
+                            <!-- <a href="AddPlaceStep2.html" class="button2 mt-4 btn-primary btn-lg" title="Remove my profile image">NEXT</a> -->
+                          </div>
+                        </div>
+                      </form><!-- End Profile Edit Form -->
+                    </div>
+
+                    
+                  </div><!-- End Bordered Tabs -->
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</main><!-- End #main -->
