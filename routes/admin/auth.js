@@ -1,5 +1,5 @@
 import  express  from "express"
-import { login, register, renderRegisterView, renderLoginView, logout, profile, updateOwner,changePassword, rendercontactView, renderPartnerView, renderCompaniesView, renderBookingwayView, renderBranchesBookingView, renderPartnermanageView, renderManageBranchesBookingView, partnerDetials, branchDetials, renderlandingpageView, deleteOwner, renderRequestView } from "../../controllers/admin/auth.js";
+import { login, register, renderRegisterView, renderLoginView, logout, profile, updateOwner,changePassword, rendercontactView, renderPartnerView, renderCompaniesView, renderBookingwayView, renderBranchesBookingView, renderPartnermanageView, renderManageBranchesBookingView, partnerDetials, branchDetials, renderlandingpageView, deleteOwner, renderRequestView, removeImage, updateImage } from "../../controllers/admin/auth.js";
 
 const router =express.Router();
 
@@ -41,5 +41,7 @@ router.get('/logout', logout)
 router.get('/', function(req, res){
     res.render('index');
 });
-export default router
+router.post('/remove-image', removeImage)
+router.post('/update-image', updateImage)
 
+export default router

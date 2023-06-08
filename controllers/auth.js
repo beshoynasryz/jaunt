@@ -94,11 +94,6 @@ export const updateUser =async (req,res,next)=>{
       
     
       req.params.user = await userResponse;
-
-     
-     
-     
-
       
       if(req.headers['content-type'] === 'application/json'){
         //respond in html

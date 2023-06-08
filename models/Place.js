@@ -29,6 +29,7 @@ const placeSchema = new mongoose.Schema({
     }, owner_id :{type: String,required: true,
     }, receptionHours: [],
     ratings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }],
+    // owner: { type: mongoose.Schema.Types.ObjectId, ref: 'Owner' },
 },
 {
     timestamps: true

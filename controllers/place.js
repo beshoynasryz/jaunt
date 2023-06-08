@@ -1,3 +1,4 @@
+import Owner from "../models/Owner.js";
 import Place from "../models/Place.js"
 import Rating from "../models/Rating.js";
 
@@ -12,8 +13,11 @@ export const getPlaces =async (req,res,next)=>{
         } else if(req.query.area){
             places = await Place.find({ area: req.query.area, status: 'approved' }).populate('ratings');
         } 
-        let placesResponse = places.map(function(place){
-            return {
+        
+        let placesResponse = places.map(async function(place){
+            const owner = await Owner.findById(place.owner_id)
+            return await {
+               
                 _id: place._id,
                 receptionHours: place.receptionHours,
                 name: place.name,
@@ -39,9 +43,18 @@ export const getPlaces =async (req,res,next)=>{
                 service8: place.service8,
                 ratings: place.ratings,
                 menuimages: place.menuimages,
+
+                owner: {
+                    companyname: owner.companyname,
+                    imagelogo: owner.imagelogo,
+                },
+               
+            
+               
             }
         })
-        res.status(200).json(placesResponse)
+        const results = await Promise.all(placesResponse);
+        res.status(200).json(results)
     }
     catch(err){
        next(err)

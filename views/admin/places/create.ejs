@@ -6,13 +6,10 @@
     <h1>Management Places</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active"><a href="Places.html">Places</a></li>
-        <li class="breadcrumb-item active"><a href="#">Add Place</a></li>
-        <li class="breadcrumb-item active"><a href="#">Step 1</a></li>
-        <li class="breadcrumb-item active">Step 2</li>
-        <li class="breadcrumb-item active">Step 3</li>
-        <li class="breadcrumb-item active">Step 4</li>
+        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+        <li class="breadcrumb-item active"><a href="/admin/places/owner-places">Places</a></li>
+        <li class="breadcrumb-item active"><a href="admin/places/create-place">Add Place</a></li>
+       
 
       </ol>
     </nav>
@@ -37,31 +34,13 @@
                 
                 
                 <div class="back-bar text-center">
-                  <a href="Places.html"><i class="bi bi-x-circle-fill"></i>                   
+                  <a href="/admin/places/owner-places"><i class="bi bi-x-circle-fill"></i>                   
                   </a>
                 </div><!-- End Search Bar -->
 
                 <div class="card-body pt-3">
                   <!-- Bordered Tabs -->
-                  <ul class="nav nav-tabs nav-tabs-bordered">
-    
-                    <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Add Information</button>
-                    </li>
-    
-                    <li class="nav-item">
-                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Services</button>
-                    </li>
-
-                    <li class="nav-item">
-                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Reception Hours</button>
-                    </li>
-    
-                    <li class="nav-item">
-                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Pricing list</button>
-                    </li>
-
-                  </ul>
+                  
                   <div class="tab-content pt-2">
     
                     <div class="tab-pane fade show active profile-edit" id="profile-edit">
@@ -76,8 +55,50 @@
                             <h5 class="card-title text-center">Add New Place</h5>
           
           
+                            <div class="container my-4">
+                              <div class="row mb-3 ">
+  
+                                  <div id="placesImg" class="col sectionCard m-2">
+                                      <h1 class="card-title fw-bold text-center">Add your branch images</h1>
+  
+                                          <div class="form-group">
+                                              <label for="images" class="col col-form-label">Select images:</label>
+                                              <div class="col">
+                                                  <input type="file" id="images" name="images" accept="image/*" multiple class="form-control">
+                                                  <div id="preview-container" style="display: none;">
+                                                      <div id="preview-images" class="row mt-3">
+                                                  
+                                                      </div>
+                                                      <button type="button" id="remove-images" class="btn btn-danger mt-2">Remove Images</button>
+                                                  </div>
+                                                  <small class="form-text text-muted">Files must be JPEG, PNG, or GIF images and less than 5MB each.</small>                                          
+                                              </div>
+                                          </div>
+                                  </div>
+  
+                                  <div id="pricingList" class="col sectionCard m-2">
+                                      <h1 class="card-title fw-bold text-center">Add your branch pricing list</h1>
+  
+                                          <div class="form-group">
+                                              <label for="images-Menu" class="col col-form-label">Select images:</label>
+                                              <div class="col">
+                                                  <input type="file" id="images-Menu" name="menuimages" accept="image/*" multiple class="form-control">
+                                                  <div id="preview-container-Menu" style="display: none;">
+                                                      <div id="preview-images-Menu" class="row mt-3">
+                                                  
+                                                      </div>
+                                                      <button type="button" id="remove-images-Menu" class="btn btn-danger mt-2">Remove Images</button>
+                                                  </div>
+                                                  <small class="form-text text-muted">Files must be JPEG, PNG, or GIF images and less than 5MB each.</small>                                          
+                                              </div>
+                                          </div>
+                                  </div>
+  
+                              </div>
+  
+                          </div>
           
-                            <div class="card-profile text-center">
+                            <!-- <div class="card-profile text-center">
                                 <label class="col-md-4 col-lg-2 col-form-label" for="">Choose Images</label>
 
                                 <div class="img-thumbs img-thumbs" id="img-preview">
@@ -88,17 +109,11 @@
                                 </div>
 
                                 </button>
-                            </div>
+                            </div> -->
                           </div>
     
                         </div>
-                        
-                        <div class="row mb-3">
-                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>Name</label>
-                          <div class="col-md-8 col-lg-10">
-                            <input name="name" type="text" class="form-control" id="Governorate" value="" placeholder="Enter yor place name">
-                          </div>
-                        </div>
+                      
     
                         <div class="row mb-3">
                           <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>About</label>
@@ -358,7 +373,7 @@
                         </div>
 
 
-                        <div class="card-profile text-center">
+                        <!-- <div class="card-profile text-center">
                           <label class="col-md-4 col-lg-2 col-form-label" for="">Choose Images menu</label>
 
                           <div class="img-thumbs img-thumbs" id="img-preview">
@@ -369,14 +384,14 @@
                           </div>
 
                           </button>
-                      </div>
+                      </div> -->
                                               
                       <div class="row mb-3 mt-4">
                           <label for="manager" class="col col-form-label"><i class="bi bi-person"></i>Select Manager</label>
                           <div class="col-md-8 col-lg-9">
                             <select class="form-control" name="manager">
                               <% managers.forEach(function(manager){ %>
-                                <option value="<%=manager._id%>"><%=manager.managername%> - <%=manager.phone%></option>
+                                <option value="<%=manager._id%>"><%=manager.managername%> - <%=manager.phone%>  - <%=manager.email%></option>
                               <% }); %>
                             </select>
                           </div>

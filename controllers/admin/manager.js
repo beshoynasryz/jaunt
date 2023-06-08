@@ -25,6 +25,18 @@ export const managerIndex = async (req, res, next) => {
     next(err);
   }
 };
+
+// {
+//   $or: [{ status: 'pending' },
+//       {
+//           status: 'approved'
+//       }
+//   ],
+//   $and: [{
+//       owner_id: req.session.owner._id
+//   }]
+// }
+
 export const managerRequest = async (req, res, next) => {
   try {
     let bookings = await Booking.find({

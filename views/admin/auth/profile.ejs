@@ -88,28 +88,49 @@
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
-                  <!-- Profile Edit Form -->
-                  <form method="post" action="/admin/auth/update-owner">
                     <div class="row mb-3">
+                      <div class="row mb-3">
 
 
 
 
-                      <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                        <h5 class="card-title text-center">Profile Image</h5>
-      
-      
-      
-                        <div class="card-profile text-center">
-                          <div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
-                            <img src="<%= owner.image %>" alt="Profile" >
-                        <div class="pt-3 mb-3">
-                          <a href="#" class="btn btn-primary btn-sm " title="Upload new profile image"><i class="bi bi-upload me-2"></i>UPLOAD</a>
-                          <a href="#" class="button2 mt-4 btn-primary btn-sm" title="Remove my profile image"><i class="bi bi-trash me-2"></i>DELETE</a>
-                        </div>
+                        <div class="container">
+                          <div class="row mb-3">
+  
+                              
+                                  <div class="form-group">
+                                      <label for="image" class="col col-form-label">Select Image:</label>
+  
+                                      <div class="col">
+  
+                                          <div id="preview-container1"  class="mt-3 mt-2 text-center">
+                                              <img id="preview1" src="<%= owner.image%>" alt="" style="max-width: 100%;">
+                                              <div class="text-center">
+                                                
+                                                <form method="post" action="/admin/auth/remove-image">
+                                                  <input type="hidden" name="isImage" value="true" />
+                                                  <button type="submit" id="remove-image1" class="btn btn-danger mt-2">Remove Image</button>
+                                                </form>
+                                              </div>
+                                          </div>
+  
+  
+                                      </div>
+  
+                                    </div>
                           </div>
-                        </div>
+  
                       </div>
+  
+                      <form method="post" action="/admin/auth/update-image" enctype="multipart/form-data">
+                        <div class="text-center">
+                          <input type="file" id="logoImage" name="image" accept="image/*"  class="form-control">
+                        </div>
+                        <small class="form-text text-muted">Files must be JPEG, PNG, or GIF images and less than 5MB each.</small>   <br>                                       
+                        <input type="hidden" name="isImage" value="true" />
+                        <button type="submit" class="btn btn-primary">UPDATE</button>
+                      </form>
+                    </div>
 
                     </div>
 
@@ -120,6 +141,8 @@
                       </div>
                     </div>
 
+                  <!-- Profile Edit Form -->
+                  <form method="post" action="/admin/auth/update-owner">
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-2 col-form-label">Company Name</label>
                       <div class="col-md-8 col-lg-10">
@@ -164,7 +187,6 @@
 
                   <!-- Profile Edit Form -->
                   
-                  <form>
                     <div class="row mb-3">
 
 
@@ -173,51 +195,44 @@
                       <div class="container">
                         <div class="row mb-3">
 
-                            <form>
+                            
                                 <div class="form-group">
                                     <label for="image" class="col col-form-label">Select Logo:</label>
 
                                     <div class="col">
 
-
-
-
-
                                         <div id="preview-container1"  class="mt-3 mt-2 text-center">
-                                            <img id="preview1" src="<%= owner.imagelogo %>" alt="" style="max-width: 100%;">
+                                            <img id="preview1" src="<%= owner.imagelogo%>" alt="" style="max-width: 100%;">
                                             <div class="text-center">
-                                              <button type="button" id="remove-image1" class="btn btn-danger mt-2">Remove Image</button>
+                                              
+                                              <form method="post" action="/admin/auth/remove-image">
+                                                <input type="hidden" name="isLogoImage" value="true" />
+                                                <button type="submit" id="remove-image1" class="btn btn-danger mt-2">Remove Image</button>
+                                              </form>
                                             </div>
                                         </div>
 
 
-                                        <input type="file" id="logoImage" name="logoImage" accept="image/*"  class="form-control">
-
-
                                     </div>
-                                    <small class="form-text text-muted">Files must be JPEG, PNG, or GIF images and less than 5MB each.</small>                                          
 
-
-
-                                </div>
-                            </form>
-
+                                  </div>
                         </div>
 
                     </div>
 
-                    <div class="text-center">
+                    <form method="post" action="/admin/auth/update-image" enctype="multipart/form-data">
+                      <div class="text-center">
+                        <input type="file" id="logoImage" name="image" accept="image/*"  class="form-control">
+                      </div>
+                      <small class="form-text text-muted">Files must be JPEG, PNG, or GIF images and less than 5MB each.</small>   <br>                                       
+                      <input type="hidden" name="isLogoImage" value="true" />
                       <button type="submit" class="btn btn-primary">UPDATE</button>
-                    </div>
-
-                    </div>
-
+                    </form>
+                  </div>
 
 
 
-                  </form>
-                  
-                  <!-- End Profile Edit Form -->
+
 
                 </div>
 

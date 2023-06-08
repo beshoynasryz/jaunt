@@ -333,6 +333,7 @@ export const profile =async (req, res, next) => {
       }
       const places = await Place.find( {owner_id: req.session.owner._id})
       const managers = await Manager.find( {owner_id: req.session.owner._id})
+      
       res.render('admin/auth/profile', { 
         layout: './admin/layouts/main', 
         owner: req.session.owner,
@@ -425,6 +426,7 @@ export const ownerLogin = async (req,res,next)=>{
     phone: owner.phone,
     image: owner.image,
     isAdmin: owner.isAdmin,
+    imagelogo: owner.imagelogo,
     access_token: token
   };
   
@@ -524,6 +526,81 @@ export const updateOwner =async (req,res,next)=>{
       next(err);
   }
 }
+
+export const removeImage =async (req,res,next)=>{
+  try {
+    console.log('Removing image', req.body)
+    if(req.body.isLogoImage){
+      var data = { imagelogo: null }
+    }
+    if(req.body.isImage){
+      var data = { image: null }
+    }
+      const updatedOwner = await Owner.findByIdAndUpdate(req.session.owner._id,{$set: data },{new:true})
+
+      const ownerResponse = {
+        _id: updatedOwner._id.toHexString(),
+        ownername: updatedOwner.ownername,
+        companyname: updatedOwner.companyname,
+        type: updatedOwner.type,
+        email: updatedOwner.email,
+        phone: updatedOwner.phone,
+        image: updatedOwner.image,
+        imagelogo: updatedOwner.imagelogo,
+        isAdmin: updatedOwner.isAdmin,
+        access_token: req.session.owner.access_token
+      };
+
+      req.session.owner = await ownerResponse;
+
+      res.redirect('/admin/auth/profile');
+  }
+  catch(err){
+      next(err);
+  }
+}
+
+export const updateImage =async (req,res,next)=>{
+  try {
+    const { image } = req.files;
+    const path = "/uploaded-images-2/";
+    const filePath = './public' + path
+    const fileName = Date.now() + image.name;
+    const fullPath = filePath +  Date.now() + image.name;
+
+    await image.mv(fullPath);
+    const imagePath = path + fileName
+
+    if(req.body.isLogoImage){
+      var data = { imagelogo: imagePath }
+    }
+    if(req.body.isImage){
+      var data = { image: imagePath }
+    }
+      const updatedOwner = await Owner.findByIdAndUpdate(req.session.owner._id,{$set: data },{new:true})
+
+      const ownerResponse = {
+        _id: updatedOwner._id.toHexString(),
+        ownername: updatedOwner.ownername,
+        companyname: updatedOwner.companyname,
+        type: updatedOwner.type,
+        email: updatedOwner.email,
+        phone: updatedOwner.phone,
+        image: updatedOwner.image,
+        imagelogo: updatedOwner.imagelogo,
+        isAdmin: updatedOwner.isAdmin,
+        access_token: req.session.owner.access_token
+      };
+
+      req.session.owner = await ownerResponse;
+
+      res.redirect('/admin/auth/profile');
+  }
+  catch(err){
+      next(err);
+  }
+}
+
 export const changePassword =async (req,res,next)=>{
   try{
     

@@ -167,7 +167,7 @@ export const getOwnerPlaces =async (req,res,next)=>{
           res.redirect('/admin/auth/sign-in');
         }
         
-    const places = await Place.find({ owner_id: req.session.owner._id}).populate('manager')
+    const places = await Place.find({ owner_id: req.session.owner._id,status:'approved'}).populate('manager')
         const ownerCafes = await Place.find({ type: 'cafe'}).populate('manager')
         res.render('admin/places/index', { 
           layout: './admin/layouts/main', 

@@ -1,4 +1,5 @@
-import Booking from "../models/Booking.js"
+import Booking from "../models/Booking.js";
+import Owner from "../models/Owner.js";
 import Place from "../models/Place.js";
 
 export const getUserBookings = async (req,res,next)=>{
@@ -6,8 +7,26 @@ export const getUserBookings = async (req,res,next)=>{
         let bookings = await Booking
             .find({ user: req.params.id})
             .populate('place');
-
-        res.status(200).json(bookings)
+        
+        let bookingsResponse = bookings.map(async function(booking){
+            const owner = await Owner.findById(booking.owner_id)
+            return await {
+                _id: booking._id,
+                bookingNumber: booking.bookingNumber,
+                date: booking.date,
+                checkin: booking.checkin, 
+                checkout: booking.checkout,
+                numberOfTickets: booking.numberOfTickets,
+                status: booking.status,
+                place: booking.place,
+                owner: {
+                    companyname: owner?.companyname,
+                    imagelogo: owner?.imagelogo,
+                },
+            }
+        })
+        const results = await Promise.all(bookingsResponse);
+        res.status(200).json(results)
     }
     catch(err){
         next(err)
@@ -70,11 +89,10 @@ export const createBooking =async (req,res,next)=>{
     }
 }
 
-
 export const getBooking =async (req,res,next)=>{
     try {
-        const Booking = await Booking.findById(req.params.id)
-        res.status(200).json(Booking)
+        const userBooking = await Booking.findById(req.params.id).populate('place')
+        res.status(200).json(userBooking) 
     }
     catch(err){
         next(err)
