@@ -29,10 +29,10 @@ export const rate = async (req, res, next) => {
     await rate.save();   
     const place = await Place.findById(booking.place._id);
     if(place.ratings?.length > 0){
-        console.log('old')
+     
         place.ratings.push(rate._id)
     } else {
-        console.log('new')
+       
         place.ratings = [rate._id];
     }
     await Place.updateOne({ _id: booking.place._id },

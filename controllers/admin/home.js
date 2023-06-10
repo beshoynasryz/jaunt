@@ -43,7 +43,7 @@ export const index = async (req, res, next) => {
     
         const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
         const placesofbranch = await Place.find({ owner_id: req.session.owner._id, status: 'approved'}).populate('manager');
-        console.log(placesofbranch)
+       
         const managerCount = await Manager.find({ owner: req.session.owner._id});
 
         res.render('admin/index', 

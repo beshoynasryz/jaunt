@@ -235,8 +235,9 @@ export const renderRequestView =async (req, res, next) => {
       const placesdeclined = await Place.find({ status:'declined',  owner_id: req.session.owner._id}).populate('manager');
       const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
         const managerCount = await Manager.find({ owner: req.session.owner._id});
+        const placespendingCount = await Place.find({ status:'pending', owner_id: req.session.owner._id})
 
-
+ 
       res.render('admin/auth/request',  
         { 
           layout: './admin/layouts/main',
@@ -247,6 +248,7 @@ export const renderRequestView =async (req, res, next) => {
           placesdeclined:placesdeclined,
           placeCount:placeCount.length,
           managerCount:managerCount.length,
+          placespendingCount:placespendingCount.length,
         }   
       );
        
@@ -529,7 +531,7 @@ export const updateOwner =async (req,res,next)=>{
 
 export const removeImage =async (req,res,next)=>{
   try {
-    console.log('Removing image', req.body)
+   
     if(req.body.isLogoImage){
       var data = { imagelogo: null }
     }

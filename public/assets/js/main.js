@@ -458,3 +458,4 @@ document.getElementById('remove-images-Menu').addEventListener('click', function
   document.getElementById('preview-images-Menu').innerHTML = '';
   document.getElementById('preview-container-Menu').style.display = 'none';
 });
+

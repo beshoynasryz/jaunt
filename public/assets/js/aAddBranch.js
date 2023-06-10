@@ -84,6 +84,66 @@ function closeForm() {
 document.querySelector(".cancel").addEventListener("click", closeForm);
 
 
+// ---------------------------------bne
+
+// Get the popup form
+const userPopup = document.getElementById("user-popupp");
+
+// Get the button that opens the popup form
+const openUserButton = document.querySelectorAll(".open-user-popupp");
+
+
+// Function to open the popup form
+openUserButton.forEach(function(openUserButton) {
+    openUserButton.addEventListener("click", function() {
+        userPopup.style.display = "block";
+    });
+    });
+// Function to close the popup form
+function closeForm2() {
+    userPopup.style.display = "none";
+}
+
+
+// Add click event listener to cancel button
+userPopup.querySelector(".cancel").addEventListener("click", closeForm2);
+
+
+
+
+
+
+
+//Branch FeedBacks PopUp---------------------------------------------
+//-------------------------------------------------------------------
+
+
+
+// Get the popup form
+const BranchPopup = document.getElementById("branch-popupp");
+
+// Get the button that opens the popup form
+const openBranchButton = document.querySelectorAll(".open-branch-popupp");
+
+
+// Function to open the popup form
+openBranchButton.forEach(function(openBranchButton) {
+    openBranchButton.addEventListener("click", function() {
+        BranchPopup.style.display = "block";
+    });
+    });
+    console.log(openBranchButton);
+// Function to close the popup form
+function closeForm1() {
+    BranchPopup.style.display = "none";
+}
+
+
+// Add click event listener to cancel button
+BranchPopup.querySelector(".cancel").addEventListener("click", closeForm1);
+
+
+
 
 
 

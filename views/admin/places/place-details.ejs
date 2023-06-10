@@ -13,8 +13,6 @@
   </div><!-- End Page Title -->
 
 
-      
-
 
 
 
@@ -375,6 +373,220 @@
                         </div>
                       </div>
                     </div>
+                    
+
+                    
+                        <div class="tab-pane fade pt-3" id="review">
+
+                        <div class="col">
+
+                          <div class="row">
+            
+                            <!-- place Card -->
+                            <div class="col my-4">
+                              <div class="card info-card sales-card">
+                                <div class="card-body my-4 pb-1 text-center align-items-center">
+                                  <div class="card-icon d-flex align-items-center justify-content-center">
+                                    <img src="/assets/img/shops.png" alt="">
+                                  </div>
+                                  <h5 class="card-title">Branch</h5>
+                                  <p>See feedbacks about users from your branch</p>
+                                  <div class="pt-4">
+                                    <button class="open-branch-popup btn" onclick="document.getElementById('branch-popup').style.display = 'block'"><i class="bi bi-clipboard-data"></i> SEE REVIEWS</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- End place Card -->
+                            <div id="branch-popup" class="branch-popup">
+                              <div>
+                                  <span class="branch-popup-close">&times;</span>
+                              </div>
+                            <div class="branch-popup-content">
+                              <div class="card text-center mb-5">
+          
+                                  <form id="branch-form">
+          
+                                      <div class="container">
+                                          <div class="row">
+          
+                                            <div class="col">
+                                              <div class="row">
+  
+                                                <div class="table-responsive p-0">
+                                                  <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                      <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Comments</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      
+                                                      <% ratings.forEach(function(rating){ %> 
+                                                        <% if(rating.rater == 'place'){ %>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div>
+                                                              <img src="assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" class="avatar avatar-sm me-3" alt="user1">
+                                                            </div>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm"><%=place.manager.managername%></h6>
+                                                              <p class="text-xs text-secondary mb-0"><%=place.manager.email%></p>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                            <p class="text-xs mb-0 mt-3"><%=rating.comment%></p>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <p class="text-xs font-weight-bold mb-0"><i class="bi bi-star"></i> <%=rating.rate%></p>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <p class="text-xs font-weight-bold mb-0"><%=rating.createdAt.toDateString()%></p>
+                                                        </td>
+                                                      </tr>
+                                                      
+                                                      <%}%> 
+                                                      <%})%> 
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+  
+                  
+                  
+                                              </div>
+                                            </div>
+  
+                                              <button type="button" class="btn cancel mt-3"  onclick="document.getElementById('branch-popup').style.display = 'none'">Close</button>
+  
+                                          </div>
+                                      </div>
+                          
+                                  </form>
+          
+          
+                      
+                      
+                      
+                                  
+                                  
+                              </div>
+                            </div>
+                          </div>
+
+          
+                            <!-- place Card -->
+                            <div class="col my-4">
+                              <div class="card info-card sales-card">
+                                <div class="card-body my-4 pb-1 text-center align-items-center">
+                                  <div class="card-icon d-flex align-items-center justify-content-center">
+                                    <img src="/assets/img/team.png" alt="">
+                                  </div>
+                                  <h5 class="card-title">Users</h5>
+                                  <p>See feedbacks about your branch from users</p>
+                                  <div class="pt-4">
+                                    <button class="open-user-popup btn" onclick="document.getElementById('user-popup').style.display = 'block'"><i class="bi bi-clipboard-data"></i> SEE REVIEWS</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- End place Card -->
+
+                            <div id="user-popup" class="user-popup">
+                              <div>
+                                  <span class="user-popup-close">&times;</span>
+                              </div>
+                            <div class="user-popup-content">
+                              <div class="card text-center mb-5">
+          
+                                  <form id="user-form">
+          
+                                      <div class="container">
+                                          <div class="row">
+          
+                                            <div class="col">
+                                              <div class="row">
+
+                                                <div class="table-responsive p-0">
+                                                  <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                      <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Comments</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Place Rate</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Services Rate</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                        
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      
+                                                      <% ratings.forEach(function(rating){ %> 
+                                                        <% if(rating.rater == 'user'){ %>
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div>
+                                                              <img src="assets/img/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" class="avatar avatar-sm me-3" alt="user1">
+                                                            </div>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm"><%= rating.user.name %></h6>
+                                                              <p class="text-xs text-secondary mb-0"><%= rating.user.email %></p>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                            <p class="text-xs mb-0 mt-3"><%= rating.comment %></p>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <p class="text-xs font-weight-bold mb-0"><i class="bi bi-star"></i> <%=rating.rate%></p>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                          <p class="text-xs font-weight-bold mb-0"><i class="bi bi-star"></i> <%=rating.rateServices%></p>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <p class="text-xs font-weight-bold mb-0">2/10/2023</p>
+                                                        </td>
+                                                      </tr>
+                                                      
+                                                      <%}%> 
+                                                      <%})%> 
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+
+                  
+                  
+                                              </div>
+                                            </div>
+  
+                                              <button type="button" class="btn cancel mt-3"  onclick="document.getElementById('user-popup').style.display = 'none'">Close</button>
+  
+                                          </div>
+                                      </div>
+                          
+                                  </form>
+          
+          
+                      
+                      
+                      
+                                  
+                                  
+                              </div>
+                            </div>
+                          </div>
+
+
+                         
+         
+                          </div>
+                        </div>
+                      </div>
 
                     
                   </div><!-- End Bordered Tabs -->
