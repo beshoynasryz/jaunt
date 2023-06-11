@@ -3,8 +3,8 @@ const {schema} = mongoose;
 
 const placeSchema = new mongoose.Schema({
 
-    name :{ type: String, required: true,
-    }, email :{ type: String, required: true,
+    
+   email :{ type: String, required: true,
     },type :{ type: String, enum:['park','workspace','restaurant','cafe'],required: true,
     },city :{ type: String, required: true,
     },address :{type: String, required: true,

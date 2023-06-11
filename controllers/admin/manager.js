@@ -26,16 +26,6 @@ export const managerIndex = async (req, res, next) => {
   }
 };
 
-// {
-//   $or: [{ status: 'pending' },
-//       {
-//           status: 'approved'
-//       }
-//   ],
-//   $and: [{
-//       owner_id: req.session.owner._id
-//   }]
-// }
 
 export const managerRequest = async (req, res, next) => {
   try {

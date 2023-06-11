@@ -61,15 +61,6 @@ export const updatedStatus =async (req,res,next)=>{
         next(err);
     }
 }
-//for test github
-
-
-
-
-
-
-
-
 
 
 export const getBooking =async (req,res,next)=>{

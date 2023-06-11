@@ -33,21 +33,6 @@ export const getUserBookings = async (req,res,next)=>{
     }
 }
 
-//function for get booking with each place (test)
-
-// export const getPlaceBookings = async (req,res,next)=>{
-//     try {
-//         let bookings = await Booking
-//             .find({ owner_id: req.params.id})
-           
-
-//         res.status(200).json(bookings)
-//     }
-//     catch(err){
-//         next(err)
-//     }
-// }
-
 const getRandomBookingNumber = (min = 0, max = 500000) => {
     min = Math.ceil(min);
     max = Math.floor(max);
