@@ -1,0 +1,111 @@
+.profile .add-places .card-body .card-icon img{
+    width: 120px;
+    height: 120px;
+}
+
+.profile .add-places .card-body .news{
+    font-size: 18px;
+    margin-top: 16px;
+    font-weight: 600;
+}
+
+
+
+.profile .card-body .back-bar{
+    width: 36px;
+    height: 36px;
+    padding: 0 0px;
+    border-radius: 25px;
+    margin-bottom: 14px;
+  
+  }
+  
+  .profile .back-bar i {
+    color: var(--primary-color);
+    font-size: 40px;
+  }
+  
+  .profile .back-bar a {
+    margin-top: 10px;
+  }
+  
+  
+  
+/* Info Cards */
+
+.profile .info-card p {
+    font-size: 12px;
+    color: var(--text-color1);
+    margin: 0;
+    padding: 0;
+  }
+
+  
+  .profile .info-card{
+    border: 0.5px solid var(--background-color-of-secondary-color);
+    border-radius: 10px;
+  }
+  
+  .profile .card-body{
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color1);
+  }
+  
+  .profile .card-body .card-title{
+    padding: 20px 0 0 0;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-color1);
+    font-weight: 700;
+  }
+  
+  .profile .card-icon img{
+    line-height: 0;
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-top: 14px;
+    border-radius: 10px;
+  }
+
+
+  .profile .filter {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+  }
+  
+  .profile .filter .icon {
+    color: var(--primary-color);
+    padding-right: 20px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+  }
+  
+  .profile .filter .icon:hover,
+  .profile .filter .icon:focus {
+    color: var(--secondary-color);
+  }
+  
+  .profile .filter .dropdown-header {
+    padding:  15px;
+  }
+  
+  .profile .filter .dropdown-header h6 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-color1);
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+  .profile .filter .dropdown-item {
+    padding: 8px 15px;
+  }
+  

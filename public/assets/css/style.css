@@ -790,6 +790,7 @@ h6 {
   padding: 0;
 }
 
+.card-icon,
 .dashboard .card-icon {
   font-size: 32px;
   line-height: 0;
@@ -3449,6 +3450,26 @@ background-color: none;
 
 
 
+
+.card-icon {
+  color: var(--primary-color);
+  background: var(--background-color-of-primary-color);
+}
+
+.dashboard .sales-card .card-icon {
+  color: var(--primary-color);
+  background: var(--background-color-of-primary-color);
+}
+
+.dashboard .revenue-card .card-icon {
+  color: var(--primary-color);
+  background: var(--background-color-of-primary-color);
+}
+
+.dashboard .customers-card .card-icon {
+  color: var(--primary-color);
+  background: var(--background-color-of-primary-color);
+}
 
 
 

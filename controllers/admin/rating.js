@@ -14,8 +14,20 @@ export const rate = async (req, res, next) => {
   try {
     const booking = await Booking.findOne({ _id: req.body.booking_id }).populate('user').populate('place');
 
+    const getRate = await Rating.findOne({ 
+      booking: req.body.booking_id,
+      rater: req.body.rater
+    });
+    if (getRate){
+      if (req.headers["accept"] !== "application/json") {
+        return res.redirect("back");
+      } else {
+        return res.status(400).json({ mag: "This booking has been reated before!" });
+      }
+    }
+    
     if (!booking)
-    return next(createError(400, "No booking found with this id"));
+      return next(createError(400, "No booking found with this id"));
 
     const rate = new Rating({
       rate: req.body.rate,

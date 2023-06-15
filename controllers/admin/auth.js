@@ -18,19 +18,15 @@ export const renderManageBranchesBookingView =async (req, res, next) => {
 
   let leatesPlaces = await Place.find({ owner_id: req.params.id });
 
- 
-
- 
-
       const selectedowner = await Owner.findById(req.params.id);
-      res.render('admin/ownerbookings/managebranchesbooking',
+      
+      res.render('admin/ownerbookings/branchesbooking',
+      
         { 
           layout: './admin/layouts/main',
           owner: req.session.owner,
           selectedowner: selectedowner,
           leatesPlaces:leatesPlaces,
-       
-
         }
       ); 
        
@@ -73,7 +69,7 @@ export const partnerDetials =async (req, res, next) => {
       }
       
       let placesowner = await Place
-      .find({ owner_id: req.params.id });
+      .find({ owner_id: req.params.id ,status:'approved'},).populate('manager');
       
       const ownerdetials = await Owner.findById(req.params.id);
       res.render('admin/partner/detials',
@@ -100,9 +96,13 @@ export const renderCompaniesView =async (req, res, next) => {
       
       const owners = await Owner.find();
       const ownerspark = await Owner.find({ type: 'park' });
+      const ownersparklength = await Owner.find({ type: 'park' });
       const ownersrestrunt = await Owner.find({ type: 'resturant' });
+      const ownersrestruntlength = await Owner.find({ type: 'resturant' });
       const ownerscafe = await Owner.find({ type: 'cafe' });
+      const ownerscafelength = await Owner.find({ type: 'cafe' });
       const ownersworkspace = await Owner.find({ type: 'workspace' });
+      const ownersworkspacelength = await Owner.find({ type: 'workspace' });
 
       res.render('admin/companie/companies',  
         { 
@@ -113,6 +113,11 @@ export const renderCompaniesView =async (req, res, next) => {
           ownersrestrunt :ownersrestrunt,
           ownerscafe:ownerscafe,
           ownersworkspace :ownersworkspace,
+          ownersparklength:ownersparklength.length,
+          ownersrestruntlength:ownersrestruntlength.length,
+          ownerscafelength:ownerscafelength.length,
+          ownersworkspacelength:ownersworkspacelength.length,
+
 
 
         }
@@ -151,8 +156,16 @@ export const renderBranchesBookingView =async (req, res, next) => {
             leatesPlaces = await Place.find();
             
         } 
+        
+      if(typeof req.query.filter?.length == 'undefined') {
+        var places = await Place.find().populate('manager');
+      } else {
+        var places = await Place.find({ 'type': req.query.filter }).populate('manager');
+      }
 
-
+        const placeCountAdmin = await Place.find();
+        const placeCountAdminPending = await Place.find({status:'pending'});
+        const OwnerCountAdmin = await Owner.find();
       // const owners = await Owner.find();
 
       res.render('admin/ownerbookings/branchesbooking',
@@ -161,6 +174,10 @@ export const renderBranchesBookingView =async (req, res, next) => {
           owner: req.session.owner,
           bookings: bookings, 
           leatesPlaces :leatesPlaces,
+          places: places,
+          placeCountAdmin:placeCountAdmin.length,
+          OwnerCountAdmin:OwnerCountAdmin.length,
+          placeCountAdminPending:placeCountAdminPending.length,
           // owners: owners,
         }
       ); 
@@ -193,6 +210,8 @@ export const renderLoginView =async (req, res, next) => {
       next(err)
   }
 }
+
+
 export const renderlandingpageView =async (req, res, next) => {
   try {
       // If the user is loggedin
@@ -212,7 +231,31 @@ export const rendercontactView =async (req, res, next) => {
       if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
           res.redirect('/admin/auth/sign-in');
       }
+      const placeCountAdmin = await Place.find();
+      const ownerCountAdmin = await Owner.find();
+
+
+
       res.render('admin/auth/pages-contact',  
+        { 
+          layout: './admin/layouts/main',
+          owner: req.session.owner,
+          placeCountAdmin:placeCountAdmin.length,
+          ownerCountAdmin:ownerCountAdmin.length,
+        }
+      );
+       
+  } catch(err){
+      next(err)
+  }
+}
+export const renderSettingView =async (req, res, next) => {
+  try {
+      // If the user is loggedin
+      if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
+          res.redirect('/admin/auth/sign-in');
+      }
+      res.render('admin/auth/setting',  
         { 
           layout: './admin/layouts/main',
           owner: req.session.owner

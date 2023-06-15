@@ -2,6 +2,7 @@ import Manager from "../../models/Manager.js"
 import Place from "../../models/Place.js"
 import Rating from "../../models/Rating.js"
 
+
 export const createPlace =async (req,res,next)=>{
     try {
     var receptionHours = new Array()

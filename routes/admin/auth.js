@@ -1,11 +1,12 @@
 import  express  from "express"
-import { login, register, renderRegisterView, renderLoginView, logout, profile, updateOwner,changePassword, rendercontactView, renderPartnerView, renderCompaniesView, renderBookingwayView, renderBranchesBookingView, renderPartnermanageView, renderManageBranchesBookingView, partnerDetials, branchDetials, renderlandingpageView, deleteOwner, renderRequestView, removeImage, updateImage } from "../../controllers/admin/auth.js";
+import { login, register, renderRegisterView, renderLoginView, logout, profile, updateOwner,changePassword, rendercontactView, renderPartnerView, renderCompaniesView, renderBookingwayView, renderBranchesBookingView, renderPartnermanageView, renderManageBranchesBookingView, partnerDetials, branchDetials, renderlandingpageView, deleteOwner, renderRequestView, removeImage, updateImage, renderSettingView } from "../../controllers/admin/auth.js";
 
 const router =express.Router();
 
 
 
 router.get('/pages-contact', rendercontactView);
+router.get('/setting', renderSettingView);
 router.get('/request', renderRequestView);
 
 router.get('/partners', renderPartnerView);

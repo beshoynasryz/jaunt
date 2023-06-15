@@ -1,596 +1,565 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
     <title>Juant</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="/img"
-    />
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- ======== CSS here ======== -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/lineicons.css" />
-    <link rel="stylesheet" href="/css/animate.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/all.min.css">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="//assets/img/favicon.png" rel="icon">
+    <link href="//assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Template Main CSS File -->
+  <link href="/css/style.css" rel="stylesheet">
   </head>
+
   <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
 
-    <!-- ======== preloader start ======== -->
-    <div class="preloader">
-      <div class="loader">
-        <div class="spinner">
-          <div class="spinner-container">
-            <div class="spinner-rotator">
-              <div class="spinner-left">
-                <div class="spinner-circle"></div>
-              </div>
-              <div class="spinner-right">
-                <div class="spinner-circle"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+  
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="/assets/img/Juant.png" alt="">
+        </a>
+  
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">Places</a></li>
+            <li><a class="nav-link scrollto" href="#values">Features</a></li>
+            <li><a class="nav-link scrollto" href="#Services">Services</a></li>
+            <li><a class="nav-link scrollto" href="#using">How to use</a></li>
+            <li><a class="nav-link scrollto" href="#team">About</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+            <li><a class="getstarted scrollto" href="/admin/auth/landingpage">BECOME A HOST</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
       </div>
-    </div>
-    <!-- preloader end -->
-
-    <!-- ======== header start ======== -->
-    <header class="header">
-      <div class="navbar-area">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12">
-              <nav class="navbar navbar-expand-lg">
-                
-
-                <a class="navbar-brand" href="#">
-                  <img src="/images/Juant.png" alt="logo">
-                </a>
-
-
-                <button 
-                class="navbar-toggler"
-                type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#main" 
-                aria-controls="main" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-                </button>
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <div
-                  class="collapse navbar-collapse sub-menu-bar"
-                  id="navbarSupportedContent"
-                >
-
-                  <ul id="nav" class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link p-2 p-lg-3 page-scroll active" href="#home">places</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link page-scroll p-2 p-lg-3" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link page-scroll p-2 p-lg-3" href="#howToUse">How To Use</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link page-scroll p-2 p-lg-3" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="javascript:void(0)" class="nav-link p-2 p-lg-3">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="javascript:void(0) p-2 p-lg-3" class="nav-link p-2 p-lg-3">Help</a>
-                    </li>
-                    <a href="/admin/auth/landingpage" class="btn p-2 p-lg-3 btn-primary shadow main-btn ms-2">Become A Host</a>
-                  </ul>
-                </div>
-                <!-- navbar collapse -->
-              </nav>
-              <!-- navbar -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
-      </div>
-      <!-- navbar area -->
-    </header>
-    <!-- ======== header end ======== -->
-
-    <!-- ======== hero-section start ======== -->
-    <section class="hero-section">
+    </header><!-- End Header -->
+  
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center">
+  
       <div class="container">
-        <div class="row align-items-center position-relative">
-          <div class="col-lg-6">
-            <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".4s">
-                Instant access to different places 
-                at your fingertips
-              </h1>
-              <p class="wow fadeInUp" data-wow-delay=".6s">
-                The choice is yours - explore different places, different categories, booking
-                suitable place for your own Occasions
-              </p>
-              
-              <div class="buttons">
-                <a href="javascript:void(0)" data-wow-delay=".6s">
-                  <img src="/img/hero/app_store_icon.svg" alt="">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">Instant access to different places at your fingertips</h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">The choice is yours - explore different places, different categories, booking suitable place for your own Occasions</h2>
+            <div data-aos="fade-up" data-aos-delay="600">
+              <div class="text-center text-lg-start">
+                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <img src="/assets/img/google_play_store_icon.svg" alt="">
                 </a>
-                <a href="javascript:void(0)" class="ms-2" data-wow-delay=".6s">
-                  <img src="/img/hero/google_play_store_icon.svg" alt="">
+                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <img src="/assets/img/app_store_icon.svg" alt="">
                 </a>
               </div>
-              <a class="scroll-bottom"></a>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="hero-img wow fadeInUp" data-wow-delay=".5s">
-              <img src="/img/about/Frame 60.png" alt="" />
-            </div>
+          <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="/assets/img/Frame 60.png" class="img-fluid" alt="">
           </div>
         </div>
       </div>
-    </section>
-    <!-- ======== hero-section end ======== -->
-
-    <!-- Start places Area -->
-    <section class="our-achievement section mt-5 pt-5">
-      <div class="container">
+  
+    </section><!-- End Hero -->
+  
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+  
+        <div class="container" data-aos="fade-up">
           <div class="row">
-              <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-                  <div class="title">
-                    <h2 class="my-auto me-auto align-items-left">
-                      <span>1000+</span> Different places <br> around 
-                      egypt
-                    </h2>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!-- End places Area -->
-    <!-- ======== feature-section start ======== -->
-    <section id="home" class="feature-section pt-120">
-      <div class="container">
-        <div class="row justify-content-center">
-                        <div class="text-center main-title mt-5 mb-5">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  why <span>Juant.?</span>
-                </h2>
-              </div>
-          <div class="col-lg-3 col-md-8 col-sm-10">
-            
-            <div class="single-feature">
-              <div class="icon">
-                <img src="/img/hero/need_place.png" class="card-img-top" alt="...">
-              </div>
+  
+            <div class="col  text-center" data-aos="fade-up" data-aos-delay="200">
               <div class="content">
-                <h3>Need place.?</h3>
-                <p>
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
+                <div class="title">
+                  <h2 class="">
+                    <span>1000+</span> Different places <br> around 
+                    egypt
+                  </h2>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-8 col-sm-10">
-            <div class="single-feature">
-              <div class="icon">
-                <img src="/img/hero/dont_want_com.png" class="card-img-top" alt="...">
-              </div>
-              <div class="content">
-                <h3>Don't like commit.?</h3>
-                <p>
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-8 col-sm-10">
-            <div class="single-feature">
-              <div class="icon">
-                <img src="/img/hero/decision-making-abstract.webp" class="card-img-top" alt="...">
-              </div>
-              <div class="content">
-                <h3>A real juanter.?</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-3 col-md-8 col-sm-10">
-            <div class="single-feature">
-              <div class="icon">
-                <img src="/img/hero/need_info.png" class="card-img-top" alt="...">
-              </div>
-              <div class="content">
-                <h3>Need information.?</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
+  
+  
+  
           </div>
         </div>
-      </div>
-    </section>
-    <!-- ======== feature-section end ======== -->
-
-
-    
-    <!-- ======== services-section start ======== -->
-    <section id="features" class="services-extended-section pt-100 mt-5">
-      <div class="feature-extended-wrapper">
+  
+      </section><!-- End About Section -->
+  
+      <!-- ======= Values Section ======= -->
+      <section id="values" class="values">
+  
+        <div class="container" data-aos="fade-up">
+  
+          <header class="section-header">
+            <h2 >
+              why <span>Juant.?</span>
+            </h2>
+          </header>
+  
+          <div class="row">
+  
+            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="box">
+                <img src="/assets/img/hero/need_place.png" class="img-fluid" alt="">
+                <h3>Need place.?</h3>
+                <p>Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+              <div class="box">
+                <img src="/assets/img/hero/dont_want_com.png" class="img-fluid" alt="">
+                <h3>Don't like commit.?</h3>
+                <p>Repudiandae amet nihil natus in distinctio suscipit id. Doloremque ducimus ea sit non.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+              <div class="box">
+                <img src="/assets/img/hero/decision-making-abstract.webp" class="img-fluid" alt="">
+                <h3>A real juanter.?</h3>
+                <p>Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid quidem commodi.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+              <div class="box">
+                <img src="/assets/img/hero/need_info.png" class="img-fluid" alt="">
+                <h3>Need information.?</h3>
+                <p>Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid quidem commodi.</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </section><!-- End Values Section -->
+  
+      <!-- ======= Features Section ======= -->
+      <section id="features" class="features">
+  
+        <div class="container" data-aos="fade-up">
+  
+          <header class="section-header">
+            <h2 >
+              Every thing you need <br>
+              in  <span>Juant.</span>
+            </h2>
+          </header>
+  
+          <div id="Services" class="row">
+  
+            <div class="col-lg-6">
+              <img src="/assets/img/features.png" class="img-fluid" alt="">
+            </div>
+  
+            <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
+              <div class="row align-self-center gy-4">
+  
+                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-pin-map-fill"></i>
+                    <h3>Explore Places</h3>
+                  </div>
+                </div>
+  
+                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-funnel-fill"></i>
+                    <h3>Filtering Options</h3>
+                  </div>
+                </div>
+  
+                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-plus-circle-dotted"></i>
+                    <h3>Requesting book</h3>
+                  </div>
+                </div>
+  
+                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-heart-half"></i>
+                    <h3>Make Your Favourites</h3>
+                  </div>
+                </div>
+  
+                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-signpost-split"></i>
+                    <h3>Get Directions</h3>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+          </div> <!-- / row -->
+  
+          <!-- Feature Tabs -->
+          <div id="using" class="row feture-tabs" data-aos="fade-up">
+            <div class="col-lg-6">
+              <h3>How to use:</h3>
+              <p class="wow fadeInUp" data-wow-delay=".4s">
+                Save time and money! Book today in four simple steps!
+              </p>
+  
+              <div class="text-center text-lg-start">
+                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <img src="/assets/img/google_play_store_icon.svg" alt="">
+                </a>
+                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <img src="/assets/img/app_store_icon.svg" alt="">
+                </a>
+              </div>
+  
+  
+  
+  
+                <div class="feture-tabs mt-3">
+                  <div>
+                    <h6><i class="bi bi-download"></i> Download</h6>
+                    <p>Download the app (available on the App Store and Google Play).</p>
+                  </div>
+                  <div>
+                    <h6><i class="bi bi-search"></i> Search</h6>
+                    <p>Search from Many of locations to spend great times with family, friends and your partners.</p>
+                  </div>
+                  <div>
+                    <h6><i class="bi bi-geo"></i> Choose</h6>
+                    <p>Choose your suitable place by filtering through the provided amenities.</p>
+                  </div>
+                  <div>
+                    <h6><i class="bi bi-plus-circle-dotted"></i> Book</h6>
+                    <p>Book your request in your suitable place from our places collections</p>
+                  </div>
+                  <div>
+                    <h6><i class="bi bi-signpost"></i> Go</h6>
+                    <p>Get the directions, for your destination</p>
+                  </div>
+                </div><!-- End Tab 1 Content -->
+  
+  
+  
+            </div>
+  
+            <div class="col-lg-6">
+              <img src="/assets/img/features-2.png" class="img-fluid" alt="">
+            </div>
+  
+          </div><!-- End Feature Tabs -->
+  
+  
+  
+        </div>
+  
+      </section><!-- End Features Section -->
+  
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team">
+  
+        <div class="container" data-aos="fade-up">
+  
+          <header class="section-header">
+            <h2 >
+              Meet <span>Juant</span> Team
+            </h2>
+          </header>
+  
+          <div class="row gy-4">
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <div class="member-img">
+                  <img src="/assets/img/team/IMG_6177.jpg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100002999904483&mibextid=LQQJ4d"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/yas__ser.f/?hl=en"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/yasser-farghal-75b310195"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Yasser Farghal</h4>
+                  <span>Front-End Developer</span>
+                  <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+              <div class="member">
+                <div class="member-img">
+                  <img src="/assets/img/team/IMG_9848 2.jpg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.facebook.com/wafa.mohamed.1865?mibextid=LQQJ4d"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com/wafa__m13?igshid=MzRlODBiNWFlZA=="><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/wafa-mohamed-140ab6241"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Wafa Mohammed</h4>
+                  <span>Flutter Developer</span>
+                  <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+              <div class="member">
+                <div class="member-img">
+                  <img src="/assets/img/team/IMG_9853.jpg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.facebook.com/BeshOoyN.Elia?mibextid=LQQJ4d"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com/beshoonze?igshid=NTc4MTIwNjQ2YQ=="><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Beshoy Nasry</h4>
+                  <span>Back-End Developer</span>
+                  <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+              <div class="member">
+                <div class="member-img">
+                  <img src="/assets/img/team/A5C9D517-C24E-42BA-9793-914488CDDC05.jpeg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Marehan Reda</h4>
+                  <span>Back-End Developer</span>
+                  <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </section><!-- End Team Section -->
+  
+  
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+  
+        <div class="container" data-aos="fade-up">
+  
+          <header class="section-header">
+            <h2 >
+              Contact with <span>Juant</span>
+            </h2>
+          </header>
+  
+          <div class="row gy-4">
+  
+            <div class="col-lg-6">
+  
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Address</h3>
+                    <p><a href=""> El-Sheikh Zayed,</a></p>
+                    <p><a href=""> EL-Zamalek</a></p>
+  
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Call Us</h3>
+                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>info@example.com<br>contact@example.com</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-clock"></i>
+                    <h3>Open Hours</h3>
+                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="col-lg-6">
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row gy-4">
+  
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  </div>
+  
+                  <div class="col-md-6 ">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  </div>
+  
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                  </div>
+  
+                  <div class="col-md-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                  </div>
+  
+                  <div class="col-md-12 text-center">
+                    <button type="submit">Send Message</button>
+                  </div>
+  
+                </div>
+              </form>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </section><!-- End Contact Section -->
+  
+    </main><!-- End #main -->
+  
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+  
+      <div class="footer-newsletter">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-9">
-              
-              <div class="main-title text-center mt-5 mb-5">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Every thing you need
-                  <br>in <span>Juant.</span>
-                </h2>
-              </div>
-              
+            <div class="col-lg-12 text-center">
+              <h4>Start planning & pick
+                The suitable place for your
+                Date with <span>Jaunt</span> </h4>
+  
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-map"></i>
-                </div>
-                <div class="content">
-                  <h3>Explore Places</h3>
-                  <p>
-                    Hate commuting? Don't stress, Juant has you covered with the different places and nearby to you. Just choose the your type of places on home or set your need and choose what suitable yo you.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-credit-cards"></i>
-                </div>
-                <div class="content">
-                  <h3>Payment Options</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-ticket"></i>
-                </div>
-                <div class="content">
-                  <h3>Requesting book</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
+            <div class="col-lg-6">
+              <div class="text-center">
+                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <img src="/assets/img/google_play_store_icon.svg" alt="">
+                </a>
+                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <img src="/assets/img/app_store_icon.svg" alt="">
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- ======== services-section end ======== -->
-
-    <!-- ======== about2-section start ======== -->
-    <section id="howToUse" class="about-section pt-150">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-xl-6 col-lg-6">
-            <div class="about-content">
-              
-              
-              <div class="section-title mb-30">
-                <h2 class="mb-2 wow fadeInUp" data-wow-delay=".2s">
-                  How to use:                </h2>
-                <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Save time and money! Book today in four simple steps!
-                </p>
+  
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-info">
+              <a href="index.html" class="logo d-flex align-items-center">
+                <img src="/assets/img/Juant.png" alt="">
+              </a>
+              <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
               </div>
-              <div class="buttons mt-1 mb-4">
-                <a href="javascript:void(0)" data-wow-delay=".6s">
-                  <img src="/img/hero/app_store_icon.svg" alt="">
-                </a>
-                <a href="javascript:void(0)" class="ms-2" data-wow-delay=".6s">
-                  <img src="/img/hero/google_play_store_icon.svg" alt="">
-                </a>
-              </div>
+            </div>
+  
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Useful Links</h4>
               <ul>
-                <div _ngcontent-serverapp-c5="" class="content bounce-in">
-                  <h6 _ngcontent-serverapp-c5="">Download</h6>
-                  <p _ngcontent-serverapp-c5="">Download the app (available on the App Store and Google Play).</p>
-                </div>
-                <div _ngcontent-serverapp-c5="" class="content bounce-in">
-                  <h6 _ngcontent-serverapp-c5="">Search</h6>
-                  <p _ngcontent-serverapp-c5="">Search from hundreds of locations to work from.</p>
-                </div>
-                <div _ngcontent-serverapp-c5="" class="content bounce-in">
-                  <h6 _ngcontent-serverapp-c5="">Choose</h6>
-                  <p _ngcontent-serverapp-c5="">Choose your ideal workspace by filtering through the provided amenities.</p>
-                </div>
-                <div _ngcontent-serverapp-c5="" class="content bounce-in">
-                  <h6 _ngcontent-serverapp-c5="">Book</h6>
-                  <p _ngcontent-serverapp-c5="">Book your workspace, unleash your productivity</p>
-                </div>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Places</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Features</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">How to use</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">About</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
               </ul>
             </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 order-first order-lg-last">
-            <div class="about-img-2">
-              <img src="/img/about/landing_page_for_host2.png" alt="" class="w-100" />
-              <img
-                src="/img/about/about-right-shape 1.svg"
-                alt=""
-                class="shape shape-1"
-              />
-              <img
-                src="/img/about/right-dots 1.svg"
-                alt=""
-                class="shape shape-2"
-              />
+  
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Help</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">F.A.Q</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of services</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy Policy</a></li>
+  
+              </ul>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======== about2-section end ======== -->
-
-    <!--====== TEAM START ======-->
-
-    <section id="about" class="team-area pt-120 pb-130">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-10">
-                  <div class="text-center main-title mt-5 mb-5">
-                    <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                      Meet Juant<span> Team</span>
-                    </h2>
-                  </div><!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                      <div class="icon">
-                        <img src="/img/hero/IMG_2515.jpeg" class="card-img-top" alt="...">
-                      </div>
-                        <div class="team-content">
-                            <div class="team-social">
-                                <ul class="social">
-                                    <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                            <h4 class="team-name"><a href="#">Yasser Farghal</a></h4>
-                            <span class="sub-title">Front end developer</span>
-                        </div>
-                    </div> <!-- single team -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                      <div class="icon">
-                        <img src="/img/hero/IMG_2515.jpeg" class="card-img-top" alt="...">
-                      </div>
-                        <div class="team-content">
-                            <div class="team-social">
-                                <ul class="social">
-                                    <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                            <h4 class="team-name"><a href="#">Beshoy Nasry</a></h4>
-                            <span class="sub-title">Back end developer</span>
-                        </div>
-                    </div> <!-- single team -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                      <div class="icon">
-                        <img src="/img/hero/IMG_2515.jpeg" class="card-img-top" alt="...">
-                      </div>
-                        <div class="team-content">
-                            <div class="team-social">
-                                <ul class="social">
-                                    <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                            <h4 class="team-name"><a href="#">Wafa Mohammed</a></h4>
-                            <span class="sub-title">Mobile Developer</span>
-                        </div>
-                    </div> <!-- single team -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                  <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                    <div class="icon">
-                      <img src="/img/hero/IMG_2515.jpeg" class="card-img-top" alt="...">
-                    </div>
-                      <div class="team-content">
-                          <div class="team-social">
-                              <ul class="social">
-                                  <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                  <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
-                                  <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
-                                  <li><a href="#"><i class="lni lni-instagram"></i></a></li>
-                              </ul>
-                          </div>
-                          <h4 class="team-name"><a href="#">Mareahan Reda</a></h4>
-                          <span class="sub-title">Back End Developer</span>
-                      </div>
-                  </div> <!-- single team -->
-              </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== TEAM  ENDS ======-->
-
-    <!-- Start Achievement Area -->
-    <section class="call-action">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-                  <div class="title mt-4 mb-4">
-                    <h2 class="wow fadeInUp mb-3" data-wow-delay=".2s">Start planning & pick<br> 
-                      The suitable place for your <br>
-                      Date with <span>JUANT</span>
-                    </h2>
-                    <div class="buttons mt-3 mb-5">
-                      <a href="javascript:void(0)" data-wow-delay=".6s">
-                        <img src="/img/hero/app_store_icon.svg" alt="" >
-                      </a>
-                      <a href="javascript:void(0)" class="ms-3" data-wow-delay=".6s">
-                        <img src="/img/hero/google_play_store_icon.svg" alt="" >
-                      </a>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!-- End Achievement Area -->
-
-    <!-- ======== footer start ======== -->
-    <footer class="footer">
-      <div class="container">
-        <div class="widget-wrapper">
-          <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6">
-              <div class="footer-widget">
-                <div class="logo mb-30">
-                  <a href="index.html">
-                    <img src="/images/Juant.png" alt="" />
-                  </a>
-                </div>
-                <p class="desc mb-30">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  dinonumy eirmod tempor invidunt.
-                </p>
-                <ul class="socials">
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-facebook-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-twitter-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-instagram-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-linkedin-original"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+  
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+              <h4>Contact Us</h4>
+              <p>
+                <a href="">
+                  El-Sheikh Zayed, <br>
+                  Zayed 2000 Gate, 535022<br>
+                  United States <br><br>
+                </a>
+  
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+  
             </div>
-
-            <div class="col-xl-2 col-lg-2 col-md-6 text-left">
-              <div class="footer-widget">
-                <h3 class="ms-4 mb-3">About Us</h3>
-                <ul class="links">
-                  <li><a href="javascript:void(0)">Home</a></li>
-                  <li><a href="javascript:void(0)">Become Host</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="footer-widget">
-                <h3 class="ms-4 mb-3">Help</h3>
-                <ul class="links">
-                  <li><a href="javascript:void(0)">FAQ</a></li>
-                  <li><a href="javascript:void(0)">Privacy policy</a></li>
-                  <li><a href="javascript:void(0)">Terms of service</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="footer-widget">
-                <h3 class="ms-4 mb-3">Download</h3>
-                <ul class="links">
-                  <li class="mb-3"><a href="jvascript:void(0)"><img src="/img/hero/app_store_icon.svg" alt="" ></a></li>
-                  <li><a href="jvascript:void(0)"><img src="/img/hero/google_play_store_icon.svg" alt="" ></a></li>
-                </ul>
-              </div>
-            </div>
+  
           </div>
         </div>
       </div>
-    </footer>
-    <!-- ======== footer end ======== -->
-
-    <!-- ======== scroll-top ======== -->
-    <a href="#" class="scroll-top btn-hover">
-      <i class="lni lni-chevron-up"></i>
-    </a>
-
-    <!-- ======== JS here ======== -->
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/wow.min.js"></script>
-    <script src="/js/main.js"></script>
+  
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Juant</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+  
+          Designed by <a href="https://bootstrapmade.com/">Yasser Farghal</a>
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+  
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    <!-- Vendor JS Files -->
+  
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  
   </body>
+  
 </html>

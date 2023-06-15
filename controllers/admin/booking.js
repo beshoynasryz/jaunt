@@ -42,7 +42,7 @@ export const getManageBookings = async (req,res,next)=>{
  
 export const updatedStatus =async (req,res,next)=>{
     try{
-        console.log('tettet', req.body)
+       
         await Booking.findByIdAndUpdate(req.params.id, { $set: {status: req.body.status }}, {
             new: true
           })

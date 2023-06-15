@@ -34,14 +34,21 @@ export const index = async (req, res, next) => {
             }
         })
        
+       
     if(req.session.owner.isAdmin) {
-        leatesPlaces = await Place.find().limit(4).exec();
+        
+    
+        leatesPlaces = await Place.find({status: 'pending'}).sort('-createdAt').limit(4).populate('manager').exec();
         
         owners = await Owner.find().limit(20).exec();
     } 
    
+   
     
         const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
+        const placeCountAdmin = await Place.find();
+        const placeCountAdminPending = await Place.find({status:'pending'});
+        const OwnerCountAdmin = await Owner.find();
         const placesofbranch = await Place.find({ owner_id: req.session.owner._id, status: 'approved'}).populate('manager');
        
         const managerCount = await Manager.find({ owner: req.session.owner._id});
@@ -56,6 +63,10 @@ export const index = async (req, res, next) => {
             managerCount: managerCount.length,
             placeCount: placeCount.length,
             placesofbranch:placesofbranch,
+            placeCountAdmin:placeCountAdmin.length,
+            OwnerCountAdmin:OwnerCountAdmin.length,
+            placeCountAdminPending:placeCountAdminPending.length,
+            
 
         } );
     } catch(err){

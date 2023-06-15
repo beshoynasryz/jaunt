@@ -4,9 +4,12 @@ import Place from "../models/Place.js";
 
 export const getUserBookings = async (req,res,next)=>{
     try {
-        let bookings = await Booking
-            .find({ user: req.params.id})
-            .populate('place');
+        console.log(req.params.status)
+        if(req.params.status != 'history'){
+            var bookings = await Booking.find({ user: req.params.id, status: req.params.status }).populate('place');
+        } else { 
+            var bookings = await Booking.find({ user: req.params.id }).populate('place');
+        }
         
         let bookingsResponse = bookings.map(async function(booking){
             const owner = await Owner.findById(booking.owner_id)
@@ -18,7 +21,13 @@ export const getUserBookings = async (req,res,next)=>{
                 checkout: booking.checkout,
                 numberOfTickets: booking.numberOfTickets,
                 status: booking.status,
-                place: booking.place,
+                place: { 
+                    type: booking.place?.type,
+                    address: booking.place?.address,
+                    city: booking.place?.city,
+                    area: booking.place?.area,
+                    
+                },
                 owner: {
                     companyname: owner?.companyname,
                     imagelogo: owner?.imagelogo,

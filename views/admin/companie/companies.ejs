@@ -1,5 +1,5 @@
 <main id="main" class="main">
-  
+
   <div class="pagetitle">
     <h1>Companies</h1>
     <nav>
@@ -10,19 +10,109 @@
     </nav>
   </div><!-- End Page Title -->
 
-  <section class="section places">
-    <div class="row">
-
-      
 
 
 
 
-
-      <section class="section profile">
+      <section class="section dashboard">
         <div class="row">
+
+          <div class="container">
+              <div class="row">
+                              <!-- Sales Card -->
+              <div class="col my-3 text-center">
+                  <div class="card info-card sales-card">
+    
+    
+    
+                    <div class="card-body my-4 pb-1 text-center">
+                      <h5 class="card-title">Parks</h5>
+    
+                      <div class="d-flex justify-content-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                          <i class="bi bi-tree"></i>
+                        </div>
+                        <div class="ps-3">
+                          <h6><%=ownersparklength%></h6>
+                          <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">increase</span>
+    
+                        </div>
+                      </div>
+                    </div>
+    
+                  </div>
+                </div><!-- End Sales Card -->
+    
+              <!-- Sales Card -->
+                <div class="col my-3 text-center">
+                  <div class="card info-card sales-card">
+    
+                    <div class="card-body my-4 pb-1 text-center">
+                      <h5 class="card-title">Cafes</h5>
+    
+                      <div class="d-flex justify-content-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                          <i class="bi bi-cup"></i>
+                        </div>
+                        <div class="ps-3">
+                          <h6><%=ownerscafelength%></h6>
+                          <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">increase</span>
+    
+                        </div>
+                      </div>
+                    </div>
+    
+                  </div>
+                </div><!-- End Sales Card -->
   
-          <div class="col-xl-12">
+              <!-- Sales Card -->
+                <div class="col my-3 text-center">
+                  <div class="card info-card sales-card">
+    
+                    <div class="card-body my-4 pb-1 text-center">
+                      <h5 class="card-title">Resturants</h5>
+    
+                      <div class="d-flex justify-content-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                          <i class="bi bi-shop-window"></i>
+                        </div>
+                        <div class="ps-3">
+                          <h6><%=ownersrestruntlength%></h6>
+                          <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">increase</span>
+    
+                        </div>
+                      </div>
+                    </div>
+    
+                  </div>
+                </div><!-- End Sales Card -->
+
+              <!-- Sales Card -->
+                <div class="col my-3 text-center">
+                  <div class="card info-card sales-card">
+    
+                    <div class="card-body my-4 pb-1 text-center">
+                      <h5 class="card-title">Workspaces</h5>
+    
+                      <div class="d-flex justify-content-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                          <i class="bi bi-easel2"></i>
+                        </div>
+                        <div class="ps-3">
+                          <h6><%=ownersworkspacelength%></h6>
+                          <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">increase</span>
+    
+                        </div>
+                      </div>
+                    </div>
+    
+                  </div>
+                </div><!-- End Sales Card -->
+  
+              </div>
+          </div>
+  
+          <div class="col">
   
             <div class="card">
               <div class="card-body pt-3">
@@ -50,61 +140,85 @@
                         <button class="nav-link collapsed" data-bs-toggle="tab" data-bs-target="#Workspaces">Workspaces</button>
                       </li>
                   </ul>
-                  <div class="tab-content">
-                      <div class="tab-pane fade show active profile-overview">
-                          <div class="card">
+
                               <div class="pt-3">    
-                                  <div class="search-bar">
-                                      <form class="search-form d-flex align-items-center" method="POST" action="#">
-                                          <input type="text" name="query" placeholder="Search for Company" title="Enter search keyword" id="search-input">
-                                          <button type="submit" title="Search" id="search"><i class="bi bi-search"></i></button>
-                                      </form>
-                                  </div><!-- End Search Bar -->
+
 
                                   <div class="tab-content">
 
                                     <div class="tab-pane fade show active profile-edit" id="All">
 
-                    
-                                      <div class="filter">
-                                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                          <li><a class="dropdown-item active" href="#">All</a></li>
-                                          <li><a class="dropdown-item" href="#">High Branches</a></li>
-                                          <li><a class="dropdown-item" href="#">Low Branches</a></li>
-                                        </ul>
-                                      </div>
-                          
-                                      <div class="col-12">
-                                        <div class="row">
-                                      <!-- place Card -->
-                                           
-                                      <% owners.forEach(function(owner){ %>
-                                      <div class="col-xxl-4 col-md-4 my-4">
-                                        <div class="card info-card sales-card">
-                                          <div class="card-body pt-5">
-                                            <div class="card-icon d-flex">
-                                              <div>
-                                            <h5 class="card-title"><i class="bi bi-building"></i>company: <%=owner.companyname%></h5>
-                                             <h5 class="card-title"><i class="bi bi-bookmark"></i>type: <%=owner.type%></h5>
-                                             <h5 class="card-title"><i class="bi bi-buildings"></i> Branches: 1 </h5>
-                                              </div>
-                                            </div>
-                                            <div class="d-flex justify-content-end">
-                                              <div class="">
-                                                <a href="/admin/auth/detials/<%= owner._id %>" class="btn btn-primary btn-lg mb-0" title="">SEE DETAILS</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <% }); %>
+                                    
 
-                                      <!-- End place Card -->
-                                        </div>
-                          
+
+                                      <div class="table-responsive">
+                                          <table class="table align-items-center mb-0">
+                                              <thead>
+                                                  <tr>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Owner</th>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>                                                
+                                                      <th class="text-secondary opacity-7"></th>
+                      
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                <% owners.forEach(function(owner){ %>
+                                                  <tr>
+                      
+
+
+                                                      <td>
+                                                          <div class="d-flex">
+                                                              <div>
+                                                                  <img src="<%=owner.image%>" class="avatar avatar-sm me-3" alt="user1">
+                                                              </div>
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                  <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span><%=owner.ownername%></p>
+                                                                  <p class="card-description"><i class="bi bi-envelope"></i> <span class="fw-bold"></span><%=owner.email%></p>
+                                                              </div>
+                                                          </div>
+                                                      </td>
+                      
+                                                      <td>
+                                                        <div class="d-flex">
+                                                          <div>
+                                                              <img src="<%=owner.imagelogo%>" class="avatar avatar-sm me-3" alt="user1">
+                                                          </div>
+                                                          <div class="d-flex flex-column justify-content-center">
+                                                              <p class="card-description pt-2"><i class="bi bi-building"></i> <span class="fw-bold"></span><%=owner.companyname%></p>
+                                                              <p class="card-description"><i class="bi bi-buildings"></i> <span class="fw-bold"></span> 10</p>
+                                                          </div>
+                                                      </div>                                                     
+                                                    </td>
+
+                                                      <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-4"><%=owner.type%></p>
+                                                      </td>
+
+
+
+                                                      <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                      </td>
+
+                      
+                      
+                                                      <td class="action mt-3">
+                                                          <a href="/admin/auth/detials/<%= owner._id %>" class="open-button btn mb-1" id="btnDetails" >DETAILS</a>
+                                                          <br>
+                                                         <a href="/admin/auth/delete/<%= owner._id %>"><button class="delete-button btn mb-1" id="btnDelete"><i class="bi bi-trash"></i></button>
+                                                         </a> 
+                                                      </td>
+                                                  </tr>
+                                                  <% }); %>
+                      
+                                              </tbody>
+                                          </table>
+                      
+                      
                                       </div>
-              
               
               
               
@@ -113,189 +227,307 @@
 
                                       <div class="tab-pane fade profile-edit pt-3" id="Parks">
 
-                                              <div class="">
-                                                  <div class="filter d-flex">
-                                                      
-                                                      
-                                                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                          <li><a class="dropdown-item active" href="#">All</a></li>
-                                                          <li><a class="dropdown-item" href="#">High Branches</a></li>
-                                                          <li><a class="dropdown-item" href="#">Low Branches</a></li>      
-                                                      </ul>
-                                                  </div>
+                                        
 
-                                              </div>
 
-                                              <div class="col-lg-12">
-                                                  <div class="row">
-
-                                      <!-- place Card -->
-                                      <% ownerspark.forEach(function(owner){ %>
-                                        <div class="col-xxl-4 col-md-4 my-4">
-                                          <div class="card info-card sales-card">
-                                            <div class="card-body pt-5">
-                                              <div class="card-icon d-flex">
-                                                <div>
-                                              <h5 class="card-title"><i class="bi bi-building"></i>company: <%=owner.companyname%></h5>
-                                               <h5 class="card-title"><i class="bi bi-bookmark"></i>type: <%=owner.type%></h5>
-                                               <h5 class="card-title"><i class="bi bi-buildings"></i> Branches: 1 </h5>
-                                                </div>
-                                              </div>
-                                              <div class="d-flex justify-content-end">
-                                                <div class="">
-                                                  <a href="/admin/auth/detials/<%= owner._id %>" class="btn btn-primary btn-lg mb-0" title="">SEE DETAILS</a>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
+                                        <div class="table-responsive">
+                                            <table class="table align-items-center mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Owner</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>                                                
+                                                        <th class="text-secondary opacity-7"></th>
+                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <% ownerspark.forEach(function(owner){ %>
+                                                    <tr>
+                        
+  
+  
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                <div>
+                                                                    <img src="<%=owner.image%>" class="avatar avatar-sm me-3" alt="user1">
+                                                                </div>
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span><%=owner.ownername%></p>
+                                                                    <p class="card-description"><i class="bi bi-envelope"></i> <span class="fw-bold"></span><%=owner.email%></p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                        
+                                                        <td>
+                                                          <div class="d-flex">
+                                                            <div>
+                                                                <img src="<%=owner.imagelogo%>" class="avatar avatar-sm me-3" alt="user1">
+                                                            </div>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="card-description pt-2"><i class="bi bi-building"></i> <span class="fw-bold"></span><%=owner.companyname%></p>
+                                                                <p class="card-description"><i class="bi bi-buildings"></i> <span class="fw-bold"></span> 10</p>
+                                                            </div>
+                                                        </div>                                                     
+                                                      </td>
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4"><%=owner.type%></p>
+                                                        </td>
+  
+  
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                        </td>
+  
+                        
+                        
+                                                        <td class="action mt-3">
+                                                            <a href="/admin/auth/detials/<%= owner._id %>" class="open-button btn mb-1" id="btnDetails" >DETAILS</a>
+                                                            <br>
+                                                           <a href="/admin/auth/delete/<%= owner._id %>"><button class="delete-button btn mb-1" id="btnDelete"><i class="bi bi-trash"></i></button>
+                                                           </a> 
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                        
+                                                </tbody>
+                                            </table>
+                        
+                        
                                         </div>
-                                        <% }); %>
-                                     
-                                                  </div>
-
-
-                                          </div>    
                                       </div>
 
 
                                       <div class="tab-pane fade profile-edit pt-3" id="Resturants">
 
-                                              <div class="">
-                                                  <div class="filter d-flex">
-                                                      
-                                                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                          <li><a class="dropdown-item active" href="#">All</a></li>
-                                                          <li><a class="dropdown-item" href="#">High Payed</a></li>
-                                                          <li><a class="dropdown-item" href="#">Low Payed</a></li>      
-                                                      </ul>
-                                                  </div>
+                                      
 
-                                              </div>
-
-                                              <div class="col-lg-12">
-                                                  <div class="row">
-
-                                      <!-- place Card -->
-                                      <% ownersrestrunt.forEach(function(owner){ %>
-                                        <div class="col-xxl-4 col-md-4 my-4">
-                                          <div class="card info-card sales-card">
-                                            <div class="card-body pt-5">
-                                              <div class="card-icon d-flex">
-                                                <div>
-                                              <h5 class="card-title"><i class="bi bi-building"></i>company: <%=owner.companyname%></h5>
-                                               <h5 class="card-title"><i class="bi bi-bookmark"></i>type: <%=owner.type%></h5>
-                                               <h5 class="card-title"><i class="bi bi-buildings"></i> Branches: 1 </h5>
-                                                </div>
-                                              </div>
-                                              <div class="d-flex justify-content-end">
-                                                <div class="">
-                                                  <a href="/admin/auth/detials/<%= owner._id %>" class="btn btn-primary btn-lg mb-0" title="">SEE DETAILS</a>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
+                                        <div class="table-responsive">
+                                            <table class="table align-items-center mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Owner</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>                                                
+                                                        <th class="text-secondary opacity-7"></th>
+                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                        
+                                                  <% ownersrestrunt.forEach(function(owner){ %>
+                                                    <tr>
+                        
+  
+  
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                <div>
+                                                                    <img src="<%=owner.image%>" class="avatar avatar-sm me-3" alt="user1">
+                                                                </div>
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span><%=owner.ownername%></p>
+                                                                    <p class="card-description"><i class="bi bi-envelope"></i> <span class="fw-bold"></span><%=owner.email%></p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                        
+                                                        <td>
+                                                          <div class="d-flex">
+                                                            <div>
+                                                                <img src="<%=owner.imagelogo%>" class="avatar avatar-sm me-3" alt="user1">
+                                                            </div>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="card-description pt-2"><i class="bi bi-building"></i> <span class="fw-bold"></span><%=owner.companyname%></p>
+                                                                <p class="card-description"><i class="bi bi-buildings"></i> <span class="fw-bold"></span> 10</p>
+                                                            </div>
+                                                        </div>                                                     
+                                                      </td>
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4"><%=owner.type%></p>
+                                                        </td>
+  
+  
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                        </td>
+  
+                        
+                        
+                                                        <td class="action mt-3">
+                                                            <a href="/admin/auth/detials/<%= owner._id %>" class="open-button btn mb-1" id="btnDetails" >DETAILS</a>
+                                                            <br>
+                                                           <a href="/admin/auth/delete/<%= owner._id %>"><button class="delete-button btn mb-1" id="btnDelete"><i class="bi bi-trash"></i></button>
+                                                           </a> 
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                        
+                                                </tbody>
+                                            </table>
+                        
+                        
                                         </div>
-                                        <% }); %>
-                                     
-
-                                                  </div>
-                                          </div>
                                       </div>
 
 
                                       <div class="tab-pane fade profile-edit pt-3" id="Cafes">
 
-                                              <div class="">
-                                                  <div class="filter d-flex">
-                                                      
-                                                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                          <li><a class="dropdown-item active" href="#">All</a></li>
-                                                          <li><a class="dropdown-item" href="#">High Payed</a></li>
-                                                          <li><a class="dropdown-item" href="#">Low Payed</a></li>      
-                                                      </ul>
-                                                  </div>
+                                      
 
-                                              </div>
 
-                                              <div class="col-lg-12">
-                                                  <div class="row">
-
-                                                    <% ownerscafe.forEach(function(owner){ %>
-                                                        <div class="col-xxl-4 col-md-4 my-4">
-                                                          <div class="card info-card sales-card">
-                                                            <div class="card-body pt-5">
-                                                              <div class="card-icon d-flex">
+                                        <div class="table-responsive">
+                                            <table class="table align-items-center mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Owner</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>                                                
+                                                        <th class="text-secondary opacity-7"></th>
+                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                        
+                                                  <% ownerscafe.forEach(function(owner){ %>
+                                                    <tr>
+                        
+  
+  
+                                                        <td>
+                                                            <div class="d-flex">
                                                                 <div>
-                                                              <h5 class="card-title"><i class="bi bi-building"></i>company: <%=owner.companyname%></h5>
-                                                               <h5 class="card-title"><i class="bi bi-bookmark"></i>type: <%=owner.type%></h5>
-                                                               <h5 class="card-title"><i class="bi bi-buildings"></i> Branches: 1 </h5>
+                                                                    <img src="<%=owner.image%>" class="avatar avatar-sm me-3" alt="user1">
                                                                 </div>
-                                                              </div>
-                                                              <div class="d-flex justify-content-end">
-                                                                <div class="">
-                                                                  <a href="/admin/auth/detials/<%= owner._id %>" class="btn btn-primary btn-lg mb-0" title="">SEE DETAILS</a>
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span><%=owner.ownername%></p>
+                                                                    <p class="card-description"><i class="bi bi-envelope"></i> <span class="fw-bold"></span><%=owner.email%></p>
                                                                 </div>
-                                                              </div>
                                                             </div>
-                                                          </div>
-                                                        </div>
-                                                        <% }); %>
-
-                                                  </div>
-
-
-                                          </div>
-
+                                                        </td>
+                        
+                                                        <td>
+                                                          <div class="d-flex">
+                                                            <div>
+                                                                <img src="<%=owner.imagelogo%>" class="avatar avatar-sm me-3" alt="user1">
+                                                            </div>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="card-description pt-2"><i class="bi bi-building"></i> <span class="fw-bold"></span><%=owner.companyname%></p>
+                                                                <p class="card-description"><i class="bi bi-buildings"></i> <span class="fw-bold"></span> 10</p>
+                                                            </div>
+                                                        </div>                                                     
+                                                      </td>
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4"><%=owner.type%></p>
+                                                        </td>
+  
+  
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                        </td>
+  
+                        
+                        
+                                                        <td class="action mt-3">
+                                                            <a href="/admin/auth/detials/<%= owner._id %>" class="open-button btn mb-1" id="btnDetails" >DETAILS</a>
+                                                            <br>
+                                                           <a href="/admin/auth/delete/<%= owner._id %>"><button class="delete-button btn mb-1" id="btnDelete"><i class="bi bi-trash"></i></button>
+                                                           </a> 
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                        
+                                                </tbody>
+                                            </table>
+                        
+                        
+                                        </div>
                                           
                                       </div>
 
 
                                       <div class="tab-pane fade profile-edit pt-3" id="Workspaces">
 
-                                        <div class="">
-                                            <div class="filter d-flex">
-                                                
-                                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                    <li><a class="dropdown-item active" href="#">All</a></li>
-                                                    <li><a class="dropdown-item" href="#">High Payed</a></li>
-                                                    <li><a class="dropdown-item" href="#">Low Payed</a></li>      
-                                                </ul>
-                                            </div>
+                                       
 
-                                        </div>
 
-                                        <div class="col-lg-12">
-                                            <div class="row">
-
-                                                <% ownersworkspace.forEach(function(owner){ %>
-                                                    <div class="col-xxl-4 col-md-4 my-4">
-                                                      <div class="card info-card sales-card">
-                                                        <div class="card-body pt-5">
-                                                          <div class="card-icon d-flex">
+                                        <div class="table-responsive">
+                                            <table class="table align-items-center mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Owner</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>                                                
+                                                        <th class="text-secondary opacity-7"></th>
+                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                        
+                                                  <% ownersworkspace.forEach(function(owner){ %>
+                                                    <tr>
+                        
+  
+  
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                <div>
+                                                                    <img src="<%=owner.image%>" class="avatar avatar-sm me-3" alt="user1">
+                                                                </div>
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span><%=owner.ownername%></p>
+                                                                    <p class="card-description"><i class="bi bi-envelope"></i> <span class="fw-bold"></span><%=owner.email%></p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                        
+                                                        <td>
+                                                          <div class="d-flex">
                                                             <div>
-                                                          <h5 class="card-title"><i class="bi bi-building"></i>company: <%=owner.companyname%></h5>
-                                                           <h5 class="card-title"><i class="bi bi-bookmark"></i>type: <%=owner.type%></h5>
-                                                           <h5 class="card-title"><i class="bi bi-buildings"></i> Branches: 1 </h5>
+                                                                <img src="<%=owner.imagelogo%>" class="avatar avatar-sm me-3" alt="user1">
                                                             </div>
-                                                          </div>
-                                                          <div class="d-flex justify-content-end">
-                                                            <div class="">
-                                                              <a href="/admin/auth/detials/<%= owner._id %>" class="btn btn-primary btn-lg mb-0" title="">SEE DETAILS</a>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="card-description pt-2"><i class="bi bi-building"></i> <span class="fw-bold"></span><%=owner.companyname%></p>
+                                                                <p class="card-description"><i class="bi bi-buildings"></i> <span class="fw-bold"></span> 10</p>
                                                             </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                    <% }); %> 
-                                                    
-                                            </div>
-
-
-                                    </div>
+                                                        </div>                                                     
+                                                      </td>
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4"><%=owner.type%></p>
+                                                        </td>
+  
+  
+  
+                                                        <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                        </td>
+  
+                        
+                        
+                                                        <td class="action mt-3">
+                                                            <a href="/admin/auth/detials/<%= owner._id %>" class="open-button btn mb-1" id="btnDetails" >DETAILS</a>
+                                                            <br>
+                                                           <a href="/admin/auth/delete/<%= owner._id %>"><button class="delete-button btn mb-1" id="btnDelete"><i class="bi bi-trash"></i></button>
+                                                           </a> 
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                                                </tbody>
+                                            </table>
+                        
+                        
+                                        </div>
 
                                     
                                 </div>
@@ -307,9 +539,7 @@
 
                                       <!-- End Left side columns -->
                                   </div>
-                              </div>
-                          </div>
-                      </div>
+
 
 
 
@@ -318,6 +548,8 @@
               </div>
             </div>
           </div>
+
+
         </div>
       </section>
 
@@ -327,24 +559,5 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </section>
 
 </main>
