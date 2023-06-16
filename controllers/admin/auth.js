@@ -214,11 +214,13 @@ export const renderLoginView =async (req, res, next) => {
 
 export const renderlandingpageView =async (req, res, next) => {
   try {
+
+    const OwnerCount = await Owner.find()
       // If the user is loggedin
       if (req.session.authId && (req.session.authId === req.session.owner?._id)) {
           res.redirect('/admin');
       }
-      res.render('admin/auth/landingpage', { layout: './admin/layouts/guest' });
+      res.render('admin/auth/landingpage', { layout: './admin/layouts/guest',OwnerCount:OwnerCount.length });
   } catch(err){
       next(err)
   }

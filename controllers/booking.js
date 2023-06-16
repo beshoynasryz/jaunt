@@ -22,11 +22,35 @@ export const getUserBookings = async (req,res,next)=>{
                 numberOfTickets: booking.numberOfTickets,
                 status: booking.status,
                 place: { 
-                    type: booking.place?.type,
-                    address: booking.place?.address,
+                    // type: booking.place?.type,
+                    // address: booking.place?.address,
+                    // city: booking.place?.city,
+                    // area: booking.place?.area,
+                    _id: booking.place?._id,
+                    receptionHours: booking.place?.receptionHours,
+                
+                    type: booking.place?.type, 
                     city: booking.place?.city,
                     area: booking.place?.area,
+                    address: booking.place?.address,
+                    images: booking.place?.images,
+                    desc: booking.place?.desc,
+                    budget: booking.place?.budget,
+                    phone: booking.place?.phone,
+                    capacity: booking.place?.capacity,
+                    status: booking.place?.status,
+                    createdAt: booking.place?.createdAt,
+                    updatedAt: booking.place?.updatedAt,
+                    service1: booking.place?.service1,
+                    service2: booking.place?.service2,
+                    service3: booking.place?.service3,
+                    service4: booking.place?.service4,
+                    service5: booking.place?.service5,
+                    service6: booking.place?.service6,
+                    service7: booking.place?.service7,
+                    service8: booking.place?.service8,
                     
+                    menuimages: booking.place?.menuimages,
                 },
                 owner: {
                     companyname: owner?.companyname,
@@ -122,3 +146,4 @@ export const GetBookings =async (req,res,next)=>{
        next(err)
     }
 }
+

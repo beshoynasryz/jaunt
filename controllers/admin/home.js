@@ -40,7 +40,7 @@ export const index = async (req, res, next) => {
     
         leatesPlaces = await Place.find({status: 'pending'}).sort('-createdAt').limit(4).populate('manager').exec();
         
-        owners = await Owner.find().limit(20).exec();
+        owners = await Owner.find().limit(8).exec();
     } 
    
    

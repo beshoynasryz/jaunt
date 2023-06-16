@@ -176,7 +176,7 @@
             <h5 class="card-title">Companies</h5>
 
             <div class="filter">
-              <a class="icon" href="companies.html">See All</a>
+              <a class="icon" href="/admin/auth/companies">See All</a>
             </div>
 
             <div class="table-responsive">
@@ -658,7 +658,7 @@
                         <% if (place.status === 'pending') {%> 
                           <span class="badge bg-info m-3"><%= place.status %></span>
                         <%} else if(place.status === 'approved') { %>                                                                                
-                          <span class="badge bg-success m-3"><%= place.status %></span>
+                          <span class="badge bg-warning m-3"><%= place.status %></span>
                         <%} else if(place.status === 'declined') { %>                                                                                
                           <span class="badge bg-warning m-3"><%= place.status %></span>
                         <%} else { %>                                                                  
@@ -667,7 +667,7 @@
 
                       </p>                  
                       <div class="d-flex justify-content-end mt-0">
-                        <button class="open-request-popup btn" onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'block'">SEE REVIEW</button>
+                        <button class="open-request-popup btn" onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'block'">Manage</button>
                       </div>
                     </div>
                     
@@ -675,6 +675,7 @@
                   <% }); %>
 
                   <% places.forEach(function(place){ %>
+
                   <div id="request-popup-<%= place._id %>" class="request-popup">
                     <div>
                         <span class="request-popup-close">&times;</span>
@@ -682,7 +683,7 @@
                   <div class="request-popup-content">
                     <div class="card text-center mb-5">
                      
-                        <form id="request-form">
+                        
 
                             <div class="container">
                                 <div class="row">
@@ -1020,7 +1021,7 @@
                                 </div>
                             </div>
                 
-                        </form>
+                       
                     </div>
                   </div>
                 </div>

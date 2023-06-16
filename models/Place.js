@@ -37,3 +37,4 @@ const placeSchema = new mongoose.Schema({
 })
 
 export default mongoose.model("Place",placeSchema)
+ 

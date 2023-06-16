@@ -211,7 +211,7 @@
                                         <div class="request-popup-content">
                                           <div class="card p-3 text-center mb-5">
                       
-                                              <form id="request-form">
+                                             
                       
                                                   <div class="container">
                                                       <div class="row">
@@ -223,7 +223,7 @@
                                                             <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Reception Hours</a></li>
                                                             <li class="nav-item"><a href="#tab5" data-toggle="tab" class="nav-link">Pricing list</a></li>
                                                         </ul>
-                    
+                                                        
                                                         <div class="tab-content">
                     
                                                           <div class="tab-content">
@@ -542,7 +542,12 @@
                     
                                                         </div>
                     
-                                                          <button type="button" class="btn accept mt-3" >ACCEPT</button>
+                                                        <form  method="POST" action="/admin/places/update-status/<%= place.id %>">
+                                                          <input type="hidden" name="status" value="approved">
+                                                          <button type="submit" title="APPROVED" class="btn button2 cancel mt-3 w-100">Accepted</button>
+
+                                                         
+                                                        </form>
                                                           <button type="button" class="btn button2 rejected mt-3" >REJETD</button>
                                                           <button type="button" class="btn button2 close mt-3" onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'none'">Close</button>
                     
@@ -550,7 +555,7 @@
                                                       </div>
                                                   </div>
                                       
-                                              </form>
+                                             
                       
                       
                                   

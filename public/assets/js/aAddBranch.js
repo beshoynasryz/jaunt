@@ -149,3 +149,93 @@ BranchPopup.querySelector(".cancel").addEventListener("click", closeForm1);
 
 
 
+function Sunday() {
+  // Get the checkbox
+  let checkBox = document.getElementById("inlinedateCheckbox1");
+  // Get the output text
+  let date = document.getElementById("time1");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    date.style.display = "block";
+  } else {
+    date.style.display = "none";
+  }
+}
+
+function Monday() {
+  // Get the checkbox
+  let checkBox = document.getElementById("inlinedateCheckbox2");
+  // Get the output text
+  let date = document.getElementById("time2");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    date.style.display = "block";
+  } else {
+    date.style.display = "none";
+  }
+}
+
+function thuesday() {
+  // Get the checkbox
+  let checkBox = document.getElementById("inlinedateCheckbox3");
+  // Get the output text
+  let date = document.getElementById("time3");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    date.style.display = "block";
+  } else {
+    date.style.display = "none";
+  }
+}
+
+function whensday() {
+  // Get the checkbox
+  let checkBox = document.getElementById("inlinedateCheckbox4");
+  // Get the output text
+  let date = document.getElementById("time4");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    date.style.display = "block";
+  } else {
+    date.style.display = "none";
+  }
+}
+
+function thursday() {
+  // Get the checkbox
+  let checkBox = document.getElementById("inlinedateCheckbox5");
+  // Get the output text
+  let date = document.getElementById("time5");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    date.style.display = "block";
+  } else {
+    date.style.display = "none";
+  }
+}
+
+function Friday() {
+  // Get the checkbox
+  let checkBox = document.getElementById("inlinedateCheckbox6");
+  // Get the output text
+  let date = document.getElementById("time6");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    date.style.display = "block";
+  } else {
+    date.style.display = "none";
+  }
+}
+
+function Satrday() {
+  // Get the checkbox
+  let checkBox = document.getElementById("inlinedateCheckbox7");
+  // Get the output text
+  let date = document.getElementById("time7");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    date.style.display = "block";
+  } else {
+    date.style.display = "none";
+  }
+}
