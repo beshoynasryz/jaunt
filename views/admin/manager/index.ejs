@@ -136,7 +136,7 @@
                         <p class="text-xs font-weight-bold mb-0 mt-3"><%=booking.numberOfTickets%></p>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0 mt-3">$450</p>
+                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= booking.total %></p>
                       </td>
                       <td> <% if (booking.status === 'pending') {%> 
                         <p class="text-xs font-weight-bold mb-0 mt-3"><span class="badge bg-info"><%= booking.status %></span></p>
@@ -173,7 +173,7 @@
                 <div class="request-popup-content">
                   <div class="card text-center mb-5">
 
-                      <form id="request-form">
+                     
 
                           <div class="col-12">
                               <div class="row">
@@ -312,8 +312,7 @@
               
 
               
-                      </form>
-
+                      
 
           
           

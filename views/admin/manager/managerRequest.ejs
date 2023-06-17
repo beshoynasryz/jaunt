@@ -679,9 +679,14 @@
 
                                                                       <% if(booking.status == 'pending'){ %>
                                                                         <div class="buttons mt-0">
-                                                                            <button id="accept-button" type="submit" class="btn btn-success btn-block request-submit">ACCEPT</button>
-                                                                            <button id="decline-button" type="submit" class="button2 btn btn-warning btn-block request-submit">DECLINE</button>
-                                                                            
+                                                                          <form method="POST" action="/bookings/update-status/<%= booking.id %>-but not confirm yet">
+                                                                            <input type="hidden" name="status" value="approved">
+                                                                            <button type="submit" title="APPROVED" class="btn mt-3">Approved</button>
+                                                                          </form>
+                                                                          <form method="POST" action="/bookings/update-status/<%= booking.id %>">
+                                                                            <input type="hidden" name="status" value="declined">
+                                                                            <button type="submit" title="declined" class="btn mt-3">declined</button>
+                                                                          </form>
                                                                         </div>
                                                                         <% } %>
                                                               
