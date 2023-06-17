@@ -6,13 +6,10 @@
     <h1>Management Places</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active"><a href="Places.html">Places</a></li>
-        <li class="breadcrumb-item active"><a href="#">Add Place</a></li>
-        <li class="breadcrumb-item active"><a href="#">Step 1</a></li>
-        <li class="breadcrumb-item active">Step 2</li>
-        <li class="breadcrumb-item active">Step 3</li>
-        <li class="breadcrumb-item active">Step 4</li>
+        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+        <li class="breadcrumb-item active"><a href="/admin/places/owner-places">Places</a></li>
+        <li class="breadcrumb-item active">Edit Place</li>
+        
 
       </ol>
     </nav>
@@ -43,25 +40,7 @@
 
                 <div class="card-body pt-3">
                   <!-- Bordered Tabs -->
-                  <ul class="nav nav-tabs nav-tabs-bordered">
-    
-                    <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Add Information</button>
-                    </li>
-    
-                    <li class="nav-item">
-                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Services</button>
-                    </li>
-
-                    <li class="nav-item">
-                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Reception Hours</button>
-                    </li>
-    
-                    <li class="nav-item">
-                      <button class="nav-link disabled collapsed" data-bs-toggle="tab" data-bs-target="#profile-change-password">Pricing list</button>
-                    </li>
-
-                  </ul>
+                
                   <div class="tab-content pt-2">
     
                     <div class="tab-pane fade show active profile-edit" id="profile-edit">
@@ -73,9 +52,7 @@
     
     
                           <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                            <h5 class="card-title text-center">Add New Place</h5>
-          
-          
+                            <h5 class="card-title text-center">Edit Your Branch</h5>
           
                             <div class="card-profile text-center">
                                 <label class="col-md-4 col-lg-2 col-form-label" for="">Choose Images</label>
@@ -93,13 +70,7 @@
     
                         </div>
                         
-                        <div class="row mb-3">
-                          <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>Name</label>
-                          <div class="col-md-8 col-lg-10">
-                            <input name="name" type="text" class="form-control" id="Governorate" value="<%= place.name %>" placeholder="Enter yor place name">
-                          </div>
-                        </div>
-    
+                        
                         <div class="row mb-3">
                           <label for="fullName" class="col-md-4 col-lg-2 col-form-label"><i class="bi bi-card-text"></i>About</label>
                           <div class="col-md-8 col-lg-10">
@@ -253,9 +224,9 @@
                           <!-- Wendesday end -->
 
                           <div class="form-check">
-                            <input class="form-check-input" name="thursday" type="checkbox" id="inlinedateCheckbox5" value="true" onclick="thursday()"/>
+                            <input class="form-check-input" name="thursday" type="checkbox" id="inlinedateCheckbox5" value="true" onclick="Thursday()"/>
                             <label class="form-check-label" for="inlineCheckbox5">thursday</label>
-                            <div  id="time5" style="display:block"> 
+                            <div  id="time5" style="display:none"> 
                               <div class="from pt-2">
                                   <p class="">
                                     <i class="bi bi-hourglass-top"></i> From <input type="time" id="appt" name="thursdayFrom">     

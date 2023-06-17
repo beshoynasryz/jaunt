@@ -23,7 +23,7 @@ const placeSchema = new mongoose.Schema({
     },service6:{type:String,   
     },service7:{type:String,  
     },service8:{ type:String,  
-    }, status :{ type: String,enum:['pending','approved', 'declined','confirmed'], default: 'pending',
+}, status :{ type: String,enum:['pending','approved', 'declined','confirmed'], default: 'pending',
     }, menuimages:{ type: [String],
     }, manager: { type: mongoose.Schema.Types.ObjectId, ref: 'Manager' 
     }, owner_id :{type: String,required: true,

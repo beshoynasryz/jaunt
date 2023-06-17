@@ -3377,70 +3377,6 @@ background-color: none;
   color: var(--primary-color);
 }
 
-.profile .add-places .card-body{
-  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
-  border: 1px solid var(--background-color-of-secondary-color);
-  border-radius: 20px;
-  background-color: var(--background-color-of-primary-color);
-  margin-top: 10px;
-  font-family: 'Montserrat' , sans-serif;
-  padding-bottom: 25px;
-}
-
-.profile .add-places .card-body .card-title{
-  padding: 20px 0 0 0;
-  font-size: 28px;
-  color: var(--text-color1);
-  font-weight: 700;
-}
-
-.profile .add-places .card-body p{
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--text-color1);
-}
-
-.profile .add-places .card-body .button2{
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--background-color-of-secondary-color);
-  border-radius: 20px;
-  background-color: var(--secondary-color);
-  margin-top: 10px;
-  color: white;
-  font-family: 'Montserrat' , sans-serif;
-}
-
-.profile .add-places .card-body .button2:hover{
-  background-color: var(--primary-color);
-  color: white;
-}
-
-
-
-
-
-.profile .card-body .back-bar{
-  width: 36px;
-  height: 36px;
-  padding: 0 0px;
-  border-radius: 25px;
-  margin-bottom: 14px;
-
-}
-
-.profile .back-bar i {
-  color: var(--primary-color);
-  font-size: 40px;
-}
-
-.profile .back-bar a {
-  margin-top: 10px;
-}
-
-
-
-
-
 
 
 
@@ -3470,24 +3406,6 @@ background-color: none;
   color: var(--primary-color);
   background: var(--background-color-of-primary-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

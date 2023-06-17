@@ -124,9 +124,9 @@ document.getElementById('remove-images').addEventListener('click', function() {
 
   function Monday() {
     // Get the checkbox
-    var checkBox = document.getElementById("inlinedateCheckbox2");
+    let checkBox = document.getElementById("inlinedateCheckbox2");
     // Get the output text
-    var date = document.getElementById("time2");
+    let date = document.getElementById("time2");
     // If the checkbox is checked, display the output text
     if (checkBox.checked == true){
       date.style.display = "block";
@@ -161,7 +161,7 @@ document.getElementById('remove-images').addEventListener('click', function() {
     }
   }
 
-  function thursday() {
+  function Thursday() {
     // Get the checkbox
     var checkBox = document.getElementById("inlinedateCheckbox5");
     // Get the output text

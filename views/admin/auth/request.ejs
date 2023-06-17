@@ -250,7 +250,7 @@
                                                 </div>
                       
                                                 <div class="row mb-2">
-                                                  <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                  <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">0</span></div>
                                                 </div>
                       
                                                 <div class="row mb-2">
@@ -572,7 +572,7 @@
                                       <p class="text-xs font-weight-bold mb-0 mt-4"><%= place.createdAt?.toDateString() %></p>
                                   </td>
                                   <td>
-                                      <p class="text-xs font-weight-bold mb-0 mt-4"><span class="badge bg-success"><%=place.status%></span></p>
+                                      <p class="text-xs font-weight-bold mb-0 mt-4"><span class="badge bg-warning"><%=place.status%> - but Not confirmed</span></p>
                                   </td>
   
   
@@ -671,7 +671,7 @@
                                                   </div>
                         
                                                   <div class="row mb-2">
-                                                    <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                    <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">0</span></div>
                                                   </div>
                         
                                                   <div class="row mb-2">
@@ -1015,9 +1015,9 @@
                                     <% if (place.status === 'pending') {%> 
                                       <span class="badge bg-info mt-5"><%= place.status %></span>
                                     <%} else if(place.status === 'approved') { %>                                                                                
-                                      <span class="badge bg-success mt-5"><%= place.status %></span>
+                                      <span class="badge bg-warning mt-5"><%= place.status %> - but Not confirm</span>
                                     <%} else if(place.status === 'declined') { %>                                                                                
-                                      <span class="badge bg-warning mt-5"><%= place.status %></span>
+                                      <span class="badge bg-danger mt-5"><%= place.status %></span>
                                     <%} else { %>                                                                  
                                     <span class="badge bg-danger"><%= place.status %></span>
                                     <%}%>  
@@ -1123,7 +1123,7 @@
                                                   </div>
                         
                                                   <div class="row mb-2">
-                                                    <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                    <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">0</span></div>
                                                   </div>
                         
                                                   <div class="row mb-2">

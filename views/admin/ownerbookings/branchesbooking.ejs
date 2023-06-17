@@ -186,7 +186,7 @@
                                                     </td>
 
                                                     <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                        <p class="text-xs font-weight-bold mb-0 mt-4">0</p>
                                                     </td>
 
                                                     <td>
@@ -288,7 +288,7 @@
                                                                     </div>
                                           
                                                                     <div class="row mb-2">
-                                                                      <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                                      <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">0</span></div>
                                                                     </div>
                                           
                                                                     <div class="row mb-2">
@@ -548,7 +548,12 @@
 
                                                          
                                                         </form>
-                                                          <button type="button" class="btn button2 rejected mt-3" >REJETD</button>
+                                                        <form  method="POST" action="/admin/places/update-status/<%= place.id %>">
+                                                          <input type="hidden" name="status" value="declined">
+                                                          <button type="submit" title="DECLINED" class="btn button2 cancel mt-3 w-100">REJECTED</button>
+
+                                                         
+                                                        </form>
                                                           <button type="button" class="btn button2 close mt-3" onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'none'">Close</button>
                     
                     
@@ -654,7 +659,7 @@
                                                     </td>
 
                                                     <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                        <p class="text-xs font-weight-bold mb-0 mt-4">0</p>
                                                     </td>
 
                                                     <td>
@@ -771,7 +776,7 @@
                                                                                       </div>
                                                             
                                                                                       <div class="row mb-2">
-                                                                                        <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">5.0</span></div>
+                                                                                        <div class="col label fw-bold"><i class="bi bi-star"></i> Rate: <span class="fw-normal">0</span></div>
                                                                                       </div>
                                                             
                                                                                       <div class="row mb-2">
@@ -1125,10 +1130,10 @@
                                           <% places.forEach(function(place){ %>
                                             <% if(place.status == 'declined'){ %>
                 
-                                            <tr>
-                
+                                              <tr>
+                    
                                                 <td>
-                                                    <p class="text-xs font-weight-bold mb-0 mt-4">12345dsfhal</p>
+                                                    <p class="text-xs font-weight-bold mb-0 mt-4"><%= place._id %></p>
                                                 </td>
 
                                                 <td>
@@ -1149,29 +1154,30 @@
                                                         <img src="assets/img/product-1 1.svg" class="avatar avatar-sm me-3" alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <p class="card-description pt-2"><i class="bi bi-geo-alt"></i> <span class="fw-bold"></span> Giza, Al-Agouza</p>
-                                                        <p class="card-description"><i class="bi bi-person-badge"></i> <span class="fw-bold"></span> Yasser Farghal</p>
+                                                        <p class="card-description pt-2"><i class="bi bi-geo-alt"></i> <span class="fw-bold"></span><%=place.city%>,<%=place.area%></p>
+                                                        <p class="card-description"><i class="bi bi-person-badge"></i> <span class="fw-bold"></span><%=place.manager?.managername%></p>
                                                     </div>
                                                 </div>                                                     
                                               </td>
 
                                                 <td>
-                                                    <p class="text-xs font-weight-bold mb-0 mt-4">Park</p>
+                                                    <p class="text-xs font-weight-bold mb-0 mt-4"><%=place.type%></p>
                                                 </td>
 
                                                 <td>
-                                                    <p class="text-xs font-weight-bold mb-0 mt-4">5.0</p>
+                                                    <p class="text-xs font-weight-bold mb-0 mt-4">0</p>
                                                 </td>
 
                                                 <td>
-                                                  <p class="text-xs font-weight-bold mb-0 mt-4"><span class="badge bg-danger">Rejected</span></p>
+                                                  <p class="text-xs font-weight-bold mb-0 mt-4"><span class="badge bg-danger"><%=place.status%></span></p>
                                                 </td>
 
                 
-                
-                                                <td class="action mt-3">
-                                                    <button class="delete-button btn mb-1"  ><i class="bi bi-trash"></i> DELETE</button>                    
-                                                </td>
+                                                <!-- <td> 
+
+                                                  <a href="/admin/auth/delete/<%= place._id %>"><button class="delete-button btn mb-1" id="btnDelete"><i class="bi bi-trash"></i></button>
+                                                  </a> 
+                                                </td> -->
                                             </tr>
                                             <% }; %>
                                             <% }); %>

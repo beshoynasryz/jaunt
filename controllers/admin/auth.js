@@ -95,13 +95,13 @@ export const renderCompaniesView =async (req, res, next) => {
       }
       
       const owners = await Owner.find();
-      const ownerspark = await Owner.find({ type: 'park' });
+      const ownerspark = await Owner.find({ type: 'park' }).sort('-createdAt');
       const ownersparklength = await Owner.find({ type: 'park' });
-      const ownersrestrunt = await Owner.find({ type: 'resturant' });
+      const ownersrestrunt = await Owner.find({ type: 'resturant' }).sort('-createdAt');
       const ownersrestruntlength = await Owner.find({ type: 'resturant' });
-      const ownerscafe = await Owner.find({ type: 'cafe' });
+      const ownerscafe = await Owner.find({ type: 'cafe' }).sort('-createdAt');
       const ownerscafelength = await Owner.find({ type: 'cafe' });
-      const ownersworkspace = await Owner.find({ type: 'workspace' });
+      const ownersworkspace = await Owner.find({ type: 'workspace' }).sort('-createdAt');
       const ownersworkspacelength = await Owner.find({ type: 'workspace' });
 
       res.render('admin/companie/companies',  
@@ -158,7 +158,7 @@ export const renderBranchesBookingView =async (req, res, next) => {
         } 
         
       if(typeof req.query.filter?.length == 'undefined') {
-        var places = await Place.find().populate('manager');
+        var places = await Place.find().sort('-createdAt').populate('manager');
       } else {
         var places = await Place.find({ 'type': req.query.filter }).populate('manager');
       }

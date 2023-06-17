@@ -19,8 +19,8 @@ export const index = async (req, res, next) => {
                 owner_id: req.session.owner._id
             }]
         }
-        ).populate('manager').limit(40).exec();
-        let bookings = await Booking
+        ).populate('manager').sort('-createdAt').limit(8).exec();
+        let bookings = await Booking 
         .find({ owner_id: req.session.owner._id})
         .populate('user').limit(3).exec();
 
@@ -40,7 +40,7 @@ export const index = async (req, res, next) => {
     
         leatesPlaces = await Place.find({status: 'pending'}).sort('-createdAt').limit(4).populate('manager').exec();
         
-        owners = await Owner.find().limit(8).exec();
+        owners = await Owner.find().sort('-createdAt').limit(8).exec();
     } 
    
    
@@ -49,7 +49,7 @@ export const index = async (req, res, next) => {
         const placeCountAdmin = await Place.find();
         const placeCountAdminPending = await Place.find({status:'pending'});
         const OwnerCountAdmin = await Owner.find();
-        const placesofbranch = await Place.find({ owner_id: req.session.owner._id, status: 'approved'}).populate('manager');
+        const placesofbranch = await Place.find({ owner_id: req.session.owner._id, status: 'approved'}).sort('-createdAt').populate('manager');
        
         const managerCount = await Manager.find({ owner: req.session.owner._id});
 
