@@ -338,3 +338,4 @@ export const updatedPlace =async (req,res,next)=>{
         next(err);
     }
 }
+ 

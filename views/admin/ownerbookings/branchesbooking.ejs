@@ -139,7 +139,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                    
                                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch</th>
                                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
                                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>
@@ -157,22 +157,12 @@
                                                         <p class="text-xs font-weight-bold mb-0 mt-4"><%= place._id %></p>
                                                     </td>
 
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <img src="assets/img/tostitos.webp" class="avatar avatar-sm me-3" alt="user1">
-                                                            </div>
-                                                            <div class="d-flex flex-column justify-content-center">
-                                                                <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span> Yasser Farghal</p>
-                                                                <p class="card-description"><i class="bi bi-building"></i> <span class="fw-bold"></span> Tostitos</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                    
                     
                                                     <td>
                                                       <div class="d-flex">
                                                         <div>
-                                                            <img src="assets/img/product-1 1.svg" class="avatar avatar-sm me-3" alt="user1">
+                                                            <img src="<%=place. images[0]%>" class="avatar avatar-sm me-3" alt="user1">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <p class="card-description pt-2"><i class="bi bi-geo-alt"></i> <span class="fw-bold"></span><%=place.city%>,<%=place.area%></p>
@@ -256,7 +246,10 @@
                                                                             <div class="scrolling-wrapper row flex-row flex-nowrap text-center">
                                                                               
                                               
-                                                                                  <img src="<%= place.images[0] %>" alt="">
+                                                                                  <img src="<%= place.images %>" alt="">
+                                                                                  <img src="<%= place.images[1] %>" alt="">
+                                                                                  <img src="<%= place.images[2] %>" alt="">
+                                                                                  <img src="<%= place.images[3] %>" alt="">
                                               
                                               
                                               
@@ -611,7 +604,7 @@
                                           <thead>
                                               <tr>
                                                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                  
                                                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch</th>
                                                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
                                                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>
@@ -630,22 +623,12 @@
                                                         <p class="text-xs font-weight-bold mb-0 mt-4"><%= place._id %></p>
                                                     </td>
 
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <img src="assets/img/tostitos.webp" class="avatar avatar-sm me-3" alt="user1">
-                                                            </div>
-                                                            <div class="d-flex flex-column justify-content-center">
-                                                                <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span> Yasser Farghal</p>
-                                                                <p class="card-description"><i class="bi bi-building"></i> <span class="fw-bold"></span> Tostitos</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                
                     
                                                     <td>
                                                       <div class="d-flex">
                                                         <div>
-                                                            <img src="assets/img/product-1 1.svg" class="avatar avatar-sm me-3" alt="user1">
+                                                            <img src="<%=place. images[0]%>" class="avatar avatar-sm me-3" alt="user1">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <p class="card-description pt-2"><i class="bi bi-geo-alt"></i> <span class="fw-bold"></span><%=place.city%>,<%=place.area%></p>
@@ -1117,7 +1100,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Company</th>
+                                                
                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch</th>
                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>
@@ -1136,22 +1119,12 @@
                                                     <p class="text-xs font-weight-bold mb-0 mt-4"><%= place._id %></p>
                                                 </td>
 
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <img src="assets/img/tostitos.webp" class="avatar avatar-sm me-3" alt="user1">
-                                                        </div>
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <p class="card-description pt-2"><i class="bi bi-person"></i> <span class="fw-bold"></span> Yasser Farghal</p>
-                                                            <p class="card-description"><i class="bi bi-building"></i> <span class="fw-bold"></span> Tostitos</p>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                
                 
                                                 <td>
                                                   <div class="d-flex">
                                                     <div>
-                                                        <img src="assets/img/product-1 1.svg" class="avatar avatar-sm me-3" alt="user1">
+                                                        <img src="<%=place. images[0]%>" class="avatar avatar-sm me-3" alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <p class="card-description pt-2"><i class="bi bi-geo-alt"></i> <span class="fw-bold"></span><%=place.city%>,<%=place.area%></p>

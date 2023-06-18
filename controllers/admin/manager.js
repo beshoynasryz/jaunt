@@ -8,6 +8,7 @@ import Rating from "../../models/Rating.js";
 export const managerIndex = async (req, res, next) => {
   try {
     let bookings = await Booking.find({place:req.session.owner.place._id}).populate("user").populate('place');
+    let bookingslength = await Booking.find({place:req.session.owner.place._id})
    
     let userRates = await Rating.find({
       place: req.session.owner.place._id,
@@ -20,6 +21,7 @@ export const managerIndex = async (req, res, next) => {
       owner: req.session.owner,
       bookings: bookings,
       userRates: userRates,
+      bookingslength:bookingslength.length,
     });
   } catch (err) {
     next(err);
@@ -31,12 +33,15 @@ export const managerRequest = async (req, res, next) => {
   try {
     let bookings = await Booking.find({
       place: req.session.owner.place._id,
-    }).sort('-createdAt').populate("user");
-
+    }).sort('-createdAt').populate("user").populate('place');
+    let bookingslength = await Booking.find({
+      place: req.session.owner.place._id,
+    })
     res.render("admin/manager/managerRequest", {
       layout: "./admin/layouts/main",
       owner: req.session.owner,
       bookings: bookings,
+      bookingslength:bookingslength.length,
     });
   } catch (err) {
     next(err);
@@ -92,10 +97,11 @@ export const rendermanagerView = async (req, res, next) => {
     const places = await Place.find({
       owner_id: req.session.owner._id,
     }).sort('-createdAt').populate("manager");
-    const managers = await Manager.find({ owner_id: req.session.owner._id });
+    const managers = await Manager.find({ owner: req.session.owner._id}).sort('-createdAt').populate('place');
 
     const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
         const managerCount = await Manager.find({ owner: req.session.owner._id});
+        
 
     res.render("admin/manager/manager", {
       layout: "./admin/layouts/main",

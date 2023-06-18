@@ -232,17 +232,7 @@
 
                   <div class="table-responsive p-0">
                       <table class="table align-items-center mb-0">
-                          <thead>
-                              <tr>
-                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Branch ID</th>
-                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Branch</th>
-                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Manager</th>
-                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rate</th>
-                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Capacity</th>
-                                  <th class="text-secondary opacity-7"></th>
-
-                              </tr>
-                          </thead>
+                         
                           <tbody>
 
                             <% placesofbranch.forEach(function(place){ %>
@@ -324,6 +314,9 @@
                                                                   
                                   
                                                                       <img src="<%= place.images[0] %>" alt="">
+                                                                      <img src="<%= place.images[1] %>" alt="">
+                                                                      <img src="<%= place.images[2] %>" alt="">
+                                                                      <img src="<%= place.images[3] %>" alt="">
                                   
                                   
                                   
@@ -689,14 +682,7 @@
                             <div class="container">
                                 <div class="row">
 
-                                  <ul class="nav nav-tabs">
-                                    <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Manager</a></li>
-                                      <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Main Details</a></li>
-                                      <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Services</a></li>
-                                      <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Reception Hours</a></li>
-                                      <li class="nav-item"><a href="#tab5" data-toggle="tab" class="nav-link">Pricing list</a></li>
-                                  </ul>
-
+                                 
                                   <div class="tab-content">
 
                                       <div id="tab1" class="tab-pane active">
@@ -728,6 +714,10 @@
                                                         
                         
                                                             <img src="<%= place.images[0] %>" alt="">
+                                                            <img src="<%= place.images[1] %>" alt="">
+                                                            <img src="<%= place.images[2] %>" alt="">
+                                                            <img src="<%= place.images[3] %>" alt="">
+                                                            <img src="<%= place.images[4] %>" alt="">
                         
                         
                         
@@ -1080,7 +1070,7 @@
     
                           </p>                  
                           <div class="d-flex justify-content-end mt-0">
-                            <button class="open-request-popup btn" onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'block'">SEE REVIEW</button>
+                            <button class="open-request-popup btn" onclick="document.getElementById('request-popup-<%= place._id %>').style.display = 'block'">MANAGE</button>
                           </div>
                         </div>
                         
@@ -1100,14 +1090,7 @@
                                 <div class="container">
                                     <div class="row">
     
-                                      <ul class="nav nav-tabs">
-                                        <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Manager</a></li>
-                                          <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Main Details</a></li>
-                                          <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Services</a></li>
-                                          <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Reception Hours</a></li>
-                                          <li class="nav-item"><a href="#tab5" data-toggle="tab" class="nav-link">Pricing list</a></li>
-                                      </ul>
-    
+                                   
                                       <div class="tab-content">
     
                                           <div id="tab1" class="tab-pane active">
@@ -1139,6 +1122,10 @@
                                                             
                             
                                                                 <img src="<%= place.images[0] %>" alt="">
+                                                                <img src="<%= place.images[1] %>" alt="">
+                                                                <img src="<%= place.images[2] %>" alt="">
+                                                                <img src="<%= place.images[3] %>" alt="">
+                                                                <img src="<%= place.images[4] %>" alt="">
                             
                             
                             
@@ -1424,8 +1411,8 @@
     
                                       <div class="row mt-3">  
                                         <form  method="POST" action="/admin/places/update-status/<%= place.id %>">
-                                          <input type="hidden" name="status" value="confirmed">
-                                          <button type="submit" title="CONFIRMED" class="btn button2 cancel mt-3 w-100">confirmed</button>
+                                          <input type="hidden" name="status" value="approved">
+                                          <button type="submit" title="APPROVED" class="btn button2 cancel mt-3 w-100">Approved</button>
                                         </form>
                                         <form  method="POST" action="/admin/places/update-status/<%= place.id %>">
                                           <input type="hidden" name="status" value="declined">

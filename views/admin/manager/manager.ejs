@@ -79,6 +79,7 @@
 
           
                           <!-- Top Selling -->
+
                           <div class="col mb-3">
                               <div class="card top-selling overflow-auto">
           
@@ -269,13 +270,6 @@
                                                             <div class="container">
                                                                 <div class="row">
                                 
-                                                                    <ul class="nav nav-tabs">
-                                                                      <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Manager</a></li>
-                                                                        <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Main Details</a></li>
-                                                                        <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Services</a></li>
-                                                                        <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Reception Hours</a></li>
-                                                                        <li class="nav-item"><a href="#tab5" data-toggle="tab" class="nav-link">Pricing list</a></li>
-                                                                    </ul>
                         
                                                                     <div class="tab-content">
                         
@@ -307,6 +301,9 @@
                                                                                           
                                                           
                                                                                               <img src="<%= place.images[0] %>" alt="">
+                                                                                              <img src="<%= place.images[1] %>" alt="">
+                                                                                              <img src="<%= place.images[2] %>" alt="">
+                                                                                              <img src="<%= place.images[3] %>" alt="">
                                                           
                                                           
                                                           
@@ -620,7 +617,61 @@
                                       
                               </div>
                           </div>
+
                           <!-- End Top Selling -->
+                          
+                          <div class="col">
+
+
+
+              <!-- booking Traffic -->
+              <div class="card">
+               
+                <div class="card-body pb-0">
+                  <h5 class="card-title">Managers</h5>
+    
+                
+                  <div class="container">
+                    <div class="row">
+      
+     
+                      <div class="news">
+                        <% managers.forEach(function(manager){ %>
+                       
+                        <div class="col post-item clearfix">
+                       
+                          <img src="<%=manager.image%>" alt="">
+                        
+                              <p class="fw-normal"><i class="bi bi-person-badge pe-1 fw-bold"> Name:<%=manager.managername%></i></p>
+                              <p class="fw-normal"><i class="bi bi-envelope pe-1 fw-bold"> Email:<%=manager.email%></i></p>
+                              <p class="fw-normal"><i class="bi bi-telephone pe-1 fw-bold"> Phone:<%=manager.phone%> </i></p>
+                           
+                          <p class="pe-2">
+                           
+                          </p>                  
+                          
+                        </div>
+                       
+                       
+                        <% }); %>
+                        
+                      </div>
+                      
+    
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                 
+    
+    
+                  </div><!-- End sidebar recent posts-->
+    
+                </div>
+                          </div>
+           
                           
 
       </div>
