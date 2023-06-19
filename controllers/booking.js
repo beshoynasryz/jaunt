@@ -21,6 +21,7 @@ export const getUserBookings = async (req,res,next)=>{
                 checkout: booking.checkout,
                 numberOfTickets: booking.numberOfTickets,
                 status: booking.status,
+                total:booking.total,
                 place: { 
                     // type: booking.place?.type,
                     // address: booking.place?.address,

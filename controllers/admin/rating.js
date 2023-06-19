@@ -1,3 +1,4 @@
+import { response } from "express";
 import Booking from "../../models/Booking.js";
 import Place from "../../models/Place.js";
 import Rating from "../../models/Rating.js";
@@ -39,6 +40,7 @@ export const rate = async (req, res, next) => {
       place: booking.place._id,
     });
     await rate.save();   
+    
     const place = await Place.findById(booking.place._id);
     if(place.ratings?.length > 0){
      

@@ -1,3 +1,4 @@
+import { response } from "express"
 import Manager from "../../models/Manager.js"
 import Place from "../../models/Place.js"
 import Rating from "../../models/Rating.js"
@@ -49,6 +50,7 @@ export const createPlace =async (req,res,next)=>{
         }
     } 
     req.body.receptionHours = receptionHours
+   
      var imagesArray = []
     const { images } = req.files;
     const path = "/uploaded-images-2/";
@@ -87,10 +89,12 @@ export const createPlace =async (req,res,next)=>{
     }
 
     req.body.menuimages = imagesArray
-
-    const newPlace = new Place (req.body)
+    
+    
+    const newPlace =  new Place (req.body)
    
         const savedPlace = await newPlace.save()
+        console.log(savedPlace,'abdo mota');
         
         // const places = await Place.find({ owner_id: req.session.owner._id})
         res.redirect('/admin/places/owner-places');

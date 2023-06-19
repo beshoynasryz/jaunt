@@ -165,7 +165,7 @@
                     </table>
 
                     
-                  <% places.forEach(function(place){ %>
+                  <% placespending.forEach(function(place){ %>
                     <div id="request-popup-<%= place._id %>" class="branch-popup">
                         <div>
                             <span class="branch-popup-close">&times;</span>
@@ -330,168 +330,196 @@
                                           </div>
                                          </div>
                                        <div class="container">
-                                        
+                                      
                                         <div class="row">
-                                          <h5 class="card-title mb-3 text-center">Reception Hour</h5>
+                                          <div class="col">
+                                            <h5 class="card-title mb-3 text-center">Reception Hour</h5>
+                                            
+
+                                            <div class="table-responsive pt-2">
+
+                                              <table class="table align-items-center mb-0">
+
+                                                <thead>
+                                                  <tr>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                    <% if(receptionHour.sunday){ %>
+                                                      
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">Sunday</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <% }%>
+                                                    <% })%>
+                                                  <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                    <% if(receptionHour.monday){ %>
+                                                      
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">monday</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.from%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.until%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <% }%>
+                                                    <% })%>
+                                                  <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                    <% if(receptionHour.thuesday){ %>
+                                                      
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">thuesday</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.from%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.until%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <% }%>
+                                                    <% })%>
+                                                  <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                    <% if(receptionHour.wendesday){ %>
+                                                      
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">wendesday</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.from%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.until%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <% }%>
+                                                    <% })%>
+                                                  <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                    <% if(receptionHour.thursday){ %>
+                                                      
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">thursday</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.from%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.until%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <% }%>
+                                                    <% })%>
+                                                  <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                    <% if(receptionHour.friday){ %>
+                                                      
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">friday</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.from%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.until%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <% }%>
+                                                    <% })%>
+                                                  <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                    <% if(receptionHour.saturday){ %>
+                                                      
+                                                      <tr>
+                                                        <td>
+                                                          <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                              <h6 class="mb-0 text-sm mt-3">saturday</h6>
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.from%></p>
+                                                        </td>
+                                                        <td>
+                                                          <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.until%></p>
+                                                        </td>
+                                                      </tr>
+                                                      <% }%>
+                                                    <% })%>
+                      
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                          <div class="col">
+                                            <h5 class="card-title text-center">Pricing Lists</h5>
+
+                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                              <div class="col mt-3">
+                                                  <img src="place.menuimages[0]" class="img-fluid" alt="image">
+                                              </div>
+                                              <div class="col mt-3">
+                                                <img src="place.menuimages[1]" class="img-fluid" alt="image">
+                                              </div>
+                                              <div class="col mt-3">
+                                                <img src="place.menuimages[2]" class="img-fluid" alt="image">
+                                              </div>
+                                              <div class="col mt-3">
+                                                <img src="place.menuimages[3]" class="img-fluid" alt="image">
+                                              </div>
+                                              <div class="col mt-3">
+                                                <img src="place.menuimages[4]" class="img-fluid" alt="image">
+                                              </div>
+                                              <div class="col mt-3">
+                                                <img src="place.menuimages[5]" class="img-fluid" alt="image">
+                                              </div>
+                                          </div>
                                           
-  
-                                        <div class="table-responsive pt-2">
-  
-                                          <table class="table align-items-center mb-0">
-  
-                                            <thead>
-                                              <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                <% if(receptionHour.sunday){ %>
-                                                  
-                                                  <tr>
-                                                    <td>
-                                                      <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                          <h6 class="mb-0 text-sm mt-3">Sunday</h6>
-                                                        </div>
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
-                                                    </td>
-                                                  </tr>
-                                                  <% }%>
-                                                <% })%>
-                                              <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                <% if(receptionHour.monday){ %>
-                                                  
-                                                  <tr>
-                                                    <td>
-                                                      <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                          <h6 class="mb-0 text-sm mt-3">monday</h6>
-                                                        </div>
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.from%></p>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.until%></p>
-                                                    </td>
-                                                  </tr>
-                                                  <% }%>
-                                                <% })%>
-                                              <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                <% if(receptionHour.thuesday){ %>
-                                                  
-                                                  <tr>
-                                                    <td>
-                                                      <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                          <h6 class="mb-0 text-sm mt-3">thuesday</h6>
-                                                        </div>
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.from%></p>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.until%></p>
-                                                    </td>
-                                                  </tr>
-                                                  <% }%>
-                                                <% })%>
-                                              <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                <% if(receptionHour.wendesday){ %>
-                                                  
-                                                  <tr>
-                                                    <td>
-                                                      <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                          <h6 class="mb-0 text-sm mt-3">wendesday</h6>
-                                                        </div>
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.from%></p>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.until%></p>
-                                                    </td>
-                                                  </tr>
-                                                  <% }%>
-                                                <% })%>
-                                              <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                <% if(receptionHour.thursday){ %>
-                                                  
-                                                  <tr>
-                                                    <td>
-                                                      <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                          <h6 class="mb-0 text-sm mt-3">thursday</h6>
-                                                        </div>
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.from%></p>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.until%></p>
-                                                    </td>
-                                                  </tr>
-                                                  <% }%>
-                                                <% })%>
-                                              <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                <% if(receptionHour.friday){ %>
-                                                  
-                                                  <tr>
-                                                    <td>
-                                                      <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                          <h6 class="mb-0 text-sm mt-3">friday</h6>
-                                                        </div>
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.from%></p>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.until%></p>
-                                                    </td>
-                                                  </tr>
-                                                  <% }%>
-                                                <% })%>
-                                              <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                <% if(receptionHour.saturday){ %>
-                                                  
-                                                  <tr>
-                                                    <td>
-                                                      <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                          <h6 class="mb-0 text-sm mt-3">saturday</h6>
-                                                        </div>
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.from%></p>
-                                                    </td>
-                                                    <td>
-                                                      <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.until%></p>
-                                                    </td>
-                                                  </tr>
-                                                  <% }%>
-                                                <% })%>
-                  
-                                            </tbody>
-                                          </table>
-                                        </div>
-                                        </div>
+                                          </div>
+
+                                          </div>
                                        </div>
   
                                         
@@ -585,7 +613,7 @@
                       </table>
   
                       
-                    <% places.forEach(function(place){ %>
+                    <% placesapproved.forEach(function(place){ %>
                       <div id="request-popup-approved-<%= place._id %>" class="branch-popup">
                           <div>
                               <span class="branch-popup-close">&times;</span>
@@ -689,14 +717,16 @@
                                                   </div>
                                                   <div class="row">
                                                     <% if (place.status === 'pending') {%> 
-                                                      <span class="badge bg-info m-3"><%= place.status %></span>
+                                                      <span class="badge bg-info mt-5"><%= place.status %></span>
                                                     <%} else if(place.status === 'approved') { %>                                                                                
-                                                      <span class="badge bg-success m-3"><%= place.status %></span>
+                                                      <span class="badge bg-warning mt-5"><%= place.status %> - but Not confirm</span>
                                                     <%} else if(place.status === 'declined') { %>                                                                                
-                                                      <span class="badge bg-warning m-3"><%= place.status %></span>
+                                                      <span class="badge bg-danger mt-5"><%= place.status %></span>
+                                                    <%} else if(place.status === 'confirmed') { %>                                                                                
+                                                      <span class="badge bg-success mt-5"><%= place.status %></span>
                                                     <%} else { %>                                                                  
-                                                    <span class="badge bg-danger m-3"><%= place.status %></span>
-                                                    <%}%>    
+                                                    <span class="badge bg-danger"><%= place.status %></span>
+                                                    <%}%>  
                             
                                                   </p>
                                                   </div>
@@ -766,167 +796,196 @@
                                            </div>
                                          <div class="container">
                                           
+                                        
                                           <div class="row">
-                                            <h5 class="card-title mb-3 text-center">Reception Hour</h5>
+                                            <div class="col">
+                                              <h5 class="card-title mb-3 text-center">Reception Hour</h5>
+                                              
+
+                                              <div class="table-responsive pt-2">
+
+                                                <table class="table align-items-center mb-0">
+
+                                                  <thead>
+                                                    <tr>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.sunday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">Sunday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.monday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">monday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.thuesday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">thuesday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.wendesday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">wendesday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.thursday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">thursday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.friday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">friday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.saturday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">saturday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                        
+                                                  </tbody>
+                                                </table>
+                                              </div>
+                                            </div>
+                                            <div class="col">
+                                              <h5 class="card-title text-center">Pricing Lists</h5>
+
+                                              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                                <div class="col mt-3">
+                                                    <img src="place.menuimages[0]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[1]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[2]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[3]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[4]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[5]" class="img-fluid" alt="image">
+                                                </div>
+                                            </div>
                                             
-    
-                                          <div class="table-responsive pt-2">
-    
-                                            <table class="table align-items-center mb-0">
-    
-                                              <thead>
-                                                <tr>
-                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
-                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
-                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.sunday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">Sunday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.monday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">monday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.thuesday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">thuesday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.wendesday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">wendesday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.thursday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">thursday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.friday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">friday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.saturday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">saturday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                    
-                                              </tbody>
-                                            </table>
-                                          </div>
-                                          </div>
+                                            </div>
+
+                                            </div>
                                          </div>
     
                                           
@@ -1020,6 +1079,8 @@
                                       <span class="badge bg-warning mt-5"><%= place.status %> - but Not confirm</span>
                                     <%} else if(place.status === 'declined') { %>                                                                                
                                       <span class="badge bg-danger mt-5"><%= place.status %></span>
+                                    <%} else if(place.status === 'confirmed') { %>                                                                                
+                                      <span class="badge bg-success mt-5"><%= place.status %></span>
                                     <%} else { %>                                                                  
                                     <span class="badge bg-danger"><%= place.status %></span>
                                     <%}%>  
@@ -1145,15 +1206,16 @@
                                                   </div>
                                                   <div class="row">
                                                     <% if (place.status === 'pending') {%> 
-                                                      <span class="badge bg-info m-3"><%= place.status %></span>
+                                                      <span class="badge bg-info mt-5"><%= place.status %></span>
                                                     <%} else if(place.status === 'approved') { %>                                                                                
-                                                      <span class="badge bg-success m-3"><%= place.status %></span>
+                                                      <span class="badge bg-warning mt-5"><%= place.status %> - but Not confirm</span>
                                                     <%} else if(place.status === 'declined') { %>                                                                                
-                                                      <span class="badge bg-warning m-3"><%= place.status %></span>
+                                                      <span class="badge bg-danger mt-5"><%= place.status %></span>
+                                                    <%} else if(place.status === 'confirmed') { %>                                                                                
+                                                      <span class="badge bg-success mt-5"><%= place.status %></span>
                                                     <%} else { %>                                                                  
-                                                    <span class="badge bg-danger m-3"><%= place.status %></span>
-                                                    <%}%>    
-                            
+                                                    <span class="badge bg-danger"><%= place.status %></span>
+                                                    <%}%>  
                                                   </div>
                         
                         
@@ -1222,166 +1284,194 @@
                                          <div class="container">
                                           
                                           <div class="row">
-                                            <h5 class="card-title mb-3 text-center">Reception Hour</h5>
+                                            <div class="col">
+                                              <h5 class="card-title mb-3 text-center">Reception Hour</h5>
+                                              
+
+                                              <div class="table-responsive pt-2">
+
+                                                <table class="table align-items-center mb-0">
+
+                                                  <thead>
+                                                    <tr>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
+                                                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.sunday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">Sunday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.monday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">monday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.thuesday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">thuesday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.wendesday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">wendesday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.thursday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">thursday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.friday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">friday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                                                    <% place.receptionHours?.forEach(function(receptionHour){ %>
+                                                      <% if(receptionHour.saturday){ %>
+                                                        
+                                                        <tr>
+                                                          <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                              <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm mt-3">saturday</h6>
+                                                              </div>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.from%></p>
+                                                          </td>
+                                                          <td>
+                                                            <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.until%></p>
+                                                          </td>
+                                                        </tr>
+                                                        <% }%>
+                                                      <% })%>
+                        
+                                                  </tbody>
+                                                </table>
+                                              </div>
+                                            </div>
+                                            <div class="col">
+                                              <h5 class="card-title text-center">Pricing Lists</h5>
+
+                                              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                                <div class="col mt-3">
+                                                    <img src="place.menuimages[0]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[1]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[2]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[3]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[4]" class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="col mt-3">
+                                                  <img src="place.menuimages[5]" class="img-fluid" alt="image">
+                                                </div>
+                                            </div>
                                             
-    
-                                          <div class="table-responsive pt-2">
-    
-                                            <table class="table align-items-center mb-0">
-    
-                                              <thead>
-                                                <tr>
-                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
-                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
-                                                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Untill</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.sunday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">Sunday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.sunday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.monday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">monday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.monday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.thuesday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">thuesday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thuesday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.wendesday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">wendesday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.wendesday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.thursday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">thursday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.thursday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.friday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">friday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.friday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                                                <% place.receptionHours?.forEach(function(receptionHour){ %>
-                                                  <% if(receptionHour.saturday){ %>
-                                                    
-                                                    <tr>
-                                                      <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                          <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm mt-3">saturday</h6>
-                                                          </div>
-                                                        </div>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.from%></p>
-                                                      </td>
-                                                      <td>
-                                                        <p class="text-xs font-weight-bold mb-0 mt-3"><%= receptionHour.saturday?.until%></p>
-                                                      </td>
-                                                    </tr>
-                                                    <% }%>
-                                                  <% })%>
-                    
-                                              </tbody>
-                                            </table>
-                                          </div>
-                                          </div>
+                                            </div>
+
+                                            </div>
                                          </div>
     
                                           

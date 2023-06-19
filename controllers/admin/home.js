@@ -19,7 +19,7 @@ export const index = async (req, res, next) => {
                 owner_id: req.session.owner._id
             }]
         }
-        ).populate('manager').sort('-createdAt').limit(8).exec();
+        ).populate('manager').sort('-createdAt').limit(4).exec();
         let bookings = await Booking 
         .find({ owner_id: req.session.owner._id})
         .populate('user').limit(3).exec();
@@ -45,11 +45,11 @@ export const index = async (req, res, next) => {
    
    
     
-        const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
+        const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'confirmed'});
         const placeCountAdmin = await Place.find();
         const placeCountAdminPending = await Place.find({status:'pending'});
         const OwnerCountAdmin = await Owner.find();
-        const placesofbranch = await Place.find({ owner_id: req.session.owner._id, status: 'approved'}).sort('-createdAt').populate('manager');
+        const placesofbranch = await Place.find({ owner_id: req.session.owner._id, status: 'confirmed'}).sort('-createdAt').populate('manager');
        
         const managerCount = await Manager.find({ owner: req.session.owner._id});
 

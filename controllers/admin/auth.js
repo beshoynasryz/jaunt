@@ -274,11 +274,20 @@ export const renderRequestView =async (req, res, next) => {
       if (req.session.authId && (req.session.authId !== req.session.owner?._id)) {
           res.redirect('/admin/auth/sign-in');
       }
-      const places = await Place.find( {owner_id: req.session.owner._id}).populate('manager');
+      const places = await Place.find( {
+        $or: [{ status: 'confirmed' },
+            {
+                status: 'declined'
+            }
+        ],
+        $and: [{
+            owner_id: req.session.owner._id
+        }]
+    }).populate('manager');
       const placespending = await Place.find({ status:'pending', owner_id: req.session.owner._id}).populate('manager');
       const placesapproved = await Place.find({ status:'approved', owner_id: req.session.owner._id}).populate('manager');
       const placesdeclined = await Place.find({ status:'declined',  owner_id: req.session.owner._id}).populate('manager');
-      const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'approved'});
+      const placeCount = await Place.find({ owner_id: req.session.owner._id, status: 'confirmed'});
         const managerCount = await Manager.find({ owner: req.session.owner._id});
         const placespendingCount = await Place.find({ status:'pending', owner_id: req.session.owner._id})
 
