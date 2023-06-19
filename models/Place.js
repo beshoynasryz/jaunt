@@ -27,7 +27,7 @@ const placeSchema = new mongoose.Schema({
     }, menuimages:{ type: [String],
     }, manager: { type: mongoose.Schema.Types.ObjectId, ref: 'Manager' 
     }, owner_id :{type: String,required: true,
-    }, receptionHours: [],
+    }, receptionHours:[],
     ratings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }],
     
     Owner: { type: mongoose.Schema.Types.ObjectId, ref: 'Owner' },

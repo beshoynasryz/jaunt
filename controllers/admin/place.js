@@ -4,7 +4,7 @@ import Place from "../../models/Place.js"
 import Rating from "../../models/Rating.js"
 
 
-export const createPlace =async (req,res,next)=>{
+export const createPlace = async (req,res,next)=>{
     try {
     var receptionHours = new Array()
     if(req.body.sunday){
@@ -48,9 +48,10 @@ export const createPlace =async (req,res,next)=>{
             from: req.body.saturdayFrom,
             until: req.body.saturdayUntil
         }
+        
     } 
-    req.body.receptionHours = receptionHours
-   
+   req.body.receptionHours = receptionHours
+    
      var imagesArray = []
     const { images } = req.files;
     const path = "/uploaded-images-2/";
@@ -89,12 +90,17 @@ export const createPlace =async (req,res,next)=>{
     }
 
     req.body.menuimages = imagesArray
-    
-    
-    const newPlace =  new Place (req.body)
+     
+    const newPlace = new Place(req.body)
    
-        const savedPlace = await newPlace.save()
-        console.log(savedPlace,'abdo mota');
+     
+    const savedPlace = await newPlace.save() 
+    
+
+    
+
+        
+       
         
         // const places = await Place.find({ owner_id: req.session.owner._id})
         res.redirect('/admin/places/owner-places');
@@ -332,10 +338,12 @@ export const updatedPlace =async (req,res,next)=>{
         delete place.service7;
         delete place.service8;
         
+
         await place.updateOne(
             { $set: req.body },
             { new: true }
         );
+       
         res.redirect('back');
     } 
     catch(err){

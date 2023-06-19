@@ -52,7 +52,7 @@ export const getPlaces =async (req,res,next)=>{
             
                
             }
-        })
+        }).sort('-createdAt')
         const results = await Promise.all(placesResponse);
         res.status(200).json(results)
     }
