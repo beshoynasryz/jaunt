@@ -99,6 +99,8 @@ export const createBooking =async (req,res,next)=>{
             place:req.body.place,
             owner_id: place.owner_id,
         })
+        // console.log(newBooking);
+        // return
         await newBooking.save()
 
         res.status(200).json({ "mag": "Booking has been created ", booking: newBooking })
