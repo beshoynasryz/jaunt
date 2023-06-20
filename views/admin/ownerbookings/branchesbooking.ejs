@@ -667,7 +667,7 @@
                                       <div class="waiting-popup-content">
                                         <div class="card p-3 text-center mb-5">
                     
-                                            <form id="waiting-form">
+                                          
                     
                                                 <div class="container">
                                                     <div class="row">
@@ -1029,8 +1029,7 @@
                                                                         </div>
                                                                     </div>
                                                         
-                                                                </form>
-                                        
+                                                               
                                         
                                                     
                                                     
@@ -1111,7 +1110,7 @@
                                         </thead>
                                         <tbody>
                                           <% places.forEach(function(place){ %>
-                                            <% if(place.status == 'declined'){ %>
+                                            <% if(place.status == 'declined' || place.status == 'confirmed'){ %>
                 
                                               <tr>
                     

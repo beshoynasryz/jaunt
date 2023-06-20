@@ -4,14 +4,14 @@ import Rating from "../models/Rating.js";
 
 export const getPlaces =async (req,res,next)=>{
     try {
-        let places = await Place.find({ status: 'approved' }).populate('ratings')
+        let places = await Place.find({ status: 'confirmed' }).populate('ratings')
         
         if(req.query.type && req.query.area){
-            places = await Place.find({ type: req.query.type, area: req.query.area, status: 'approved' }).populate('ratings');
+            places = await Place.find({ type: req.query.type, area: req.query.area, status: 'confirmed' }).populate('ratings');
         } else if(req.query.type){
-            places = await Place.find({ type: req.query.type, status: 'approved' }).populate('ratings');
+            places = await Place.find({ type: req.query.type, status: 'confirmed' }).populate('ratings');
         } else if(req.query.area){
-            places = await Place.find({ area: req.query.area, status: 'approved' }).populate('ratings');
+            places = await Place.find({ area: req.query.area, status: 'confirmed' }).populate('ratings');
         } 
         
         let placesResponse = places.map(async function(place){
