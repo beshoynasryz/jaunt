@@ -45,7 +45,7 @@ export const getUserBookings = async (req,res,next)=>{
                     updatedAt: booking.place?.updatedAt,
                     service1: booking.place?.service1,
                     service2: booking.place?.service2,
-                    service3: booking.place?.service3,
+                    service3: booking.place?.service3, 
                     service4: booking.place?.service4,
                     service5: booking.place?.service5,
                     service6: booking.place?.service6,
