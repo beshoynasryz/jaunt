@@ -3410,7 +3410,12 @@ background-color: none;
 
 
 
-
+#branch-img{
+width: 100px;
+height: auto;
+margin-right: 6px;
+margin-top: 0px;
+}
 
 
 
